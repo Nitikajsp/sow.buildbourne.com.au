@@ -17,7 +17,7 @@ class Order extends Model
         'product_order_image',
         'list_email',
         'customer_email',
-        'customer_id',
+        'party_id',
         'list_id',
         'project_id',
     ];
@@ -28,9 +28,9 @@ class Order extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function customer()
+    public function parties()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Parties::class);
     }
 
     public function list()

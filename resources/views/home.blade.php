@@ -13,10 +13,10 @@
       <div class="row g-3">
         <!-- section 1 start -->
         <div class="col-12 col-sm-6  col-lg-4">
-        <a href="{{ route('customers.index') }}" class="menu-link d-block">
+        <a href="{{ route('parties.index') }}" class="menu-link d-block">
          <div class="dashboard-card card">
               <div class="d-flex justify-content-between mb-2">
-                <h5 class=" mb-0 fs-4 fw-bold">{{ $customerCount  }}</h5>
+                <h5 class=" mb-0 fs-4 fw-bold">{{ $partyCount  }}</h5>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
@@ -28,7 +28,7 @@
                   <path d="M8 15h3"/>
                 </svg>
               </div>
-              <p class="text-secondary">Customers</p>
+              <p class="text-secondary">Parties</p>
             </div>
           </a>
         </div>
@@ -37,7 +37,7 @@
           <a href="{{ route('showproduct') }}" class="menu-link d-block">
             <div class="dashboard-card card">
               <div class="d-flex justify-content-between mb-2">
-                <h5 class=" mb-0 fs-4 fw-bold">{{ $productCount }}</h5>
+                <h5 class=" mb-0 fs-4 fw-bold"></h5>
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-report">
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M8 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h5.697" />
@@ -100,10 +100,10 @@
                     <td class="pt-2 pb-2">
                     {{ $order->list_id }}
                     </td>
-                    <td class="customertext fw-bold">{{ $order->customer->name }}<br/>{{ $order->created_at->format('d , M , Y ') }}
+                    <td class="partytext fw-bold">{{ $order->party->name }}<br/>{{ $order->created_at->format('d , M , Y ') }}
                     </td>
 
-                    <!-- <td class="customertext fw-bold">$120.00</td> -->
+                    <!-- <td class="partytext fw-bold">$120.00</td> -->
 
                   </tr>
 
@@ -122,38 +122,38 @@
 
                 <thead class="" style="background-color:#000000;">
                   <tr>
-                    <th class="customerlist_text  text-white ">
-                      Customer
+                    <th class="partylist_text  text-white ">
+                    Party
                     </th>
                     
-                    <th class="customerlist_text text-white ">Email</th>
-                    <!-- <th class="customerlist_text text-white">Status</th> -->
-                    <th class="customerlist_text text-white ">Orders</th>
-                    <!-- <th class="w-px-50 customerlist_text text-white">Estimate</th> -->
-                    <th class="customerlist_text text-white ">Actions</th> <!-- New column for Actions -->
+                    <th class="partylist_text text-white ">Email</th>
+                    <!-- <th class="partylist_text text-white">Status</th> -->
+                    <th class="partylist_text text-white ">Orders</th>
+                    <!-- <th class="w-px-50 partylist_text text-white">Estimate</th> -->
+                    <th class="partylist_text text-white ">Actions</th> <!-- New column for Actions -->
 
                   </tr>
                 </thead>
 
                 <tbody>
 
-                  @foreach($customers as $customer)
+                  @foreach($parties as $party)
 
                   <tr>
                     <td>
                       <div>
-                        <span>{{ $customer->name }}</span><br>
+                        <span>{{ $party->name }}</span><br>
                       </div>
                     </td>
                     <td>
                       <div>
-                        {{ $customer->email }}
+                        {{ $party->email }}
                       </div>
                     </td>
              
                     <td>
                       <div>
-                        {{ $customer->orders->count() }}
+                        {{ $party->orders->count() }}
                       </div>
                     </td>
                
@@ -164,15 +164,15 @@
                       <i class="ti ti-dots-vertical ti-md"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end m-0">
-                    <a href="{{ route('customers.edit', $customer->id) }}" class="btn p-0 edit-btn dropdown-item">
+                    <a href="{{ route('parties.edit', $party->id) }}" class="btn p-0 edit-btn dropdown-item">
                       <i class="ti ti-pencil me-1"></i> Edit
                   </a>
-                  <a href="{{ route('customers.show', $customer->id) }}" class="btn p-0 view-btn dropdown-item">
+                  <a href="{{ route('parties.show', $party->id) }}" class="btn p-0 view-btn dropdown-item">
                     <i class="ti ti-eye me-1"></i> View
                 </a>
 
                       <div class="dropdown-divider"></div>
-                      <form action="{{ route('customers.destroy', $customer->id) }}" method="POST">
+                      <form action="{{ route('parties.destroy', $party->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" onclick="this.closest('form').submit();">

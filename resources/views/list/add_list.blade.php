@@ -16,7 +16,7 @@
                 <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
             </a>
             <button type="button" class="btn btn-primary btn btn-dark float-end rounded"
-                onclick="window.location.href='{{ route('customers.show', $customer_id) }}'">
+                onclick="window.location.href='{{ route('parties.show', $customer_id) }}'">
                 View
             </button>
         </div>

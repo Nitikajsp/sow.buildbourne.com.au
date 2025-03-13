@@ -36,11 +36,11 @@
 }
  
 
-.customerscroll {
+.partyscroll {
     overflow: scroll;
 }
 
-.customer_table_width
+.party_table_width
 {
     width: 80vw;
 }
@@ -55,7 +55,7 @@
     width: 80vw;
    
 }
-.container.addcustomer_pad {
+.container.addparty_pad {
     max-width: 85vw !important;
     width: 100% !important;
 }
@@ -136,7 +136,7 @@
 
 }
 @media (max-width: 600px){
-    .customer_table_width
+    .party_table_width
     {
         width: 72vw;
     }
@@ -147,7 +147,7 @@
    
 }
 @media (max-width: 400px){
-    .customer_table_width
+    .party_table_width
     {
         width: 68vw;
     }
@@ -159,7 +159,7 @@
 }
 
 @media (max-width: 350px){
-    .customer_table_width
+    .party_table_width
     {
         width: 64vw;
     }
@@ -335,7 +335,7 @@ body {
 
 /* side bar amd dashboard  over*/
 
-/* customer listing css start */
+/* party listing css start */
 
 .bg_clr {
     background-color: #001d22;
@@ -379,7 +379,7 @@ body {
 .dt-checkboxesbox {
     margin-right: 10px;
 }
-.customertext {
+.partytext {
     font-size: 12px;
     font-weight: 400;
     line-height: 22px;
@@ -406,9 +406,9 @@ td {
     border-bottom: 1px solid #f1f1f1;
 }
 
-/* customer listing css end */
+/* party listing css end */
 
-/* customeraddprofile and editprofile css start */
+/* partyaddprofile and editprofile css start */
 .addprofile_bg_clr {
     background-color: #f3f3f3;
 }
@@ -563,13 +563,13 @@ h5 {
 div.text-dark {
     color: #000 !important;
 }
-.show-customer-btn {
+.show-party-btn {
     font-size: 10px !important;
     font-weight: 400 !important;
     line-height: 22px !important;
     text-align: left !important;
 }
-.show-customer-btn .ti:before {
+.show-party-btn .ti:before {
     font-size: small !important;
 }
 .input-touchspin ~ .input-group-addon {
@@ -624,7 +624,7 @@ div.text-dark {
 {
     padding: 30px !important;
 }
-.addcustomer_pad
+.addparty_pad
 {
     padding: 30px !important;
 }
@@ -704,13 +704,13 @@ select#dt-length-0 {
 button.btn.p-0.delete-btn.text-danger.dropdown-item {
     margin-left: 15px !important;
 }
-.container-customerlist {
+.container-partylist {
     max-width: calc(100% - 80px);   
 }
 .table_scroll .dt-layout-row:nth-child(2) .dt-layout-cell{
     overflow-x: scroll;
 }
-.customerscroll .dt-layout-row:nth-child(2) .dt-layout-cell{
+.partyscroll .dt-layout-row:nth-child(2) .dt-layout-cell{
     overflow-x: scroll !important;
 }
 .table_scrl .dt-layout-row:nth-child(2) .dt-layout-cell{
@@ -728,7 +728,7 @@ div#app {
     background-color: #535557; /* Active background color */
     color: #fff; /* Active text color */
   }
-/* customeraddprofile  editprofile css end */
+/* partyaddprofile  editprofile css end */
 
 /* https://tabler.io/docs/icons/svg */
 
