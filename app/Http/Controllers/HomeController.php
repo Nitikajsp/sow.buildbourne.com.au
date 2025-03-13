@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Customer;
-use App\Models\Product;
+use App\Models\Parties;
+// use App\Models\Product;
 use App\Models\Order;
 use App\Models\Setting;
 use App\Models\ListModel;
@@ -34,12 +34,12 @@ class HomeController extends Controller
 
     {
 
-        $customerCount = Customer::count();
-        $customers = Customer::with('orders')->get();
-        $productCount = Product::where('delete_status', '1')->count();
+        $partyCount = Parties::count();
+        $parties = Parties::with('orders')->get();
+        // $productCount = Product::where('delete_status', '1')->count();
         $listCount = ListModel::count();
-        $recentProduct = Product::latest()->take(3)->get();
-        $recentOrders = Order::with('product', 'customer')->latest()->take(4)->get();
+        // $recentProduct = Product::latest()->take(3)->get();
+        $recentOrders = Order::with('product', 'party')->latest()->take(4)->get();
     
         // Monthly data for chart
 
@@ -64,7 +64,8 @@ class HomeController extends Controller
             return $count / $percentageScale; // Convert to percentage
         }, $monthlyData);
     
-        return view('home', compact('customerCount', 'productCount', 'listCount', 'recentProduct', 'customers', 'recentOrders', 'monthlyDataPercentages'));
+        // return view('home', compact('partyCount', 'productCount', 'listCount', 'recentProduct', 'parties', 'recentOrders', 'monthlyDataPercentages'));
+        return view('home', compact('partyCount', 'listCount', 'parties', 'recentOrders', 'monthlyDataPercentages'));
 
     }
     
