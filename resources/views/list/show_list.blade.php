@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left head-label">
-                            <h2>View Customer Detail</h2>
+                            <h2>View Party Detail</h2>
                         </div>
                     </div>
 
@@ -39,12 +39,12 @@
 
                 <div class="card px-3 py-4 table_scroll customer_table_width">
                     <div class="d-flex flex-end ms-auto">
-                                <a href="{{ route('customers.edit', $customer->id) }}" 
+                                <a href="{{ route('parties.edit', $party->id) }}" 
             class="btn p-0 edit-btn text-info">
                 <i class="ti ti-pencil me-1"></i>
             </a>
 
-                        <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('parties.destroy', $party->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="btn p-0 delete-btn text-danger"
@@ -58,24 +58,24 @@
                         
                         <div class="ms-4 d-flex flex-column justify-content-center w-100">
                             <div class="row mb-2">
-                                <div class="col-sm-4 fw-bold">Customer Name:</div>     
-                                <div class="col-sm-8">{{ $customer->name }}</div>
+                                <div class="col-sm-4 fw-bold">Party Name:</div>     
+                                <div class="col-sm-8">{{ $party->name }}</div>
                             </div>
 
                             <div class="row mb-2">
-                                <div class="col-sm-4 fw-bold">Customer ID:</div>
-                                <div class="col-sm-8">{{ $customer->id }}</div>
+                                <div class="col-sm-4 fw-bold">Party ID:</div>
+                                <div class="col-sm-8">{{ $party->id }}</div>
                             </div>
 
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Email ID:</div>
-                                <div class="col-sm-8">{{ $customer->email }}</div>
+                                <div class="col-sm-8">{{ $party->email }}</div>
                             </div>
 
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Phone Number:</div>
                                 <div class="col-sm-8">
-                                    <a href="tel:{{ $customer->phone }}" class="text-dark">{{ $customer->phone }}</a>
+                                    <a href="tel:{{ $party->phone }}" class="text-dark">{{ $party->phone }}</a>
                                 </div>
 
                             </div>
@@ -87,7 +87,7 @@
                     <div class="row mt-3 customr_btn_centr">
                         <div class="col-lg-12 margin-tb">
                             <div class="pull-right text-end">
-                            <a href="{{ route('lists.addcartproduct', ['list' => $list->id, 'customer' => $list->customer_id]) }}" 
+                            <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}" 
                                 class="btn btn-outline-dark text-dark rounded" 
                                 tabindex="0" 
                                 aria-controls="DataTables_Table_0">
@@ -100,7 +100,7 @@
                     <div class="row mt-3 customr_btn_centr">
                         <div class="col-lg-12 margin-tb">
                             <div class="pull-right text-end">
-                            <a href="{{ route('send.email', ['list_id' => $list->id, 'customer_id' => $list->customer_id]) }}" class="btn btn-outline-dark text-dark rounded ms-2"><span>
+                            <a href="{{ route('send.email', ['list_id' => $list->id, 'party_id' => $list->parties_id]) }}" class="btn btn-outline-dark text-dark rounded ms-2"><span>
                                         <i class="ti ti-email me-1"></i> Send Selection</span>
                                          </a>
                             </div>

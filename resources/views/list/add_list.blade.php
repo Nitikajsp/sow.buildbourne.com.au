@@ -16,7 +16,7 @@
                 <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
             </a>
             <button type="button" class="btn btn-primary btn btn-dark float-end rounded"
-                onclick="window.location.href='{{ route('parties.show', $customer_id) }}'">
+                onclick="window.location.href='{{ route('parties.show', $party_id) }}'">
                 View
             </button>
         </div>
@@ -27,10 +27,10 @@
         <div class="row">
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Create Project</h2>
+                    <h2>Add Project</h2>
                 </div>
                 <div class="pull-left">
-                    <h5>Please enter detail</h5>
+                    <h5>Please enter your detail</h5>
                 </div>
             </div>
         </div>
@@ -50,51 +50,47 @@
 
             @csrf
 
-            <input type="hidden" name="customer_id" value="{{ $customer_id }}">
+            <input type="hidden" name="parties_id" value="{{ $party_id }}">
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
-                        <p class="text-secondary mb-1">Property Address</p>
+                        <p class="text-secondary mb-1">Name</p>
                         <input type="text" name="list_name" class="form-control border border-white-50">
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <label for="suburb" class="text-secondary mb-1">Suburb</label>
-                <input type="text" id="suburb" name="suburb" class="form-control border border-white-50">
-                <span class="text-danger error-text suburb-error"></span>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-    <div class="form-group">
-    <label for="State" class="text-secondary mb-1">State</label>
-        <select name="state" class="form-control border border-white-50">
-            <option value="" disabled selected>Select State</option>
-            <option value="New South Wales (NSW)">New South Wales (NSW)</option>
-            <option value="Victoria (VIC)" >Victoria (VIC)</option>
-            <option value="Queensland (QLD)">Queensland (QLD)</option>
-            <option value="Western Australia (WA)" >Western Australia (WA)</option>
-            <option value="South Australia (SA)" >South Australia (SA)</option>
-            <option value="Tasmania (TAS)" >Tasmania (TAS)</option>
-            <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
-            <option value="Northern Territory (NT)">Northern Territory (NT)</option>
-        </select>
-        <div class="invalid-feedback"></div>
-    </div>
-</div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <label for="pincod" class="text-secondary mb-1">Pincode</label>
-                <input type="text" id="pincod" name="pincod" class="form-control border border-white-50">
-                <span class="text-danger error-text pincod-error"></span>
-              </div>
-            </div>
-
-
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                    <div class="form-group">
+                        <label for="suburb" class="text-secondary mb-1">Suburb</label>
+                        <input type="text" id="suburb" name="suburb" class="form-control border border-white-50">
+                        <span class="text-danger error-text suburb-error"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                    <div class="form-group">
+                    <label for="State" class="text-secondary mb-1">State</label>
+                        <select name="state" class="form-control border border-white-50">
+                            <option value="" disabled selected>Select State</option>
+                            <option value="New South Wales (NSW)">New South Wales (NSW)</option>
+                            <option value="Victoria (VIC)" >Victoria (VIC)</option>
+                            <option value="Queensland (QLD)">Queensland (QLD)</option>
+                            <option value="Western Australia (WA)" >Western Australia (WA)</option>
+                            <option value="South Australia (SA)" >South Australia (SA)</option>
+                            <option value="Tasmania (TAS)" >Tasmania (TAS)</option>
+                            <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
+                            <option value="Northern Territory (NT)">Northern Territory (NT)</option>
+                        </select>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                    <div class="form-group">
+                        <label for="pincode" class="text-secondary mb-1">Pincode</label>
+                        <input type="text" id="pincode" name="pincode" class="form-control border border-white-50">
+                        <span class="text-danger error-text pincod-error"></span>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
                         <p class="text-secondary mb-1">Description</p>
@@ -102,7 +98,6 @@
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
                         <p class="text-secondary mb-1">Contact Number</p>
@@ -110,7 +105,6 @@
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
                         <p class="text-secondary mb-1">Builder Email</p>
@@ -118,7 +112,6 @@
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
                         <label for="builder" class="text-secondary mb-1">Builder Name</label>
@@ -126,15 +119,15 @@
                         <span class="text-danger error-text builder-error"></span>
                     </div>
                 </div>
-
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
-                        <label for="status" class="text-secondary mb-1">Selection For</label>
+                        <label for="status" class="text-secondary mb-1">Status For</label>
                         <div class="input-group">
                             <select id="status" name="status" class="form-select">
                                 <option value="">Select...</option>
-                                <option value="First Home">First Home</option>
-                                <option value="Investment">Investment</option>
+                                <option value="Pending">Pending</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Completed">Completed</option>
                             </select>
                         </div>
                         <span class="text-danger error-text status-error"></span>

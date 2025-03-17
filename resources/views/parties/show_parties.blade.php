@@ -79,9 +79,9 @@
         <table id="partyListsTable" class="table table-bordered mt-3 show_custmer " style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
             <thead class="table-dark">
                 <tr>
-                    <th>Street Name</th>
+                    <th>Name</th>
                     <th>Description</th>
-                    <th>Product Count</th>
+                    <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -91,24 +91,36 @@
                         <td style="border: 1px solid #DDDDDD !important">{{ $list->name }}</td>
                         <td style="border: 1px solid #DDDDDD !important;">{{ $list->description }}</td>
                         <td  style="border: 1px solid #DDDDDD !important;">
-                            {{ $list->orders->count() }}
+                            {{ $list->status }}
                         </td>
-                        <td class="p-2" style="border: 1px solid #DDDDDD !important;">
-                            <div class="d-flex justify-content-between">
-                            <a href="{{ route('lists.edit', $list->id) }}" class="btn p-2 edit-btn text-dark me-1 show-party-btn">
-                           <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
-
-                                    <a href="{{ route('showlistparty', ['listId' => $list->id, 'partyId' => $party->id]) }}" class="btn p-2 view-btn text-dark me-1 show-party-btn">
-                                                <i class="fa-solid fa-eye"></i>
-                                            </a>
-
-                                            <a href="{{ route('lists.addcartproduct', ['list' => $list->id, 'party' => $list->party_id]) }}" class="btn p-2 view-btn text-dark show-party-btn">
-                                                <span><i class="fa-solid fa-plus"></i></span>
+                        <td class="d-flex justify-content-center align-items-center">
+                          <div class="d-inline-block">
+                            <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
+                              <i class="ti ti-dots-vertical ti-md"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end m-0">
+                            <a href="{{ route('lists.edit', $list->id) }}" class="btn p-0 edit-btn dropdown-item">
+                              <i class="ti ti-pencil me-1"></i> Edit
+                          </a>
+                          <a href="{{ route('showlistparty', ['listId' => $list->id, 'partyId' => $party->id]) }}" class="btn p-0 view-btn dropdown-item">
+                              <i class="ti ti-eye me-1"></i> View
+                          </a>
+                          <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}"  class="btn p-0 view-btn dropdown-item">
+                                <i class="ti ti-plus me-1"></i>Choose WorkType
                                        </a>
 
+                              <div class="dropdown-divider"></div>
+                              <form id="deletePartyForm" action="{{ route('lists.destroy', ['id' => $list->id]) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-party-id="{{ $list->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                <i class="ti ti-trash me-1"></i> Delete
+                              </button>
+                            </form>
                             </div>
+                          </div>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>
@@ -127,7 +139,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure you want to delete this party?
+        Are you sure you want to delete this List?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

@@ -14,7 +14,7 @@
             <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
                 <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
             </a>
-                            <a href="{{ route('customers.show', $list->customer_id) }}" 
+                            <a href="{{ route('parties.show', $list->parties_id) }}" 
                 class="btn btn-primary btn-dark float-end rounded">
                     View
                 </a>
@@ -83,7 +83,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">
                                 <p class="text-secondary mb-1">Pincode</p>
-                                <input type="text" name="pincod" value="{{ old('pincod', $list->pincod) }}" class="form-control border border-white-50" placeholder="Pincode">
+                                <input type="text" name="pincode" value="{{ old('pincode', $list->pincode) }}" class="form-control border border-white-50" placeholder="Pincode">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
@@ -121,12 +121,13 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                     <div class="form-group">
-                        <label for="status" class="text-secondary mb-1">Selection For</label>
+                        <label for="status" class="text-secondary mb-1">Status For</label>
                         <div class="input-group">
                             <select id="status" name="status" class="form-select">
                                 <option value="">Select...</option>
-                                <option value="First Home" {{ $list->status == 'First Home' ? 'selected' : '' }}>First Home</option>
-                                <option value="Investment" {{ $list->status == 'Investment' ? 'selected' : '' }}>Investment</option>
+                                <option value="Pending" {{ $list->status == 'Pending' ? 'selected' : '' }}>Pending</option>
+                                <option value="In Progress" {{ $list->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                <option value="Completed" {{ $list->status == 'Completed' ? 'selected' : '' }}>Completed</option>
                             </select>
                         </div>
                         <span class="text-danger error-text status-error"></span>

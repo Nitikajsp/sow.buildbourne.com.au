@@ -15,7 +15,7 @@ class ListModel extends Model
         'house_number',
         'suburb',
         'state',
-        'pincod',
+        'pincode',
         'description',
         'contact_number',
         'contact_email',
@@ -23,13 +23,13 @@ class ListModel extends Model
         'status',
         'product_name',
         'customer_id',
-        
+        'parties_id',
     ];
 
-    public function products()
+    public function projects()
 
     {
-        return $this->hasMany(Product::class, 'id', 'id');
+        return $this->hasMany(Project::class, 'id', 'id');
     }
     
     public function orders()

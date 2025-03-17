@@ -132,7 +132,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">
                                 <p class="text-secondary mb-1">Pincode</p>
-                                <input type="text" name="pincod" value="{{ old('pincod', $party->pincod) }}" class="form-control border border-white-50" placeholder="Pincode">
+                                <input type="text" name="pincode" value="{{ old('pincode', $party->pincode) }}" class="form-control border border-white-50" placeholder="Pincode">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
