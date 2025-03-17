@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/lists/{id}/edit', 'edit')->name('lists.edit');
         Route::put('/lists/{id}', 'update')->name('lists.update');
         Route::delete('/lists/{id}', 'destroy')->name('lists.destroy');
-        Route::get('/lists/{list}/products/{party}', 'addCartProduct')->name('lists.addcartproduct');
+        Route::get('/lists/{list}/projects/{party}', 'addCartProject')->name('lists.addcartproject');
         Route::post('/lists/add-to-cart/{list}/{party}', 'addToCart')->name('lists.add-to-cart');
         Route::post('/lists/{list}/view-cart/{party_id}', 'viewCart')->name('lists.view-cart');
         Route::get('/lists/{list}/view-cart/{party_id}', 'viewCart')->name('lists.view-cart-get-method');

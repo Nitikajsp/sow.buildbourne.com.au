@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 // make sure to import listmodel
 use App\Models\ListModel;
 use App\Models\Order;
-use App\Models\Customer; // Import the Customer model
+use App\Models\Parties; // Import the Parties model
 use App\Mail\OrderConfirmation;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 // Make sure to import Product model    
-use App\Models\Product; 
+use App\Models\Project; 
 use Illuminate\Http\Request;
 class ListController extends Controller
 
@@ -19,10 +19,10 @@ class ListController extends Controller
 //  crate a new  list  file redirect controller  start  //
 
 {
-    public function createlist($customer_id)
+    public function createlist($party_id)
 
     {
-        return view('list.add_list', compact('customer_id'));
+        return view('list.add_list', compact('party_id'));
     }
 
 
@@ -32,19 +32,20 @@ class ListController extends Controller
 
 
     {
+
         
         $request->validate([
 
             'list_name' => 'required|max:255',
             'suburb' => 'required|max:255',
             'state' => 'required|max:255',
-            'pincod' => 'required|max:255',
+            'pincode' => 'required|max:255',
             'list_description' => 'required',
             'contact_number' => 'max:20',
             'contact_email' => 'required|email|max:255',
             'builder_name' => 'required|max:255',
             'status' => 'required|max:255',
-            'customer_id' => 'required|exists:customers,id',
+            'parties_id' => 'required|exists:parties,id',
 
         ]);
     
@@ -54,18 +55,18 @@ class ListController extends Controller
             'name' => $request->input('list_name'),
             'suburb' => $request->input('suburb'),
             'state' => $request->input('state'),
-            'pincod' => $request->input('pincod'),
+            'pincode' => $request->input('pincode'),
             'description' => $request->input('list_description'),
             'contact_number' => $request->input('contact_number'),
             'contact_email' => $request->input('contact_email'),
             'builder_name' => $request->input('builder_name'),
             'status' => $request->input('status'),
-            'customer_id' => $request->input('customer_id'),
+            'parties_id' => $request->input('parties_id'),
 
         ]);
 
     
-        return redirect()->route('customers.show', $request->input('customer_id'))
+        return redirect()->route('parties.show', $request->input('parties_id'))
                          ->with('success', 'List created successfully.');
     }
 
@@ -103,7 +104,7 @@ class ListController extends Controller
             'name' => 'required|max:255',
             'suburb' => 'required|max:255',
             'state' => 'required|max:255',
-            'pincod' => 'required|max:255',
+            'pincode' => 'required|max:255',
             'description' => 'required',
             'contact_number' => 'max:20',
             'contact_email' => 'required|email|max:255',
@@ -116,7 +117,7 @@ class ListController extends Controller
     
         $list->update($request->all());
     
-        return redirect()->route('customers.show', $list->customer_id)
+        return redirect()->route('parties.show', $list->parties_id)
                          ->with('success', 'List updated successfully.');
     }
     
@@ -128,7 +129,7 @@ class ListController extends Controller
     {
         $list = ListModel::findOrFail($id);
 
-        $customer_id = $list->customer_id;
+        $party_id = $list->party_id;
         
         $list->delete();
 
@@ -138,12 +139,12 @@ class ListController extends Controller
 
     // add cart product controller start  //
 
-    public function addcartproduct(ListModel $list, $customerId)
+    public function addcartproject(ListModel $list, $partyId)
     {
-        $list->load('products');
+        $list->load('projects');
     
-        // Retrieve only products that are in stock and have delete_status = '1'
-        $products = Product::where('in_stock', 1)
+        // Retrieve only projects that are in stock and have delete_status = '1'
+        $projects = Project::where('in_stock', 1)
             ->where('delete_status', '1')
             ->orderBy('created_at', 'desc')
             ->get();
@@ -151,20 +152,20 @@ class ListController extends Controller
         // Fetch all categories
         $categories = \DB::table('categories')->pluck('category_name', 'id');
     
-        // Add category names to products
-        foreach ($products as $product) {
-            $categoryIds = explode(',', $product->product_category);
-            $product->category_names = array_map(function($id) use ($categories) {
+        // Add category names to projects
+        foreach ($projects as $project) {
+            $categoryIds = explode(',', $project->project_category);
+            $project->category_names = array_map(function($id) use ($categories) {
                 return $categories[$id] ?? 'Unknown';
             }, $categoryIds);
         }
     
-        return view('list.add_cart_product', compact('list', 'products'));
+        return view('list.add_cart_project', compact('list', 'projects'));
     }
     
     
 
-     // addtocart product  create a session listid wise code //
+     // addtocart project  create a session listid wise code //
 
      public function addToCart(Request $request, $listId)
      {
@@ -172,7 +173,7 @@ class ListController extends Controller
          $quantity = $request->input('quantity');
          $comment = $request->input('comment'); // Capture the comment
      
-         $customerId = session()->get('customer_id');
+         $partyId = session()->get('party_id');
          
          $cart = session()->get('cart', []);
      
@@ -180,12 +181,12 @@ class ListController extends Controller
              $cart[$listId] = [];
          }
          
-         if (!isset($cart[$listId][$customerId])) {
-             $cart[$listId][$customerId] = [];
+         if (!isset($cart[$listId][$partyId])) {
+             $cart[$listId][$partyId] = [];
          }
      
          // Store the product, quantity, and comment
-         $cart[$listId][$customerId][$productId] = [
+         $cart[$listId][$partyId][$productId] = [
              'product_id' => $productId,
              'quantity' => $quantity,
              'comment' => $comment, // Store the comment
@@ -206,33 +207,33 @@ class ListController extends Controller
         $list = ListModel::findOrFail($listId);
 
 
-           $customerId = $list->customer_id;
+           $partyId = $list->party_id;
     
-           $customer = Customer::findOrFail($customerId); 
+           $party = party::findOrFail($partyId); 
     
-        $customerId = session()->get('customer_id');
+        $partyId = session()->get('party_id');
 
         $cart = session()->get('cart', []);
         
         $cartItems = [];
     
-        if (isset($cart[$listId][$customerId])) {
+        if (isset($cart[$listId][$partyId])) {
 
-            $productIds = array_keys($cart[$listId][$customerId]);
+            $productIds = array_keys($cart[$listId][$partyId]);
 
             $products = Product::whereIn('id', $productIds)->get();
     
             foreach ($products as $product) {
                 
-                if (isset($cart[$listId][$customerId][$product->id])) {
+                if (isset($cart[$listId][$partyId][$product->id])) {
 
                     $cartItems[] = [
 
                         'product' => $product,
 
-                        'quantity' => $cart[$listId][$customerId][$product->id]['quantity'],
+                        'quantity' => $cart[$listId][$partyId][$product->id]['quantity'],
 
-                        'comment' => $cart[$listId][$customerId][$product->id]['comment'],
+                        'comment' => $cart[$listId][$partyId][$product->id]['comment'],
 
 
 
@@ -244,21 +245,21 @@ class ListController extends Controller
 
         }
     
-        return view('list.view_cart', compact('list', 'customer', 'cartItems'));
+        return view('list.view_cart', compact('list', 'party', 'cartItems'));
     }
 
     public function updateqty(Request $request, $listId, $productId)
     {
-        $customerId = session()->get('customer_id');
+        $partyId = session()->get('party_id');
         $cart = session()->get('cart', []);
     
         // Get quantity and comment from the request
         $quantity = $request->input('quantity');
         $comment = $request->input('comment');
     
-        if (isset($cart[$listId][$customerId][$productId])) {
-            $cart[$listId][$customerId][$productId]['quantity'] = $quantity;
-            $cart[$listId][$customerId][$productId]['comment'] = $comment;
+        if (isset($cart[$listId][$partyId][$productId])) {
+            $cart[$listId][$partyId][$productId]['quantity'] = $quantity;
+            $cart[$listId][$partyId][$productId]['comment'] = $comment;
     
             session()->put('cart', $cart);
     
@@ -271,27 +272,27 @@ class ListController extends Controller
 
   //  remove product in add to cart product //
 
-  public function removeFromCart($listId, $productId, $customerId)
+  public function removeFromCart($listId, $productId, $partyId)
   
   {
 
-      $sessionCustomerId = session()->get('customer_id');
+      $sessionpartyId = session()->get('party_id');
   
    
       $cart = session()->get('cart', []);
   
-      if (isset($cart[$listId][$sessionCustomerId]) && array_key_exists($productId, $cart[$listId][$sessionCustomerId])) {
+      if (isset($cart[$listId][$sessionpartyId]) && array_key_exists($productId, $cart[$listId][$sessionpartyId])) {
 
-          unset($cart[$listId][$sessionCustomerId][$productId]);
+          unset($cart[$listId][$sessionpartyId][$productId]);
   
           session()->put('cart', $cart);
 
-          return redirect()->route('lists.view-cart', ['list' => $listId, 'customer_id' => $customerId])
+          return redirect()->route('lists.view-cart', ['list' => $listId, 'party_id' => $partyId])
                          ->with('success', 'Product removed from cart successfully.');
 
       }
   
-   return redirect()->route('lists.view-cart', ['list' => $listId, 'customer_id' => $customerId])
+   return redirect()->route('lists.view-cart', ['list' => $listId, 'party_id' => $partyId])
                      ->with('error', 'Product not found in cart.');
 
   }
@@ -301,10 +302,10 @@ class ListController extends Controller
   {
       if ($request->isMethod('post')) {
           $listId = $request->input('list_id');
-          $customerId = $request->input('customer_id');
+          $partyId = $request->input('party_id');
           $cartItems = $request->input('cart_items');
           $listEmail = $request->input('list_email');
-          $customerEmail = $request->input('customer_email');
+          $partyEmail = $request->input('party_email');
           $actionType = $request->input('action_type'); // Get the action type
   
           try {
@@ -330,7 +331,7 @@ class ListController extends Controller
                   // Check if an order with the same product_code and list_id exists
                   $existingOrder = Order::where('product_id', $productId)
                       ->where('list_id', $listId)
-                      ->where('customer_id', $customerId)
+                      ->where('party_id', $partyId)
                       ->first();
   
                   if ($existingOrder) {
@@ -353,7 +354,7 @@ class ListController extends Controller
                       // Create a new order
                       $order = Order::create([
                           'quantity' => $quantity,
-                          'customer_id' => $customerId,
+                          'party_id' => $partyId,
                           'list_id' => $listId,
                           'product_id' => $productId, // Include the product_id
                           'comment' => $comment,  // Save the comment in the new order
@@ -379,18 +380,18 @@ class ListController extends Controller
               // Clear the cart from session
               $request->session()->forget('cart.' . $listId);
   
-              $customer = Customer::find($customerId); // Ensure $customer is correctly retrieved
-              $customerName = $customer ? $customer->name : 'Customer';
+              $party = Parties::find($partyId); // Ensure $party is correctly retrieved
+              $partyName = $party ? $party->name : 'party';
   
               $orderDate = now()->format('Y-m-d H:i:s');
   
               $orderData = [
-                  'customerName' => $customerName,
+                  'partyName' => $partyName,
                   'orderId' => $orderId,
                   'orderDate' => $orderDate,
                   'ordersData' => $ordersData,
-                  'customerEmail' => $customerEmail,
-                  'customer' => $customer, // Pass all customer details to the view
+                  'partyEmail' => $partyEmail,
+                  'party' => $party, // Pass all party details to the view
                   'list' => $list, // Use the retrieved $list data here
               ];
   
@@ -398,9 +399,9 @@ class ListController extends Controller
               if ($actionType == 'save_send') {
                   $pdf = Pdf::loadView('emails.order_confirmation', compact('orderData'));
   
-                  // Send the email to the customer with the PDF attachment
-                  Mail::send([], [], function ($message) use ($customer, $list, $pdf) {
-                      $message->to($customer->email)
+                  // Send the email to the party with the PDF attachment
+                  Mail::send([], [], function ($message) use ($party, $list, $pdf) {
+                      $message->to($party->email)
                               ->subject('Product List Received from Oreva Selection')
                               ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
                   });
@@ -412,15 +413,15 @@ class ListController extends Controller
                               ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
                   });
   
-                  return redirect()->route('showlistcustomer', [
+                  return redirect()->route('showlistparty', [
                       'listId' => $listId,
-                      'customerId' => $customerId
+                      'partyId' => $partyId
                       ])->with('success', 'Order saved successfully and email sent successfully.');
               }
   
-              return redirect()->route('showlistcustomer', [
+              return redirect()->route('showlistparty', [
                   'listId' => $listId,
-                  'customerId' => $customerId
+                  'partyId' => $partyId
                   ])->with('success', 'Order saved successfully.');
   
           } catch (\Exception $e) {
@@ -433,60 +434,60 @@ class ListController extends Controller
   }
   
 
-  public function removeShowListFromCart($listId, $productId, $customerId)
+  public function removeShowListFromCart($listId, $productId, $partyId)
   
   {
 
-      $sessionCustomerId = session()->get('customer_id');
+      $sessionpartyId = session()->get('party_id');
      
       $cart = session()->get('cart', []);
   
-      if (isset($cart[$listId][$sessionCustomerId]) && array_key_exists($productId, $cart[$listId][$sessionCustomerId])) {
+      if (isset($cart[$listId][$sessionpartyId]) && array_key_exists($productId, $cart[$listId][$sessionpartyId])) {
 
-          unset($cart[$listId][$sessionCustomerId][$productId]);
+          unset($cart[$listId][$sessionpartyId][$productId]);
   
           session()->put('cart', $cart);
 
 
-          return redirect()->route('lists.showlistcoustomer', ['list' => $listId, 'customer_id' => $customerId])
+          return redirect()->route('lists.showlistcoustomer', ['list' => $listId, 'party_id' => $partyId])
                          ->with('success', 'Product removed from cart successfully.');
 
       }
   
-   return redirect()->route('lists.showlistcoustomer', ['list' => $listId, 'customer_id' => $customerId])
+   return redirect()->route('lists.showlistcoustomer', ['list' => $listId, 'party_id' => $partyId])
                      ->with('error', 'Product not found in cart.');
   }
 
-  public function showListCustomer($listId, $customerId)
+  public function showListparty($listId, $partyId)
 
   {
       $list = ListModel::find($listId);
-      $customer = Customer::find($customerId);
+      $party = Parties::find($partyId);
   
-      if (!$list || !$customer) {
-          abort(404, 'List or Customer not found');
+      if (!$list || !$party) {
+          abort(404, 'List or party not found');
       }
   
       $orders = Order::where('list_id', $listId)
-          ->where('customer_id', $customerId)
+          ->where('parties_id', $partyId)
           ->orderBy('created_at', 'desc')
           ->get();
   
-      $products = Product::whereIn('id', $orders->pluck('product_id')->unique())->get()->keyBy('id');
+      $projects = Project::whereIn('id', $orders->pluck('project_id')->unique())->get()->keyBy('id');
       $categories = \DB::table('categories')->pluck('category_name', 'id')->toArray();
   
       foreach ($orders as $order) {
-          $product = $products->get($order->product_id);
-          if ($product) {
-              $categoryIds = explode(',', $product->product_category);
-              $product->category_names = array_map(function($id) use ($categories) {
+          $project = $projects->get($order->project_id);
+          if ($project) {
+              $categoryIds = explode(',', $project->project_category);
+              $project->category_names = array_map(function($id) use ($categories) {
                   return $categories[$id] ?? 'Unknown';
               }, $categoryIds);
           }
-          $order->product = $product;
+          $order->project = $project;
       }
   
-      return view('list.show_list', compact('list', 'customer', 'orders', 'categories'));
+      return view('list.show_list', compact('list', 'party', 'orders', 'categories'));
   }
   
 //  show list order update qty //
@@ -522,56 +523,56 @@ public function destroyOrders(Order $order)
 public function getLists(Request $request)
 
 {
-    $customerId = $request->input('customer_id');
-    $lists = ListModel::where('customer_id', $customerId)->get(['id', 'name']);
+    $partyId = $request->input('party_id');
+    $lists = ListModel::where('parties_id', $partyId)->get(['id', 'name']);
 
     return response()->json($lists);
 }
 
 
-public function showList($list, $customer_id)
+public function showList($list, $party_id)
 
 {
-    // Fetch the necessary data based on $list and $customer_id
-    // For example, fetch list details, customer details, etc.
+    // Fetch the necessary data based on $list and $party_id
+    // For example, fetch list details, party details, etc.
     
     // Return a view with the data
-    return view('lists.show_list', compact('list', 'customer_id'));
+    return view('lists.show_list', compact('list', 'party_id'));
 
 }
 
-        public function sendEmail($list_id, $customer_id)
+        public function sendEmail($list_id, $party_id)
         
         {
-            // Retrieve the list and customer based on the IDs
+            // Retrieve the list and party based on the IDs
             $list = ListModel::find($list_id);
-            $customer = Customer::find($customer_id);
+            $party = Party::find($party_id);
             
-            // Check if list and customer exist
-            if (!$list || !$customer) {
-                return redirect()->back()->with('error', 'List or Customer not found');
+            // Check if list and party exist
+            if (!$list || !$party) {
+                return redirect()->back()->with('error', 'List or party not found');
             }
 
             // Retrieve all orders with product details using product_id
             $ordersData = Order::select('orders.*', 'products.product_name', 'products.product_image')
                 ->join('products', 'orders.product_id', '=', 'products.id')
                 ->where('orders.list_id', $list_id)
-                ->where('orders.customer_id', $customer_id) // Ensure we're filtering by customer_id as well
+                ->where('orders.parties_id', $party_id) // Ensure we're filtering by party_id as well
                 ->get();
            
             // Prepare the order data to be sent to the email view
             $orderData = [
                 'list' => $list,
-                'customer' => $customer,
+                'party' => $party,
                 'ordersData' => $ordersData
             ];
 
             // Generate the PDF from the Blade view
             $pdf = Pdf::loadView('emails.order_confirmation', ['orderData' => $orderData]);
 
-            // Send the email to the customer with the PDF attachment
-            Mail::send([], [], function ($message) use ($customer, $list, $pdf) {
-                $message->to($customer->email)
+            // Send the email to the party with the PDF attachment
+            Mail::send([], [], function ($message) use ($party, $list, $pdf) {
+                $message->to($party->email)
                         ->subject('Product List Received from Oreva Selection')
                         ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
             });

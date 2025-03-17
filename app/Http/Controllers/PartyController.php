@@ -96,13 +96,13 @@ class PartyController extends Controller
              'street'=> 'required',
              'suburb'=> 'required',
              'state'=> 'required',
-             'pincod'=> 'required',
+             'pincode'=> 'required',
          ], [
              'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
              'email.unique' => 'The email address has already been taken.',
          ]);
      
-         $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincod', 'party_type']));
+         $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
      
          return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
      }

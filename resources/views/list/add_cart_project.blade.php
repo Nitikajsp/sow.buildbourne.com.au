@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="col-md-12 d-flex justify-content-between align-items-center mt-3 p-5">
-            <a href="{{ route('customers.show',$list->customer_id) }}" class="float-left d-flex text-black">
+            <a href="{{ route('parties.show',$list->parties_id) }}" class="float-left d-flex text-black">
                 <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
             </a>
         </div>
@@ -25,7 +25,7 @@
     <div class="row">
         <div class="col-md-12 d-flex justify-content-between align-items-center custmrmt0"> 
             <h2>Our Product</h2>
-            <form action="{{ route('lists.view-cart', ['list' => $list->id, 'customer_id' => $list->customer_id]) }}" method="post">
+            <form action="{{ route('lists.view-cart', ['list' => $list->id, 'party_id' => $list->parties_id]) }}" method="post">
                 @csrf
                 <button type="submit" class="border-0 position-relative" id="view-cart-btn">
                     <i class="ti ti-shopping-cart ti-md"></i>
@@ -46,46 +46,46 @@
     <table id="product-table" class="table table-bordered mt-3 table_scroll tablewdth">
         <thead class="table-dark">
             <tr>
-                <th class="col-md-2">Product</th>
-                <th class="col-md-2">Product Category</th>
+                <th class="col-md-2">Project</th>
+                <th class="col-md-2">Project Category</th>
                 <th>Code</th>
-                <th class="col-md-3">Product Title</th>
+                <th class="col-md-3">Project Title</th>
                 <th>Action</th>
             </tr>
         </thead>
         
         <tbody id="addtocartdatatabal">
-            @foreach($products as $product)
+            @foreach($projects as $project)
                 <tr>
                     <td style="border: 1px solid #DDDDDD !important">
-                        @if($product->product_image)
-                            <img src="{{ asset('images/products/' . $product->product_image) }}" alt="{{ $product->product_name }}" width="70">
+                        @if($project->project_image)
+                            <img src="{{ asset('images/projects/' . $project->project_image) }}" alt="{{ $project->project_name }}" width="70">
                         @else
                             No Image
                         @endif
                     </td>
                     <td style="border: 1px solid #DDDDDD !important">
-                                    @if (isset($product->category_names))
-                                        {{ implode(', ', $product->category_names) }}
+                                    @if (isset($project->category_names))
+                                        {{ implode(', ', $project->category_names) }}
                                     @else
                                         N/A
                                     @endif
                                 </td>
-                    <td style="border: 1px solid #DDDDDD !important">{{ $product->product_code }}</td>
+                    <td style="border: 1px solid #DDDDDD !important">{{ $project->project_code }}</td>
                     <td style="border: 1px solid #DDDDDD !important">
-                        <div>{{ $product->product_name }}</div>
+                        <div>{{ $project->project_name }}</div>
                     </td>
                     <td style="border: 1px solid #DDDDDD !important">
                         <div class="input-group justify-content-center">
                             <span class="d-flex align-items-center">
                                 <span class="me-1">Qty: </span>
-                                <input type="number" name="quantity" value="0" min="0" required class="form-control input-touchspin " data-product-id="{{ $product->id }}">
+                                <input type="number" name="quantity" value="0" min="0" required class="form-control input-touchspin " data-project-id="{{ $project->id }}">
 
                             </span>
                         </div>
-                        <textarea name="comment" class="form-control mt-2" rows="2" data-product-id="{{ $product->id }}" placeholder="Enter a comment..."></textarea>
+                        <textarea name="comment" class="form-control mt-2" rows="2" data-project-id="{{ $project->id }}" placeholder="Enter a comment..."></textarea>
 
-                        <button type="button" class="btn btn-primary mt-2 add-to-cart rounded" data-product-id="{{ $product->id }}">Add to Cart</button>
+                        <button type="button" class="btn btn-primary mt-2 add-to-cart rounded" data-project-id="{{ $project->id }}">Add to Cart</button>
                         
                     </td>
                 </tr>
@@ -115,30 +115,30 @@ $(document).ready(function() {
 
     $('.add-to-cart').click(function() {
     var button = $(this);
-    var productId = button.data('product-id');
-    var inputField = $('input[data-product-id="' + productId + '"]');
+    var projectId = button.data('project-id');
+    var inputField = $('input[data-project-id="' + projectId + '"]');
     var quantity = parseInt(inputField.val());
-    var commentField = $('textarea[data-product-id="' + productId + '"]');
+    var commentField = $('textarea[data-project-id="' + projectId + '"]');
     var comment = commentField.val();
 
     button.attr('disabled', true);
 
     $.ajax({
-        url: "{{ route('lists.add-to-cart', ['list' => $list->id, 'customer' => $list->customer_id]) }}",
+        url: "{{ route('lists.add-to-cart', ['list' => $list->id, 'party' => $list->parties_id]) }}",
         type: "POST",
         data: {
             _token: "{{ csrf_token() }}",
-            product_id: productId,
+            project_id: projectId,
             quantity: quantity,
             comment: comment // Pass the comment
         },
         success: function(response) {
             var currentCount = parseInt($('#cart-count-badge').text());
             $('#cart-count-badge').text(currentCount + 1);
-            showAlert('Product added to cart successfully', 'success');
+            showAlert('Project added to cart successfully', 'success');
         },
         error: function(response) {
-            showAlert('An error occurred while adding the product to the cart', 'danger');
+            showAlert('An error occurred while adding the project to the cart', 'danger');
         },
         complete: function() {
             button.attr('disabled', false);
@@ -159,7 +159,7 @@ $(document).ready(function() {
         }, 2000); // Remove the alert after 2 seconds
     }
 
-    $('#product-table').DataTable();
+    $('#project-table').DataTable();
 });
 
     </script>
