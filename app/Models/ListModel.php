@@ -31,11 +31,10 @@ class ListModel extends Model
     {
         return $this->hasMany(Project::class, 'id', 'id');
     }
-    
+
     public function orders()
 
     {
         return $this->hasMany(Order::class, 'list_id');
     }
-    
 }

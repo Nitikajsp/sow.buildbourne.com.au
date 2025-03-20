@@ -10,7 +10,15 @@ class Parties extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'phone', 'street', 'suburb', 'pincode', 'state', 'part_type',
+        'name',
+        'email',
+        'phone',
+        'street',
+        'suburb',
+        'pincode',
+        'state',
+        'part_type',
+        'choose_your_work_type',
     ];
 
     public function lists()
