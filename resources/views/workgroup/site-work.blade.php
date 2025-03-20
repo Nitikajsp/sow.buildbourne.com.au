@@ -39,9 +39,34 @@
                             class="form-check-input"
                             id="question_{{ $question->id }}_{{ $loop->index }}">
                         <label class="form-check-label" for="question_{{ $question->id }}_{{ $loop->index }}">
-                            {{ trim($value) }}
+                            by builder
+
                         </label>
                     </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox"
+                            name="questions[{{ $question->id }}][]"
+                            value="{{ trim($value) }}"
+                            class="form-check-input"
+                            id="question_{{ $question->id }}_{{ $loop->index }}">
+                        <label class="form-check-label" for="question_{{ $question->id }}_{{ $loop->index }}">
+                            by owner
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox"
+                            name="questions[{{ $question->id }}][]"
+                            value="{{ trim($value) }}"
+                            class="form-check-input"
+                            id="question_{{ $question->id }}_{{ $loop->index }}">
+                        <label class="form-check-label" for="question_{{ $question->id }}_{{ $loop->index }}">
+
+                            N/A
+                        </label>
+                    </div>
+
                     @endforeach
 
                     @endforeach
