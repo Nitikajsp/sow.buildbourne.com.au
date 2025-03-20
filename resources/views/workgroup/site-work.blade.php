@@ -43,6 +43,7 @@
 
                         </label>
                     </div>
+
                     <div class="form-check mb-2">
                         <input type="checkbox"
                             name="questions[{{ $question->id }}][]"
@@ -53,6 +54,7 @@
                             by owner
                         </label>
                     </div>
+
                     <div class="form-check mb-2">
                         <input type="checkbox"
                             name="questions[{{ $question->id }}][]"
@@ -64,6 +66,7 @@
                             N/A
                         </label>
                     </div>
+
                     @endforeach
 
                     @endforeach
