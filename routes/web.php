@@ -11,6 +11,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WorkGroupController;
+
 
 // Authentication routes
 Auth::routes();
@@ -24,12 +26,36 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/home', 'index')->name('home');
     });
 
-    // Parties Routes
     Route::controller(PartyController::class)->group(function () {
         Route::resource('parties', PartyController::class);
         Route::put('/parties/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
         Route::post('/check-email', 'checkEmail')->name('check.email');
+        Route::post('/parties/{party}/work-type', 'updateWorkType')->name('parties.updateWorkType');
+        Route::get('/site-work/{party}',  'showSiteWork')->name('parties.siteWork');
+        Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
     });
+
+    Route::controller(WorkGroupController::class)->prefix('work-group')->name('workgroup.')->group(function () {
+
+        Route::get('addworkgroup', 'addworkgroup')->name('addworkgroup');
+        Route::get('showworkgroup', 'showworkgroup')->name('showworkgroup');
+        Route::get('addworkquestion', 'addworkquestion')->name('addworkquestion');
+        Route::post('save', 'store')->name('store');
+        Route::get('workgroupview/{id}', 'workgroupview')->name('workgroupview');
+        Route::get('workgroupedit/{id}', 'workgroupedit')->name('workgroupedit');
+        Route::put('workgroupupdate/{id}', 'workgroupupdate')->name('workgroupupdate');
+        Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
+
+
+        Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
+        Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');
+        Route::get('workquestionview/{id}', 'workquestionview')->name('workquestionview');
+        Route::delete('workquestiondelete/{id}', 'workquestiondelete')->name('workquestiondelete');
+        Route::get('workquestionedit/{id}', 'workquestionedit')->name('workquestionedit');
+        Route::get('workgroupquestionedit/{id}', 'workgroupquestionedit')->name('workgroupquestionedit');
+        Route::put('workgroupquestionupdate/{id}', 'workgroupquestionupdate')->name('workgroupquestionupdate');
+    });
+
 
     // Product Routes
     Route::controller(ProductController::class)->group(function () {
@@ -69,7 +95,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/viewsingalorders/{listId}', 'viewsingalorders')->name('vieworders');
     });
 
-   
+
 
     // Category Routes
     Route::controller(CategoryController::class)->group(function () {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Parties;
+use App\Models\WorkGroup;
+
 
 class PartyController extends Controller
 
@@ -18,7 +20,7 @@ class PartyController extends Controller
         $parties = Parties::orderBy('created_at', 'desc')->get();
         return view('parties.parties_list', compact('parties'));
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -42,10 +44,10 @@ class PartyController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:parties,email',
             'phone' => 'required',
-            'street'=> 'required',
-            'suburb'=> 'required',
-            'state'=> 'required',
-            'pincode'=> 'required',
+            'street' => 'required',
+            'suburb' => 'required',
+            'state' => 'required',
+            'pincode' => 'required',
 
 
         ], [
@@ -53,9 +55,8 @@ class PartyController extends Controller
             'email.unique' => 'The email address has already been taken.',
         ]);
 
-        Parties::create($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode','party_type']));
+        Parties::create($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
         return redirect()->route('parties.index')->with('success', 'Customer created successfully.');
-
     }
 
     /**
@@ -63,14 +64,14 @@ class PartyController extends Controller
      */
 
     public function show(Parties $party)
-{
-    // Ensure lists are sorted by 'created_at' in descending order
-    $lists = $party->lists()->orderBy('created_at', 'desc')->get();
+    {
+        // Ensure lists are sorted by 'created_at' in descending order
+        $lists = $party->lists()->orderBy('created_at', 'desc')->get();
 
-    return view('parties.show_parties', compact('party', 'lists'));
-}
+        return view('parties.show_parties', compact('party', 'lists'));
+    }
 
-     
+
 
     /**
      * Show the form for editing the specified resource.
@@ -86,27 +87,27 @@ class PartyController extends Controller
      * Update the specified resource in storage.
      */
 
-     public function update(Request $request, Parties $party)
+    public function update(Request $request, Parties $party)
 
-     {
-         $request->validate([
-             'name' => 'required',
-             'email' => 'required|email|unique:parties,email,' . $party->id,
-             'phone' => 'required',
-             'street'=> 'required',
-             'suburb'=> 'required',
-             'state'=> 'required',
-             'pincode'=> 'required',
-         ], [
-             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
-             'email.unique' => 'The email address has already been taken.',
-         ]);
-     
-         $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
-     
-         return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
-     }
-     
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:parties,email,' . $party->id,
+            'phone' => 'required',
+            'street' => 'required',
+            'suburb' => 'required',
+            'state' => 'required',
+            'pincode' => 'required',
+        ], [
+            'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
+            'email.unique' => 'The email address has already been taken.',
+        ]);
+
+        $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
+
+        return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -119,7 +120,6 @@ class PartyController extends Controller
         $party->delete();
 
         return redirect()->route('parties.index')->with('success', 'Parties deleted successfully.');
-
     }
 
     public function updateStatus(Request $request, $id)
@@ -148,22 +148,41 @@ class PartyController extends Controller
 
     public function showlistcoustomer($id)
 
-{
-    // Fetch the party details based on $id
-    $party = Parties::findOrFail($id); 
+    {
+        // Fetch the party details based on $id
+        $party = Parties::findOrFail($id);
 
-    return view('list.show_list', compact('party'));
-}
+        return view('list.show_list', compact('party'));
+    }
 
-public function checkEmail(Request $request)
-{
-    $email = $request->input('email');
-    $exists = Parties::where('email', $email)->exists();
+    public function checkEmail(Request $request)
+    {
+        $email = $request->input('email');
+        $exists = Parties::where('email', $email)->exists();
 
-    return response()->json(['available' => !$exists]);
-}
-
-
+        return response()->json(['available' => !$exists]);
+    }
 
 
+    public function updateWorkType(Request $request, $partyId)
+
+    {
+        $request->validate([
+            'work_type' => 'required|in:advance,normal',
+        ]);
+
+        $party = Parties::findOrFail($partyId);
+        $party->choose_your_work_type = $request->work_type;
+        $party->save();
+
+        return redirect()->route('parties.siteWork', $partyId);
+    }
+
+    public function showSiteWork($partyId)
+    {
+        $party = Parties::findOrFail($partyId);
+        $groups = WorkGroup::with('questions')->get(); // eager load questions
+
+        return view('workgroup.site-work', compact('party', 'groups'));
+    }
 }
