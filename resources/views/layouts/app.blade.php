@@ -13,7 +13,7 @@
     <title>@yield('title')</title>
 
     <meta name="description" content="" />
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <!-- Favicon -->
@@ -33,7 +33,7 @@
 
     <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset_url('css/rtl/core.css') }}" class="template-customizer-core-css" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset_url('css/rtl/theme-default.css') }}" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="{{ asset_url('css/demo.css') }}?{{ time() }}" />
 
@@ -47,12 +47,12 @@
     <link rel="stylesheet" href="{{ asset('libs/apex-charts/apex-charts.css') }}" />
     <link rel="stylesheet" href="{{ asset('libs/swiper/swiper.css') }}" />
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.2/css/dataTables.dataTables.css" />
-    
+
 
 
     <!-- Page CSS -->
     @auth
-        <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
+    <link rel="stylesheet" href="{{ asset_url('css/pages/cards-advance.css') }}" />
     @endauth
 
     @stack('css')
@@ -70,12 +70,14 @@
     <script src="{{ asset_url('js/form-validation/additional-methods.min.js') }}"></script>
     <script src="{{ asset_url('js/config.js') }}"></script>
     <script src="https://cdn.datatables.net/2.1.2/js/dataTables.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.7.3/jquery.bootstrap-touchspin.min.js" integrity="sha512-uztszeSSfG543xhjG/I7PPljUKKbcRnVcP+dz9hghb9fI/AonpYMErdJQtLDrqd9M+STTHnTh49h1Yzyp//d6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.7.3/jquery.bootstrap-touchspin.min.js"
+        integrity="sha512-uztszeSSfG543xhjG/I7PPljUKKbcRnVcP+dz9hghb9fI/AonpYMErdJQtLDrqd9M+STTHnTh49h1Yzyp//d6g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <div id="app">
-    <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-s p-3">
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-s p-3">
 
 <div class="container-fluid px-0">
 
@@ -114,7 +116,7 @@
     <script src="{{ asset_url('libs/i18n/i18n.js') }}"></script>
     <script src="{{ asset_url('libs/typeahead-js/typeahead.js') }}"></script>
     <script src="{{ asset_url('js/menu.js') }}"></script>
-    
+
     <!-- endbuild -->
 
     <!-- Vendors JS -->
@@ -122,7 +124,7 @@
 
     <!-- Main JS -->
     <script src="{{ asset_url('js/main.js') }}"></script>
-    
+
     @stack('scripts')
 </body>
 
