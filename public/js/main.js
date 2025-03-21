@@ -157,13 +157,15 @@ if (document.getElementById("layout-menu")) {
         styleSwitcherItems.forEach(function (item) {
             item.addEventListener("click", function () {
                 let currentStyle = this.getAttribute("data-theme");
-                if (currentStyle === "light") {
-                    window.templateCustomizer.setStyle("light");
-                } else if (currentStyle === "dark") {
-                    window.templateCustomizer.setStyle("dark");
-                } else {
-                    window.templateCustomizer.setStyle("system");
-                }
+                window.templateCustomizer.setStyle("light");
+
+                // if (currentStyle === "light") {
+                //     window.templateCustomizer.setStyle("light");
+                // } else if (currentStyle === "dark") {
+                //     window.templateCustomizer.setStyle("dark");
+                // } else {
+                //     window.templateCustomizer.setStyle("system");
+                // }
             });
         });
 
