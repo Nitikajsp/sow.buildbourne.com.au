@@ -17,4 +17,9 @@ class WorkGroup extends Model
     {
         return $this->hasMany(WorkQuestion::class, 'workgroup_id');
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

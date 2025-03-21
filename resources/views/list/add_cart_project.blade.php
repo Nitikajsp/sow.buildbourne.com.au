@@ -22,7 +22,7 @@
                     <h2>Choose Your Work Type</h2>
                 </div>
                 <div class="col-md-6">
-                    <form method="POST" action="{{ route('parties.updateWorkType', $list->parties_id) }}">
+                    <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $list->parties_id]) }}">
                         @csrf
                         <div class="mb-3">
                             <label for="work_type" class="form-label">Work Type</label>
@@ -32,8 +32,9 @@
                             </select>
                         </div>
                         <button type="submit" class="btn btn-dark me-1 rounded">Save</button>
-                        <a href="{{ route('parties.show',$list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
+                        <a href="{{ route('parties.show', $list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
                     </form>
+
                 </div>
             </div>
         </div>

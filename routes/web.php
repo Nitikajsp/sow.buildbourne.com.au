@@ -30,9 +30,10 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('parties', PartyController::class);
         Route::put('/parties/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
         Route::post('/check-email', 'checkEmail')->name('check.email');
-        Route::post('/parties/{party}/work-type', 'updateWorkType')->name('parties.updateWorkType');
-        Route::get('/site-work/{party}',  'showSiteWork')->name('parties.siteWork');
-        Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
+        Route::post('/lists/{list}/projects/{party}/work-type', 'updateWorkType')->name('parties.updateWorkType');
+        Route::get('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');
+        // Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
+        Route::post('/save-site-work/{party}/list/{list}', 'saveSiteWork')->name('parties.saveSiteWork');
     });
 
     Route::controller(WorkGroupController::class)->prefix('work-group')->name('workgroup.')->group(function () {

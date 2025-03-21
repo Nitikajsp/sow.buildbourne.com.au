@@ -30,4 +30,9 @@ class Parties extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
 }

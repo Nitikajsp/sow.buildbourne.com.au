@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
+use App\Models\Submission;
+
 
 
 class PartyController extends Controller
@@ -65,7 +67,7 @@ class PartyController extends Controller
 
     public function show(Parties $party)
     {
-        // Ensure lists are sorted by 'created_at' in descending order
+
         $lists = $party->lists()->orderBy('created_at', 'desc')->get();
 
         return view('parties.show_parties', compact('party', 'lists'));
@@ -131,25 +133,18 @@ class PartyController extends Controller
 
         $party->save();
 
-        // Store email in session
 
         $request->session()->put('status_email', $party->email);
 
-        // Fetch all parties again for display (or you can fetch just one party and pass it to the view)
-
         $parties = Parties::all();
 
-        // Return view with updated status message
         return response()->json(['success' => 'Status updated successfully']);
-        // return redirect()->route('parties.index')->with('success', 'party status updated successfully.');
-
     }
 
 
     public function showlistcoustomer($id)
 
     {
-        // Fetch the party details based on $id
         $party = Parties::findOrFail($id);
 
         return view('list.show_list', compact('party'));
@@ -163,9 +158,7 @@ class PartyController extends Controller
         return response()->json(['available' => !$exists]);
     }
 
-
-    public function updateWorkType(Request $request, $partyId)
-
+    public function updateWorkType(Request $request, $listId, $partyId)
     {
         $request->validate([
             'work_type' => 'required|in:advance,normal',
@@ -175,14 +168,52 @@ class PartyController extends Controller
         $party->choose_your_work_type = $request->work_type;
         $party->save();
 
-        return redirect()->route('parties.siteWork', $partyId);
+        return redirect()->route('parties.siteWork', ['party' => $partyId, 'list' => $listId]);
     }
 
-    public function showSiteWork($partyId)
+
+    public function showSiteWork($partyId, $listId)
     {
         $party = Parties::findOrFail($partyId);
-        $groups = WorkGroup::with('questions')->get(); // eager load questions
+        $groups = WorkGroup::with('questions')->get();
 
-        return view('workgroup.site-work', compact('party', 'groups'));
+        return view('workgroup.site-work', compact('party', 'groups', 'listId'));
+    }
+
+    public function saveSiteWork(Request $request, $partyId, $listId)
+    {
+        $groupIds = $request->input('group_ids', []);
+        $questionsInput = $request->input('questions', []);
+
+        $workData = [];
+
+        foreach ($groupIds as $groupId) {
+            $group = WorkGroup::with('questions')->find($groupId);
+            if (!$group) continue;
+
+            $groupWork = [
+                'group_name' => $group->group_name,
+                'questions' => []
+            ];
+
+            foreach ($group->questions as $question) {
+                $answers = $questionsInput[$question->id] ?? [];
+
+                $groupWork['questions'][] = [
+                    'question_title' => $question->question_title,
+                    'answers' => $answers
+                ];
+            }
+
+            $workData[] = $groupWork;
+        }
+
+        Submission::create([
+            'project_id' => $listId,
+            'work' => json_encode($workData),
+            'status' => 'pending'
+        ]);
+
+        return redirect()->route('parties.show', $partyId)->with('success', 'Site work saved successfully.');
     }
 }
