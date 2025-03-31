@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="font-weight-bold mb-2">KITCHEN</div>
+    <div class="font-weight-bold mb-2">KITCHEN2154</div>
     <div class="custom-resp-table">
         <table class="table table-bordered">
             <thead>
