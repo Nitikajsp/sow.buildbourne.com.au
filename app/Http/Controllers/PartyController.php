@@ -182,38 +182,32 @@ class PartyController extends Controller
 
     public function saveSiteWork(Request $request, $partyId, $listId)
     {
-        $groupIds = $request->input('group_ids', []);
-        $questionsInput = $request->input('questions', []);
+        $formData = $request->except('_token');
 
-        $workData = [];
+        $workDataJson = json_encode($formData);
 
-        foreach ($groupIds as $groupId) {
-            $group = WorkGroup::with('questions')->find($groupId);
-            if (!$group) continue;
-
-            $groupWork = [
-                'group_name' => $group->group_name,
-                'questions' => []
-            ];
-
-            foreach ($group->questions as $question) {
-                $answers = $questionsInput[$question->id] ?? [];
-
-                $groupWork['questions'][] = [
-                    'question_title' => $question->question_title,
-                    'answers' => $answers
-                ];
-            }
-
-            $workData[] = $groupWork;
-        }
-
+        // Store data in the database
         Submission::create([
             'project_id' => $listId,
-            'work' => json_encode($workData),
+            'party_id' => $partyId,
+            'work' => $workDataJson,
             'status' => 'pending'
         ]);
 
-        return redirect()->route('parties.show', $partyId)->with('success', 'Site work saved successfully.');
+        // Redirect to the submissions list page instead of party show page
+        return redirect()->route('submissions.index')->with('success', 'Site work saved successfully.');
+    }
+
+    public function showAllSubmissions()
+    {
+        $submissions = Submission::with(['project', 'party'])->orderBy('created_at', 'desc')->get();
+        return view('question.show_submissions_data', compact('submissions'));
+    }
+
+    public function showsubmissions($id)
+    {
+        $submission = Submission::with(['party', 'workGroup'])->findOrFail($id);
+
+        return view('question.view_submissions', compact('submission'));
     }
 }

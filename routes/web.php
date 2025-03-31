@@ -34,6 +34,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');
         // Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
         Route::post('/save-site-work/{party}/list/{list}', 'saveSiteWork')->name('parties.saveSiteWork');
+        Route::get('/submissions', 'showAllSubmissions')->name('submissions.index');
+        Route::get('/submissions/{id}', 'showsubmissions')->name('submissions.show');
     });
 
     Route::controller(WorkGroupController::class)->prefix('work-group')->name('workgroup.')->group(function () {

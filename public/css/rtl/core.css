@@ -2053,8 +2053,13 @@ progress {
 
 .table> :not(caption)>*>* {
     padding: 0.55rem 1.25rem;
-    background-color: var(--bs-table-bg);
+    /* background-color: var(--bs-table-bg); */
+    background-color: #fff;
     border-bottom-width: 1px;
+    border-right-width: 1px;
+    border-left-width: 1px;
+
+
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
 }
 
@@ -2082,9 +2087,9 @@ progress {
     border-width: 1px 0;
 }
 
-.table-bordered> :not(caption)>*>* {
+/* .table-bordered> :not(caption)>*>* {
     border-width: 0 1px;
-}
+} */
 
 .table-borderless> :not(caption)>*>* {
     border-bottom-width: 0;
@@ -5273,6 +5278,19 @@ fieldset:disabled .btn {
     pointer-events: none;
 }
 
+.modal-header .close {
+    /* padding: 0.5rem; */
+    margin: -1rem -1rem -1rem auto;
+}
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(0, 0, 0);
+    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+    opacity: 0.5;
+}
 .modal.fade .modal-dialog {
     transition: transform 0.15s ease-out;
     transform: translateY(-100px) scale(0.8);
@@ -9583,11 +9601,11 @@ html:not([dir=rtl]) .input-group>.btn-group:last-child>.btn:not([class*=btn-outl
 .nav~.tab-content {
     background: #fff;
 }
-.modal-dialog {
+/* .modal-dialog {
     margin-right: 723px;
     margin-top: -170px;
     width: 417px;
-}
+} */
 
 .nav-tabs-shadow {
     box-shadow: 0 0.25rem 1.125rem rgba(75, 70, 92, 0.1);

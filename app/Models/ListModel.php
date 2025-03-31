@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ListModel extends Model
 
 {
-    protected $table = 'lists'; // Specify the correct table name
+    protected $table = 'project'; // Specify the correct table name
 
     protected $fillable = [
 
