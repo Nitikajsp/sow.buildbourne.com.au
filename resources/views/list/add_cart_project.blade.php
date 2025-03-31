@@ -11,7 +11,7 @@
         @include('include.navbar')
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between align-items-center mt-3 p-5">
-                <a href="{{ route('parties.show',$list->parties_id) }}" class="float-left d-flex text-black">
+                <a href="{{ route('parties.show', $list->parties_id ?? $partyId) }}" class="float-left d-flex text-black">
                     <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                 </a>
             </div>
@@ -22,7 +22,7 @@
                     <h2>Choose Your Work Type</h2>
                 </div>
                 <div class="col-md-6">
-                    <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $list->parties_id]) }}">
+                    <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
                         @csrf
                         <div class="mb-3">
                             <label for="work_type" class="form-label">Work Type</label>

@@ -418,9 +418,9 @@ body {
     margin-right: 5px;
 }
 
-td {
+/* td {
     border: none !important;
-}
+} */
 
 /* .datatables-projects tr {
     border-bottom: 1px solid #f1f1f1;
@@ -435,6 +435,12 @@ td {
 
 .mt-200 {
     margin-top: 100px;
+}
+
+.custom-resp-table {
+    width: 600px;
+    overflow: hidden;
+    overflow-x: auto;
 }
 
 .addprofile_title {

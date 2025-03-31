@@ -139,28 +139,10 @@ class ListController extends Controller
 
     // add cart product controller start  //
 
-    public function addcartproject(ListModel $list, $partyId)
+    public function addcartproject($list, $partyId)
     {
-        $list->load('projects');
-
-        // Retrieve only projects that are in stock and have delete_status = '1'
-        $projects = Project::where('in_stock', 1)
-            ->where('delete_status', '1')
-            ->orderBy('created_at', 'desc')
-            ->get();
-
-        // Fetch all categories
-        $categories = \DB::table('categories')->pluck('category_name', 'id');
-
-        // Add category names to projects
-        foreach ($projects as $project) {
-            $categoryIds = explode(',', $project->project_category);
-            $project->category_names = array_map(function ($id) use ($categories) {
-                return $categories[$id] ?? 'Unknown';
-            }, $categoryIds);
-        }
-
-        return view('list.add_cart_project', compact('list', 'projects'));
+        $list = ListModel::findOrFail($list); // Fetch the list object
+        return view('list.add_cart_project', compact('list', 'partyId'));
     }
 
 
@@ -457,30 +439,11 @@ class ListController extends Controller
         $list = ListModel::find($listId);
         $party = Parties::find($partyId);
 
-        if (!$list || !$party) {
-            abort(404, 'List or party not found');
-        }
 
-        $orders = Order::where('list_id', $listId)
-            ->where('parties_id', $partyId)
-            ->orderBy('created_at', 'desc')
-            ->get();
 
-        $projects = Project::whereIn('id', $orders->pluck('project_id')->unique())->get()->keyBy('id');
-        $categories = \DB::table('categories')->pluck('category_name', 'id')->toArray();
 
-        foreach ($orders as $order) {
-            $project = $projects->get($order->project_id);
-            if ($project) {
-                $categoryIds = explode(',', $project->project_category);
-                $project->category_names = array_map(function ($id) use ($categories) {
-                    return $categories[$id] ?? 'Unknown';
-                }, $categoryIds);
-            }
-            $order->project = $project;
-        }
 
-        return view('list.show_list', compact('list', 'party', 'orders', 'categories'));
+        return view('list.show_list', compact('list', 'party'));
     }
 
     //  show list order update qty //
