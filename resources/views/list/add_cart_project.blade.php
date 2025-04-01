@@ -19,7 +19,7 @@
         <div class="container addcustomer_pad">
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-between align-items-center custmrmt0 mb-4">
-                    <h2>Choose Your Work Type</h2>
+                    <h2>Choose Your Work Type </h2>
                 </div>
                 <div class="col-md-6">
                     <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
