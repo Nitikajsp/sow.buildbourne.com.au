@@ -378,7 +378,6 @@
                 </table>
 
                 <!-- </div> -->
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
@@ -389,6 +388,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $("#siteWorkForm").on("submit", function(e) {

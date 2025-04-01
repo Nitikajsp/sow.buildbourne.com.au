@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
 use App\Models\Submission;
+use Illuminate\Support\Facades\Mail;
+
 
 
 
@@ -182,8 +184,8 @@ class PartyController extends Controller
 
     public function saveSiteWork(Request $request, $partyId, $listId)
     {
+        $party = Parties::findOrFail($partyId);
         $formData = $request->except('_token');
-
         $workDataJson = json_encode($formData);
 
         // Store data in the database
@@ -194,11 +196,18 @@ class PartyController extends Controller
             'status' => 'pending'
         ]);
 
-        // Redirect to the submissions list page instead of party show page
+        // Send email using Laravel's Mail function
+        Mail::send('emails.site_work_submitted', ['party' => $party, 'workData' => $formData], function ($message) use ($party) {
+            $message->to($party->email)
+                ->subject('New Site Work Submitted');
+        });
+
+        // Redirect to the submissions list page
         return redirect()->route('submissions.index')->with('success', 'Site work saved successfully.');
     }
 
     public function showAllSubmissions()
+
     {
         $submissions = Submission::with(['project', 'party'])->orderBy('created_at', 'desc')->get();
         return view('question.show_submissions_data', compact('submissions'));
