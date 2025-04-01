@@ -4,10 +4,13 @@
             <img class="sidebar-logo" src="{{ asset('/' . get_setting('logo')) }}" alt="Logo">
         </a>
     </div>
+
     <hr class="text-secondary my-0" />
 
     <ul class="menu-inner align-items-center">
+
         <!-- Home -->
+
         <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
             <a href="{{ route('home') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -22,6 +25,7 @@
         </li>
 
         <!-- Users -->
+
         <li class="nav-item {{ request()->routeIs('parties.index') ? 'active' : '' }}">
             <a href="{{ route('parties.index') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -38,7 +42,9 @@
 
         <li class="nav-item {{ request()->routeIs('workgroup.showworkgroup') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showworkgroup') }}" class="customnav-link  text-white">
+
                 <!-- SVG Icon -->
+
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -50,7 +56,9 @@
         </li>
         <li class="nav-item {{ request()->routeIs('workgroup.showgroupquestion') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showgroupquestion') }}" class="customnav-link  text-white">
+
                 <!-- SVG Icon -->
+
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -62,7 +70,7 @@
         </li>
 
         <!-- Categories -->
-        <li class="nav-item {{ request()->routeIs('showcategory') ? 'active' : '' }}">
+        <!-- <li class="nav-item {{ request()->routeIs('showcategory') ? 'active' : '' }}">
             <a href="{{ route('showcategory') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
@@ -74,9 +82,10 @@
                 </svg>
                 <span class="text-small" style="font-size: 12px; ">Categories</span>
             </a>
-        </li>
+        </li> -->
 
         <!-- Settings -->
+
         <li class="nav-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
             <a href="{{ route('settings.index') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -91,6 +100,7 @@
         </li>
 
         <!-- Logout -->
+
         <li class="nav-item">
             <a href="{{ route('logout') }}" class="customnav-link  text-white"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
