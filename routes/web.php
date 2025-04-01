@@ -99,7 +99,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
 
-
     // Category Routes
     Route::controller(CategoryController::class)->group(function () {
         Route::get('/showcategory', 'showallcategory')->name('showcategory');
