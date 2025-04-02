@@ -1,7 +1,7 @@
 <aside class="sidebar">
     <div class="nav-logo-wrap">
         <a href="{{ route('home') }}" class="app-brand-link">
-            <img class="sidebar-logo" src="{{ asset('/' . get_setting('logo')) }}" alt="Logo">
+            <img class="w-100 h-100" src="{{ asset('/' . get_setting('logo')) }}" alt="Logo">
         </a>
     </div>
 

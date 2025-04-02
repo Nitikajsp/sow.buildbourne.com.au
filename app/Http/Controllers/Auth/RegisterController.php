@@ -63,7 +63,7 @@ class RegisterController extends Controller
      * @return \App\Models\User
      */
     protected function create(array $data)
-    
+
     {
         // Create the new user
         $user = User::create([
@@ -89,7 +89,7 @@ class RegisterController extends Controller
     {
         // Add default settings for the new user
         $defaultSettings = [
-            ['setting_key' => 'logo', 'setting_value' => 'img/dashboardlogo.svg', 'user_id' => $userId],
+            ['setting_key' => 'logo', 'setting_value' => 'img/dashboardlogo.png', 'user_id' => $userId],
             ['setting_key' => 'address', 'setting_value' => 'Default Address', 'user_id' => $userId],
             ['setting_key' => 'phone_number', 'setting_value' => '0000000000', 'user_id' => $userId],
         ];

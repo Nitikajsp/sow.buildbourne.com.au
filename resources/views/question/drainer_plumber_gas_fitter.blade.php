@@ -8,7 +8,7 @@
      <h5>3.1 Drainage to Concrete Slab Floors</h5>
      <div class="d-flex align-items-center mb-2">
          <span>Par Plans & Specifications</span>
-         <input type="checkbox" class="ms-1 me-3" name="drainage_par_plans" value="yes">
+         <input type="checkbox" class="ms-1 me-3" name="drainage_par_plans" value="yes" checked>
          <span>N/A</span>
          <input type="checkbox" class="ms-1" name="drainage_na" value="yes">
      </div>
@@ -17,7 +17,7 @@
          <ul>
              <li>Bathrooms: Toilet suites, bath type/s, & Vanity type/s – see “PC selections” section.</li>
              <li>Kitchen:
-                 <input type="checkbox" name="kitchen_plan" value="floor_plan"> As per floor plan
+                 <input type="checkbox" name="kitchen_plan" value="floor_plan" checked> As per floor plan
                  <input type="checkbox" name="kitchen_layout" value="manufacturer_plan"> Or As per manufacturer layout plan
              </li>
              <li>Floor wastes:
@@ -44,7 +44,7 @@
          <div class="d-flex flex-wrap align-items-center mb-3">
              <div class="me-3 mb-2">
                  <span>Town Sewer</span>
-                 <input type="checkbox" class="ms-1" name="sewerage_system[]" value="town_sewer">
+                 <input type="checkbox" class="ms-1" name="sewerage_system[]" value="town_sewer" checked>
              </div>
              <div class="me-3 mb-2">
                  <span>Aerated/Septic</span>
@@ -67,12 +67,12 @@
          <!-- Notes & Details -->
          <div>
              <p>- Approved System:
-                 BY BUILDER <input type="checkbox" class="ms-1" name="approved_system" value="by_builder">
+                 BY BUILDER <input type="checkbox" class="ms-1" name="approved_system" value="by_builder" checked>
                  BY OWNER <input type="checkbox" class="ms-1" name="approved_system" value="by_owner">
                  or N.A. TOWN SEWER <input type="checkbox" class="ms-1" name="approved_system" value="na_town_sewer">
              </p>
              <p>- If by builder:
-                 1) Fixed price included in quote <input type="checkbox" class="ms-1" name="builder_price" value="fixed_price">
+                 1) Fixed price included in quote <input type="checkbox" class="ms-1" name="builder_price" value="fixed_price" checked>
                  or 2) Provisional Sum <input type="checkbox" class="ms-1" name="builder_price" value="provisional_sum">
              </p>
              <p>- Aerated/septic system show location of tank on plan
@@ -105,7 +105,7 @@
              <h5 class="mb-2">3.3 Stormwater</h5>
              <div class="d-flex align-items-center flex-wrap mb-2">
                  <span>Town Stormwater</span>
-                 <input type="checkbox" name="stormwater_town" class="ms-1 me-3">
+                 <input type="checkbox" name="stormwater_town" class="ms-1 me-3" checked>
                  <span>To Tank/s</span>
                  <input type="checkbox" name="stormwater_tank" class="ms-1 me-3">
                  <span>Rubble Pitts</span>
@@ -116,7 +116,7 @@
              <ul class="mb-2 ps-3">
                  <li>To tank/s then (A) show location of tank on plan</li>
                  <li>(B) Are pressurised PVC down pipes required?
-                     <input type="checkbox" name="pvc_required" value="yes" class="ms-1"> Yes
+                     <input type="checkbox" name="pvc_required" value="yes" class="ms-1" checked> Yes
                      <input type="checkbox" name="pvc_required" value="no" class="ms-2"> No
                  </li>
                  <li>Rubble pit then show location and design on plan</li>
@@ -133,7 +133,7 @@
          <h6 class="mb-2">3.4 Plumbing Layout Plan</h6>
          <div class="d-flex align-items-center flex-wrap mb-2">
              <span>As per plans provided, completed, and signed by owners</span>
-             <input type="checkbox" name="plumbing_plan_provided" class="ms-1 me-3">
+             <input type="checkbox" name="plumbing_plan_provided" class="ms-1 me-3" checked>
          </div>
          <p class="small"><strong>Note:</strong> This plan is to include the preferred position of: Rainwater tank/s (if applicable) including position of designated fire tank (if applicable), Water pump (if applicable), BASIX rainwater storage tank, Hot water tank and or solar panels, shower rose's and tap handles, bath spouts and tap handles, washing machine cocks (under tub or cupboard or over machine), Dishwasher cock, Spa Bath pump (if applicable), outside taps, and Gas points & Bottles (if applicable). Locations may be subject to change by plumber if required; however the owner will be notified if changes are required.</p>
          <p>Final kitchen layout plan provided (To show gas/dishwasher/sink etc.):
@@ -150,7 +150,7 @@
              <h5 class="mb-2">3.5 Water Services</h5>
              <div class="d-flex align-items-center flex-wrap mb-2">
                  <span>Town Supply & BASIX Rainwater System</span>
-                 <input type="checkbox" name="water_service" value="town_basix" class="ms-1 me-3">
+                 <input type="checkbox" name="water_service" value="town_basix" class="ms-1 me-3" checked>
                  <span>Tank Supply</span>
                  <input type="checkbox" name="water_service" value="tank" class="ms-1 me-3">
                  <span>Town & Tank</span>
@@ -161,7 +161,7 @@
              <p>- Water service type:</p>
              <div class="d-flex align-items-center mb-2">
                  <span>Standard hot & cold water</span>
-                 <input type="checkbox" name="water_type" value="standard" class="ms-1 me-3">
+                 <input type="checkbox" name="water_type" value="standard" class="ms-1 me-3" checked>
                  <span>ALL copper hot & cold (additional cost)</span>
                  <input type="checkbox" name="water_type" value="copper" class="ms-1">
              </div>
@@ -170,7 +170,7 @@
                  <span>By owner</span>
                  <input type="checkbox" name="tank_supply" value="owner" class="ms-1 me-3">
                  <span>By builder</span>
-                 <input type="checkbox" name="tank_supply" value="builder" class="ms-1 me-3">
+                 <input type="checkbox" name="tank_supply" value="builder" class="ms-1 me-3" checked>
              </div>
              <div class="mb-2">
                  <span>Type:</span>
@@ -186,10 +186,10 @@
              <p>- Water pump:</p>
              <div class="ms-4">
                  <label>
-                     <input type="checkbox" name="water_pump" value="owner"> By owner
+                     <input type="checkbox" name="water_pump" value="owner" checked> By owner
                  </label>
                  <label class="ms-3">
-                     <input type="checkbox" name="water_pump" value="builder"> By builder
+                     <input type="checkbox" name="water_pump" value="builder" checked> By builder
                  </label>
              </div>
          </div>
@@ -219,7 +219,7 @@
              <p>- Hot Water Service Supply:</p>
              <div class="ms-4">
                  <label>
-                     <input type="checkbox" name="hot_water_service" value="fixed_price"> Fixed price included in quote
+                     <input type="checkbox" name="hot_water_service" value="fixed_price" checked> Fixed price included in quote
                  </label>
                  <label class="ms-3">
                      <input type="checkbox" name="hot_water_service" value="provisional_sum"> Provisional Sum
@@ -234,7 +234,7 @@
                  <label><input type="checkbox" name="hot_water_type[]" value="solar"> Solar</label>
                  <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="electric"> Electric</label>
                  <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="combination"> Combination</label>
-                 <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="heat_pump"> Heat pump</label>
+                 <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="heat_pump" checked> Heat pump</label>
                  <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="gas"> Gas</label>
                  <label class="ms-3"><input type="checkbox" name="hot_water_type[]" value="other"> Other</label>
              </div>
@@ -244,7 +244,7 @@
          <div class="mb-3">
              <p>- Solar hot water booster:</p>
              <div class="ms-4">
-                 <label><input type="checkbox" name="solar_booster" value="electric"> Electric</label>
+                 <label><input type="checkbox" name="solar_booster" value="electric" checked> Electric</label>
                  <label class="ms-3"><input type="checkbox" name="solar_booster" value="gas"> Gas</label>
              </div>
          </div>
@@ -262,7 +262,7 @@
          <div class="mb-3">
              <p>- Special installations:</p>
              <div class="ms-4">
-                 <label><input type="checkbox" name="special_installations[]" value="water_to_fridge"> Water to fridge</label>
+                 <label><input type="checkbox" name="special_installations[]" value="water_to_fridge" checked> Water to fridge</label>
                  <label class="ms-3"><input type="checkbox" name="special_installations[]" value="hot_water_to_dishwasher"> Hot water to dishwasher</label>
                  <label class="ms-3"><input type="checkbox" name="special_installations[]" value="other"> Other</label>
              </div>
@@ -291,10 +291,10 @@
              <h5>3.6 Tapware & PC Items </h5>
              <div class="d-flex align-items-center mb-2">
                  <span>Per PC Selection Section</span>
-                 <input type="checkbox" name="pc_selection" value="yes" class="ms-1 me-3">
+                 <input type="checkbox" name="pc_selection" value="yes" class="ms-1 me-3" checked>
              </div>
              <p>🛈 <strong>Note:</strong> PC items with special requirements should have installation instructions from the manufacturer also attached.
-                 <input type="checkbox" name="pc_checked" value="checked" class="ms-2"> (Checked)
+                 <input type="checkbox" name="pc_checked" value="checked" class="ms-2" checked> (Checked)
              </p>
          </div>
 
@@ -304,10 +304,10 @@
              <p>
                  <span>Natural Gas <input type="checkbox" name="natural_gas" value="yes" class="ms-1 me-3"></span>
                  <span>LPG Gas <input type="checkbox" name="lpg_gas" value="yes" class="ms-1 me-3"></span>
-                 <span>N/A <input type="checkbox" name="gas_na" value="yes" class="ms-1"></span>
+                 <span>N/A <input type="checkbox" name="gas_na" value="yes" class="ms-1" checked></span>
              </p>
              <p>- Gas service to:
-                 <span class="ms-3">Hot water <input type="checkbox" name="hot_water" value="yes" class="ms-1 me-3"></span>
+                 <span class="ms-3">Hot water <input type="checkbox" name="hot_water" value="yes" class="ms-1 me-3" checked></span>
                  <span>Oven <input type="checkbox" name="oven" value="yes" class="ms-1 me-3"></span>
                  <span>Cook top <input type="checkbox" name="cook_top" value="yes" class="ms-1 me-3"></span>
                  <span>Bayonet’s No: <input type="text" name="bayonet_no" value="0" class="ms-1" style="width: 60px;"></span>

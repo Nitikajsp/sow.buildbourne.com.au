@@ -7,7 +7,7 @@
     <h6>4.1 Steel House Floor System</h6>
     <div class="d-flex align-items-center mb-2">
         <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="plans_specifications" value="yes" class="ms-1 me-3">
+        <input type="checkbox" name="plans_specifications" value="yes" class="ms-1 me-3" checked>
         <span>N/A</span>
         <input type="checkbox" name="plans_na" value="yes" class="ms-1 me-3">
     </div>
@@ -19,13 +19,13 @@
                 N/A <input type="checkbox" name="termite_resistant_na" value="yes" class="ms-2">
             </td>
             <td>
-                <input type="checkbox" name="termite_resistant" value="yes" class="ms-2">
+                <input type="checkbox" name="termite_resistant" value="yes" class="ms-2" checked>
             </td>
         </tr>
         <tr>
             <td>- Other:</td>
             <td>
-                N/A <input type="checkbox" name="other_na" value="yes" class="ms-2">
+                N/A <input type="checkbox" name="other_na" value="yes" class="ms-2" checked>
             </td>
             <td>
                 <input type="checkbox" name="other" value="yes" class="ms-2">
@@ -34,7 +34,7 @@
         <tr>
             <td>- Floor Insulation:</td>
             <td>
-                N/A <input type="checkbox" name="floor_insulation_na" value="yes" class="ms-2">
+                N/A <input type="checkbox" name="floor_insulation_na" value="yes" class="ms-2" checked>
             </td>
             <td>
                 <input type="checkbox" name="floor_insulation" value="yes" class="ms-2">
@@ -51,14 +51,14 @@
         <span>Per Plans & Specifications</span>
         <input type="checkbox" name="verandah_plans_specifications" value="yes" class="ms-1 me-3">
         <span>N/A</span>
-        <input type="checkbox" name="verandah_plans_na" value="yes" class="ms-1 me-3">
+        <input type="checkbox" name="verandah_plans_na" value="yes" class="ms-1 me-3" checked>
     </div>
 
     <table class="table table-bordered">
         <tr>
             <td>- Fibrous cement floor sheeting:</td>
             <td>
-                N/A <input type="checkbox" name="fibrous_cement_na" value="yes" class="ms-2">
+                N/A <input type="checkbox" name="fibrous_cement_na" value="yes" class="ms-2" checked>
             </td>
             <td>
                 <input type="checkbox" name="fibrous_cement" value="yes" class="ms-2">
@@ -67,7 +67,7 @@
         <tr>
             <td>- Treated pine decking:</td>
             <td>
-                N/A <input type="checkbox" name="treated_pine_na" value="yes" class="ms-2">
+                N/A <input type="checkbox" name="treated_pine_na" value="yes" class="ms-2" checked>
             </td>
             <td>
                 <input type="checkbox" name="treated_pine" value="yes" class="ms-2">
@@ -76,7 +76,7 @@
         <tr>
             <td>- Hardwood decking:</td>
             <td>
-                N/A <input type="checkbox" name="hardwood_decking_na" value="yes" class="ms-2">
+                N/A <input type="checkbox" name="hardwood_decking_na" value="yes" class="ms-2" checked>
             </td>
             <td>
                 <input type="checkbox" name="hardwood_decking" value="yes" class="ms-2"> (Timber Selection)
@@ -93,7 +93,7 @@
         <span>Per Plans & Specifications</span>
         <input type="checkbox" name="timber_verandah_plans_specifications" value="yes" class="ms-1 me-3">
         <span>N/A</span>
-        <input type="checkbox" name="timber_verandah_na" value="yes" class="ms-1 me-3">
+        <input type="checkbox" name="timber_verandah_na" value="yes" class="ms-1 me-3" checked>
     </div>
 
     <table class="table table-bordered">
@@ -121,14 +121,14 @@
 
     <div class="d-flex align-items-center mb-2">
         <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="frames_plans_specifications" value="yes" class="ms-1 me-3">
+        <input type="checkbox" name="frames_plans_specifications" value="yes" class="ms-1 me-3" checked>
     </div>
 
     <p>
         - Standard 2750mm high (nom.)
-        <input type="checkbox" name="standard_height" value="yes" class="ms-2">
+        <input type="checkbox" name="standard_height" value="yes" class="ms-2" checked>
         Other heights:
-        <input type="text" name="other_heights" class="ms-2" style="width: 150px;">
+        <input type="text" name="other_heights" class="ms-2" style="width: 150px;" checked>
     </p>
 
     <p>
@@ -138,7 +138,7 @@
 
     <p>
         - Sisalation foil (sarking) to wall exterior prior to cladding <br>
-        <input type="checkbox" name="sisalation_standard" value="yes" class="ms-2"> Standard
+        <input type="checkbox" name="sisalation_standard" value="yes" class="ms-2" checked> Standard
         <input type="checkbox" name="sisalation_other" value="yes" class="ms-2">
         Other: <input type="text" name="sisalation_other_text" class="ms-2" style="width: 150px;">
     </p>
@@ -154,7 +154,7 @@
     <div class="card p-3 my-2 ">
         <div class="d-flex align-items-center mb-2">
             <span>Per Council Approved Plans & Specifications</span>
-            <input type="checkbox" name="approved_plans" value="yes" class="ms-1 me-3">
+            <input type="checkbox" name="approved_plans" value="yes" class="ms-1 me-3" checked>
             <span>N/A</span>
             <input type="checkbox" name="approved_plans" value="na" class="ms-1 me-3">
         </div>
@@ -164,7 +164,7 @@
     <div class="card p-3 my-2 ">
         <div>Ceiling type:</div>
         <div class="d-flex flex-wrap">
-            <div><input type="checkbox" name="ceiling_type[]" value="standard_level" class="ms-1"> Standard level</div>
+            <div><input type="checkbox" name="ceiling_type[]" value="standard_level" class="ms-1" checked> Standard level</div>
             <div><input type="checkbox" name="ceiling_type[]" value="raked" class="ms-1"> Raked</div>
             <div><input type="checkbox" name="ceiling_type[]" value="scissor_raked" class="ms-1"> Scissor raked</div>
             <div><input type="checkbox" name="ceiling_type[]" value="other" class="ms-1"> Other</div>
@@ -189,7 +189,7 @@
     <div class="card p-3 my-2 ">
         <div class="d-flex align-items-center mb-2">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="verandah_plans_specifications" value="yes" class="ms-1 me-3">
+            <input type="checkbox" name="verandah_plans_specifications" value="yes" class="ms-1 me-3" checked>
             <span>N/A</span>
             <input type="checkbox" name="verandah_plans_specifications" value="na" class="ms-1 me-3">
         </div>
@@ -198,7 +198,7 @@
     <!-- Q6 -->
     <div class="card p-3 my-2">
         <div>
-            <input type="checkbox" name="verandah_type[]" value="broken_pitch" class="me-1">
+            <input type="checkbox" name="verandah_type[]" value="broken_pitch" class="me-1" checked>
             Broken pitch off main roof, raked fibre cement sheet lining under
         </div>
         <div>
@@ -241,7 +241,7 @@
             <span>Per Plans & Specifications</span>
             <input type="checkbox" name="q8_option" value="per_plans" class="ms-1 me-3">
             <span>N/A</span>
-            <input type="checkbox" name="q8_option" value="na" class="ms-1">
+            <input type="checkbox" name="q8_option" value="na" class="ms-1" checked>
         </div>
     </div>
 
@@ -255,7 +255,7 @@
             <span>Per Plans & Specifications</span>
             <input type="checkbox" name="q9_option" value="per_plans" class="ms-1 me-3">
             <span>N/A</span>
-            <input type="checkbox" name="q9_option" value="na" class="ms-1 me-3">
+            <input type="checkbox" name="q9_option" value="na" class="ms-1 me-3" checked>
         </div>
     </div>
 
@@ -264,7 +264,7 @@
         <div>- If by builder:</div>
         <div class="d-flex flex-wrap">
             <div>
-                <input type="checkbox" name="q10_option[]" value="fixed_price" class="ms-1">
+                <input type="checkbox" name="q10_option[]" value="fixed_price" class="ms-1" checked>
                 Fixed price included in quote
             </div>
             <div>
@@ -280,7 +280,7 @@
         <div>- Tread type:</div>
         <div class="d-flex flex-wrap">
             <div>
-                <input type="checkbox" name="q11_tread_type[]" value="precast_concrete" class="ms-1">
+                <input type="checkbox" name="q11_tread_type[]" value="precast_concrete" class="ms-1" checked>
                 Precast concrete
             </div>
             <div>
@@ -299,7 +299,7 @@
     <div class="card p-3 my-2">
         <div class="d-flex align-items-center">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="q12_approval" value="per_plans" class="ms-1 me-3">
+            <input type="checkbox" name="q12_approval" value="per_plans" class="ms-1 me-3" checked>
             <span>N/A</span>
             <input type="checkbox" name="q12_approval" value="na" class="ms-1">
         </div>
