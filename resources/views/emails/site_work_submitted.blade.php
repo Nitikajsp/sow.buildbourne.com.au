@@ -10,8 +10,12 @@
     <p>Dear {{ $party->name }},</p>
     <p>Site work has been successfully submitted.</p>
     <h4>Details:</h4>
-    <pre>{{ json_encode($workData, JSON_PRETTY_PRINT) }}</pre>
+    <ul>
+        @foreach($workData as $key => $value)
+        <li><strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong> {{ is_array($value) ? json_encode($value) : $value }}</li>
+        @endforeach
+    </ul>
     <p>Thank you.</p>
 </body>
-
+    
 </html>
