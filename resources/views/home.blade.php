@@ -122,15 +122,15 @@
 
                 <thead class="" style="background-color:#000000;">
                   <tr>
-                    <th class="partylist_text  text-white ">
+                    <th class="partylist_text">
                       Party
                     </th>
 
-                    <th class="partylist_text text-white ">Email</th>
+                    <th class="partylist_text ">Email</th>
                     <!-- <th class="partylist_text text-white">Status</th> -->
-                    <th class="partylist_text text-white ">Orders</th>
+                    <th class="partylist_text  ">Orders</th>
                     <!-- <th class="w-px-50 partylist_text text-white">Estimate</th> -->
-                    <th class="partylist_text text-white ">Actions</th> <!-- New column for Actions -->
+                    <th class="partylist_text  ">Actions</th> <!-- New column for Actions -->
 
                   </tr>
                 </thead>

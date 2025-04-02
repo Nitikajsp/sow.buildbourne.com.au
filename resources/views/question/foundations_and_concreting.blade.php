@@ -9,15 +9,15 @@
             <div>
                 <label class="me-3">
                     By Builder
-                    <input type="checkbox" class="form-check-input" name="surveyor_set_out" value="builder">
+                    <input type="checkbox" class="form-check-input" name="sow[surveyor_set_out][surveyor_set]" value="builder" checked>
                 </label>
                 <label class="me-3">
                     By Owner
-                    <input type="checkbox" class="form-check-input" name="surveyor_set_out" value="owner">
+                    <input type="checkbox" class="form-check-input" name="sow[surveyor_set_out][surveyor_set]" value="owner">
                 </label>
                 <label>
                     N/A
-                    <input type="checkbox" class="form-check-input" name="surveyor_set_out" value="na">
+                    <input type="checkbox" class="form-check-input" name="sow[surveyor_set_out][surveyor_set]" value="na">
                 </label>
             </div>
         </div>
@@ -32,36 +32,36 @@
             <div class="mb-2">
                 <label class="me-3">
                     Sub Floor
-                    <input type="checkbox" class="form-check-input ms-1" name="concrete_slab_floors[]" value="sub_floor">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][concrete_slab_floors]" value="sub_floor">
                 </label>
                 <label class="me-3">
                     Ground Floor
-                    <input type="checkbox" class="form-check-input ms-1" name="concrete_slab_floors[]" value="ground_floor">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][concrete_slab_floors]" value="ground_floor" checked>
                 </label>
                 <label class="me-3">
                     1st Floor
-                    <input type="checkbox" class="form-check-input ms-1" name="concrete_slab_floors[]" value="first_floor">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][concrete_slab_floors]" value="first_floor">
                 </label>
                 <label>
                     N/A
-                    <input type="checkbox" class="form-check-input ms-1" name="concrete_slab_floors[]" value="na">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][concrete_slab_floors]" value="na">
                 </label>
             </div>
             <div class="mb-2">
                 <p>
                     - Specification: As per detailed engineer’s plans & specs
-                    <input type="checkbox" class="form-check-input ms-1" name="specification" value="engineers_plans">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][specification]" value="engineers_plans" checked>
                 </p>
                 <p>
                     - Classification:
-                    <input type="checkbox" class="form-check-input ms-1" name="classification" value="standard_spec"> Standard Specification for up to "M Class"
-                    <input type="checkbox" class="form-check-input ms-3" name="classification_other" value="other"> Other:
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][classification]" value="standard_spec" checked> Standard Specification for up to "M Class"
+                    <input type="checkbox" class="form-check-input ms-3" name="sow[surveyor_set_out][classification_other]" value="other"> Other:
                     <input type="text" class="form-control d-inline-block w-50 ms-2" name="classification_other_text" placeholder="Enter other classification">
                 </p>
             </div>
             <div class="mb-2">
                 Notes to above:
-                <input type="text" class="form-control mt-1" name="concrete_slab_notes" placeholder="..............................................................................">
+                <input type="text" class="form-control mt-1" name="sow[surveyor_set_out][concrete_slab_notes]" placeholder="..............................................................................">
             </div>
             <small class="d-block"><strong>Note 1:</strong> : Piering if required and /or indicated on engineer's plans will be charged at $110.00 inc.GST & Builders Margin per lineal metre.</small>
 
@@ -79,37 +79,37 @@
             <div class="mb-2">
                 <label class="me-3">
                     Underground
-                    <input type="checkbox" class="form-check-input ms-1" name="electrical_type[]" value="underground">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][electrical_type]" value="underground" checked>
                 </label>
                 <label class="me-3">
                     Aerial
-                    <input type="checkbox" class="form-check-input ms-1" name="electrical_type[]" value="aerial">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][electrical_type]" value="aerial">
                 </label>
                 <label>
                     N/A
-                    <input type="checkbox" class="form-check-input ms-1" name="electrical_type[]" value="na">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][electrical_type]" value="na">
                 </label>
             </div>
 
             <p>- If underground, is entry conduit required to be set in concrete?</p>
             <label class="me-2">
-                <input type="radio" class="form-check-input" name="underground_conduit" value="yes"> Yes
+                <input type="radio" class="form-check-input" name="sow[surveyor_set_out][underground_conduit]" value="yes" checked> Yes
             </label>
             <label>
-                <input type="radio" class="form-check-input ms-1" name="underground_conduit" value="no"> No
+                <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][underground_conduit]" value="no"> No
             </label>
             <small><strong>Note :</strong> For location of sub-board/metre box see electrical plan)</small>
 
             <p class="mt-2">- Are other electrical conduits required to be set in concrete?</p>
             <label class="me-2">
-                <input type="radio" class="form-check-input" name="other_conduits" value="yes"> Yes
+                <input type="radio" class="form-check-input" name="sow[surveyor_set_out][other_conduits]" value="yes" checked> Yes
             </label>
             <label>
-                <input type="radio" class="form-check-input ms-1" name="other_conduits" value="no"> No
+                <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][other_conduits]" value="no"> No
             </label>
 
             <p class="mt-2">If "Yes", then list:
-                <input type="text" class="form-control d-inline-block w-50 ms-2" name="conduit_list" placeholder="Enter conduit details">
+                <input type="text" class="form-control d-inline-block w-50 ms-2" name="sow[surveyor_set_out][other_conduits]" placeholder="Enter conduit details">
             </p>
             <small><strong>Note :</strong>For location of other electrical conduits see electrical plan</small>
 
@@ -135,39 +135,39 @@
             <div class="mb-2">
                 <label class="me-3">
                     Par Plans & Specifications
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_specs" value="plans_and_specs">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_specs]" value="plans_and_specs" checked>
                 </label>
                 <label>
                     N/A
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_specs" value="na">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_specs]" value="na">
                 </label>
             </div>
 
             <div>
                 <p>- Plain concrete standard non-slip cove finish:</p>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_finish" value="plain_concrete"> Or Other
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_finish]" value="plain_concrete" checked> Or Other
                 </label>
                 <label>
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_finish" value="other">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_finish]" value="other">
                 </label>
 
                 <p>- If Other:</p>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_other[]" value="colour"> Colour
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_other]" value="colour" checked> Colour
                 </label>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_other[]" value="stencil"> Stencil
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_other]" value="stencil"> Stencil
                 </label>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_other[]" value="pattern"> Pattern
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_other]" value="pattern"> Pattern
                 </label>
                 <label>
-                    <input type="checkbox" class="form-check-input ms-1" name="verandah_other[]" value="exposed_aggregate"> Exposed Aggregate
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_other]" value="exposed_aggregate"> Exposed Aggregate
                 </label>
 
                 <p class="mt-2">Notes to above:</p>
-                <input type="text" class="form-control" name="verandah_notes" placeholder="..............................................................................">
+                <input type="text" class="form-control" name="sow[surveyor_set_out][verandah_notes]" placeholder="..............................................................................">
             </div>
         </div>
     </div>
@@ -183,39 +183,39 @@
             <div class="mb-2">
                 <label class="me-3">
                     Par Plans & Specifications
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_specs" value="plans_and_specs">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_specs]" value="plans_and_specs" checked>
                 </label>
                 <label>
                     N/A
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_specs" value="na">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_specs]" value="na">
                 </label>
             </div>
 
             <div>
                 <p>- Plain concrete standard non-slip cove finish:</p>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_finish" value="plain_concrete"> Or Other
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_finish]" value="plain_concrete" checked> Or Other
                 </label>
                 <label>
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_finish" value="other">
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_finish]" value="other">
                 </label>
 
                 <p>- If Other:</p>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_other[]" value="colour"> Colour
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_other]" value="colour" checked> Colour
                 </label>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_other[]" value="stencil"> Stencil
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_other]" value="stencil"> Stencil
                 </label>
                 <label class="me-3">
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_other[]" value="pattern"> Pattern
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_other]" value="pattern"> Pattern
                 </label>
                 <label>
-                    <input type="checkbox" class="form-check-input ms-1" name="driveway_other[]" value="exposed_aggregate"> Exposed Aggregate
+                    <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_other]" value="exposed_aggregate"> Exposed Aggregate
                 </label>
 
                 <p class="mt-2">Notes to above:</p>
-                <input type="text" class="form-control" name="driveway_notes" placeholder="..............................................................................">
+                <input type="text" class="form-control" name="sow[surveyor_set_out][driveway_notes]" placeholder="..............................................................................">
             </div>
         </div>
     </div>
@@ -227,9 +227,19 @@
         <div class="card-header">
             <h5>2.6 Tank Pads or Other</h5>
         </div>
+        <div class="mb-2">
+            <label class="me-3">
+                Par Plans & Specifications
+                <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][tank_pads]" value="plans_and_specs" checked>
+            </label>
+            <label>
+                N/A
+                <input type="checkbox" class="form-check-input ms-1" name="sow[surveyor_set_out][tank_pads]" value="na">
+            </label>
+        </div>
         <div class="card-body">
             <p>Notes to above:</p>
-            <input type="text" class="form-control" name="tank_pads_notes" placeholder="..............................................................................">
+            <input type="text" class="form-control" name="sow[surveyor_set_out][tank_pads_notes]" placeholder="..............................................................................">
         </div>
     </div>
 

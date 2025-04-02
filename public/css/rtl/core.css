@@ -23366,8 +23366,8 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 .app-brand-link {
-    display: flex;
-    align-items: center;
+max-width: 105px;
+width: 100%;
 }
 
 .app-brand-logo {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+
 use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
@@ -182,6 +184,7 @@ class PartyController extends Controller
         return view('workgroup.site-work', compact('party', 'groups', 'listId'));
     }
 
+
     public function saveSiteWork(Request $request, $partyId, $listId)
     {
         $party = Parties::findOrFail($partyId);
@@ -196,14 +199,18 @@ class PartyController extends Controller
             'status' => 'pending'
         ]);
 
-        // Send email using Laravel's Mail function
-        Mail::send('emails.site_work_submitted', ['party' => $party, 'workData' => $formData], function ($message) use ($party) {
+        // Generate PDF
+        $pdf = Pdf::loadView('emails.site_work_submitted', ['party' => $party, 'workData' => $formData]);
+
+        // Send email with only the PDF attachment
+        Mail::send([], [], function ($message) use ($party, $pdf) {
             $message->to($party->email)
-                ->subject('New Site Work Submitted');
+                ->subject('New Site Work Submitted')
+                ->attachData($pdf->output(), 'SiteWork_Submitted.pdf');
         });
 
         // Redirect to the submissions list page
-        return redirect()->route('submissions.index')->with('success', 'Site work saved successfully.');
+        return redirect()->route('submissions.index')->with('success', 'Site work saved and emailed successfully.');
     }
 
     public function showAllSubmissions()

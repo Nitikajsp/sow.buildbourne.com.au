@@ -22,7 +22,6 @@
                     <div class="dt-buttons flex-wrap">
                         <a href="{{ route('workgroup.addworkquestion') }}" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded" tabindex="0" aria-controls="DataTables_Table_0">
                             <span><i class="ti ti-plus me-sm-1"></i> Add Group Question</span>
-
                         </a>
                     </div>
                 </div>
@@ -53,28 +52,31 @@
                                 <td>{{ $workgroupquestion->question_value }}</td>
 
 
-                                <td class="d-flex justify-content-center align-items-center">
+                                <td>
+                                    <div class="d-flex justify-content-center align-items-center">
 
-                                    <div class="d-inline-block">
-                                        <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
-                                            <i class="ti ti-dots-vertical ti-md"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end m-0">
-                                            <a href="{{ route('workgroup.workgroupquestionedit', $workgroupquestion->id) }}" class="btn p-0 edit-btn dropdown-item">
-                                                <i class="ti ti-pencil me-1"></i> Edit
-                                            </a>
-                                            <a href="{{ route('workgroup.workquestionview', $workgroupquestion->id) }}" class="btn p-0 view-btn dropdown-item">
-                                                <i class="ti ti-eye me-1"></i> View
-                                            </a>
 
-                                            <div class="dropdown-divider"></div>
-                                            <form id="deletePartyForm" action="{{ route('workgroup.workquestiondelete', $workgroupquestion->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-party-id="{{ $workgroupquestion->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                                                    <i class="ti ti-trash me-1"></i> Delete
-                                                </button>
-                                            </form>
+                                        <div class="d-inline-block">
+                                            <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
+                                                <i class="ti ti-dots-vertical ti-md"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end m-0">
+                                                <a href="{{ route('workgroup.workgroupquestionedit', $workgroupquestion->id) }}" class="btn p-0 edit-btn dropdown-item">
+                                                    <i class="ti ti-pencil me-1"></i> Edit
+                                                </a>
+                                                <a href="{{ route('workgroup.workquestionview', $workgroupquestion->id) }}" class="btn p-0 view-btn dropdown-item">
+                                                    <i class="ti ti-eye me-1"></i> View
+                                                </a>
+
+                                                <div class="dropdown-divider"></div>
+                                                <form id="deletePartyForm" action="{{ route('workgroup.workquestiondelete', $workgroupquestion->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-party-id="{{ $workgroupquestion->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                                        <i class="ti ti-trash me-1"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
@@ -120,29 +122,22 @@
         </div>
     </div>
 
-
-
     @push('scripts')
     <script>
         $(document).ready(function() {
             let partyIdToDelete;
-            // Store the form to submit on confirmation
             $(document).on('click', '.delete-btn', function() {
                 cpartyIdToDelete = $(this).data('party-id');
                 var form = $(this).closest('form');
                 $('#confirmDeleteBtn').data('form', form);
             });
 
-            // Submit the form when the confirm button is clicked
             $('#confirmDeleteBtn').on('click', function() {
                 var form = $(this).data('form');
                 form.submit();
             });
         });
     </script>
-
-
-
     @endpush
 </div>
 @endsection
