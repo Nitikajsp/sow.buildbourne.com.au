@@ -202,6 +202,7 @@ class PartyController extends Controller
         // Generate PDF
         $pdf = Pdf::loadView('emails.site_work_submitted', ['party' => $party, 'workData' => $formData]);
 
+
         // Send email with only the PDF attachment
         Mail::send([], [], function ($message) use ($party, $pdf) {
             $message->to($party->email)

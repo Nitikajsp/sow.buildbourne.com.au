@@ -8,11 +8,11 @@
     <div class="form-group row">
         <div class="col-sm-12">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="colour_selection_by" id="colour_selection_below" value="below" checked>
+                <input class="form-check-input" type="radio" name="sow[painter][colour_selection_by]" id="colour_selection_below" value="below" checked>
                 <label class="form-check-label" for="colour_selection_below">Per Selections Below</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="colour_selection_by" id="colour_selection_owner" value="owner">
+                <input class="form-check-input" type="radio" name="sow[painter][colour_selection_by]" id="colour_selection_owner" value="owner">
                 <label class="form-check-label" for="colour_selection_owner">By Owner</label>
             </div>
         </div>
@@ -37,50 +37,50 @@
             <tbody>
                 <tr>
                     <th scope="row">Hardi plank</th>
-                    <td><input type="text" name="hardi_plank_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][hardi_plank_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="hardi_plank_check" value="unchecked">
-                        <input type="checkbox" name="hardi_plank_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][hardi_plank_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][hardi_plank_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Eaves</th>
-                    <td><input type="text" name="eaves_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][eaves_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="eaves_check" value="unchecked">
-                        <input type="checkbox" name="eaves_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][eaves_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][eaves_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Gable</th>
-                    <td><input type="text" name="gable_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][gable_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="gable_check" value="unchecked">
-                        <input type="checkbox" name="gable_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][gable_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][gable_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Barge</th>
-                    <td><input type="text" name="barge_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][barge_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="barge_check" value="unchecked">
-                        <input type="checkbox" name="barge_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][barge_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][barge_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Finial</th>
-                    <td><input type="text" name="finial_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][finial_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="finial_check" value="unchecked">
-                        <input type="checkbox" name="finial_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][finial_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][finial_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">Front entry door</th>
-                    <td><input type="text" name="front_entry_door_value" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][front_entry_door_value]" class="form-control form-control-sm"></td>
                     <td>
-                        <input type="hidden" name="front_entry_door_check" value="unchecked">
-                        <input type="checkbox" name="front_entry_door_check" value="checked" class="form-check-input">
+                        <input type="hidden" name="sow[painter][front_entry_door_check]" value="unchecked">
+                        <input type="checkbox" name="sow[painter][front_entry_door_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
             </tbody>
@@ -109,43 +109,43 @@
             <tbody>
                 <tr>
                     <th scope="row">Entry</th>
-                    <td><input type="text" name="entry_ceiling" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="entry_wall" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="entry_doors" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="entry_woodwork" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="entry_na" class="form-check-input" value="1"></td>
+                    <td><input type="text" name="sow[painter][entry_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][entry_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][entry_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][entry_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][entry_na]" class="form-check-input" value="1"></td>
                 </tr>
                 <tr>
                     <th scope="row">Hall</th>
-                    <td><input type="text" name="hall_ceiling" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="hall_wall" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="hall_doors" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="hall_woodwork" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="hall_na" class="form-check-input" value="1"></td>
+                    <td><input type="text" name="sow[painter][hall_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][hall_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][hall_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][hall_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][hall_na]" class="form-check-input" value="1"></td>
                 </tr>
                 <tr>
                     <th scope="row">Dining</th>
-                    <td><input type="text" name="dining_ceiling" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="dining_wall" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="dining_doors" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="dining_woodwork" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="dining_na" class="form-check-input" value="1"></td>
+                    <td><input type="text" name="sow[painter][dining_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][dining_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][dining_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][dining_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][dining_na]" class="form-check-input" value="1"></td>
                 </tr>
                 <tr>
                     <th scope="row">Kitchen</th>
-                    <td><input type="text" name="kitchen_ceiling" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="kitchen_wall" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="kitchen_doors" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="kitchen_woodwork" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="kitchen_na" class="form-check-input" value="1"></td>
+                    <td><input type="text" name="sow[painter][kitchen_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][kitchen_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][kitchen_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][kitchen_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][kitchen_na]" class="form-check-input" value="1"></td>
                 </tr>
                 <tr>
                     <th scope="row">Family</th>
-                    <td><input type="text" name="family_ceiling" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="family_wall" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="family_doors" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="family_woodwork" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="family_na" class="form-check-input" value="1"></td>
+                    <td><input type="text" name="sow[painter][family_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][family_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][family_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][family_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][family_na]" class="form-check-input" value="1"></td>
                 </tr>
             </tbody>
         </table>
@@ -169,12 +169,12 @@
             <tbody>
                 <tr>
                     <th scope="row">Selection</th>
-                    <td><input type="text" name="stringers" value="" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="treads" value="" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="balustrade" value="" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="newel_posts" value="" class="form-control form-control-sm"></td>
-                    <td><input type="text" name="balusters" value="" class="form-control form-control-sm"></td>
-                    <td><input type="checkbox" name="na" value="1" class="form-check-input"></td>
+                    <td><input type="text" name="sow[painter][stringers]" value="" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][treads]" value="" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][balustrade]" value="" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][newel_posts]" value="" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][balusters]" value="" class="form-control form-control-sm"></td>
+                    <td><input type="checkbox" name="sow[painter][na]" value="1" class="form-check-input"></td>
                 </tr>
             </tbody>
         </table>
@@ -187,11 +187,11 @@
         <label class="col-sm-3 col-form-label">- Ceilings :</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="ceilings[]" id="ceilings_flat" value="flat" checked>
+                <input class="form-check-input" type="checkbox" name="sow[painter][ceilings]" id="ceilings_flat" value="flat" checked>
                 <label class="form-check-label" for="ceilings_flat">Flat water based - Spray 1<sup>st</sup> Coat , Roll 2<sup>nd</sup> Coat</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="ceilings[]" id="ceilings_na" value="na">
+                <input class="form-check-input" type="checkbox" name="sow[painter][ceilings]" id="ceilings_na" value="na">
                 <label class="form-check-label" for="ceilings_na">N / A</label>
             </div>
         </div>
@@ -201,15 +201,15 @@
         <label class="col-sm-3 col-form-label">- Internal walls :</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="internal_walls[]" id="internal_walls_low_sheen" value="low_sheen" checked>
+                <input class="form-check-input" type="checkbox" name="sow[painter][internal_walls]" id="internal_walls_low_sheen" value="low_sheen" checked>
                 <label class="form-check-label" for="internal_walls_low_sheen">Low sheen wash & wear water based - 3 Coats</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="internal_walls[]" id="internal_walls_enamel" value="enamel">
+                <input class="form-check-input" type="checkbox" name="sow[painter][internal_walls]" id="internal_walls_enamel" value="enamel">
                 <label class="form-check-label" for="internal_walls_enamel">Enamel ( Gloss )</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="internal_walls[]" id="internal_walls_na" value="na">
+                <input class="form-check-input" type="checkbox" name="sow[painter][internal_walls]" id="internal_walls_na" value="na">
                 <label class="form-check-label" for="internal_walls_na">N / A</label>
             </div>
         </div>
@@ -226,11 +226,11 @@
         <label class="col-sm-3 col-form-label">Internal feature walls: Location(s) shown on plans</label>
         <div class="col-sm-9">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="feature_walls_builder" name="feature_walls[]" value="builder">
+                <input class="form-check-input" type="checkbox" id="feature_walls_builder" name="sow[painter][feature_walls]" value="builder">
                 <label class="form-check-label" for="feature_walls_builder">By Builder (Checked)</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="feature_walls_na" name="feature_walls[]" value="na" checked>
+                <input class="form-check-input" type="checkbox" id="feature_walls_na" name="sow[painter][feature_walls]" value="na" checked>
                 <label class="form-check-label" for="feature_walls_na">N / A</label>
             </div>
         </div>
@@ -238,6 +238,6 @@
 
     <div class="form-group">
         <label for="feature_walls_notes">Notes to above:</label>
-        <textarea class="form-control" id="feature_walls_notes" name="feature_walls_notes" rows="3"></textarea>
+        <textarea class="form-control" id="feature_walls_notes" name="sow[painter][feature_walls_notes]" rows="3"></textarea>
     </div>
 </div>

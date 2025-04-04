@@ -28,10 +28,7 @@
                     </div>
                     @endif
                 </div>
-                +0.60%
 
-                Introducing chart patterns
-                Discover experts' trading ideas, validate your own, and make informed trades based on detailed analysis with chart patterns.
 
                 <div id="success-message" class="alert alert-success d-none" role="alert">
                     Quantity updated successfully!
