@@ -287,7 +287,7 @@
                             <label class="form-check-label" for="builderOption">By Builder</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner">
+                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner" checked>
                             <label class="form-check-label" for="ownerOption">By Owner</label>
                         </div>
                     </div>
