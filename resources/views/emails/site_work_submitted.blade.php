@@ -5,9 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Site Work Submitted</title>
-    <style>
 
-    </style>
 </head>
 
 <body style=" 
@@ -28,9 +26,7 @@
             margin-bottom: 20px;
             border-bottom: 1px solid #ccc;
             padding-bottom: 10px;">
-            <div style="        font-size: 1.5em;
-                font-weight: bold;
-                color: #007bff;">Site Work Submitted</div>
+
             <div style="                text-align: right;
                 font-size: 0.9em;
                 color: #555;">
@@ -72,17 +68,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('builder', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('owner', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('na', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('builder', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('owner', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('na', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -127,17 +138,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('builder', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('owner', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('na', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('builder', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('owner', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('na', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -179,17 +205,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('builder', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('owner', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('na', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('builder', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('owner', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('na', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -230,17 +271,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -328,17 +384,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -378,17 +449,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -430,17 +516,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
@@ -481,23 +582,32 @@
                     </td>
                     <td style="width: 20%"></td>
                     <td>
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox"
-                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'by_builder') ? 'checked' : '' }}>
-                                By Builder
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox"
-                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'by_owner') ? 'checked' : '' }}>
-                                By Owner
-                            </label>
-                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
-                                <input type="checkbox"
-                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'na') ? 'checked' : '' }}>
-                                N/A
-                            </label>
-                        </div>
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Builder
+                                        </label>
+                                    </td>
+                                    <td>
+
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />By Owner
+                                        </label>
+                                    </td>
+                                    <td>
+
+                                        <label style="line-height: 20px;vertical-align:middle ">
+                                            <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />N/A
+                                        </label>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </td>
                 </tr>
                 <tr>
