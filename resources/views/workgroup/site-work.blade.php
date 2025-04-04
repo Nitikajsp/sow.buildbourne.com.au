@@ -315,10 +315,6 @@
                 </div>
             </div>
 
-
-
-
-
             <div class="d-flex justify-content-end mb-5 px-3">
                 <button type="submit" class="btn btn-dark me-2">Save</button>
                 <button type="submit" class="btn btn-danger me-2">Save & Send</button>
@@ -369,13 +365,15 @@
             e.preventDefault();
             let formData = {};
             $(this).serializeArray().forEach(field => {
-                if (formData[field.name]) {
-                    if (!Array.isArray(formData[field.name])) {
-                        formData[field.name] = [formData[field.name]];
+                let formattedKey = field.name.replace(/^sow\[site_work\]\[(.*?)\]$/, "$1").replace(/_/g, " ");
+
+                if (formData[formattedKey]) {
+                    if (!Array.isArray(formData[formattedKey])) {
+                        formData[formattedKey] = [formData[formattedKey]];
                     }
-                    formData[field.name].push(field.value);
+                    formData[formattedKey].push(field.value);
                 } else {
-                    formData[field.name] = field.value || "N/A";
+                    formData[formattedKey] = field.value || "N/A";
                 }
             });
 
@@ -389,14 +387,13 @@
                 }
 
                 previewContent += `
-                <tr>
-                    <td><strong>${key.replace(/_/g, " ")}</strong></td>
-                    <td>${value}</td>
-                </tr>`;
+            <tr>
+                <td><strong>${key}</strong></td>
+                <td>${value}</td>
+            </tr>`;
             }
 
             $("#jsonPreviewTable").html(previewContent);
-
             $("#jsonPreviewModal").modal("show");
         });
 

@@ -1,52 +1,566 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>New Site Work Submitted</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site Work Submitted</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-        }
 
-        h2,
-        h4 {
-            color: #333;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 5px 0;
-        }
-
-        strong {
-            color: #000;
-        }
     </style>
 </head>
 
-<body>
-    <h2>New Site Work Submitted</h2>
-    <p>Dear {{ $party->name }},</p>
-    <p>Site work has been successfully submitted.</p>
-    <h4>Details:</h4>
+<body style=" 
+        font-family: sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+    
+">
+    <div style="      background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 0 auto;">
+        <div style="              display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;">
+            <div style="        font-size: 1.5em;
+                font-weight: bold;
+                color: #007bff;">Site Work Submitted</div>
+            <div style="                text-align: right;
+                font-size: 0.9em;
+                color: #555;">
+                <div>Client: {{ $party->name ?? '' }}</div>
+                <div>Date: {{ date('Y-m-d') }}</div>
+            </div>
+        </div>
 
-    @foreach($workData as $groupName => $groupData)
-    @foreach($groupData as $key => $value)
-    <ul>
-        <li>
-            <strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong>
-            {{ is_array($value) ? json_encode($value) : $value }}
-        </li>
-    </ul>
-    @endforeach
-    @endforeach
 
-    <p>Thank you.</p>
+        <table
+            style="
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black;
+        ">
+            <tbody>
+
+                <tr>
+                    <td
+                        colspan="3"
+                        style="
+                        background: black;
+                        color: white;
+                        font-weight: bold;
+                        text-align: center;
+                        padding: 10px;
+                    ">
+                        1) SITE WORKS
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.1 Access Road to Site 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('builder', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('owner', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road']) && in_array('na', (array)$workData['sow']['site_work']['access_road']) ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road_option']) && $workData['sow']['site_work']['access_road_option'] == 'fixed_price' ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>2) Provisional Sum
+                                                <input type="checkbox" {{ isset($workData['sow']['site_work']['access_road_option']) && $workData['sow']['site_work']['access_road_option'] == 'provisional_sum' ? 'checked' : '' }} />
+                                            </label>
+                                            <div style="display: flex; align-items: center; gap: 10px; border: 1px dashed green; padding: 5px; font-size: 14px; background: #f0fdf4;">
+                                                <img src="https://cdn-icons-png.flaticon.com/512/561/561094.png" alt="Dollar Icon" style="width: 20px; height: 20px;" />
+                                                Amount to be shown at Section 16 <br />
+                                                <strong>"Schedule of Provisional Sums"</strong>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.2 Site Clearing 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('builder', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('owner', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_by']) && in_array('na', (array)$workData['sow']['site_work']['site_clearing_by']) ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_option']) && $workData['sow']['site_work']['site_clearing_option'] == 'fixed_price' ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ isset($workData['sow']['site_work']['site_clearing_option']) && $workData['sow']['site_work']['site_clearing_option'] == 'provisional_sum' ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.3 Excavation of Site 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('builder', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('owner', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_by']) && in_array('na', (array)$workData['sow']['site_work']['excavation_by']) ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_type']) && $workData['sow']['site_work']['excavation_type'] == 'fixed_price' ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ isset($workData['sow']['site_work']['excavation_type']) && $workData['sow']['site_work']['excavation_type'] == 'provisional_sum' ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.4 Removal of Soil & Tree Debris 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('builder', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('owner', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_by']) && in_array('na', (array)$workData['sow']['site_work']['removal_by']) ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] == 'fixed_price' ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] == 'provisional_sum' ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.5 Initial Power to Site 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="margin-left: 20px">
+                            <div>
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['power_supply']) && in_array('owner', (array)$workData['sow']['site_work']['power_supply']) ? 'checked' : '' }} />
+                                To site by owner
+                            </div>
+                            <div>
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['power_supply']) && in_array('aerial', (array)$workData['sow']['site_work']['power_supply']) ? 'checked' : '' }} />
+                                Aerial temporary by builder
+                                <small>(Aerial mains supply to temporary power pole)</small>
+                            </div>
+                            <div>
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['power_supply']) && in_array('underground', (array)$workData['sow']['site_work']['power_supply']) ? 'checked' : '' }} />
+                                Underground temporary by builder
+                                <small>(Underground mains supply to meter box on stand)</small>
+                            </div>
+                            <div>
+                                <input type="checkbox" {{ isset($workData['sow']['site_work']['power_supply']) && in_array('generator', (array)$workData['sow']['site_work']['power_supply']) ? 'checked' : '' }} />
+                                Generator temporary by builder
+                                <small>(Hire rate as allowed in the contract price)</small>
+                            </div>
+                            <p style="font-size: 0.8em; color: #777; margin-left: 20px">
+                                <strong>Note :</strong>
+                                <em>
+                                    If required - temporary power by generator will be at a weekly hire rate of $165.00 inc. GST.
+                                </em>
+                            </p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.6 Water to Site 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('fixed_price', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('provisional_sum', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.7 Site Clean (During Construction) 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('fixed_price', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('provisional_sum', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.8 Internal Clean (Prior to Handover) 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_builder') ? 'checked' : '' }} />By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'by_owner') ? 'checked' : '' }} />By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_by']) && $workData['sow']['site_work']['removal_by'] === 'na') ? 'checked' : '' }} />N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('fixed_price', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox" {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('provisional_sum', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.8 Internal Clean (Prior to Handover) 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox"
+                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'by_builder') ? 'checked' : '' }}>
+                                By Builder
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox"
+                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'by_owner') ? 'checked' : '' }}>
+                                By Owner
+                            </label>
+                            <label style="display: flex; align-items: center; flex-direction: column; gap: 2px;">
+                                <input type="checkbox"
+                                    {{ (isset($workData['sow']['site_work']['removal_type']) && $workData['sow']['site_work']['removal_type'] === 'na') ? 'checked' : '' }}>
+                                N/A
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <table style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td>If by builder:</td>
+                                    <td colspan="2">
+                                        1) Fixed price included in quote
+                                        <input type="checkbox"
+                                            {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('fixed_price', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><em>Or</em></td>
+                                    <td colspan="2">
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <label>
+                                                2) Provisional Sum
+                                                <input type="checkbox"
+                                                    {{ (isset($workData['sow']['site_work']['removal_type']) && in_array('provisional_sum', (array)$workData['sow']['site_work']['removal_type'])) ? 'checked' : '' }} />
+                                            </label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
+            <tbody>
+                <tr style="background: #d3d3d3">
+                    <td style="width: 40%; font-weight: bold; padding: 8px">
+                        1.10 Site Works Notes 🚧 🔑
+                    </td>
+                    <td style="width: 20%"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div style="margin-left: 20px">
+                            <label>Notes to above:</label>
+                            <textarea
+                                style="
+                                    width: 95%;
+                                    height: 80px;
+                                    padding: 8px;
+                                    border: 1px solid #ccc;
+                                    border-radius: 4px;
+                                "
+                                name="sow[site_work][site_works_notes]">{{ isset($workData['sow']['site_work']['site_works_notes']) ? $workData['sow']['site_work']['site_works_notes'] : '' }}</textarea>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
 </body>
 
 </html>

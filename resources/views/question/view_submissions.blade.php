@@ -20,17 +20,24 @@
                     @php
                     $workData = json_decode($submission->work, true);
                     @endphp
+
+                    @if (isset($workData['sow']['site_work']))
                     <ul class="list-group">
-                        @foreach ($workData as $key => $value)
+                        @foreach ($workData['sow']['site_work'] as $key => $value)
                         <li class="list-group-item">
-                            <strong>{{ ucfirst($key) }}:</strong>
-                            {{ is_null($value) || $value === '' ? 'N/A' : (is_array($value) ? implode(', ', $value) : $value) }}
+                            <strong>{{ ucfirst(str_replace('_', ' ', $key)) }}:</strong>
+                            {{ is_null($value) || $value === '' ? 'N/A' : (is_array($value) ? implode(', ', $value) : (is_object($value) ? json_encode($value) : $value)) }}
                         </li>
                         @endforeach
                     </ul>
                     @else
+                    <p class="text-muted">No Site Work Data Available.</p>
+                    @endif
+
+                    @else
                     <p class="text-muted">No Work Data Available.</p>
                     @endif
+
                     <hr>
                     <a href="{{ route('submissions.index') }}" class="btn btn-secondary">Back to Submissions</a>
                 </div>
