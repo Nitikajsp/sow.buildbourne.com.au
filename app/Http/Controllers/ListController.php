@@ -433,9 +433,10 @@ class ListController extends Controller
 
     {
         $list = ListModel::find($listId);
-        $party = Parties::find($partyId);
+        // $party = Parties::find($partyId);
 
-        return view('list.show_list', compact('list', 'party'));
+
+        return view('list.show_list', compact('list'));
     }
 
     //  show list order update qty //

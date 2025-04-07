@@ -14,9 +14,9 @@
     </div>
 
     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-      <div class="card-header flex-column flex-md-row">
+      <div class="d-flex flex-column flex-md-row justify-content-betweenw">
         <div class="head-label text-center">
-          <h2 class="card-title mb-0">All Party</h2>
+          <h2 class="card-title mb-0">All Partysdsd</h2>
         </div>
         <div class="dt-action-buttons text-end pt-6 pt-md-0">
           <div class="dt-buttons flex-wrap">
@@ -32,7 +32,9 @@
       </div>
       @endif
       <div class="card mt-4 p-2 ">
-        <div class="partyscroll">
+        <!-- <div class="partyscroll"> -->
+        <div class="custom-resp-table">
+
           <table class="table datatables-projects" id="partylist">
             <thead>
               <tr>
@@ -85,148 +87,149 @@
       </div>
     </div>
   </div>
+</div>
 
-  <style>
-    #partylist thead tr:first-child th {
-      background-color: #f8f9fa;
-      font-weight: bold;
-    }
+<style>
+  #partylist thead tr:first-child th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
 
-    #partylist tbody tr:nth-child(odd) {
-      border-bottom: 2px solid #ddd;
-    }
+  #partylist tbody tr:nth-child(odd) {
+    border-bottom: 2px solid #ddd;
+  }
 
-    #partylist tbody tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-  </style>
-  <!-- Delete Confirmation Modal -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this party?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
-        </div>
+  #partylist tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+</style>
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this party?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Delete</button>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="modal fade" id="setModal" tabindex="-1" aria-labelledby="setModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content border-0">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="setModalLabel"></h5>
-          <a href="" id="createListLink" class="ms-auto">Create Project</a>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="setPartyForm">
-            <div class="mb-3">
-              <label for="dropdownList" class="form-label">Select Project</label>
-              <select id="dropdownList" class="form-select" aria-label="Select an Option">
-                <option value="" disabled selected>Select...</option>
-              </select>
-            </div>
-            <input type="hidden" id="selectedPartyId" name="party_id" />
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary rounded" id="selectButton">Select</button>
-            </div>
-          </form>
-        </div>
+<div class="modal fade" id="setModal" tabindex="-1" aria-labelledby="setModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="setModalLabel"></h5>
+        <a href="" id="createListLink" class="ms-auto">Create Project</a>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="setPartyForm">
+          <div class="mb-3">
+            <label for="dropdownList" class="form-label">Select Project</label>
+            <select id="dropdownList" class="form-select" aria-label="Select an Option">
+              <option value="" disabled selected>Select...</option>
+            </select>
+          </div>
+          <input type="hidden" id="selectedPartyId" name="party_id" />
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary rounded" id="selectButton">Select</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
 
-  @push('scripts')
-  <script>
-    $(document).ready(function() {
-      let partyIdToDelete;
-      // Store the form to submit on confirmation
-      $(document).on('click', '.delete-btn', function() {
-        cpartyIdToDelete = $(this).data('party-id');
-        var form = $(this).closest('form');
-        $('#confirmDeleteBtn').data('form', form);
-      });
-
-      // Submit the form when the confirm button is clicked
-      $('#confirmDeleteBtn').on('click', function() {
-        var form = $(this).data('form');
-        form.submit();
-      });
+@push('scripts')
+<script>
+  $(document).ready(function() {
+    let partyIdToDelete;
+    // Store the form to submit on confirmation
+    $(document).on('click', '.delete-btn', function() {
+      cpartyIdToDelete = $(this).data('party-id');
+      var form = $(this).closest('form');
+      $('#confirmDeleteBtn').data('form', form);
     });
-  </script>
 
-  <script>
-    $(document).ready(function() {
-      $('#partylist').DataTable({
-        order: [
-          [0, 'desc']
-        ]
-      });
+    // Submit the form when the confirm button is clicked
+    $('#confirmDeleteBtn').on('click', function() {
+      var form = $(this).data('form');
+      form.submit();
+    });
+  });
+</script>
 
-      // Handle "Set" button click
-      $(document).on('click', '.set-btn', function() {
-        var partyId = $(this).data('party-id');
-        $('#selectedPartyId').val(partyId);
+<script>
+  $(document).ready(function() {
+    $('#partylist').DataTable({
+      order: [
+        [0, 'desc']
+      ]
+    });
 
-        // AJAX call to get lists
-        $.ajax({
-          url: '/get-lists',
-          method: 'GET',
-          data: {
-            party_id: partyId
-          },
-          success: function(response) {
-            let options = '<option value="" disabled selected required>Select...</option>';
-            if (response.length > 0) {
-              response.forEach(function(list) {
-                options += `<option value="${list.id}">${list.name}</option>`;
-              });
-            } else {
-              options = '<option value="" disabled>No lists available</option>';
-            }
-            $('#dropdownList').html(options);
+    // Handle "Set" button click
+    $(document).on('click', '.set-btn', function() {
+      var partyId = $(this).data('party-id');
+      $('#selectedPartyId').val(partyId);
 
-            // Build URL for create list
-            let baseCreateUrl = "{{ url('/createproject') }}/";
-            $('#createListLink').attr('href', baseCreateUrl + partyId);
-
-            $('#setModal').modal('show');
-          },
-          error: function(xhr, status, error) {
-            console.error('Error fetching lists:', error);
+      // AJAX call to get lists
+      $.ajax({
+        url: '/get-lists',
+        method: 'GET',
+        data: {
+          party_id: partyId
+        },
+        success: function(response) {
+          let options = '<option value="" disabled selected required>Select...</option>';
+          if (response.length > 0) {
+            response.forEach(function(list) {
+              options += `<option value="${list.id}">${list.name}</option>`;
+            });
+          } else {
+            options = '<option value="" disabled>No lists available</option>';
           }
-        });
-      });
+          $('#dropdownList').html(options);
 
-      // Handle form submission
-      $('#setPartyForm').on('submit', function(event) {
-        event.preventDefault();
+          // Build URL for create list
+          let baseCreateUrl = "{{ url('/createproject') }}/";
+          $('#createListLink').attr('href', baseCreateUrl + partyId);
 
-        let partyId = $('#selectedPartyId').val();
-        let listId = $('#dropdownList').val();
-
-        if (!listId) {
-          alert('Please select a list.');
-          return;
+          $('#setModal').modal('show');
+        },
+        error: function(xhr, status, error) {
+          console.error('Error fetching lists:', error);
         }
-
-        // Construct redirect URL
-        let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
-        window.location.href = redirectUrl;
       });
     });
-  </script>
 
-  @endpush
+    // Handle form submission
+    $('#setPartyForm').on('submit', function(event) {
+      event.preventDefault();
+
+      let partyId = $('#selectedPartyId').val();
+      let listId = $('#dropdownList').val();
+
+      if (!listId) {
+        alert('Please select a list.');
+        return;
+      }
+
+      // Construct redirect URL
+      let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
+      window.location.href = redirectUrl;
+    });
+  });
+</script>
+
+@endpush
 </div>
 @endsection

@@ -40,7 +40,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="text-secondary mb-1">Work Group Name</label>
-                                <select name="group_id" class="form-control border border-white-50" required>
+                                <select name="group_id" class="form-control border " required>
                                     <option value="">Select</option>
                                     @foreach ($workgroups as $item)
                                     <option value="{{ $item->id }}">{{ $item->group_name }}</option>
@@ -48,16 +48,19 @@
                                 </select>
                             </div>
                             <div id="questions-wrapper">
-                                <div class="mb-3 question-item">
-                                    <label class="text-secondary mb-1">Add Question</label>
-                                    <input type="text" name="questions[]" class="form-control border border-white-50" placeholder="Enter question" required />
+                                <div class="d-flex gap-2 align-items-end mb-3">
+                                    <div class=" question-item">
+                                        <label class="text-secondary mb-1">Add Question</label>
+                                        <input type="text" name="questions[]" class="form-control border " placeholder="Enter question" required />
+                                    </div>
+                                    <button type="button" id="add-question" class=" btn-sm p-2 mt-3 h-100">+ </button>
+
                                 </div>
                             </div>
-                            <button type="button" id="add-question" class="btn btn-outline-success btn-sm mt-3">+ Add Question</button>
 
                             <div class="pull-right mt-1 text-center">
 
-                                <button type="submit" class="btn btn-primary btn-sm mt-3">Save</button>
+                                <button type="submit" class="btn btn-primary  ">Save</button>
                                 <a class="btn btn-outline-dark waves-effect rounded" href="{{ route('workgroup.showgroupquestion') }}">Cancel</a>
                             </div>
 
@@ -76,7 +79,7 @@
             $('#add-question').click(function() {
                 $('#questions-wrapper').append(`
             <div class="mb-3 question-item">
-                <input type="text" name="questions[]" class="form-control mb-2" placeholder="Enter question" required />
+                <input type="text" name="questions[]" class="form-control border mb-2" placeholder="Enter question" required />
             </div>
         `);
             });

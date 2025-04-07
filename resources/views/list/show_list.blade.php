@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left head-label">
-                            <h2>View Party Detail</h2>
+                            <h2>View Project Detail</h2>
                         </div>
                     </div>
                     @if(session('success'))
@@ -36,12 +36,12 @@
 
                 <div class="card px-3 py-4 table_scroll customer_table_width">
                     <div class="d-flex flex-end ms-auto">
-                        <a href="{{ route('parties.edit', $party->id) }}"
+                        <a href="{{ route('lists.edit', $list->id) }}"
                             class="btn p-0 edit-btn text-info">
                             <i class="ti ti-pencil me-1"></i>
                         </a>
 
-                        <form action="{{ route('parties.destroy', $party->id) }}" method="POST" style="display:inline;">
+                        <form action="{{ route('parties.destroy', $list->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="button" class="btn p-0 delete-btn text-danger"
@@ -56,22 +56,22 @@
                         <div class="ms-4 d-flex flex-column justify-content-center w-100">
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Party Name:</div>
-                                <div class="col-sm-8">{{ $party->name }}</div>
+                                <div class="col-sm-8">{{ $list->name }}</div>
                             </div>
 
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Party ID:</div>
-                                <div class="col-sm-8">{{ $party->id }}</div>
+                                <div class="col-sm-8">{{ $list->id }}</div>
                             </div>
 
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Email ID:</div>
-                                <div class="col-sm-8">{{ $party->email }}</div>
+                                <div class="col-sm-8">{{ $list->contact_email }}</div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Phone Number:</div>
                                 <div class="col-sm-8">
-                                    <a href="tel:{{ $party->phone }}" class="text-dark">{{ $party->phone }}</a>
+                                    <a href="tel:{{ $list->phone }}" class="text-dark">{{ $list->contact_number }}</a>
                                 </div>
                             </div>
                         </div>
