@@ -134,7 +134,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.2 Site Clearing 🚧 🔑
+                        1.2 Site Clearing
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -201,7 +201,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.3 Excavation of Site 🚧 🔑
+                        1.3 Excavation of Site
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -267,7 +267,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.4 Removal of Soil & Tree Debris 🚧 🔑
+                        1.4 Removal of Soil & Tree Debris
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -337,7 +337,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.5 Initial Power to Site 🚧 🔑
+                        1.5 Initial Power to Site
                     </td>
                     <td style="width: 20%"></td>
                     <td></td>
@@ -380,7 +380,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.6 Water to Site 🚧 🔑
+                        1.6 Water to Site
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -445,7 +445,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.7 Site Clean (During Construction) 🚧 🔑
+                        1.7 Site Clean (During Construction)
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -514,7 +514,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.8 Internal Clean (Prior to Handover) 🚧 🔑
+                        1.8 Internal Clean (Prior to Handover)
                     </td>
                     <td style="width: 20%"></td>
                     <td>
@@ -582,7 +582,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.9 Termite Protection 🚧 🔑
+                        1.9 Termite Protection
                     </td>
                     <td style="width: 20%"></td>
                     <td></td>
@@ -606,12 +606,12 @@
                                     <td colspan="2">
                                         <label>
                                             <input type="checkbox"
-                                                {{ isset($workData['sow']['site_work']['termite_protection_by']) && in_array('builder', (array)$workData['sow']['site_work']['termite_protection_by']) ? 'checked' : '' }} />
+                                                {{ isset($workData['sow']['site_work']['termite_protection_by']) && in_array('builder', (array)$workData['sow']['site_work']['termite_protection_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />
                                             By Builder
                                         </label>
                                         <label>
                                             <input type="checkbox"
-                                                {{ isset($workData['sow']['site_work']['termite_protection_by']) && in_array('owner', (array)$workData['sow']['site_work']['termite_protection_by']) ? 'checked' : '' }} />
+                                                {{ isset($workData['sow']['site_work']['termite_protection_by']) && in_array('owner', (array)$workData['sow']['site_work']['termite_protection_by']) ? 'checked' : '' }} style="background-color:transparent; vertical-align:middle ;" />
                                             By Owner
                                         </label>
 
@@ -643,7 +643,7 @@
             <tbody>
                 <tr style="background: #d3d3d3">
                     <td style="width: 40%; font-weight: bold; padding: 8px">
-                        1.10 Site Works Notes 🚧 🔑
+                        1.10 Site Works Notes
                     </td>
                     <td style="width: 20%"></td>
                     <td></td>

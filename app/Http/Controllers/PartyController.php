@@ -52,8 +52,6 @@ class PartyController extends Controller
             'phone' => 'required',
             'street' => 'required',
             'suburb' => 'required',
-            'state' => 'required',
-            'pincode' => 'required',
 
 
         ], [
@@ -101,9 +99,7 @@ class PartyController extends Controller
             'email' => 'required|email|unique:parties,email,' . $party->id,
             'phone' => 'required',
             'street' => 'required',
-            'suburb' => 'required',
-            'state' => 'required',
-            'pincode' => 'required',
+
         ], [
             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
             'email.unique' => 'The email address has already been taken.',

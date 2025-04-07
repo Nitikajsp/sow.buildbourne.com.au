@@ -39,7 +39,7 @@
                         <form method="post" action="{{ route('workgroup.saveworkquestion') }}">
                             @csrf
                             <div class="mb-3">
-                                <label class="text-secondary mb-1">Select Work Group</label>
+                                <label class="text-secondary mb-1">Work Group Name</label>
                                 <select name="group_id" class="form-control border border-white-50" required>
                                     <option value="">Select</option>
                                     @foreach ($workgroups as $item)
@@ -54,7 +54,13 @@
                                 </div>
                             </div>
                             <button type="button" id="add-question" class="btn btn-outline-success btn-sm mt-3">+ Add Question</button>
-                            <button type="submit" class="btn btn-primary btn-sm mt-3">Save</button>
+
+                            <div class="pull-right mt-1 text-center">
+
+                                <button type="submit" class="btn btn-primary btn-sm mt-3">Save</button>
+                                <a class="btn btn-outline-dark waves-effect rounded" href="{{ route('workgroup.showgroupquestion') }}">Cancel</a>
+                            </div>
+
                         </form>
                     </div>
                 </div>

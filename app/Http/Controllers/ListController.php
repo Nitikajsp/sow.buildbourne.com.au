@@ -20,7 +20,7 @@ class ListController extends Controller
 //  crate a new  list  file redirect controller  start  //
 
 {
-    public function createlist($party_id)
+    public function createproject($party_id)
 
     {
         return view('list.add_list', compact('party_id'));
@@ -438,10 +438,6 @@ class ListController extends Controller
     {
         $list = ListModel::find($listId);
         $party = Parties::find($partyId);
-
-
-
-
 
         return view('list.show_list', compact('list', 'party'));
     }
