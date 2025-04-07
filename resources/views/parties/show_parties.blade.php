@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-lg-12 margin-tb">
             <div class="pull-left head-label">
-              <h2>View Party Detail</h2>
+              <h2>View Party Detail </h2>
             </div>
           </div>
         </div>
@@ -93,30 +93,34 @@
                 <td style="border: 1px solid #DDDDDD !important;">
                   {{ $list->status }}
                 </td>
-                <td class="d-flex justify-content-center align-items-center">
-                  <div class="d-inline-block">
-                    <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
-                      <i class="ti ti-dots-vertical ti-md"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end m-0">
-                      <a href="c" class="btn p-0 edit-btn dropdown-item">
-                        <i class="ti ti-pencil me-1"></i> Edit
-                      </a>
-                      <a href="{{ route('showlistparty', ['listId' => $list->id, 'partyId' => $party->id]) }}" class="btn p-0 view-btn dropdown-item">
-                        <i class="ti ti-eye me-1"></i> View
-                      </a>
-                      <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}" class="btn p-0 view-btn dropdown-item">
-                        <i class="ti ti-plus me-1"></i>Choose WorkType
-                      </a>
+                <td>
+                  <div class="d-flex justify-content-center align-items-center">
 
-                      <div class="dropdown-divider"></div>
-                      <form id="deletePartyForm" action="{{ route('lists.destroy', ['id' => $list->id]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-party-id="{{ $list->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                          <i class="ti ti-trash me-1"></i> Delete
-                        </button>
-                      </form>
+
+                    <div class="d-inline-block">
+                      <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
+                        <i class="ti ti-dots-vertical ti-md"></i>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end m-0">
+                        <a href="{{ route('lists.edit', $list->id) }}" class="btn p-0 edit-btn dropdown-item">
+                          <i class="ti ti-pencil me-1"></i> Edit
+                        </a>
+                        <a href="{{ route('showlistparty', ['listId' => $list->id, 'partyId' => $party->id]) }}" class="btn p-0 view-btn dropdown-item">
+                          <i class="ti ti-eye me-1"></i> View
+                        </a>
+                        <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}" class="btn p-0 view-btn dropdown-item">
+                          <i class="ti ti-plus me-1"></i>Choose WorkType
+                        </a>
+
+                        <div class="dropdown-divider"></div>
+                        <form id="deletePartyForm" action="{{ route('lists.destroy', ['id' => $list->id]) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-party-id="{{ $list->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <i class="ti ti-trash me-1"></i> Delete
+                          </button>
+                        </form>
+                      </div>
                     </div>
                   </div>
                 </td>
