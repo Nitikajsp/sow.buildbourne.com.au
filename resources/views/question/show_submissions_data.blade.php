@@ -14,7 +14,13 @@
             @include('include.navbar')
 
             <div class="container mt-4">
-                <h2 class="mb-4">All Site Work Submissions</h2>
+                <!-- <h2 class="mb-4">All Site Work Submissions</h2> -->
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="head-label text-center">
+                        <h2 class="card-title mb-0">All Site Work Submissions</h2>
+                    </div>
+
+                </div>
 
                 <div class="card shadow-sm">
                     <div class="card-body">

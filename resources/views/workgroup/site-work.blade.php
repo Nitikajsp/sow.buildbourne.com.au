@@ -9,7 +9,7 @@
         @include('include.navbar')
 
         <div class="d-flex justify-content-between align-items-center mt-3 p-3">
-            <h2>Site Work</h2>
+            <h2>1) Site Work</h2>
             <a href="{{ route('workgroup.addworkquestion') }}" class="btn btn-dark">+ Add Question</a>
         </div>
 

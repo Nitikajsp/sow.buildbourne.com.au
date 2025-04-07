@@ -14,9 +14,9 @@
     </div>
 
     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
-      <div class="d-flex flex-column flex-md-row justify-content-betweenw">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
         <div class="head-label text-center">
-          <h2 class="card-title mb-0">All Partysdsd</h2>
+          <h2 class="card-title mb-0">All Party</h2>
         </div>
         <div class="dt-action-buttons text-end pt-6 pt-md-0">
           <div class="dt-buttons flex-wrap">
