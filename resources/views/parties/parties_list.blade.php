@@ -124,7 +124,7 @@
       <div class="modal-content border-0">
         <div class="modal-header border-0">
           <h5 class="modal-title" id="setModalLabel"></h5>
-          <a href="#" id="createListLink" class="ms-auto">Create Project</a>
+          <a href="" id="createListLink" class="ms-auto">Create Project</a>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -197,7 +197,7 @@
             $('#dropdownList').html(options);
 
             // Build URL for create list
-            let baseCreateUrl = "{{ url('/createlist') }}/";
+            let baseCreateUrl = "{{ url('/createproject') }}/";
             $('#createListLink').attr('href', baseCreateUrl + partyId);
 
             $('#setModal').modal('show');

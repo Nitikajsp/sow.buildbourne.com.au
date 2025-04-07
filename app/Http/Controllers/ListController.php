@@ -124,17 +124,13 @@ class ListController extends Controller
 
 
     // list delete controller start  //
-
     public function destroy($id)
-
     {
         $list = ListModel::findOrFail($id);
 
-        $party_id = $list->party_id;
-
         $list->delete();
 
-        return redirect()->route('showorder')->with('success', 'List deleted successfully.');
+        return redirect()->back()->with('success', 'List deleted successfully.');
     }
 
     // add cart product controller start  //
