@@ -155,10 +155,7 @@
 
       // Open the modal and store the form to submit
       $(document).on('click', '.delete-btn', function() {
-        // Find the form associated with the button
-        formToSubmit = $(this).siblings('form');
-        // Show the modal
-        $('#deleteModal').modal('show');
+        formToSubmit = $(this).closest('form'); // ✅ fix here
       });
 
       // Submit the form when the confirm button is clicked
@@ -169,6 +166,7 @@
       });
     });
   </script>
+
 
   <script>
     $('#partyListsTable').DataTable();

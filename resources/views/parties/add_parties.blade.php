@@ -70,7 +70,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
               <div class="form-group">
-                <label for="street" class="text-secondary mb-1">Location Address</label>
+                <label for="street" class="text-secondary mb-1">Location/Address</label>
                 <input type="text" id="street" name="street" class="form-control border border-white-50">
                 <span class="text-danger error-text street-error"></span>
               </div>
@@ -107,7 +107,6 @@
                   <div class="form-group">
                     <label for="party_type" class="text-secondary mb-1">Party Type</label>
                     <select name="party_type" class="form-control border border-white-50">
-                      <option value="" disabled selected>Select Paty</option>
                       <option value="builder">Builder</option>
                       <option value="owner">Owner</option>
                     </select>
