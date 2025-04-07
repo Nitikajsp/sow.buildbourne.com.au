@@ -72,10 +72,10 @@ Route::middleware(['auth'])->group(function () {
     // List Routes
     Route::controller(ListController::class)->group(function () {
         Route::get('/get-lists', 'getLists')->name('get-lists');
-        Route::get('/createlist/{party_id}', 'createlist')->name('createlist');
+        Route::get('/createproject/{party_id}', 'createproject')->name('createlist');
         Route::post('/lists', 'store')->name('lists.store');
         Route::get('/lists/{id}', 'show')->name('lists.show');
-        Route::get('/lists/{id}/edit', 'edit')->name('lists.edit');
+        Route::get('/project/{id}/edit', 'edit')->name('lists.edit');
         Route::put('/lists/{id}', 'update')->name('lists.update');
         Route::delete('/lists/{id}', 'destroy')->name('lists.destroy');
         Route::get('/lists/{list}/projects/{party}', 'addCartProject')->name('lists.addcartproject');
@@ -86,7 +86,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cart/view/{listId}', 'viewCart')->name('cart.view');
         Route::patch('/cart/update/{list}/{productId}', 'updateqty')->name('cart.updateqty');
         Route::post('/orders/save', 'saveOrder')->name('orders.save');
-        Route::get('/list/{listId}/party/{partyId}', 'showListParty')->name('showlistparty');
+        Route::get('/project/{listId}/party/{partyId}', 'showListParty')->name('showlistparty');
         Route::patch('/orders/{order}/updateQuantity', 'updateQuantity')->name('orders.updateQuantity');
         Route::delete('/orders/{order}', 'destroyOrders')->name('orders.destroyOrders');
         Route::get('/send-email/{list_id}/{party_id}', 'sendEmail')->name('send.email');

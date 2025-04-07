@@ -13,7 +13,7 @@
 
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between align-items-center editpadding">
-                <a href="{{ route('workgroup.showworkgroup') }}" class="float-left d-flex text-black">
+                <a href="{{ route('workgroup.showgroupquestion') }}" class="float-left d-flex text-black">
                     <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                 </a>
                 <a href="{{ route('workgroup.showgroupquestion', $workgroupquestion->id) }}"

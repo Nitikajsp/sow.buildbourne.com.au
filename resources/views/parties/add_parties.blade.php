@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @push('css')
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 @endpush
 
 @section('content')
 <div id="app" class="layout-wrapper">
-  @include('include.sidebar') 
+  @include('include.sidebar')
   <div class="container">
-    @include('include.navbar') 
+    @include('include.navbar')
 
     <div class="row">
       <div class="col-md-12 d-flex justify-content-between align-items-center editpadding">
@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-              <h2>Add Parties</h2>
+              <h2>Add party </h2>
             </div>
             <div class="pull-left">
               <h5>Please enter your details</h5>
@@ -33,14 +33,14 @@
         </div>
 
         @if ($errors->any())
-          <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
+        <div class="alert alert-danger">
+          <strong>Whoops!</strong> There were some problems with your input.<br><br>
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
         @endif
 
         <form id="partiesForm" action="{{ route('parties.store') }}" method="POST">
@@ -70,7 +70,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
               <div class="form-group">
-                <label for="street" class="text-secondary mb-1">Property Address</label>
+                <label for="street" class="text-secondary mb-1">Location Address</label>
                 <input type="text" id="street" name="street" class="form-control border border-white-50">
                 <span class="text-danger error-text street-error"></span>
               </div>
@@ -84,163 +84,162 @@
             </div> -->
             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
               <div class="form-group">
-                <label for="suburb" class="text-secondary mb-1">Suburb</label>
+                <label for="suburb" class="text-secondary mb-1">Builder Name</label>
                 <input type="text" id="suburb" name="suburb" class="form-control border border-white-50">
                 <span class="text-danger error-text suburb-error"></span>
               </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
               <div class="form-group">
-              <label for="State" class="text-secondary mb-1">State</label>
-        <select name="state" class="form-control border border-white-50  mb-3">
-            <option value="" disabled selected>Select State</option>
-            <option value="New South Wales (NSW)">New South Wales (NSW)</option>
-            <option value="Victoria (VIC)" >Victoria (VIC)</option>
-            <option value="Queensland (QLD)">Queensland (QLD)</option>
-            <option value="Western Australia (WA)" >Western Australia (WA)</option>
-            <option value="South Australia (SA)" >South Australia (SA)</option>
-            <option value="Tasmania (TAS)" >Tasmania (TAS)</option>
-            <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
-            <option value="Northern Territory (NT)">Northern Territory (NT)</option>
-        </select>
-        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-              <label for="party_type" class="text-secondary mb-1">Party Type</label>
-              <select name="party_type" class="form-control border border-white-50">
-                  <option value="" disabled selected>Select Paty</option>
-                  <option value="builder">Builder</option>
-                  <option value="owner" >Owner</option>
-              </select>
-                <span class="text-danger error-text state-error"></span>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <label for="pincode" class="text-secondary mb-1">Pincode</label>
-                <input type="text" id="pincode" name="pincode" class="form-control border border-white-50">
-                <span class="text-danger error-text pincode-error"></span>
-              </div>
-            </div>
+                <!-- <label for="State" class="text-secondary mb-1">State</label>
+                <select name="state" class="form-control border border-white-50  mb-3">
+                  <option value="" disabled selected>Select State</option>
+                  <option value="New South Wales (NSW)">New South Wales (NSW)</option>
+                  <option value="Victoria (VIC)">Victoria (VIC)</option>
+                  <option value="Queensland (QLD)">Queensland (QLD)</option>
+                  <option value="Western Australia (WA)">Western Australia (WA)</option>
+                  <option value="South Australia (SA)">South Australia (SA)</option>
+                  <option value="Tasmania (TAS)">Tasmania (TAS)</option>
+                  <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
+                  <option value="Northern Territory (NT)">Northern Territory (NT)</option>
+                </select> -->
+                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                  <div class="form-group">
+                    <label for="party_type" class="text-secondary mb-1">Party Type</label>
+                    <select name="party_type" class="form-control border border-white-50">
+                      <option value="" disabled selected>Select Paty</option>
+                      <option value="builder">Builder</option>
+                      <option value="owner">Owner</option>
+                    </select>
+                    <span class="text-danger error-text state-error"></span>
+                  </div>
+                </div>
+                <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                  <div class="form-group">
+                    <label for="pincode" class="text-secondary mb-1">Pincode</label>
+                    <input type="text" id="pincode" name="pincode" class="form-control border border-white-50">
+                    <span class="text-danger error-text pincode-error"></span>
+                  </div>
+                </div> -->
 
-            <div class="pull-right mt-1 text-center">
-              <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
-              <a href="{{ url()->previous() }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
-            </div>
-          </div>
+                <div class="pull-right mt-1 text-center">
+                  <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
+                  <a href="{{ url()->previous() }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
+                </div>
+              </div>
         </form>
       </div>
     </div>
   </div>
-@endsection
+  @endsection
 
-@push('scripts')
+  @push('scripts')
 
 
-<script>
-  
- $(document).ready(function () {
-    // Add CSRF token to all AJAX requests
-    $.ajaxSetup({
+  <script>
+    $(document).ready(function() {
+      // Add CSRF token to all AJAX requests
+      $.ajaxSetup({
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
-    });
+      });
 
-    $.validator.addMethod("validName", function(value, element) {
+      $.validator.addMethod("validName", function(value, element) {
         return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
-    }, "Name should contain only letters.");
+      }, "Name should contain only letters.");
 
-    $.validator.addMethod("validEmail", function(value, element) {
-    // General regex for email validation
-    return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}, "Please enter a valid email address.");
-   
-   
+      $.validator.addMethod("validEmail", function(value, element) {
+        // General regex for email validation
+        return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      }, "Please enter a valid email address.");
 
-    $('#partiesForm').validate({
+
+
+      $('#partiesForm').validate({
         rules: {
-            name: {
-                required: true,
-                validName: true,
-                minlength: 3
-            },
-            email: {
-                required: true,
-                validEmail: true,
-                remote: {
-                    url: "{{ route('check.email') }}",
-                    type: "POST",
-                    data: {
-                        email: function() {
-                            return $('#email').val();
-                        }
-                    },
-                    dataFilter: function(response) {
-                        var json = JSON.parse(response);
-                        return json.available ? 'true' : 'false';
-                    }
+          name: {
+            required: true,
+            validName: true,
+            minlength: 3
+          },
+          email: {
+            required: true,
+            validEmail: true,
+            remote: {
+              url: "{{ route('check.email') }}",
+              type: "POST",
+              data: {
+                email: function() {
+                  return $('#email').val();
                 }
-            },
-            street: {
-                required: true,
-            },
-           
-            phone: {
-                required: true,
-            },
-            suburb: {
-                required: true,
-            },
-            state: {
-                required: true,
-            },
-            pincode: {
-                required: true,
+              },
+              dataFilter: function(response) {
+                var json = JSON.parse(response);
+                return json.available ? 'true' : 'false';
+              }
             }
+          },
+          street: {
+            required: true,
+          },
+
+          phone: {
+            required: true,
+          },
+          suburb: {
+            required: true,
+          },
+          state: {
+            required: true,
+          },
+          pincode: {
+            required: true,
+          }
         },
         messages: {
-            name: {
-                required: "Please enter your name"
-            },
-            email: {
-                required: "Please enter your email address",
-                remote: "The email address has already been taken"
-            },
-            street: {
-                required: "Please enter your Address/Location"
-            },
-          
-            phone: {
-                required: "Please enter your phone number"
-            },
-            suburb: {
-                required: "Please enter your suburb"
-            },
-            state: {
-                required: "Please enter your state"
-            },
-            pincode: {
-                required: "Please enter your pincode"
-            }
+          name: {
+            required: "Please enter your name"
+          },
+          email: {
+            required: "Please enter your email address",
+            remote: "The email address has already been taken"
+          },
+          street: {
+            required: "Please enter your Address/Location"
+          },
+
+          phone: {
+            required: "Please enter your phone number"
+          },
+          suburb: {
+            required: "Please enter your suburb"
+          },
+          state: {
+            required: "Please enter your state"
+          },
+          pincode: {
+            required: "Please enter your pincode"
+          }
         },
 
-        errorPlacement: function (error, element) {
-            error.addClass('invalid-feedback');
-            error.appendTo(element.parent().find('.error-text'));
+        errorPlacement: function(error, element) {
+          error.addClass('invalid-feedback');
+          error.appendTo(element.parent().find('.error-text'));
         },
 
-        highlight: function (element, errorClass, validClass) {
-            $(element).addClass('is-invalid').removeClass('is-valid');
+        highlight: function(element, errorClass, validClass) {
+          $(element).addClass('is-invalid').removeClass('is-valid');
         },
 
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).removeClass('is-invalid').addClass('is-valid');
+        unhighlight: function(element, errorClass, validClass) {
+          $(element).removeClass('is-invalid').addClass('is-valid');
         },
 
-        submitHandler: function (form) {
-            form.submit();
+        submitHandler: function(form) {
+          form.submit();
         }
+      });
     });
-});
-</script>
-@endpush
+  </script>
+  @endpush

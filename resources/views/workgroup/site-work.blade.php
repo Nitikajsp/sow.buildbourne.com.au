@@ -287,7 +287,7 @@
                             <label class="form-check-label" for="builderOption">By Builder</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner">
+                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner" checked>
                             <label class="form-check-label" for="ownerOption">By Owner</label>
                         </div>
                     </div>
@@ -331,22 +331,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="jsonPreviewModalLabel">Data Preview</h5>
-
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
             </div>
             <div class="modal-body">
-
                 <!-- <div class="table-responsive"> -->
-
                 <table class="table table-striped table-bordered">
                     <tbody id="jsonPreviewTable"></tbody>
                 </table>
-
                 <!-- </div> -->
             </div>
             <div class="modal-footer">
@@ -358,7 +348,6 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
     $(document).ready(function() {
         $("#siteWorkForm").on("submit", function(e) {

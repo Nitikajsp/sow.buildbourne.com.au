@@ -129,7 +129,7 @@
                     <th class="partylist_text ">Email</th>
                     <!-- <th class="partylist_text text-white">Status</th> -->
                     <th class="partylist_text  ">Orders</th>
-                    <!-- <th class="w-px-50 partylist_text text-white">Estimate</th> -->
+                    <th class="partylist_text d-none">Created At</th> <!-- hidden column -->
                     <th class="partylist_text  ">Actions</th> <!-- New column for Actions -->
 
                   </tr>
@@ -156,6 +156,8 @@
                         {{ $party->orders->count() }}
                       </div>
                     </td>
+                    <td class="d-none">{{ $party->created_at }}</td> <!-- hidden created_at -->
+
 
                     <td class="d-flex justify-content-center align-items-center">
 
@@ -205,10 +207,15 @@
     // Initialize DataTable
     let table = new DataTable('#orderstabale', {
       order: [
-        [0, 'desc']
-      ]
-
+        [3, 'desc'] // Sort by hidden "created_at" column
+      ],
+      columnDefs: [{
+        targets: 3,
+        visible: false,
+        searchable: false
+      }]
     });
+
 
     // Chart.js setup
     const ctx = document.getElementById('monthlyOrdersChart').getContext('2d');
