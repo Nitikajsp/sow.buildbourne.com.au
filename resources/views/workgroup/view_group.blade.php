@@ -28,7 +28,7 @@
 
                 <div class="card px-3 py-4 table_scroll party_table_width">
                     <div class="d-flex flex-end ms-auto">
-                        <a href="{{ route('workgroup.workquestionedit', $workgroup->id) }}" class="btn p-0 edit-btn text-info">
+                        <a href="{{ route('workgroup.workgroupedit', $workgroup->id) }}" class="btn p-0 edit-btn text-info">
                             <i class="ti ti-pencil me-1"></i>
                         </a>
 

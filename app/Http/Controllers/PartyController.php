@@ -136,7 +136,6 @@ class PartyController extends Controller
 
         $party->save();
 
-
         $request->session()->put('status_email', $party->email);
 
         $parties = Parties::all();

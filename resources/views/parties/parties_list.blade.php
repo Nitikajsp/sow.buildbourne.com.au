@@ -152,6 +152,26 @@
 @push('scripts')
 <script>
   $(document).ready(function() {
+    $('#partylist').DataTable({
+      "order": [
+        [0, 'asc']
+      ], // Default: sort by first column (No) ascending
+      "columnDefs": [{
+          "orderable": false,
+          "targets": 4
+        } // Disable sorting on Action column
+      ],
+      "pageLength": 10,
+      "language": {
+        "search": "Search:",
+        "lengthMenu": "Show _MENU_ entries",
+        "info": "Showing _START_ to _END_ of _TOTAL_ entries"
+      }
+    });
+  });
+</script>
+<script>
+  $(document).ready(function() {
     let partyIdToDelete;
     // Store the form to submit on confirmation
     $(document).on('click', '.delete-btn', function() {
@@ -169,64 +189,56 @@
 </script>
 
 <script>
-  $(document).ready(function() {
-    $('#partylist').DataTable({
-      order: [
-        [0, 'desc']
-      ]
-    });
+  // Handle "Set" button click
+  $(document).on('click', '.set-btn', function() {
+    var partyId = $(this).data('party-id');
+    $('#selectedPartyId').val(partyId);
 
-    // Handle "Set" button click
-    $(document).on('click', '.set-btn', function() {
-      var partyId = $(this).data('party-id');
-      $('#selectedPartyId').val(partyId);
-
-      // AJAX call to get lists
-      $.ajax({
-        url: '/get-lists',
-        method: 'GET',
-        data: {
-          party_id: partyId
-        },
-        success: function(response) {
-          let options = '<option value="" disabled selected required>Select...</option>';
-          if (response.length > 0) {
-            response.forEach(function(list) {
-              options += `<option value="${list.id}">${list.name}</option>`;
-            });
-          } else {
-            options = '<option value="" disabled>No lists available</option>';
-          }
-          $('#dropdownList').html(options);
-
-          // Build URL for create list
-          let baseCreateUrl = "{{ url('/createproject') }}/";
-          $('#createListLink').attr('href', baseCreateUrl + partyId);
-
-          $('#setModal').modal('show');
-        },
-        error: function(xhr, status, error) {
-          console.error('Error fetching lists:', error);
+    // AJAX call to get lists
+    $.ajax({
+      url: '/get-lists',
+      method: 'GET',
+      data: {
+        party_id: partyId
+      },
+      success: function(response) {
+        let options = '<option value="" disabled selected required>Select...</option>';
+        if (response.length > 0) {
+          response.forEach(function(list) {
+            options += `<option value="${list.id}">${list.name}</option>`;
+          });
+        } else {
+          options = '<option value="" disabled>No lists available</option>';
         }
-      });
-    });
+        $('#dropdownList').html(options);
 
-    // Handle form submission
-    $('#setPartyForm').on('submit', function(event) {
-      event.preventDefault();
+        // Build URL for create list
+        let baseCreateUrl = "{{ url('/createproject') }}/";
+        $('#createListLink').attr('href', baseCreateUrl + partyId);
 
-      let partyId = $('#selectedPartyId').val();
-      let listId = $('#dropdownList').val();
-
-      if (!listId) {
-        alert('Please select a list.');
-        return;
+        $('#setModal').modal('show');
+      },
+      error: function(xhr, status, error) {
+        console.error('Error fetching lists:', error);
       }
-
-      // Construct redirect URL
-      let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
-      window.location.href = redirectUrl;
     });
+  });
+
+  // Handle form submission
+  $('#setPartyForm').on('submit', function(event) {
+    event.preventDefault();
+
+    let partyId = $('#selectedPartyId').val();
+    let listId = $('#dropdownList').val();
+
+    if (!listId) {
+      alert('Please select a list.');
+      return;
+    }
+
+    // Construct redirect URL
+    let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
+    window.location.href = redirectUrl;
   });
 </script>
 
