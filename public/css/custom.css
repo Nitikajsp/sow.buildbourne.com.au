@@ -556,7 +556,7 @@ div#DataTables_Table_0_wrapper {
 .btn-primary:visited {
     background-color: #001d22 !important;
     border-color: #001d22 !important;
-    border-radius: 0 !important;
+    /* border-radius: 0 !important; */
     font-size: 16px !important;
     font-weight: 700 !important;
 }

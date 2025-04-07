@@ -36,16 +36,15 @@
                                     @foreach ($submissions as $index => $submission)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $submission->project->name }}</td>
-                                        <td>{{ $submission->party->name}}</td>
-                                        <td>
-                                            {{ $submission->status}}
-                                        </td>
+                                        <td>{{ $submission->project->name ?? 'N/A' }}</td>
+                                        <td>{{ $submission->party->name ?? 'N/A' }}</td>
+                                        <td>{{ $submission->status ?? 'Pending' }}</td>
                                         <td>
                                             <a href="{{ route('submissions.show', $submission->id) }}" class="btn btn-warning btn-sm">View</a>
                                         </td>
                                     </tr>
                                     @endforeach
+
                                 </tbody>
                             </table>
                         </div>

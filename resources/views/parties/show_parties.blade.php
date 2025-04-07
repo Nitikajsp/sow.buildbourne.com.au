@@ -99,7 +99,7 @@
                       <i class="ti ti-dots-vertical ti-md"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end m-0">
-                      <a href="{{ route('lists.edit', $list->id) }}" class="btn p-0 edit-btn dropdown-item">
+                      <a href="c" class="btn p-0 edit-btn dropdown-item">
                         <i class="ti ti-pencil me-1"></i> Edit
                       </a>
                       <a href="{{ route('showlistparty', ['listId' => $list->id, 'partyId' => $party->id]) }}" class="btn p-0 view-btn dropdown-item">
