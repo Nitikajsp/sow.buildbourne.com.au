@@ -44,18 +44,15 @@
                             </tr>
                         </thead>
                         <tbody class="">
-                            @foreach ($workgroupquestions as $workgroupquestion)
+                            @forelse ($workgroupquestions as $workgroupquestion)
+                            @if ($workgroupquestion->workgroup && $workgroupquestion->workgroup->group_name)
                             <tr>
                                 <td>{{ $workgroupquestion->id }}</td>
                                 <td>{{ $workgroupquestion->workgroup->group_name }}</td>
                                 <td>{{ $workgroupquestion->question_title }}</td>
                                 <td>{{ $workgroupquestion->question_value }}</td>
-
-
                                 <td>
                                     <div class="d-flex justify-content-center align-items-center">
-
-
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
                                                 <i class="ti ti-dots-vertical ti-md"></i>
@@ -67,7 +64,6 @@
                                                 <a href="{{ route('workgroup.workquestionview', $workgroupquestion->id) }}" class="btn p-0 view-btn dropdown-item">
                                                     <i class="ti ti-eye me-1"></i> View
                                                 </a>
-
                                                 <div class="dropdown-divider"></div>
                                                 <form id="deletePartyForm" action="{{ route('workgroup.workquestiondelete', $workgroupquestion->id) }}" method="POST">
                                                     @csrf
@@ -81,7 +77,13 @@
                                     </div>
                                 </td>
                             </tr>
-                            @endforeach
+                            @endif
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">No group questions available.</td>
+                            </tr>
+                            @endforelse
+
                         </tbody>
                     </table>
                 </div>

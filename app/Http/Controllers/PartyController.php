@@ -10,9 +10,6 @@ use App\Models\WorkGroup;
 use App\Models\Submission;
 use Illuminate\Support\Facades\Mail;
 
-
-
-
 class PartyController extends Controller
 
 {
@@ -100,15 +97,13 @@ class PartyController extends Controller
             'email' => 'required|email|unique:parties,email,' . $party->id,
             'phone' => 'required',
             'street' => 'required',
-            'suburb' => 'required',
-            'state' => 'required',
-            'pincode' => 'required',
+
         ], [
             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
             'email.unique' => 'The email address has already been taken.',
         ]);
 
-        $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
+        $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'party_type']));
 
         return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
     }
@@ -209,7 +204,7 @@ class PartyController extends Controller
         });
 
         // Redirect to the submissions list page
-        return redirect()->route('submissions.index')->with('success', 'Site work saved and emailed successfully.');
+        return redirect()->route('submissions.index')->with('success', 'Site work saved and email sent  successfully.');
     }
 
     public function showAllSubmissions()
