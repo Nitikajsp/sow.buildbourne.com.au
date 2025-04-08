@@ -204,7 +204,8 @@ class PartyController extends Controller
         });
 
         // Redirect to the submissions list page
-        return redirect()->route('submissions.index')->with('success', 'Site work saved and email sent  successfully.');
+        return redirect()->route('showlistparty', ['listId' => $listId, 'partyId' => $partyId])
+            ->with('success', 'Site work saved and email sent successfully.');
     }
 
     public function showAllSubmissions()
@@ -216,8 +217,38 @@ class PartyController extends Controller
 
     public function showsubmissions($id)
     {
-        $submission = Submission::with(['party', 'workGroup'])->findOrFail($id);
+        $data = Submission::find($id); // just example
+        $workData = json_decode($data->work, true); // if it's JSON
 
-        return view('question.view_submissions', compact('submission'));
+        return view('question.view_submissions', compact('workData'));
+    }
+
+    public function updateSiteWork(Request $request)
+    {
+        $input = $request->all();
+
+        $siteWorkData = [];
+
+        foreach ($input as $key => $value) {
+            if (is_array($value)) {
+                // Store only fields with array-type values (like checkboxes)
+                $siteWorkData[$key] = $value;
+            }
+        }
+
+        $sowData = [
+            'site_work' => $siteWorkData
+        ];
+
+        // Update to database (assuming you have model and column ready)
+        $model = Submission::find($request->input('id'));
+        $existingData = json_decode($model->work, true) ?? [];
+
+        $existingData['sow'] = $sowData;
+
+        $model->work_ = json_encode($existingData);
+        $model->save();
+
+        return back()->with('success', 'Site work updated successfully!');
     }
 }

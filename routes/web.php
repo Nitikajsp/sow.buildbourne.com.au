@@ -38,6 +38,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submissions/{id}', 'showsubmissions')->name('submissions.show');
     });
 
+    Route::post('/submissions/{id}', [PartyController::class, 'update'])->name('submissions.update');
+
+
     Route::controller(WorkGroupController::class)->prefix('work-group')->name('workgroup.')->group(function () {
 
         Route::get('addworkgroup', 'addworkgroup')->name('addworkgroup');

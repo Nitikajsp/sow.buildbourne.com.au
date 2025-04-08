@@ -37,4 +37,9 @@ class ListModel extends Model
     {
         return $this->hasMany(Order::class, 'list_id');
     }
+
+    public function submissions()
+    {
+        return $this->hasMany(\App\Models\Submission::class, 'project_id', 'id');
+    }
 }

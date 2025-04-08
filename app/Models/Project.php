@@ -24,8 +24,10 @@ class Project extends Model
         'created_at',
         'updated_at',
 
-
-
-
     ];
+
+    public function submissions()
+    {
+        return $this->hasMany(\App\Models\Submission::class, 'project_id', 'id');
+    }
 }
