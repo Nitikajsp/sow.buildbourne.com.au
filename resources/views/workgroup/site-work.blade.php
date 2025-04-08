@@ -23,13 +23,13 @@
                     <h5>1.1 Access Road to Site</h5>
                     <div>
                         <label class="me-3">By Builder
-                            <input type="checkbox" name="sow[site_work][access_road]" value="builder" class="form-check-input">
+                            <input type="radio" name="sow[site_work][access_road]" value="builder" class="form-check-input">
                         </label>
                         <label class="me-3">By Owner
-                            <input type="checkbox" name="sow[site_work][access_road]" value="owner" class="form-check-input">
+                            <input type="radio" name="sow[site_work][access_road]" value="owner" class="form-check-input">
                         </label>
                         <label>N/A
-                            <input type="checkbox" name="sow[site_work][access_road]" value="na" class="form-check-input" checked>
+                            <input type="radio" name="sow[site_work][access_road]" value="na" class="form-check-input" checked>
                         </label>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5>1.2 Site Clearing</h5>
                     <div>
-                        <label class="me-3">By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][site_clearing_by]" value="builder"></label>
-                        <label class="me-3">By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][site_clearing_by]" value="owner"></label>
-                        <label>N/A <input type="checkbox" class="form-check-input" name="sow[site_work][site_clearing_by]" value="na" checked></label>
+                        <label class="me-3">By Builder <input type="radio" class="form-check-input" name="sow[site_work][site_clearing_by]" value="builder"></label>
+                        <label class="me-3">By Owner <input type="radio" class="form-check-input" name="sow[site_work][site_clearing_by]" value="owner"></label>
+                        <label>N/A <input type="radio" class="form-check-input" name="sow[site_work][site_clearing_by]" value="na" checked></label>
                     </div>
                 </div>
                 <div class="card-body">
@@ -80,13 +80,13 @@
                     <h5>1.3 Excavation of Site</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][excavation_by]" value="builder" checked>
+                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][excavation_by]" value="builder" checked>
                         </label>
                         <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][excavation_by]" value="owner">
+                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][excavation_by]" value="owner">
                         </label>
                         <label>
-                            N/A <input type="checkbox" class="form-check-input" name="sow[site_work][excavation_by]" value="na">
+                            N/A <input type="radio" class="form-check-input" name="sow[site_work][excavation_by]" value="na">
                         </label>
                     </div>
                 </div>
@@ -111,13 +111,13 @@
                     <h5>1.4 Removal of Soil & Tree Debris</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][removal_by]" value="builder" checked>
+                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][removal_by]" value="builder" checked>
                         </label>
                         <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][removal_by]" value="owner">
+                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][removal_by]" value="owner">
                         </label>
                         <label>
-                            N/A <input type="checkbox" class="form-check-input" name="sow[site_work][removal_by]" value="na">
+                            N/A <input type="radio" class="form-check-input" name="sow[site_work][removal_by]" value="na">
                         </label>
                     </div>
                 </div>
@@ -144,23 +144,23 @@
                 <div class="card-body">
                     <p>Power Supply:</p>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="sow[site_work][power_supply]" id="power_owner" value="owner">
+                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="power_owner" value="owner">
                         <label class="form-check-label" for="power_owner">To site by owner</label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="sow[site_work][power_supply]" id="arial_temp" value="aerial_temporary" checked>
+                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="arial_temp" value="aerial_temporary" checked>
                         <label class="form-check-label" for="arial_temp">Aerial temporary by builder
                             <small>(Aerial mains supply to temporary power pole)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="sow[site_work][power_supply]" id="underground_temp" value="underground_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="underground_temp" value="underground_temporary">
                         <label class="form-check-label" for="underground_temp">Underground temporary by builder
                             <small>(Underground mains supply to meter box on stand)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="sow[site_work][power_supply]" id="generator_temp" value="generator_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="generator_temp" value="generator_temporary">
                         <label class="form-check-label" for="generator_temp">Generator temporary by builder
                             <small>(Hire rate as allowed in the contract price)</small>
                         </label>
@@ -176,13 +176,13 @@
                     <h5>1.6 Water to Site</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][water_supply]" value="builder" checked>
+                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][water_supply]" value="builder" checked>
                         </label>
                         <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][water_supply]" value="owner">
+                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][water_supply]" value="owner">
                         </label>
                         <label>
-                            N/A <input type="checkbox" class="form-check-input" name="sow[site_work][water_supply]" value="na">
+                            N/A <input type="radio" class="form-check-input" name="sow[site_work][water_supply]" value="na">
                         </label>
                     </div>
                 </div>
@@ -207,13 +207,13 @@
                     <h5>1.7 Site Clean (During Construction)</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][site_clean]" value="builder" checked>
+                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][site_clean]" value="builder" checked>
                         </label>
                         <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][site_clean]" value="owner">
+                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][site_clean]" value="owner">
                         </label>
                         <label>
-                            N/A <input type="checkbox" class="form-check-input" name="sow[site_work][site_clean]" value="na">
+                            N/A <input type="radio" class="form-check-input" name="sow[site_work][site_clean]" value="na">
                         </label>
                     </div>
                 </div>
@@ -237,13 +237,13 @@
                     <h5>1.8 Internal Clean (Prior to Handover)</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="sow[site_work][internal_clean]" value="builder" checked>
+                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="builder" checked>
                         </label>
                         <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="sow[site_work][internal_clean]" value="owner">
+                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="owner">
                         </label>
                         <label>
-                            N/A <input type="checkbox" class="form-check-input" name="sow[site_work][internal_clean]" value="na">
+                            N/A <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="na">
                         </label>
                     </div>
                 </div>
@@ -279,15 +279,15 @@
                         </div>
                     </div>
 
-                    <!-- Builder / Owner Checkboxes -->
+                    <!-- Builder / Owner radioes -->
 
                     <div class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="builderOption" value="builder">
+                            <input class="form-check-input" type="radio" name="sow[site_work][termite_protection_by]" id="builderOption" value="builder">
                             <label class="form-check-label" for="builderOption">By Builder</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner" checked>
+                            <input class="form-check-input" type="radio" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner" checked>
                             <label class="form-check-label" for="ownerOption">By Owner</label>
                         </div>
                     </div>
@@ -348,6 +348,7 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- 
 <script>
     $(document).ready(function() {
         $("#siteWorkForm").on("submit", function(e) {
@@ -390,6 +391,6 @@
             $("#siteWorkForm").off("submit").submit();
         });
     });
-</script>
+</script> -->
 
 @endsection

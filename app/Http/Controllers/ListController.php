@@ -187,7 +187,7 @@ class ListController extends Controller
 
         $partyId = $list->party_id;
 
-        $party = party::findOrFail($partyId);
+        $party = Parties::findOrFail($partyId);
 
         $partyId = session()->get('party_id');
 
@@ -430,13 +430,11 @@ class ListController extends Controller
     }
 
     public function showListparty($listId, $partyId)
-
     {
-        $list = ListModel::find($listId);
-        // $party = Parties::find($partyId);
+        $list = ListModel::with('submissions')->find($listId);
+        $party = Parties::find($partyId);
 
-
-        return view('list.show_list', compact('list'));
+        return view('list.show_list', compact('list', 'party'));
     }
 
     //  show list order update qty //
@@ -494,7 +492,7 @@ class ListController extends Controller
     {
         // Retrieve the list and party based on the IDs
         $list = ListModel::find($list_id);
-        $party = Party::find($party_id);
+        $party = Parties::find($party_id);
 
         // Check if list and party exist
         if (!$list || !$party) {
