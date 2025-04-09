@@ -79,7 +79,7 @@
           <table id="partyListsTable" class="table table-bordered mt-3 show_custmer " style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
             <thead class="table-dark">
               <tr>
-                <th class="text-secondary">Name</th>
+                <th class="text-secondary">Property Address</th>
                 <th class="text-secondary">Description</th>
                 <th class="text-secondary">Status</th>
                 <th class="text-secondary">Action</th>

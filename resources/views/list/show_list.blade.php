@@ -52,7 +52,7 @@
                     <div class="d-flex">
                         <div class=" d-flex flex-column justify-content-center w-100">
                             <div class="row mb-2">
-                                <div class="col-sm-4 fw-bold">Party Name:</div>
+                                <div class="col-sm-4 fw-bold">Property Address:</div>
                                 <div class="col-sm-8">{{ $list->name }}</div>
                             </div>
                             <div class="row mb-2">
@@ -86,7 +86,7 @@
                         <thead class="table-dark">
                             <tr>
                                 <th class="text-secondary">No</th>
-                                <th class="text-secondary">Project Name</th>
+                                <th class="text-secondary">Property Address</th>
                                 <th class="text-secondary">Status</th>
                                 <th class="text-secondary">Action</th>
                             </tr>
