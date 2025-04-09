@@ -195,11 +195,20 @@ class PartyController extends Controller
     }
 
     public function showAllSubmissions()
-
     {
-        $submissions = Submission::with(['project', 'party'])->orderBy('created_at', 'desc')->get();
+        $submissions = Submission::with(['project', 'party'])
+            ->whereHas('project', function ($query) {
+                $query->where('delete_status', 0);
+            })
+            ->whereHas('party', function ($query) {
+                $query->where('delete_status', 0);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('question.show_submissions_data', compact('submissions'));
     }
+
 
     public function showsubmissions($id)
     {

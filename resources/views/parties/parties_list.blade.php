@@ -32,7 +32,6 @@
       </div>
       @endif
       <div class="card mt-4 p-2 ">
-        <!-- <div class="partyscroll"> -->
         <div class="custom-resp-table">
 
           <table class="table datatables-projects" id="partylist">
@@ -103,7 +102,6 @@
     background-color: #f9f9f9;
   }
 </style>
-<!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -155,12 +153,11 @@
     $('#partylist').DataTable({
       "order": [
         [0, 'asc']
-      ], // Default: sort by first column (No) ascending
-      "columnDefs": [{
-          "orderable": false,
-          "targets": 4
-        } // Disable sorting on Action column
       ],
+      "columnDefs": [{
+        "orderable": false,
+        "targets": 4
+      }],
       "pageLength": 10,
       "language": {
         "search": "Search:",
@@ -173,14 +170,12 @@
 <script>
   $(document).ready(function() {
     let partyIdToDelete;
-    // Store the form to submit on confirmation
     $(document).on('click', '.delete-btn', function() {
       cpartyIdToDelete = $(this).data('party-id');
       var form = $(this).closest('form');
       $('#confirmDeleteBtn').data('form', form);
     });
 
-    // Submit the form when the confirm button is clicked
     $('#confirmDeleteBtn').on('click', function() {
       var form = $(this).data('form');
       form.submit();
@@ -189,12 +184,10 @@
 </script>
 
 <script>
-  // Handle "Set" button click
   $(document).on('click', '.set-btn', function() {
     var partyId = $(this).data('party-id');
     $('#selectedPartyId').val(partyId);
 
-    // AJAX call to get lists
     $.ajax({
       url: '/get-lists',
       method: 'GET',
@@ -212,7 +205,6 @@
         }
         $('#dropdownList').html(options);
 
-        // Build URL for create list
         let baseCreateUrl = "{{ url('/createproject') }}/";
         $('#createListLink').attr('href', baseCreateUrl + partyId);
 
@@ -224,7 +216,6 @@
     });
   });
 
-  // Handle form submission
   $('#setPartyForm').on('submit', function(event) {
     event.preventDefault();
 
@@ -236,7 +227,6 @@
       return;
     }
 
-    // Construct redirect URL
     let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
     window.location.href = redirectUrl;
   });
