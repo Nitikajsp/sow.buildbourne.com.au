@@ -79,7 +79,7 @@
           <table id="partyListsTable" class="table table-bordered mt-3 show_custmer " style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
             <thead class="table-dark">
               <tr>
-                <th class="text-secondary">Name</th>
+                <th class="text-secondary">Property Address</th>
                 <th class="text-secondary">Description</th>
                 <th class="text-secondary">Status</th>
                 <th class="text-secondary">Action</th>
@@ -109,7 +109,7 @@
                           <i class="ti ti-eye me-1"></i> View
                         </a>
                         <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}" class="btn p-0 view-btn dropdown-item">
-                          <i class="ti ti-plus me-1"></i>Choose WorkType
+                          <i class="ti ti-plus me-1"></i>Scope Of Work Type
                         </a>
 
                         <div class="dropdown-divider"></div>
