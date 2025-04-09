@@ -7,10 +7,8 @@
 
 @section('content')
 <div id="app" class="layout-wrapper">
-    <!-- Sidebar -->
     @include('include.sidebar')
 
-    <!-- Main Content Area -->
     <div class="main-content">
         @include('include.navbar')
 
@@ -67,9 +65,7 @@
 </div>
 
 @push('scripts')
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#submissionTable').DataTable({
@@ -88,7 +84,6 @@
             }
         });
 
-        // Add custom styles to search box
         $('.dataTables_filter input')
             .css({
                 'width': '150px',
@@ -104,7 +99,5 @@
         });
     });
 </script>
-
 @endpush
-
 @endsection
