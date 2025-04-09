@@ -109,7 +109,7 @@
                           <i class="ti ti-eye me-1"></i> View
                         </a>
                         <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}" class="btn p-0 view-btn dropdown-item">
-                          <i class="ti ti-plus me-1"></i>Choose WorkType
+                          <i class="ti ti-plus me-1"></i>Scope Of Work Type
                         </a>
 
                         <div class="dropdown-divider"></div>
