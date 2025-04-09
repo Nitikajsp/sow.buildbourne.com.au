@@ -95,8 +95,6 @@
                 </td>
                 <td>
                   <div class="d-flex justify-content-center align-items-center">
-
-
                     <div class="d-inline-block">
                       <a href="javascript:;" class="btn-sm btn-text-secondary rounded-pill btn-icon dropdown-toggle hide-arrow show text-black" data-bs-toggle="dropdown" aria-expanded="true">
                         <i class="ti ti-dots-vertical ti-md"></i>

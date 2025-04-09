@@ -148,19 +148,19 @@
                         <label class="form-check-label" for="power_owner">To site by owner</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="arial_temp" value="aerial_temporary" checked>
+                        <input type="radio" class="form-check-input" name="sow[site_work][aerial_temporary]" id="arial_temp" value="aerial_temporary" checked>
                         <label class="form-check-label" for="arial_temp">Aerial temporary by builder
                             <small>(Aerial mains supply to temporary power pole)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="underground_temp" value="underground_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][underground_temporary]" id="underground_temp" value="underground_temporary">
                         <label class="form-check-label" for="underground_temp">Underground temporary by builder
                             <small>(Underground mains supply to meter box on stand)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="generator_temp" value="generator_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][generator_temporary]" id="generator_temp" value="generator_temporary">
                         <label class="form-check-label" for="generator_temp">Generator temporary by builder
                             <small>(Hire rate as allowed in the contract price)</small>
                         </label>

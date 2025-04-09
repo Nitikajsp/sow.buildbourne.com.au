@@ -19,6 +19,7 @@ class Parties extends Model
         'state',
         'part_type',
         'choose_your_work_type',
+        'delete_status',
     ];
 
     public function lists()
