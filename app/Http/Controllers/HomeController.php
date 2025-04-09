@@ -33,7 +33,9 @@ class HomeController extends Controller
     public function index()
     {
         $partyCount = Parties::count();
-        $parties = Parties::with('orders')->orderBy('created_at', 'desc')->get();
+        $parties = Parties::where('delete_status', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
         $listCount = ListModel::count();
         $recentOrders = Order::with('product', 'party')->latest()->take(4)->get();
 

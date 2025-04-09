@@ -27,21 +27,7 @@
         </div>
 
         <div class="card px-3 py-4 table_scroll party_table_width">
-          <!-- <div class="d-flex flex-end ms-auto">
-            <a href="{{ route('parties.edit', $party->id) }}" class="btn p-0 edit-btn text-info">
-              <i class="ti ti-pencil me-1"></i>
-            </a>
 
-
-            <form id="deletePartyForm" action="{{ route('parties.destroy', $party->id) }}" method="POST" style="display: none;">
-              @csrf
-              @method('DELETE')
-            </form>
-            <button type="button" class="btn p-0 delete-btn text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-              <i class="ti ti-trash me-1"></i>
-            </button>
-
-          </div> -->
 
           <div class="d-flex">
             <div class=" d-flex flex-column justify-content-center w-100">

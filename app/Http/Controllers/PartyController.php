@@ -20,9 +20,13 @@ class PartyController extends Controller
     public function index()
 
     {
-        $parties = Parties::orderBy('created_at', 'desc')->get();
+        $parties = Parties::where('delete_status', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         return view('parties.parties_list', compact('parties'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,8 +54,6 @@ class PartyController extends Controller
             'street' => 'required',
             'suburb' => 'required',
 
-
-
         ], [
             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
             'email.unique' => 'The email address has already been taken.',
@@ -61,23 +63,16 @@ class PartyController extends Controller
         return redirect()->route('parties.index')->with('success', 'Customer created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
 
     public function show(Parties $party)
     {
-
-        $lists = $party->lists()->orderBy('created_at', 'desc')->get();
+        $lists = $party->lists()
+            ->where('delete_status', 1)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('parties.show_parties', compact('party', 'lists'));
     }
-
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
 
     public function edit(Parties $party)
 
@@ -85,9 +80,6 @@ class PartyController extends Controller
         return view('parties.edit_parties', compact('party'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
 
     public function update(Request $request, Parties $party)
 
@@ -108,18 +100,16 @@ class PartyController extends Controller
         return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     */
-
-    public function destroy(Parties $party)
+    public function destroy($id)
 
     {
 
-        $party->delete();
 
-        return redirect()->route('parties.index')->with('success', 'Parties deleted successfully.');
+        $party = Parties::findOrFail($id);
+        $party->delete_status = 1;
+        $party->save();
+
+        return redirect()->route('parties.index')->with('success', 'Party deleted successfully.');
     }
 
     public function updateStatus(Request $request, $id)
@@ -184,7 +174,6 @@ class PartyController extends Controller
         $formData = $request->except('_token');
         $workDataJson = json_encode($formData);
 
-        // Store data in the database
         Submission::create([
             'project_id' => $listId,
             'party_id' => $partyId,
@@ -192,18 +181,15 @@ class PartyController extends Controller
             'status' => 'pending'
         ]);
 
-        // Generate PDF
         $pdf = Pdf::loadView('emails.site_work_submitted', ['party' => $party, 'workData' => $formData]);
 
 
-        // Send email with only the PDF attachment
         Mail::send([], [], function ($message) use ($party, $pdf) {
             $message->to($party->email)
                 ->subject('New Site Work Submitted')
                 ->attachData($pdf->output(), 'SiteWork_Submitted.pdf');
         });
 
-        // Redirect to the submissions list page
         return redirect()->route('showlistparty', ['listId' => $listId, 'partyId' => $partyId])
             ->with('success', 'Site work saved and email sent successfully.');
     }
@@ -217,8 +203,8 @@ class PartyController extends Controller
 
     public function showsubmissions($id)
     {
-        $data = Submission::find($id); // just example
-        $workData = json_decode($data->work, true); // if it's JSON
+        $data = Submission::find($id);
+        $workData = json_decode($data->work, true);
 
         return view('question.view_submissions', compact('workData'));
     }
@@ -231,7 +217,6 @@ class PartyController extends Controller
 
         foreach ($input as $key => $value) {
             if (is_array($value)) {
-                // Store only fields with array-type values (like checkboxes)
                 $siteWorkData[$key] = $value;
             }
         }
@@ -240,7 +225,6 @@ class PartyController extends Controller
             'site_work' => $siteWorkData
         ];
 
-        // Update to database (assuming you have model and column ready)
         $model = Submission::find($request->input('id'));
         $existingData = json_decode($model->work, true) ?? [];
 
