@@ -22,10 +22,12 @@ class Parties extends Model
         'delete_status',
     ];
 
+
     public function lists()
     {
-        return $this->hasMany(ListModel::class);
+        return $this->hasMany(ListModel::class)->where('delete_status', 0);
     }
+
 
     public function orders()
     {
@@ -35,5 +37,10 @@ class Parties extends Model
     public function submissions()
     {
         return $this->hasMany(Submission::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('delete_status', 1);
     }
 }

@@ -31,10 +31,7 @@ class ListController extends Controller
 
     public function store(Request $request)
 
-
     {
-
-
         $request->validate([
 
             'list_name' => 'required|max:255',
@@ -123,21 +120,24 @@ class ListController extends Controller
     }
 
 
-    // list delete controller start  //
+
     public function destroy($id)
     {
         $list = ListModel::findOrFail($id);
 
-        $list->delete();
+        // Instead of deleting, just update delete_status to 0
+        $list->delete_status = 1;
+        $list->save();
 
         return redirect()->back()->with('success', 'List deleted successfully.');
     }
+
 
     // add cart product controller start  //
 
     public function addcartproject($list, $partyId)
     {
-        $list = ListModel::findOrFail($list); // Fetch the list object
+        $list = ListModel::findOrFail($list);
         return view('list.add_cart_project', compact('list', 'partyId'));
     }
 
@@ -149,7 +149,7 @@ class ListController extends Controller
     {
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity');
-        $comment = $request->input('comment'); // Capture the comment
+        $comment = $request->input('comment');
 
         $partyId = session()->get('party_id');
 
@@ -163,11 +163,10 @@ class ListController extends Controller
             $cart[$listId][$partyId] = [];
         }
 
-        // Store the product, quantity, and comment
         $cart[$listId][$partyId][$productId] = [
             'product_id' => $productId,
             'quantity' => $quantity,
-            'comment' => $comment, // Store the comment
+            'comment' => $comment,
         ];
 
         session()->put('cart', $cart);
@@ -212,9 +211,6 @@ class ListController extends Controller
                         'quantity' => $cart[$listId][$partyId][$product->id]['quantity'],
 
                         'comment' => $cart[$listId][$partyId][$product->id]['comment'],
-
-
-
 
                     ];
                 }
@@ -280,10 +276,9 @@ class ListController extends Controller
             $cartItems = $request->input('cart_items');
             $listEmail = $request->input('list_email');
             $partyEmail = $request->input('party_email');
-            $actionType = $request->input('action_type'); // Get the action type
+            $actionType = $request->input('action_type');
 
             try {
-                // Retrieve the list data based on the list_id
                 $list = ListModel::find($listId);
 
                 if (!$list) {
@@ -298,51 +293,46 @@ class ListController extends Controller
                     $productName = $item['product_name'];
                     $quantity = $item['quantity'];
                     $productImage = $item['product_image'];
-                    $productId = $item['product_id']; // Make sure this exists in your cart items
-                    $comment = $item['comment'];  // Get the comment
+                    $productId = $item['product_id'];
+                    $comment = $item['comment'];
 
 
-                    // Check if an order with the same product_code and list_id exists
                     $existingOrder = Order::where('product_id', $productId)
                         ->where('list_id', $listId)
                         ->where('party_id', $partyId)
                         ->first();
 
                     if ($existingOrder) {
-                        // Update the quantity of the existing order
                         $existingOrder->quantity = $quantity;
-                        $existingOrder->comment = $comment;  // Update the comment
+                        $existingOrder->comment = $comment;
 
                         $existingOrder->save();
 
-                        // Add the updated order details to ordersData
                         $ordersData[] = [
                             'product_name' => $productName,
                             'product_code' => $productCode,
-                            'quantity' => $existingOrder->quantity, // Updated quantity
-                            'comment' => $comment,  // Add comment to the order data
+                            'quantity' => $existingOrder->quantity,
+                            'comment' => $comment,
                             'product_image' => $productImage,
-                            'order_id' => $existingOrder->id, // Existing order ID
+                            'order_id' => $existingOrder->id,
                         ];
                     } else {
-                        // Create a new order
                         $order = Order::create([
                             'quantity' => $quantity,
                             'party_id' => $partyId,
                             'list_id' => $listId,
-                            'product_id' => $productId, // Include the product_id
-                            'comment' => $comment,  // Save the comment in the new order
+                            'product_id' => $productId,
+                            'comment' => $comment,
 
                         ]);
 
-                        // Add the order ID to the ordersData array
                         $ordersData[] = [
                             'product_name' => $productName,
                             'product_code' => $productCode,
                             'quantity' => $quantity,
-                            'comment' => $comment,  // Add comment to the new order data
+                            'comment' => $comment,
                             'product_image' => $productImage,
-                            'order_id' => $order->id, // New order ID
+                            'order_id' => $order->id,
                         ];
 
                         if (!$orderId) {
@@ -351,10 +341,10 @@ class ListController extends Controller
                     }
                 }
 
-                // Clear the cart from session
+
                 $request->session()->forget('cart.' . $listId);
 
-                $party = Parties::find($partyId); // Ensure $party is correctly retrieved
+                $party = Parties::find($partyId);
                 $partyName = $party ? $party->name : 'party';
 
                 $orderDate = now()->format('Y-m-d H:i:s');
@@ -365,22 +355,19 @@ class ListController extends Controller
                     'orderDate' => $orderDate,
                     'ordersData' => $ordersData,
                     'partyEmail' => $partyEmail,
-                    'party' => $party, // Pass all party details to the view
-                    'list' => $list, // Use the retrieved $list data here
+                    'party' => $party,
+                    'list' => $list,
                 ];
 
-                // Check if action_type is "save_send"
                 if ($actionType == 'save_send') {
                     $pdf = Pdf::loadView('emails.order_confirmation', compact('orderData'));
 
-                    // Send the email to the party with the PDF attachment
                     Mail::send([], [], function ($message) use ($party, $list, $pdf) {
                         $message->to($party->email)
                             ->subject('Product List Received from Oreva Selection')
                             ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
                     });
 
-                    // Send the email to the list email with the PDF attachment
                     Mail::send([], [], function ($message) use ($list, $pdf) {
                         $message->to($list->contact_email)
                             ->subject('Product List Received from Oreva Selection')
@@ -480,57 +467,47 @@ class ListController extends Controller
     public function showList($list, $party_id)
 
     {
-        // Fetch the necessary data based on $list and $party_id
-        // For example, fetch list details, party details, etc.
 
-        // Return a view with the data
         return view('lists.show_list', compact('list', 'party_id'));
     }
 
     public function sendEmail($list_id, $party_id)
 
     {
-        // Retrieve the list and party based on the IDs
         $list = ListModel::find($list_id);
         $party = Parties::find($party_id);
 
-        // Check if list and party exist
         if (!$list || !$party) {
             return redirect()->back()->with('error', 'List or party not found');
         }
 
-        // Retrieve all orders with product details using product_id
         $ordersData = Order::select('orders.*', 'products.product_name', 'products.product_image')
             ->join('products', 'orders.product_id', '=', 'products.id')
             ->where('orders.list_id', $list_id)
-            ->where('orders.parties_id', $party_id) // Ensure we're filtering by party_id as well
+            ->where('orders.parties_id', $party_id)
             ->get();
 
-        // Prepare the order data to be sent to the email view
+
         $orderData = [
             'list' => $list,
             'party' => $party,
             'ordersData' => $ordersData
         ];
 
-        // Generate the PDF from the Blade view
         $pdf = Pdf::loadView('emails.order_confirmation', ['orderData' => $orderData]);
 
-        // Send the email to the party with the PDF attachment
         Mail::send([], [], function ($message) use ($party, $list, $pdf) {
             $message->to($party->email)
                 ->subject('Product List Received from Oreva Selection')
                 ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
         });
 
-        // Send the email to the list email with the PDF attachment
         Mail::send([], [], function ($message) use ($list, $pdf) {
             $message->to($list->contact_email)
                 ->subject('Product List Received from Oreva Selection')
                 ->attachData($pdf->output(), "Selection Oreva_{$list->id}.pdf");
         });
 
-        // Redirect back with a success message
         return redirect()->back()->with('success', 'Email sent successfully!');
     }
 }
