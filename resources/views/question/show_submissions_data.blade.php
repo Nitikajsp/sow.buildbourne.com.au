@@ -32,7 +32,7 @@
                     <p class="text-muted">No submissions found.</p>
                     @else
                     <div class="table-responsive">
-                        <table class="table table-bordered table-hover" id="submissionTable">
+                        <table class="table table-bordered " id="submissionTable">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>No</th>
