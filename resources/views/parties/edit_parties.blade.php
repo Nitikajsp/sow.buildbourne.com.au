@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left">
-                            <h2>Edit Party</h2>
+                            <h2>Edit Client</h2>
                         </div>
                         <div class="pull-left">
                             <h5>Please update the details below</h5>
@@ -94,13 +94,13 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div> -->
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                        <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">
                                 <p class="text-secondary mb-1">Builder Name</p>
                                 <input type="text" name="Builder Name" value="{{ old('suburb', $party->suburb) }}" class="form-control border border-white-50" placeholder="Suburb">
                                 <div class="invalid-feedback"></div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
 
                             <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
@@ -119,7 +119,7 @@
                             </div>
                         </div> -->
 
-                            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                                 <div class="form-group">
                                     <p class="text-secondary mb-1">Party Type</p>
                                     <select name="party_type" class="form-control border border-white-50">
@@ -127,7 +127,7 @@
                                         <option value="builder" {{ old('party_type', $party->party_type) == 'Owner' ? 'selected' : '' }}>Owner</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">

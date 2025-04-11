@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-lg-12 margin-tb">
             <div class="pull-left head-label">
-              <h2>View Party Detail </h2>
+              <h2>View Client Detail </h2>
             </div>
           </div>
         </div>
@@ -32,11 +32,11 @@
           <div class="d-flex">
             <div class=" d-flex flex-column justify-content-center w-100">
               <div class="row mb-2">
-                <div class="col-sm-4 fw-bold">Party Name:</div>
+                <div class="col-sm-4 fw-bold">Client Name:</div>
                 <div class="col-sm-8">{{ $party->name }}</div>
               </div>
               <div class="row mb-2">
-                <div class="col-sm-4 fw-bold">Party ID:</div>
+                <div class="col-sm-4 fw-bold">Client ID:</div>
                 <div class="col-sm-8">{{ $party->id }}</div>
               </div>
               <div class="row mb-2">

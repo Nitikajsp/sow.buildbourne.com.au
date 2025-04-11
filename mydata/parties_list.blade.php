@@ -18,12 +18,12 @@
     <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
       <div class="card-header flex-column flex-md-row">
         <div class="head-label text-center">
-          <h2 class="card-title mb-0">All Party</h2>
+          <h2 class="card-title mb-0">All Client</h2>
         </div>
         <div class=" pt-6 pt-md-0">
           <!-- <div class="dt-buttons flex-wrap"> -->
           <a href="{{ route('parties.create') }}" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded" tabindex="0" aria-controls="DataTables_Table_0">
-            <span><i class="ti ti-plus me-sm-1"></i> Add Party</span>
+            <span><i class="ti ti-plus me-sm-1"></i> Add Client </span>
           </a>
           <!-- </div> -->
         </div>

@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-tb">
                         <div class="pull-left head-label">
-                            <h2>View Party Detail </h2>
+                            <h2>View Project Detail </h2>
                         </div>
                     </div>
                 </div>
@@ -56,13 +56,10 @@
                                 <div class="col-sm-8">{{ $list->name }}</div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-sm-4 fw-bold">Party ID:</div>
+                                <div class="col-sm-4 fw-bold">Client ID:</div>
                                 <div class="col-sm-8">{{ $list->id }}</div>
                             </div>
-                            <div class="row mb-2">
-                                <div class="col-sm-4 fw-bold">Email ID:</div>
-                                <div class="col-sm-8">{{ $list->contact_email }}</div>
-                            </div>
+
                             <div class="row mb-2">
                                 <div class="col-sm-4 fw-bold">Phone Number:</div>
                                 <div class="col-sm-8">
