@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Mail;
 class PartyController extends Controller
 
 {
-    /**
-     * Display a listing of the resource.
-     */
 
     public function index()
 
@@ -27,39 +24,44 @@ class PartyController extends Controller
         return view('parties.parties_list', compact('parties'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-
     public function create()
 
     {
         return view('parties.add_parties');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
 
     public function store(Request $request)
-
     {
-
         $request->validate([
-
             'name' => 'required',
-            'email' => 'required|email|unique:parties,email',
             'phone' => 'required',
             'street' => 'required',
             'suburb' => 'required',
-
-        ], [
-            'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
-            'email.unique' => 'The email address has already been taken.',
         ]);
 
-        Parties::create($request->only(['name', 'email', 'phone', 'street', 'house_number', 'suburb', 'state', 'pincode', 'party_type']));
+        if ($request->filled('email')) {
+            $exists = Parties::where('email', $request->email)
+                ->where('delete_status', 0)
+                ->exists();
+
+            if ($exists) {
+                return back()->withErrors(['email' => 'This email already exists.'])->withInput();
+            }
+        }
+
+        Parties::create($request->only([
+            'name',
+            'email',
+            'phone',
+            'street',
+            'house_number',
+            'suburb',
+            'state',
+            'pincode',
+            'party_type'
+        ]));
+
         return redirect()->route('parties.index')->with('success', 'Customer created successfully.');
     }
 
@@ -136,14 +138,17 @@ class PartyController extends Controller
 
         return view('list.show_list', compact('party'));
     }
-
     public function checkEmail(Request $request)
     {
         $email = $request->input('email');
-        $exists = Parties::where('email', $email)->exists();
+
+        $exists = Parties::where('email', $email)
+            ->where('delete_status', 0)
+            ->exists();
 
         return response()->json(['available' => !$exists]);
     }
+
 
     public function updateWorkType(Request $request, $listId, $partyId)
     {
