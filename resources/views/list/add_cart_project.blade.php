@@ -29,7 +29,7 @@
                     <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="work_type" class="form-label">Range Selection</label>
+                            <label for="work_type" class="form-label">Types</label>
                             <select class="form-select" id="work_type" name="work_type" required>
                                 <option value="Basic " {{ old('work_type', $list->work_type) == 'Basic ' ? 'selected' : '' }}>Basic </option>
                                 <option value="Upgrade " {{ old('work_type', $list->work_type) == 'Upgrade ' ? 'selected' : '' }}>Upgrade </option>

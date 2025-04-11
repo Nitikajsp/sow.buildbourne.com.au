@@ -117,7 +117,7 @@
                                     <input type="text" id="builder" name="builder_name" value="{{ $list->builder_name }}" class="form-control border border-white-50" placeholder="Builder Name">
                                     <span class="text-danger error-text builder-error"></span>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                                 <div class="form-group">
@@ -132,7 +132,7 @@
                                     </div>
                                     <span class="text-danger error-text status-error"></span>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="pull-right mt-1 text-center">
                                 <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>

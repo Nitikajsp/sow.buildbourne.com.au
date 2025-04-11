@@ -17,19 +17,24 @@
     <div style="      background-color: #fff;
         padding: 20px;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
         max-width: 800px;
         margin: 0 auto;">
-        <div style="              display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;">
+        <div style="display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;">
 
-            <div style="                text-align: right;
-                font-size: 0.9em;
-                color: #555;">
+            <div>
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/dashboardlogo.png'))) }}" style="height: 60px;">
+            </div>
+
+
+            <div style="text-align: right;
+        font-size: 0.9em;
+        color: #555;">
                 <div>Client: {{ $party->name ?? '' }}</div>
                 <div>Date: {{ date('Y-m-d') }}</div>
             </div>
