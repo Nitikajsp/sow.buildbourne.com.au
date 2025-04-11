@@ -37,7 +37,6 @@ class PartyController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'street' => 'required',
-            'suburb' => 'required',
         ]);
 
         if ($request->filled('email')) {
@@ -56,7 +55,6 @@ class PartyController extends Controller
             'phone',
             'street',
             'house_number',
-            'suburb',
             'state',
             'pincode',
             'party_type'

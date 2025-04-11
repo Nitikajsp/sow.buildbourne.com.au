@@ -22,17 +22,17 @@
             <div class="inner-container custmrmt0">
                 <div class="row">
                     <div class="col-md-12 d-flex justify-content-between align-items-center">
-                        <h2>Choose Your Work Type</h2>
+                        <h2>Range Selection</h2>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <form method="POST" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
                         @csrf
                         <div class="mb-3">
-                            <label for="work_type" class="form-label">Work Type</label>
+                            <label for="work_type" class="form-label">Range Selection</label>
                             <select class="form-select" id="work_type" name="work_type" required>
-                                <option value="normal" {{ old('work_type', $list->work_type) == 'normal' ? 'selected' : '' }}>Normal</option>
-                                <option value="advance" {{ old('work_type', $list->work_type) == 'advance' ? 'selected' : '' }}>Advance</option>
+                                <option value="Basic " {{ old('work_type', $list->work_type) == 'Basic ' ? 'selected' : '' }}>Basic </option>
+                                <option value="Upgrade " {{ old('work_type', $list->work_type) == 'Upgrade ' ? 'selected' : '' }}>Upgrade </option>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-dark me-1 rounded">Save</button>

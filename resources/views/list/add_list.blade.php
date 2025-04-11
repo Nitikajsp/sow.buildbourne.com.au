@@ -105,7 +105,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                        <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">
                                 <p class="text-secondary mb-1">Builder Email</p>
                                 <input type="email" name="contact_email" class="form-control border border-white-50">
@@ -132,7 +132,7 @@
                                 </div>
                                 <span class="text-danger error-text status-error"></span>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="pull-right mt-1 text-center">
                             <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>

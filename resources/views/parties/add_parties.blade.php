@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-              <h2>Add party </h2>
+              <h2>Add Client </h2>
             </div>
             <div class="pull-left">
               <h5>Please enter your details</h5>
@@ -75,57 +75,13 @@
                 <span class="text-danger error-text street-error"></span>
               </div>
             </div>
-            <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <label for="house_number" class="text-secondary mb-1">House Number</label>
-                <input type="text" id="house_number" name="house_number" class="form-control border border-white-50">
-                <span class="text-danger error-text street-error"></span>
-              </div>
-            </div> -->
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <label for="suburb" class="text-secondary mb-1">Builder Name</label>
-                <input type="text" id="suburb" name="suburb" class="form-control border border-white-50">
-                <span class="text-danger error-text suburb-error"></span>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-              <div class="form-group">
-                <!-- <label for="State" class="text-secondary mb-1">State</label>
-                <select name="state" class="form-control border border-white-50  mb-3">
-                  <option value="" disabled selected>Select State</option>
-                  <option value="New South Wales (NSW)">New South Wales (NSW)</option>
-                  <option value="Victoria (VIC)">Victoria (VIC)</option>
-                  <option value="Queensland (QLD)">Queensland (QLD)</option>
-                  <option value="Western Australia (WA)">Western Australia (WA)</option>
-                  <option value="South Australia (SA)">South Australia (SA)</option>
-                  <option value="Tasmania (TAS)">Tasmania (TAS)</option>
-                  <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
-                  <option value="Northern Territory (NT)">Northern Territory (NT)</option>
-                </select> -->
-                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                  <div class="form-group">
-                    <label for="party_type" class="text-secondary mb-1">Party Type</label>
-                    <select name="party_type" class="form-control border border-white-50">
-                      <option value="builder">Builder</option>
-                      <option value="owner">Owner</option>
-                    </select>
-                    <span class="text-danger error-text state-error"></span>
-                  </div>
-                </div>
-                <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                  <div class="form-group">
-                    <label for="pincode" class="text-secondary mb-1">Pincode</label>
-                    <input type="text" id="pincode" name="pincode" class="form-control border border-white-50">
-                    <span class="text-danger error-text pincode-error"></span>
-                  </div>
-                </div> -->
 
-                <div class="pull-right mt-1 text-center">
-                  <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
-                  <a href="{{ url()->previous() }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
-                </div>
-              </div>
+
+            <div class="pull-right mt-1 text-center">
+              <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
+              <a href="{{ url()->previous() }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
+            </div>
+          </div>
         </form>
       </div>
     </div>

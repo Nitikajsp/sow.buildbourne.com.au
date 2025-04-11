@@ -40,9 +40,6 @@ class ListController extends Controller
             'pincode' => 'required|max:255',
             'list_description' => 'required',
             'contact_number' => 'max:20',
-            'contact_email' => 'required|email|max:255',
-            'builder_name' => 'required|max:255',
-            'status' => 'required|max:255',
             'parties_id' => 'required|exists:parties,id',
 
         ]);
@@ -56,9 +53,6 @@ class ListController extends Controller
             'pincode' => $request->input('pincode'),
             'description' => $request->input('list_description'),
             'contact_number' => $request->input('contact_number'),
-            'contact_email' => $request->input('contact_email'),
-            'builder_name' => $request->input('builder_name'),
-            'status' => $request->input('status'),
             'parties_id' => $request->input('parties_id'),
 
         ]);
@@ -105,9 +99,7 @@ class ListController extends Controller
             'pincode' => 'required|max:255',
             'description' => 'required',
             'contact_number' => 'max:20',
-            'contact_email' => 'required|email|max:255',
-            'builder_name' => 'required|max:255',
-            'status' => 'required|max:255',
+
 
         ]);
 
