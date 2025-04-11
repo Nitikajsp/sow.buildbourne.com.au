@@ -60,7 +60,7 @@ class PartyController extends Controller
             'party_type'
         ]));
 
-        return redirect()->route('parties.index')->with('success', 'Customer created successfully.');
+        return redirect()->route('parties.index')->with('success', 'Client created successfully.');
     }
 
 
@@ -96,7 +96,7 @@ class PartyController extends Controller
 
         $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'party_type']));
 
-        return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Party updated successfully.');
+        return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Client updated successfully.');
     }
 
     public function destroy($id)
