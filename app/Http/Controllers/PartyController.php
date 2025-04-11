@@ -86,13 +86,12 @@ class PartyController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:parties,email,' . $party->id,
+            'email' => 'required',
             'phone' => 'required',
             'street' => 'required',
 
         ], [
             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
-            'email.unique' => 'The email address has already been taken.',
         ]);
 
         $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'party_type']));
@@ -151,7 +150,7 @@ class PartyController extends Controller
     public function updateWorkType(Request $request, $listId, $partyId)
     {
         $request->validate([
-            'work_type' => 'required|in:advance,normal',
+            'work_type' => 'required|in:Basic,Upgrade',
         ]);
 
         $party = Parties::findOrFail($partyId);
