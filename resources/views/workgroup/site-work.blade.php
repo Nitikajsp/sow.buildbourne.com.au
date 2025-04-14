@@ -44,6 +44,14 @@
                         <input type="radio" class="form-check-input" name="sow[site_work][access_road_option]" id="access_provisional" value="provisional_sum">
                         <label class="form-check-label" for="access_provisional">Provisional Sum</label>
                     </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="access_road_to_site" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][access_road_to_site]" id="access_road_to_site" placeholder="Enter access road to site notes">
+                    </div>
                 </div>
 
             </div>
@@ -68,6 +76,14 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="sow[site_work][site_clearing_option]" id="clearing_provisional" value="provisional_sum">
                         <label class="form-check-label" for="clearing_provisional">Provisional Sum</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="site_clearing" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][site_clearing]" id="site_clearing" placeholder="Enter site clearing notes">
                     </div>
                 </div>
             </div>
@@ -100,6 +116,14 @@
                         <input type="radio" class="form-check-input" name="sow[site_work][excavation_type]" id="excavation_provisional" value="provisional_sum">
                         <label class="form-check-label" for="excavation_provisional">Provisional Sum</label>
                     </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="excavation_of_site" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][excavation_of_site]" id="excavation_of_site" placeholder="Enter excavation of site notes">
+                    </div>
                 </div>
             </div>
 
@@ -131,6 +155,14 @@
                         <input type="radio" class="form-check-input" name="sow[site_work][removal_type]" id="removal_provisional" value="provisional_sum">
                         <label class="form-check-label" for="removal_provisional">Provisional Sum</label>
                     </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="soil_tree" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][soil_tree]" id="soil_tree" placeholder="enter removal of soil & tree debris notes">
+                    </div>
                 </div>
             </div>
 
@@ -144,29 +176,38 @@
                 <div class="card-body">
                     <p>Power Supply:</p>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][power_supply]" id="power_owner" value="owner">
+                        <input type="radio" class="form-check-input" name="sow[site_work][initial_power]" id="power_owner" value="owner">
                         <label class="form-check-label" for="power_owner">To site by owner</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][aerial_temporary]" id="arial_temp" value="aerial_temporary" checked>
+                        <input type="radio" class="form-check-input" name="sow[site_work][initial_power]" id="arial_temp" value="aerial_temporary" checked>
                         <label class="form-check-label" for="arial_temp">Aerial temporary by builder
                             <small>(Aerial mains supply to temporary power pole)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][underground_temporary]" id="underground_temp" value="underground_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][initial_power]" id="underground_temp" value="underground_temporary">
                         <label class="form-check-label" for="underground_temp">Underground temporary by builder
                             <small>(Underground mains supply to meter box on stand)</small>
                         </label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="sow[site_work][generator_temporary]" id="generator_temp" value="generator_temporary">
+                        <input type="radio" class="form-check-input" name="sow[site_work][initial_power]" id="generator_temp" value="generator_temporary">
                         <label class="form-check-label" for="generator_temp">Generator temporary by builder
                             <small>(Hire rate as allowed in the contract price)</small>
                         </label>
                     </div>
                     <p><strong>Note :</strong> <em> If required - temporary power by generator will be at a weekly hire rate of $165.00 inc. GST.</em></p>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="initial_power_to_site" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][initial_power_to_site]" id="initial_power_to_site" placeholder="enter initial power to site notes">
+                    </div>
                 </div>
+
             </div>
 
             <!-- Question 6 -->
@@ -195,6 +236,14 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="sow[site_work][water_cost]" id="water_provisional" value="provisional_sum">
                         <label class="form-check-label" for="water_provisional">Provisional Sum</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="water_to_site" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][water_to_site]" id="water_to_site" placeholder="enter water to site notes">
                     </div>
                 </div>
             </div>
@@ -227,6 +276,14 @@
                         <input type="radio" class="form-check-input" name="sow[site_work][site_clean_cost]" id="site_clean_provisional" value="provisional_sum">
                         <label class="form-check-label" for="site_clean_provisional">Provisional Sum</label>
                     </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="site_clean" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][site_clean]" id="site_clean" placeholder="enter site clean notes">
+                    </div>
                 </div>
             </div>
 
@@ -256,6 +313,14 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="sow[site_work][internal_clean_cost]" id="internal_clean_provisional" value="provisional_sum">
                         <label class="form-check-label" for="internal_clean_provisional">Provisional Sum</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="internal_clean" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][internal_clean]" id="internal_clean" placeholder="enter internal clean notes">
                     </div>
                 </div>
             </div>
@@ -290,10 +355,10 @@
                             <input class="form-check-input" type="radio" name="sow[site_work][termite_protection_by]" id="ownerOption" value="owner" checked>
                             <label class="form-check-label" for="ownerOption">By Owner</label>
                         </div>
+
                     </div>
 
                     <!-- Protection Type -->
-
                     <div class="mb-3">
                         <label for="protectionType">- Protection type:</label>
                         <input type="text" class="form-control form-control-sm w-50 d-inline-block ms-2" name="sow[site_work][termite_protection_type]" id="protectionType" placeholder="Enter protection type">
@@ -316,10 +381,11 @@
             </div>
 
             <div class="d-flex justify-content-end mb-5 px-3">
-                <button type="submit" class="btn btn-dark me-2">Save</button>
-                <button type="submit" class="btn btn-danger me-2">Save & Send</button>
-                <a href="#" class="btn btn-outline-dark ">Cancel</a>
+                <button type="submit" name="action" value="save" class="btn btn-dark me-2">Save</button>
+                <button type="submit" name="action" value="save_send" class="btn btn-danger me-2">Save & Send</button>
+                <a href="#" class="btn btn-outline-dark">Cancel</a>
             </div>
+
         </form>
     </div>
 </div>

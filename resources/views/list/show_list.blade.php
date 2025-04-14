@@ -95,7 +95,7 @@
                                 <td style="border: 1px solid #DDDDDD !important">{{ $submission->project->name }}</td>
                                 <td style="border: 1px solid #DDDDDD !important;">{{ $submission->status ?? 'Pending' }}</td>
                                 <td>
-                                    <a href="{{ route('submissions.show', $submission->id) }}" class="btn btn-warning btn-sm">View</a>
+                                    <a href="{{ route('showsubmissions.show', $submission->id) }}" class="btn btn-warning btn-sm">View</a>
                                 </td>
                             </tr>
                             @endforeach

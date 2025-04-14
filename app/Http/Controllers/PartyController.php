@@ -108,7 +108,7 @@ class PartyController extends Controller
         $party->delete_status = 1;
         $party->save();
 
-        return redirect()->route('parties.index')->with('success', 'Party deleted successfully.');
+        return redirect()->route('parties.index')->with('success', 'client  deleted successfully.');
     }
 
     public function updateStatus(Request $request, $id)
@@ -183,18 +183,26 @@ class PartyController extends Controller
             'status' => 'pending'
         ]);
 
-        $pdf = Pdf::loadView('emails.site_work_submitted', ['party' => $party, 'workData' => $formData]);
+        if ($request->input('action') === 'save_send') {
+            $pdf = Pdf::loadView('emails.site_work_submitted', [
+                'party' => $party,
+                'workData' => $formData
+            ]);
 
+            Mail::send([], [], function ($message) use ($party, $pdf) {
+                $message->to($party->email)
+                    ->subject('New Site Work Submitted')
+                    ->attachData($pdf->output(), 'SiteWork_Submitted.pdf');
+            });
+        }
 
-        Mail::send([], [], function ($message) use ($party, $pdf) {
-            $message->to($party->email)
-                ->subject('New Site Work Submitted')
-                ->attachData($pdf->output(), 'SiteWork_Submitted.pdf');
-        });
-
-        return redirect()->route('showlistparty', ['listId' => $listId, 'partyId' => $partyId])
-            ->with('success', 'Site work saved and email sent successfully.');
+        return redirect()->route('showlistparty', [
+            'listId' => $listId,
+            'partyId' => $partyId
+        ])->with('success', 'Site work saved successfully' .
+            ($request->input('action') === 'save_send' ? ' and email sent.' : '.'));
     }
+
 
     public function showAllSubmissions()
     {
@@ -212,12 +220,27 @@ class PartyController extends Controller
     }
 
 
-    public function showsubmissions($id)
+    public function editsubmissions($id)
     {
         $data = Submission::find($id);
         $workData = json_decode($data->work, true);
 
-        return view('question.view_submissions', compact('workData'));
+        return view('question.edit_submission', [
+            'workData' => $workData,
+            'submissionId' => $id
+        ]);
+    }
+
+    public function showsubmissions($id)
+
+    {
+        $data = Submission::find($id);
+        $workData = json_decode($data->work, true);
+
+        return view('question.view_submissions', [
+            'workData' => $workData,
+            'submissionId' => $id
+        ]);
     }
 
     public function updateSiteWork(Request $request)
@@ -245,5 +268,47 @@ class PartyController extends Controller
         $model->save();
 
         return back()->with('success', 'Site work updated successfully!');
+    }
+
+    public function updateSubmission(Request $request, $id)
+    {
+        $submission = Submission::find($id);
+
+        if (!$submission) {
+            return redirect()->back()->with('error', 'Submission not found.');
+        }
+
+        $sowData = $request->input('sow');
+
+        if (!$sowData) {
+            return redirect()->back()->with('error', 'No work data received.');
+        }
+
+        $workData = [
+            'sow' => $sowData,
+            'action' => 'save'
+        ];
+
+        $submission->work = json_encode($workData);
+        $submission->save();
+
+        if ($request->input('action') === 'save_send') {
+            $party = Parties::findOrFail($submission->party_id);
+
+            $pdf = Pdf::loadView('emails.site_work_submitted', [
+                'party' => $party,
+                'workData' => $workData
+            ]);
+
+            Mail::send([], [], function ($message) use ($party, $pdf) {
+                $message->to($party->email)
+                    ->subject('Site Work Updated')
+                    ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
+            });
+
+            return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully and email sent.');
+        }
+
+        return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully!');
     }
 }
