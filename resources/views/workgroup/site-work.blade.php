@@ -380,6 +380,37 @@
                 </div>
             </div>
 
+            @include('question.foundations_and_concreting')
+
+            @include('question.drainer_plumber_gas_fitter')
+
+            @include('question.carpenter')
+
+            @include('question.carpenter_interior')
+
+            @include('question.bricklayer_masonry')
+
+            @include('question.roof_plumber')
+
+            @include('question.windows_entry_doors')
+
+            @include('question.electrician')
+
+            @include('question.plasterer_internal_linings')
+
+            @include('question.kitchen_joinery')
+
+            @include('question.wall_floor_tiler')
+
+            @include('question.painter')
+
+            @include('question.pc_selections')
+
+            @include('question.amounts_additional_notes')
+
+            @include('question.schedule_of_provisional_sums')
+
+
             <div class="d-flex justify-content-end mb-5 px-3">
                 <button type="submit" name="action" value="save" class="btn btn-dark me-2">Save</button>
                 <button type="submit" name="action" value="save_send" class="btn btn-danger me-2">Save & Send</button>

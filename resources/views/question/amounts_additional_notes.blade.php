@@ -5,6 +5,6 @@
 
     <div class="form-group">
         <label for="additionalNotes">General Notes to PC Selections:</label>
-        <textarea class="form-control" id="additionalNotes" name="additional_notes" rows="10"></textarea>
+        <textarea class="form-control" id="additionalNotes" name="sow[additionalnotes][additional_notes]" rows="10"></textarea>
     </div>
 </div>

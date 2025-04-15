@@ -7,15 +7,15 @@
     <div class="form-group row">
         <div class="col-sm-12">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][power_into_property]" id="by_builder" value="by_builder" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][power_into_property]" id="by_builder" value="by_builder" checked>
                 <label class="form-check-label" for="by_builder">By Builder</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][power_into_property]" id="by_owner" value="by_owner">
+                <input class="form-check-input" type="radio" name="sow[electrician][power_into_property]" id="by_owner" value="by_owner">
                 <label class="form-check-label" for="by_owner">By Owner</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][power_into_property]" id="na" value="na">
+                <input class="form-check-input" type="radio" name="sow[electrician][power_into_property]" id="na" value="na">
                 <label class="form-check-label" for="na">N/A</label>
             </div>
         </div>
@@ -43,6 +43,12 @@
             <p>OWNER PAYING FOR POLE TO FRONT OF PROPERTY</p>
         </div>
     </div>
+    <div class="d-flex align-items-center">
+        <!-- Label and Input -->
+        <label for="power_into_property" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][power_into_property]" id="power_into_property" placeholder="Enter power into property notes">
+    </div>
 </div>
 
 <div class="card p-3 mb-3">
@@ -65,6 +71,7 @@
                 <label class="form-check-label" for="by_owner_fee">By owner</label>
             </div>
         </div>
+
     </div>
 
     <div class="form-group row">
@@ -85,39 +92,39 @@
         <label class="col-sm-3 col-form-label"></label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][underground]" id="underground" value="underground">
+                <input class="form-check-input" type="radio" name="sow[electrician][underground]" id="underground" value="underground">
                 <label class="form-check-label" for="underground">Underground</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][existing_sub_board]" id="existing_sub_board" value="existing_sub_board">
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board]" id="existing_sub_board" value="existing_sub_board">
                 <label class="form-check-label" for="existing_sub_board">From existing sub board</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][existing_meter_box]" id="existing_meter_box" value="existing_meter_box">
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_meter_box]" id="existing_meter_box" value="existing_meter_box">
                 <label class="form-check-label" for="existing_meter_box">From existing meter box</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][public_main_dwelling]" id="public_main_dwelling" value="public_main_dwelling">
+                <input class="form-check-input" type="radio" name="sow[electrician][public_main_dwelling]" id="public_main_dwelling" value="public_main_dwelling">
                 <label class="form-check-label" for="public_main_dwelling">Public main to dwelling</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][aerial]" id="aerial" value="aerial" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][aerial]" id="aerial" value="aerial" checked>
                 <label class="form-check-label" for="aerial">Aerial</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][existing_sub_board_pole]" id="existing_sub_board_pole" value="existing_sub_board_pole">
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board_pole]" id="existing_sub_board_pole" value="existing_sub_board_pole">
                 <label class="form-check-label" for="existing_sub_board_pole">From existing sub board or meter box on pole</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][public_main_dwelling_aerial]" id="public_main_dwelling_aerial" value="public_main_dwelling_aerial" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][public_main_dwelling_aerial]" id="public_main_dwelling_aerial" value="public_main_dwelling_aerial" checked>
                 <label class="form-check-label" for="public_main_dwelling_aerial">Public main to dwelling</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][public_private_aerial]" id="public_private_aerial" value="public_private_aerial">
+                <input class="form-check-input" type="radio" name="sow[electrician][public_private_aerial]" id="public_private_aerial" value="public_private_aerial">
                 <label class="form-check-label" for="public_private_aerial">Public main to private pole/s then aerial to dwelling</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][public_private_underground]" id="public_private_underground" value="public_private_underground">
+                <input class="form-check-input" type="radio" name="sow[electrician][public_private_underground]" id="public_private_underground" value="public_private_underground">
                 <label class="form-check-label" for="public_private_underground">Public main to private pole/s then underground to dwelling</label>
             </div>
         </div>
@@ -126,11 +133,11 @@
         <label class="col-sm-3 col-form-label">- Metering:</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][metering]" id="meter_box_pole" value="meter_box_pole">
+                <input class="form-check-input" type="radio" name="sow[electrician][metering]" id="meter_box_pole" value="meter_box_pole">
                 <label class="form-check-label" for="meter_box_pole">Meter box on pole or other structure - sub board to dwelling</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][metering]" id="meter_box_dwelling" value="meter_box_dwelling" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][metering]" id="meter_box_dwelling" value="meter_box_dwelling" checked>
                 <label class="form-check-label" for="meter_box_dwelling">Meter box to dwelling</label>
             </div>
         </div>
@@ -139,15 +146,15 @@
         <label class="col-sm-3 col-form-label">- Show preferred position on Electrical Plan of:</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][electrical_plan_position]" id="meter_box_sub_board" value="meter_box_sub_board">
+                <input class="form-check-input" type="radio" name="sow[electrician][electrical_plan_position]" id="meter_box_sub_board" value="meter_box_sub_board">
                 <label class="form-check-label" for="meter_box_sub_board">Meter box or sub board</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][electrical_plan_position]" id="aerial_point" value="aerial_point" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][electrical_plan_position]" id="aerial_point" value="aerial_point" checked>
                 <label class="form-check-label" for="aerial_point">Aerial point of attachment (if applicable)</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][electrical_plan_position_checked]" id="checked" value="checked" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][electrical_plan_position_checked]" id="checked" value="checked" checked>
                 <label class="form-check-label" for="checked">Checked</label>
             </div>
         </div>
@@ -162,13 +169,18 @@
                 Note2: Power provider mains should be checked to ensure adequate supply is available to the dwelling. For example - Three phase power may be required for Air Conditioning, Rural Availability, and Transformer Availability & Size.
             </p>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][provider_checked]" id="provider_checked" value="provider_checked">
+                <input class="form-check-input" type="radio" name="sow[electrician][provider_checked]" id="provider_checked" value="provider_checked">
                 <label class="form-check-label" for="provider_checked">(Checked with Provider)</label>
             </div>
         </div>
     </div>
+    <div class="d-flex align-items-center">
+        <!-- Label and Input -->
+        <label for="connection_to_dwelling" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][connection_to_dwelling]" id="connection_to_dwelling" placeholder="Enter  connection to dwelling notes">
+    </div>
 </div>
-
 
 <div class="card p-3 mb-3">
     <h5>9.3 Electrical Wiring
@@ -176,11 +188,11 @@
     <div class="form-group row">
         <div class="col-sm-12">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][by_builder]" id="by_builder" value="by_builder" checked>
+                <input class="form-check-input" type="radio" name="sow[electrician][by_builder]" id="by_builder" value="by_builder" checked>
                 <label class="form-check-label" for="by_builder">By Builder</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="sow[electrician][by_owner]" id="by_owner" value="by_owner">
+                <input class="form-check-input" type="radio" name="sow[electrician][by_builder]" id="by_owner" value="by_owner">
                 <label class="form-check-label" for="by_owner">By Owner</label>
             </div>
         </div>
@@ -189,7 +201,7 @@
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">- If by builder: 1) Fixed price included in quote</label>
         <div class="col-sm-9">
-            <input type="checkbox" name="sow[electrician][fixed_price_quote]" id="fixed_price_quote" value="fixed_price_quote">
+            <input type="radio" name="sow[electrician][fixed_price_quote]" id="fixed_price_quote" value="fixed_price_quote">
         </div>
     </div>
 
@@ -267,19 +279,19 @@
                         <div class="form-group row">
                             <div class="col-sm-12">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="sow[electrician][electrical_layout_plans]" id="electrical_layout_plans" value="electrical_layout_plans">
+                                    <input class="form-check-input" type="radio" name="sow[electrician][electrical_layout_plans]" id="electrical_layout_plans" value="electrical_layout_plans">
                                     <label class="form-check-label" for="electrical_layout_plans">- As per electrical layout plans, completed & signed by owners</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="sow[electrician][kitchen_layout_plans]" id="kitchen_layout_plans" value="kitchen_layout_plans">
+                                    <input class="form-check-input" type="radio" name="sow[electrician][kitchen_layout_plans]" id="kitchen_layout_plans" value="kitchen_layout_plans">
                                     <label class="form-check-label" for="kitchen_layout_plans">- As per kitchen manufactures layout plan provided</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="sow[electrician][plumbing_layout_plans]" id="plumbing_layout_plans" value="plumbing_layout_plans">
+                                    <input class="form-check-input" type="radio" name="sow[electrician][plumbing_layout_plans]" id="plumbing_layout_plans" value="plumbing_layout_plans">
                                     <label class="form-check-label" for="plumbing_layout_plans">- As per plumbing & drainage layout plan (showing locations of hot water service, pumps etc)</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="sow[electrician][pc_selections]" id="pc_selections" value="pc_selections">
+                                    <input class="form-check-input" type="radio" name="sow[electrician][pc_selections]" id="pc_selections" value="pc_selections">
                                     <label class="form-check-label" for="pc_selections">- As per PC selections</label>
                                 </div>
                             </div>
@@ -298,7 +310,7 @@
                 <div class="text-muted mb-3">
                     <strong>Note 3:</strong> Appliance's to be installed which may require special wiring (eg 15 amp outlets for dryers or pumps, Hot water services with twin elements or boosters for solar and cook tops which require an extra phase) should have installation requirements attached from the manufacturer or list special requirements below
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" name="sow[electrician][checked]" id="checked" value="checked">
+                        <input class="form-check-input" type="radio" name="sow[electrician][checked]" id="checked" value="checked">
                         <label class="form-check-label" for="checked">(Checked)</label>
                     </div>
                 </div>
@@ -340,11 +352,11 @@
                 <div class="form-group">
                     <label>- Light Switch's & Power Points</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sow[electrician][light_switch_type]" id="standard_white" value="standard_white">
+                        <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="standard_white" value="standard_white">
                         <label class="form-check-label" for="standard_white">Standard White</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="sow[electrician][light_switch_type]" id="other" value="other">
+                        <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="other" value="other">
                         <label class="form-check-label" for="other">Other</label>
                     </div>
                     <input type="text" name="sow[electrician][light_switch_manufacturer]" class="form-control mb-2" placeholder="Manufacturer:">
@@ -361,5 +373,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <!-- Label and Input -->
+        <label for="electrical wiring" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][electrical wiring]" id="electrical wiring" placeholder="Enter  electrical wiring notes">
     </div>
 </div>
