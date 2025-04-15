@@ -1,46 +1,62 @@
 <!-- Section Title -->
 
 <!-- Section 4.1 -->
+<!-- Section 4.1 -->
 <div class="card p-4 my-3">
     <h4 class="mb-4">4) CARPENTER (Construction & Exterior)</h4>
 
     <h6>4.1 Steel House Floor System</h6>
     <div class="d-flex align-items-center mb-2">
-        <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="sow[carpenter][plans_specifications]" value="yes" class="ms-1 me-3" checked>
-        <span>N/A</span>
-        <input type="checkbox" name="sow[carpenter][plans_na]" value="yes" class="ms-1 me-3">
+        <label class="me-2">Per Plans & Specifications</label>
+        <input type="radio" name="sow[carpenter][plans_specifications]" value="yes" class="form-check-input" checked>
+
+        <label class="me-2">N/A</label>
+        <input type="radio" name="sow[carpenter][plans_specifications]" value="na" class="form-check-input">
     </div>
 
     <table class="table table-bordered">
         <tr>
             <td>- Termite resistant particle board floor sheeting:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][termite_resistant_na]" value="yes" class="ms-2">
+                <labelclass="form-check-input">N/A</label>
+                    <input type="radio" name="sow[carpenter][termite_resistant]" value="na" class="form-check-input">
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][termite_resistant]" value="yes" class="ms-2" checked>
+                <labelclass="form-check-input">Yes</label>
+                    <input type="radio" name="sow[carpenter][termite_resistant]" value="yes" class="form-check-input" checked>
             </td>
         </tr>
         <tr>
             <td>- Other:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][other_na]" value="yes" class="ms-2" checked>
+                <labelclass="form-check-input">N/A</label>
+                    <input type="radio" name="sow[carpenter][other]" value="na" class="form-check-input" checked>
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][other]" value="yes" class="ms-2">
+                <labelclass="form-check-input">Yes</label>
+                    <input type="radio" name="sow[carpenter][other]" value="yes" class="form-check-input">
             </td>
         </tr>
         <tr>
             <td>- Floor Insulation:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][floor_insulation_na]" value="yes" class="ms-2" checked>
+                <labelclass="form-check-input">N/A</label>
+                    <input type="radio" name="sow[carpenter][floor_insulation]" value="na" class="form-check-input" checked>
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][floor_insulation]" value="yes" class="ms-2">
+                <labelclass="form-check-input">Yes</label>
+                    <input type="radio" name="sow[carpenter][floor_insulation]" value="yes" class="form-check-input">
             </td>
         </tr>
     </table>
+
+    <div class="d-flex align-items-center mt-3">
+        <label for="steel_house_floor_system" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[carpenter][steel_house_floor_system_notes]"
+            id="steel_house_floor_system"
+            placeholder="Enter steel house floor system notes">
+    </div>
 </div>
 
 
@@ -49,60 +65,64 @@
     <h6>4.2 Steel Verandah Floor System</h6>
     <div class="d-flex align-items-center mb-2">
         <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="sow[carpenter][verandah_plans_specifications]" value="yes" class="ms-1 me-3">
+        <input type="radio" name="sow[carpenter][verandah_plans_specifications]" value="yes" class="form-check-input">
         <span>N/A</span>
-        <input type="checkbox" name="sow[carpenter][verandah_plans_na]" value="yes" class="ms-1 me-3" checked>
+        <input type="radio" name="sow[carpenter][verandah_plans_specifications]" value="no" class="form-check-input" checked>
     </div>
 
     <table class="table table-bordered">
         <tr>
             <td>- Fibrous cement floor sheeting:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][fibrous_cement_na]" value="yes" class="ms-2" checked>
+                N/A <input type="radio" name="sow[carpenter][fibrous_cement]" value="no" class="form-check-input" checked>
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][fibrous_cement]" value="yes" class="ms-2">
+                <input type="radio" name="sow[carpenter][fibrous_cement]" value="yes" class="form-check-input">
             </td>
         </tr>
         <tr>
             <td>- Treated pine decking:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][treated_pine_na]" value="yes" class="ms-2" checked>
+                N/A <input type="radio" name="sow[carpenter][treated_pine]" value="no" class="form-check-input" checked>
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][treated_pine]" value="yes" class="ms-2">
+                <input type="radio" name="sow[carpenter][treated_pine]" value="yes" class="form-check-input">
             </td>
         </tr>
         <tr>
             <td>- Hardwood decking:</td>
             <td>
-                N/A <input type="checkbox" name="sow[carpenter][hardwood_decking_na]" value="yes" class="ms-2" checked>
+                N/A <input type="radio" name="sow[carpenter][hardwood_decking]" value="no" class="form-check-input" checked>
             </td>
             <td>
-                <input type="checkbox" name="sow[carpenter][hardwood_decking]" value="yes" class="ms-2"> (Timber Selection)
+                <input type="radio" name="sow[carpenter][hardwood_decking]" value="yes" class="form-check-input"> (Timber Selection)
             </td>
         </tr>
     </table>
+    <div class="d-flex align-items-center">
+        <label for="steel_verandah_floor_system" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][steel_verandah_floor_system]" id="steel_verandah_floor_system" placeholder="Enter steel verandah floor system notes">
+    </div>
 </div>
-
 
 <!-- Section 4.3 -->
 <div class="card p-4 my-3">
     <h6>4.3 Timber Verandah Floor System</h6>
     <div class="d-flex align-items-center mb-2">
         <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="sow[carpenter][timber_verandah_plans_specifications]" value="yes" class="ms-1 me-3">
+        <input type="radio" name="sow[carpenter][timber_verandah_plans_specifications]" value="yes" class="form-check-input">
         <span>N/A</span>
-        <input type="checkbox" name="sow[carpenter][timber_verandah_na]" value="yes" class="ms-1 me-3" checked>
+        <input type="radio" name="sow[carpenter][timber_verandah_plans_specifications]" value="na" class="form-check-input" checked>
     </div>
 
     <table class="table table-bordered">
         <tr>
             <td colspan="3">
                 Per Plans & Specifications
-                <input type="checkbox" name="sow[carpenter][timber_verandah_per_plans]" value="yes" class="ms-2">
+                <input type="radio" name="sow[carpenter][timber_verandah_per_plans]" value="yes" class="form-check-input">
                 N/A
-                <input type="checkbox" name="sow[carpenter][timber_verandah_per_plans_na]" value="yes" class="ms-2">
+                <input type="radio" name="sow[carpenter][timber_verandah_per_plans]" value="no" class="form-check-input">
             </td>
         </tr>
     </table>
@@ -110,10 +130,16 @@
     <div class="p-3 mt-3" style="background-color: #e8f4ff;">
         <p>🛈 <strong>Floor Systems Note 1:</strong> Floor systems in fire risk areas may have specific requirements to meet council consent, such as fibre cement sheet lining under...</p>
         <p>🛈 <strong>Floor Systems Note 2:</strong> Conditions of Development Consent, Bushfire Assessment...
-            <input type="checkbox" name="sow[carpenter][bushfire_assessment]" value="yes" class="ms-2"> (Checked)
+            <input type="radio" name="sow[carpenter][bushfire_assessment]" value="yes" class="form-check-input"> (Checked)
         </p>
     </div>
+    <div class="d-flex align-items-center">
+        <label for="timber_verandah_floor_system" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][timber_verandah_floor_system]" id="timber_verandah_floor_system" placeholder="Enter timber verandah floor system notes">
+    </div>
 </div>
+
 
 <!-- Section 4.4 -->
 <div class="card p-4 my-3">
@@ -121,27 +147,35 @@
 
     <div class="d-flex align-items-center mb-2">
         <span>Per Plans & Specifications</span>
-        <input type="checkbox" name="sow[carpenter][frames_plans_specifications]" value="yes" class="ms-1 me-3" checked>
+        <input type="radio" name="sow[carpenter][frames_plans_specifications]" value="yes" class="form-check-input" checked>
     </div>
 
     <p>
         - Standard 2750mm high (nom.)
-        <input type="checkbox" name="sow[carpenter][standard_height]" value="yes" class="ms-2" checked>
+        <input type="radio" name="sow[carpenter][standard_height]" value="yes" class="form-check-input" checked>
         Other heights:
-        <input type="text" name="sow[carpenter][other_heights]" class="ms-2" style="width: 150px;" checked>
+        <input type="text" name="sow[carpenter][other_heights]" class="form-check-input" style="width: 150px;" checked>
     </p>
 
     <p>
         - Window & door sizes as per section 8 “windows & entry doors”
-        <input type="checkbox" name="sow[carpenter][window_door_sizes]" value="yes" class="ms-2"> (Checked)
+        <input type="radio" name="sow[carpenter][window_door_sizes]" value="yes" class="form-check-input"> (Checked)
     </p>
 
     <p>
         - Sisalation foil (sarking) to wall exterior prior to cladding <br>
-        <input type="checkbox" name="sow[carpenter][sisalation_standard]" value="yes" class="ms-2" checked> Standard
-        <input type="checkbox" name="sow[carpenter][sisalation_other]" value="yes" class="ms-2">
+        <input type="radio" name="sow[carpenter][sisalation_standard]" value="yes" class="form-check-input" checked> Standard
+        <input type="radio" name="sow[carpenter][sisalation_standard]" value="na" class="form-check-input">
         Other: <input type="text" name="sow[carpenter][sisalation_other_text]" class="ms-2" style="width: 150px;">
     </p>
+    <div class="d-flex align-items-center">
+
+        <!-- Label and Input -->
+
+        <label for="frames" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][frames]" id="frames" placeholder="Enter Frames notes">
+    </div>
 </div>
 
 
@@ -154,9 +188,9 @@
     <div class="card p-3 my-2 ">
         <div class="d-flex align-items-center mb-2">
             <span>Per Council Approved Plans & Specifications</span>
-            <input type="checkbox" name="sow[carpenter][approved_plans]" value="yes" class="ms-1 me-3" checked>
+            <input type="radio" name="sow[carpenter][approved_plans]" value="yes" class="form-check-input" checked>
             <span>N/A</span>
-            <input type="checkbox" name="sow[carpenter][approved_plans]" value="na" class="ms-1 me-3">
+            <input type="radio" name="sow[carpenter][approved_plans]" value="na" class="form-check-input">
         </div>
     </div>
 
@@ -164,10 +198,10 @@
     <div class="card p-3 my-2 ">
         <div>Ceiling type:</div>
         <div class="d-flex flex-wrap">
-            <div><input type="checkbox" name="sow[carpenter][ceiling_type]" value="standard_level" class="ms-1" checked> Standard level</div>
-            <div><input type="checkbox" name="sow[carpenter][ceiling_type]" value="raked" class="ms-1"> Raked</div>
-            <div><input type="checkbox" name="sow[carpenter][ceiling_type]" value="scissor_raked" class="ms-1"> Scissor raked</div>
-            <div><input type="checkbox" name="sow[carpenter][ceiling_type]" value="other" class="ms-1"> Other</div>
+            <div><input type="radio" name="sow[carpenter][ceiling_type]" value="standard_level" class="form-check-input" checked> Standard level</div>
+            <div><input type="radio" name="sow[carpenter][ceiling_type]" value="raked" class="form-check-input"> Raked</div>
+            <div><input type="radio" name="sow[carpenter][ceiling_type]" value="scissor_raked" class="form-check-input"> Scissor raked</div>
+            <div><input type="radio" name="sow[carpenter][ceiling_type]" value="other" class="form-check-input"> Other</div>
         </div>
     </div>
 
@@ -175,52 +209,63 @@
     <div class="card p-3 my-2 ">
         <div class="d-flex align-items-center">
             <span>If "Not standard level" - check plans type/location etc.</span>
-            <input type="checkbox" name="sow[carpenter][per_plans_specifications]" value="yes" class="ms-1 me-3">
+            <input type="radio" name="sow[carpenter][per_plans_specifications]" value="yes" class="form-check-input">
 
         </div>
     </div>
+    <div class="d-flex align-items-center">
 
-    <!-- Q4 -->
+        <!-- Label and Input -->
 
-    <!-- Section 4.6 -->
+        <label for="steel_house_floor_system" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][steel_house_floor_system]" id="steel_house_floor_system" placeholder="Enter steel house floor system notes">
+    </div>
+</div>
+
+<!-- Q4 -->
+
+<!-- Section 4.6 -->
+<div class="card p-4 my-3">
+
     <h5 class="mt-4">4.6 Verandahs</h5>
 
     <!-- Q5 -->
     <div class="card p-3 my-2 ">
         <div class="d-flex align-items-center mb-2">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="sow[carpenter][verandah_plans_specifications]" value="yes" class="ms-1 me-3" checked>
+            <input type="radio" name="sow[carpenter][verandah_plans_specifications]" value="yes" class="form-check-input" checked>
             <span>N/A</span>
-            <input type="checkbox" name="sow[carpenter][verandah_plans_specifications]" value="na" class="ms-1 me-3">
+            <input type="radio" name="sow[carpenter][verandah_plans_specifications]" value="na" class="form-check-input">
         </div>
     </div>
 
     <!-- Q6 -->
     <div class="card p-3 my-2">
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="broken_pitch" class="me-1" checked>
+            <input type="radio" name="sow[carpenter][verandah_type]" value="broken_pitch" class="form-check-input" checked>
             Broken pitch off main roof, raked fibre cement sheet lining under
         </div>
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="dropped_verandah" class="me-1">
+            <input type="radio" name="sow[carpenter][verandah_type]" value="dropped_verandah" class="form-check-input">
             Dropped verandah, raked fibre cement sheet lining under
         </div>
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="raked_broken_pitch" class="me-1">
+            <input type="radio" name="sow[carpenter][verandah_type]" value="raked_broken_pitch" class="form-check-input">
             Raked or broken pitch verandah’s with level linings (subject to heights)
         </div>
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="under_main_roof" class="me-1">
+            <input type="radio" name="sow[carpenter][verandah_type]" value="under_main_roof" class="form-check-input">
             Under main roof with fibre cement sheet level linings
         </div>
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="bull_nose_roof" class="me-1">
+            <input type="radio" name="sow[carpenter][verandah_type]" value="bull_nose_roof" class="form-check-input">
             Bull nose roof std. treated pine posts, beams, whaling plate and hockey stick rafters
         </div>
         <small><strong>Note :</strong>: Bullnose verandah's over 1.8metre's may require "hockey stick rafters" and battens. At 1.8metres or less verandah's only require hip & gable end rafters.</small>
 
         <div>
-            <input type="checkbox" name="sow[carpenter][verandah_type]" value="other" class="me-1">
+            <input type="radio" name="sow[carpenter][verandah_type]" value="other" class="form-check-input">
             Other verandah type:
             <input type="text" name="sow[carpenter][other_verandah_type]" class="form-control mt-1" placeholder="Specify other verandah type">
         </div>
@@ -239,9 +284,9 @@
     <div class="card p-3 my-2">
         <div class="d-flex align-items-center">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="sow[carpenter][q8_option]" value="per_plans" class="ms-1 me-3">
+            <input type="radio" name="sow[carpenter][q8_option]" value="per_plans" class="form-check-input">
             <span>N/A</span>
-            <input type="checkbox" name="sow[carpenter][q8_option]" value="na" class="ms-1" checked>
+            <input type="radio" name="sow[carpenter][q8_option]" value="na" class="form-check-input" checked>
         </div>
     </div>
 
@@ -253,9 +298,9 @@
     <div class="card p-3 my-2">
         <div class="d-flex align-items-center mb-2">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="sow[carpenter][q9_option]" value="per_plans" class="ms-1 me-3">
+            <input type="radio" name="sow[carpenter][q9_option]" value="per_plans" class="form-check-input">
             <span>N/A</span>
-            <input type="checkbox" name="sow[carpenter][q9_option]" value="na" class="ms-1 me-3" checked>
+            <input type="radio" name="sow[carpenter][q9_option]" value="na" class="form-check-input" checked>
         </div>
     </div>
 
@@ -264,11 +309,11 @@
         <div>- If by builder:</div>
         <div class="d-flex flex-wrap">
             <div>
-                <input type="checkbox" name="sow[carpenter][q10_option]" value="fixed_price" class="ms-1" checked>
+                <input type="radio" name="sow[carpenter][q10_option]" value="fixed_price" class="form-check-input" checked>
                 Fixed price included in quote
             </div>
             <div>
-                <input type="checkbox" name="sow[carpenter][q10_option]" value="provisional_sum" class="ms-1">
+                <input type="radio" name="sow[carpenter][q10_option]" value="provisional_sum" class="form-check-input">
                 Provisional Sum
             </div>
         </div>
@@ -280,15 +325,15 @@
         <div>- Tread type:</div>
         <div class="d-flex flex-wrap">
             <div>
-                <input type="checkbox" name="sow[carpenter][q11_tread_type]" value="precast_concrete" class="ms-1" checked>
+                <input type="radio" name="sow[carpenter][q11_tread_type]" value="precast_concrete" class="form-check-input" checked>
                 Precast concrete
             </div>
             <div>
-                <input type="checkbox" name="sow[carpenter][q11_tread_type]" value="treaded_pine" class="ms-1">
+                <input type="radio" name="sow[carpenter][q11_tread_type]" value="treaded_pine" class="form-check-input">
                 Treaded pine
             </div>
             <div>
-                <input type="checkbox" name="sow[carpenter][q11_tread_type]" value="hardwood" class="ms-1">
+                <input type="radio" name="sow[carpenter][q11_tread_type]" value="hardwood" class="form-check-input">
                 Hardwood
             </div>
         </div>
@@ -299,15 +344,13 @@
     <div class="card p-3 my-2">
         <div class="d-flex align-items-center">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" name="sow[carpenter][q12_approval]" value="per_plans" class="ms-1 me-3" checked>
+            <input type="radio" name="sow[carpenter][q12_approval]" value="per_plans" class="form-check-input" checked>
             <span>N/A</span>
-            <input type="checkbox" name="sow[carpenter][q12_approval]" value="na" class="ms-1">
+            <input type="radio" name="sow[carpenter][q12_approval]" value="na" class="form-check-input">
         </div>
     </div>
-</div>
 
 
-<div class="card p-4 my-3">
 
     <!-- Hardwood Options -->
     <!-- Hardwood Options -->
@@ -315,12 +358,12 @@
         <h5>Hardwood Options</h5>
         <div>- If <strong>“Hardwood”</strong> then:</div>
         <div class="mt-2">
-            <input type="checkbox" name="sow[carpenter][hardwood_option]" value="sawn_unseasoned" class="me-1"> Sawn unseasoned
+            <input type="radio" name="sow[carpenter][hardwood_option]" value="sawn_unseasoned" class="form-check-input"> Sawn unseasoned
 
-            <input type="checkbox" name="sow[carpenter][hardwood_option]" value="dressed_seasoned" class="ms-3 me-1"> Dressed seasoned – Type e.g. Merbau
+            <input type="radio" name="sow[carpenter][hardwood_option]" value="dressed_seasoned" class="form-check-input"> Dressed seasoned – Type e.g. Merbau
             <input type="text" name="dressed_seasoned_type" class="ms-1 form-control d-inline-block w-auto" placeholder="............................">
 
-            <input type="checkbox" name="sow[carpenter][hardwood_option]" value="kiln_dried_dressed" class="ms-3 me-1"> Kiln dried dressed – Type e.g. Spotted Gum
+            <input type="radio" name="sow[carpenter][hardwood_option]" value="kiln_dried_dressed" class="form-check-input"> Kiln dried dressed – Type e.g. Spotted Gum
             <input type="text" name="sow[carpenter][kiln_dried_dressed_type]" class="ms-1 form-control d-inline-block w-auto" placeholder="............................">
         </div>
     </div>
@@ -335,7 +378,7 @@
         </p>
 
         <div class="d-flex align-items-center mb-1">
-            <div>Checked: <input type="checkbox" name="sow[carpenter][checked]" value="yes" class="ms-1 me-3"></div>
+            <div>Checked: <input type="radio" name="sow[carpenter][checked]" value="yes" class="form-check-input"></div>
             <div>Bushfire Attack Level</div>
         </div>
 
@@ -345,53 +388,62 @@
 
         <small>(N/A; 12.5, 19, 29, 40, FZ as per AS3959-2009)</small>
     </div>
+    <div class="d-flex align-items-center">
+
+        <!-- Label and Input -->
+
+        <label for="verandahs" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][verandahs]" id="verandahs" placeholder="Enter verandahs notes">
+    </div>
+</div>
 
 
-    <!-- Section 4.8 -->
-    <div class="mt-4">
-        <h5>4.8 Features / Trims etc</h5>
+<!-- Section 4.8 -->
+<div class="mt-4">
+    <h5>4.8 Features / Trims etc</h5>
 
-        <!-- Question Block 1 -->
-        <div class="mb-2">
-            <input type="checkbox" name="sow[carpenter][options]" value="na" class="me-1"> N/A
-            <input type="checkbox" name="sow[carpenter][options]" value="locations_per_plans" class="ms-3 me-1"> Locations per plans
-            <input type="checkbox" name="sow[carpenter][options]" value="selections_attached" class="ms-3 me-1"> Selections/type etc. attached
-        </div>
-
-
-        <!-- Question Block 2 -->
-        <div class="mb-2">
-            - Gable Vents:
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="required" class="ms-2 me-1"> Required
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="na" class="ms-2 me-1"> N/A
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="decorative_only" class="ms-2 me-1"> Decorative only
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="active_working" class="ms-2 me-1"> Active/Working
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="cut_out_hidden" class="ms-2 me-1"> Cut out hidden
-            <input type="checkbox" name="sow[carpenter][gable_vents]" value="decorative_brick_surround" class="ms-2 me-1"> Decorative brick surround
-        </div>
-
-
-        <!-- Question Block 3 -->
-        <div class="mb-2">
-            - Gable friezes & finials:
-            <input type="checkbox" name="sow[carpenter][gable_friezes_finials]" value="selection_attached" class="ms-2 me-1"> Selection/type attached
-            <input type="checkbox" name="sow[carpenter][gable_friezes_finials]" value="na" class="ms-2 me-1"> N/A
-        </div>
-
-        <!-- Question Block 4 -->
-        <div>
-            - Verandah post decorative bases:
-            <input type="checkbox" name="sow[carpenter][verandah_post_bases]" value="selection_attached" class="ms-2 me-1"> Selection/type attached
-            <input type="checkbox" name="sow[carpenter][verandah_post_bases]" value="na" class="ms-2 me-1"> N/A
-        </div>
-
+    <!-- Question Block 1 -->
+    <div class="mb-2">
+        <input type="radio" name="sow[carpenter][options]" value="na" class="form-check-input"> N/A
+        <input type="radio" name="sow[carpenter][options]" value="locations_per_plans" class="form-check-input"> Locations per plans
+        <input type="radio" name="sow[carpenter][options]" value="selections_attached" class="form-check-input"> Selections/type etc. attached
     </div>
 
-    <!-- Notes Section -->
-    <div class="mt-4">
-        <h6>Notes to above:</h6>
-        <textarea name="sow[carpenter][verandah_notes]" class="form-control mt-1" rows="3" placeholder="Enter any additional notes here..."></textarea>
+
+    <!-- Question Block 2 -->
+    <div class="mb-2">
+        - Gable Vents:
+        <input type="radio" name="sow[carpenter][gable_vents]" value="required" class="form-check-input"> Required
+        <input type="radio" name="sow[carpenter][gable_vents]" value="na" class="form-check-input"> N/A
+        <input type="radio" name="sow[carpenter][gable_vents]" value="decorative_only" class="form-check-input"> Decorative only
+        <input type="radio" name="sow[carpenter][gable_vents]" value="active_working" class="form-check-input"> Active/Working
+        <input type="radio" name="sow[carpenter][gable_vents]" value="cut_out_hidden" class="form-check-input"> Cut out hidden
+        <input type="radio" name="sow[carpenter][gable_vents]" value="decorative_brick_surround" class="form-check-input"> Decorative brick surround
     </div>
+
+
+    <!-- Question Block 3 -->
+    <div class="mb-2">
+        - Gable friezes & finials:
+        <input type="radio" name="sow[carpenter][gable_friezes_finials]" value="selection_attached" class="form-check-input"> Selection/type attached
+        <input type="radio" name="sow[carpenter][gable_friezes_finials]" value="na" class="form-check-input"> N/A
+    </div>
+
+    <!-- Question Block 4 -->
+    <div>
+        - Verandah post decorative bases:
+        <input type="radio" name="sow[carpenter][verandah_post_bases]" value="selection_attached" class="form-check-input"> Selection/type attached
+        <input type="radio" name="sow[carpenter][verandah_post_bases]" value="na" class="form-check-input"> N/A
+    </div>
+
+</div>
+
+<!-- Notes Section -->
+<div class="mt-4">
+    <h6>Notes to above:</h6>
+    <textarea name="sow[carpenter][verandah_notes]" class="form-control mt-1" rows="3" placeholder="Enter any additional notes here..."></textarea>
+</div>
 
 </div>
 
@@ -402,7 +454,7 @@
         <h5>4.9 Exterior Door Selections & Exterior Door Furniture</h5>
         <p>- Door selections & Door furniture as per section 8 "Windows & Entry Doors"</p>
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="doorSelectionsChecked" name="sow[carpenter][door_selections_checked]">
+            <input type="radio" class="form-check-input" id="doorSelectionsChecked" name="sow[carpenter][door_selections_checked]">
             <label class="form-check-label" for="doorSelectionsChecked">(Checked)</label>
         </div>
     </div>
@@ -413,14 +465,14 @@
         <h5>4.10 Eaves and Soffit Linings</h5>
 
         <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="standardEaves" name="sow[carpenter][eaves_standard]">
+            <input type="radio" class="form-check-input" id="standardEaves" name="sow[carpenter][eaves_standard]">
             <label class="form-check-label" for="standardEaves">
                 Standard Fibrous Cement Sheet lining to eaves with plastic joiners
             </label>
         </div>
 
         <div class="form-check mt-1">
-            <input type="checkbox" class="form-check-input" id="otherEaves" name="sow[carpenter][eaves_other]">
+            <input type="radio" class="form-check-input" id="otherEaves" name="sow[carpenter][eaves_other]">
             <label class="form-check-label" for="otherEaves">
                 Other eaves lining:
             </label>
@@ -440,34 +492,34 @@
 
         <div class="d-flex align-items-center mb-2">
             <span>Per Plans & Specifications</span>
-            <input type="checkbox" class="ms-1 me-3" name="sow[carpenter][cladding_per_plans]">
+            <input type="radio" class="form-check-input" name="sow[carpenter][cladding_per_plans]">
             <span>N/A</span>
-            <input type="checkbox" class="ms-1 me-3" name="sow[carpenter][cladding_na]">
+            <input type="radio" class="form-check-input" name="sow[carpenter][cladding_per_plans]">
         </div>
 
         <div class="mb-2">
-            <input type="checkbox" class="me-1" name="sow[carpenter][cladding_timber_weathertex]">
+            <input type="radio" class="form-check-input" name="sow[carpenter][cladding_timber_weathertex]">
             <label>Timber & Weathertex Weatherboard:</label>
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_timber_type]" placeholder="Type">
-            <input type="text" class="form-control d-inline-block w-auto ms-2" name="c" placeholder="Profile">
+            <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][profile]" placeholder="Profile">
         </div>
 
         <div class="mb-2">
-            <input type="checkbox" class="me-1" name="cladding_fibrous_weatherboard" checked>
+            <input type="radio" class="form-check-input" name="cladding_fibrous_weatherboard" checked>
             <label>Fibrous Cement Weatherboard:</label>
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_fibrous_type]" placeholder="Type" value="SCYAM">
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_fibrous_profile]" placeholder="Profile" value="STRIA">
         </div>
 
         <div class="mb-2">
-            <input type="checkbox" class="me-1" name="cladding_fibrous_sheet">
+            <input type="radio" class="form-check-input" name="cladding_fibrous_sheet">
             <label>Fibrous Cement Sheet or Other:</label>
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_fibrous_other_type]" placeholder="Type">
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_fibrous_other_profile]" placeholder="Profile">
         </div>
 
         <div class="mb-2">
-            <input type="checkbox" class="me-1" name="cladding_metal">
+            <input type="radio" class="form-check-input" name="cladding_metal">
             <label>Metal:</label>
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_metal_type]" placeholder="Type">
             <input type="text" class="form-control d-inline-block w-auto ms-2" name="sow[carpenter][cladding_metal_profile]" placeholder="Profile">
@@ -477,8 +529,8 @@
         <div class="mt-3">
             <label>Gable options:</label>
             <div class="mt-1">
-                <input type="checkbox" class="me-1" name="sow[carpenter][gable_same_selected]" checked> Gables & walls "same as selected"
-                <input type="checkbox" class="ms-4 me-1" name="sow[carpenter][gable_std_fibre_cement]"> Gables only in "Std. fibre cement sheet"
+                <input type="radio" class="form-check-input" name="sow[carpenter][gable_std_fibre_cement]" checked> Gables & walls "same as selected"
+                <input type="radio" class="ms-4 me-1" name="sow[carpenter][gable_std_fibre_cement]"> Gables only in "Std. fibre cement sheet"
             </div>
         </div>
 
@@ -497,13 +549,13 @@
         <h5>4.12 External Balustrade</h5>
         <div class="d-flex align-items-center mb-2">
             <label class="me-3">
-                <input type="checkbox" name="sow[carpenter][balustrade_per_plans]" class="me-1"> Per Plans & Specifications
+                <input type="radio" name="sow[carpenter][balustrade]" value="plans_specifications" class="form-check-input"> Per Plans & Specifications
             </label>
             <label class="me-3">
-                <input type="checkbox" name="sow[carpenter][balustrade_by_others]" class="me-1"> By Others
+                <input type="radio" name="sow[carpenter][balustrade]" value="by_others" class="form-check-input"> By Others
             </label>
             <label>
-                <input type="checkbox" name="sow[carpenter][balustrade_na]" class="me-1"> N/A
+                <input type="radio" name="sow[carpenter][balustrade]" value="na" class="form-check-input"> N/A
             </label>
         </div>
     </div>
@@ -514,12 +566,12 @@
         <label>- If by builder:</label>
         <div>
             <label>
-                <input type="checkbox" name="sow[carpenter][builder_option]" value="fixed_price" class="me-1"> 1) Fixed price included in quote
+                <input type="radio" name="sow[carpenter][builder_option]" value="fixed_price" class="form-check-input"> 1) Fixed price included in quote
             </label>
         </div>
         <div class="mt-1">
             <label>
-                <input type="checkbox" name="sow[carpenter][builder_option]" value="provisional_sum" class="me-1"> 2) Provisional Sum
+                <input type="radio" name="sow[carpenter][builder_option]" value="provisional_sum" class="form-check-input"> 2) Provisional Sum
             </label>
             <span class="ms-2">Amount to be shown at Section 16 "Schedule of Provisional Sums"</span>
         </div>
@@ -548,6 +600,7 @@
             <div class="col-md-6">
                 Location 2: <input type="text" name="sow[carpenter][balustrade_location_2]" class="form-control d-inline-block w-75" value="">
             </div>
+
             <div class="col-md-6">
                 Type 3: <input type="text" name="sow[carpenter][balustrade_type_3]" class="form-control d-inline-block w-75" value="">
             </div>
@@ -563,7 +616,7 @@
         <p><i class="bi bi-info-circle"></i> <strong>Note 1:</strong> Balustrades to verandahs and/or stairs are required when the drop to ground is over 1 (One) metre.</p>
         <p><i class="bi bi-info-circle"></i> <strong>Note 2:</strong> Are there any special requirements for the builder such as fixing points or blocking?</p>
         <div>
-            <input type="checkbox" name="sow[carpenter][checked_with_manufacturer]" class="me-1" value="1"> (Checked with Manufacturer)
+            <input type="radio" name="sow[carpenter][checked_with_manufacturer]" class="form-check-input" value="1"> (Checked with Manufacturer)
         </div>
     </div>
 
@@ -582,7 +635,7 @@
 
         <div class="d-flex align-items-center">
             <label class="me-2">Checked:</label>
-            <input type="checkbox" name="sow[carpenter][fire_risk_checked]" checked class="me-3">
+            <input type="radio" name="sow[carpenter][fire_risk_checked]" checked class="form-check-input">
             <label>Bushfire Attack Level</label>
         </div>
 

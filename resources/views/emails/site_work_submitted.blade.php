@@ -28,9 +28,9 @@
     padding-bottom: 10px;">
 
             <div>
-                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/dashboardlogo.png'))) }}" style="height: 60px;">
+                <img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('img/dashboardlogo.png'))) }}"
+                    style="height: 60px; background-color: black; padding: 5px; border-radius: 5px;">
             </div>
-
 
             <div style="text-align: right;
         font-size: 0.9em;
@@ -39,8 +39,6 @@
                 <div>Date: {{ date('Y-m-d') }}</div>
             </div>
         </div>
-
-
         <table
             style="
             width: 100%;
