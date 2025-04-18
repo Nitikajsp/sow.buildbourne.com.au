@@ -771,7 +771,7 @@
         <label class="col-sm-3 col-form-label">- Waste</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][additional_wet_areas_floor_laying]" id="additional_wet_areas_floor_waste_graded" value="graded">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][additional_wet_areas_floor_waste]" id="additional_wet_areas_floor_waste_graded" value="graded">
                 <label class="form-check-label" for="additional_wet_areas_floor_waste_graded">Floor graded to outside</label>
             </div>
             <div class="form-check">
@@ -847,7 +847,7 @@
     <div class="form-group row">
         <div class="col-sm-12">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][kitchen_na]" id="kitchen_na" value="na">
+                <input class="form-check-input" type="checkbox" name="sow[wall_and_floor_tiling_notes][kitchen_na]" id="kitchen_na" value="na">
                 <label class="form-check-label" for="kitchen_na">N / A</label>
             </div>
         </div>
@@ -887,7 +887,7 @@
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][kitchen_laying]" id="kitchen_laying_non_standard" value="non_standard" checked>
                 <label class="form-check-label" for="kitchen_laying_non_standard">Non standard <span class="text-muted">(eg Behind range hood etc)</span></label>
             </div>
-            <input type="text" name="sow[wall_and_floor_tiling_notes][kitchen_laying_requirements]" class="form-control mt-2" placeholder="Requirements See PRESTIGE QUOTE . WHITE STARFIREGLASS">
+            <input type="text" name="sow[wall_and_floor_tiling_notes][kitchen_laying_requirements]" class="form-control mt-2" placeholder="Requirements ">
             <input type="text" name="sow[wall_and_floor_tiling_notes][kitchen_laying_height]" class="form-control mt-2" placeholder="Height">
         </div>
     </div>
@@ -927,19 +927,23 @@
     <div class="form-group row">
         <div class="col-sm-12">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][interior_floor_na]" id="interior_floor_na" value="na">
+                <input class="form-check-input" type="checkbox" name="sow[wall_and_floor_tiling_notes][interior_floor_na]" id="interior_floor_na" value="na">
                 <label class="form-check-label" for="interior_floor_na">N / A</label>
             </div>
         </div>
+
     </div>
 
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Floor (e.g Kitchen, Living, Foyer etc) - Location :</label>
+
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][interior_floor_location_plan]" id="interior_floor_location_plan" value="plan" checked>
+                <input class="form-check-input" type="checkbox" name="sow[wall_and_floor_tiling_notes][interior_floor_location_plan]" id="interior_floor_location_plan" value="plan" checked>
                 <label class="form-check-label" for="interior_floor_location_plan">Shown on Plan</label>
             </div>
+            <label class="col-sm-3 col-form-label">Floor (e.g Kitchen, Living, Foyer etc) - Location :</label>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][floor_note]" id="floor_note" placeholder="Enter interior floor areas notes">
         </div>
     </div>
 
@@ -1024,10 +1028,5 @@
 & JACOBA TILE QUOTE
 FOR AREAS</textarea>
     </div>
-    <div class="d-flex align-items-center">
-        <!-- Label and Input -->
-        <label for="special_wall_floor_tiler" class="me-2 mb-0">Notes to above:</label>
-        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
-            name="sow[site_work][special_wall_floor_tiler]" id="special_wall_floor_tiler" placeholder="Enter special wall & floor tiler notes">
-    </div>
+
 </div>

@@ -206,10 +206,10 @@
                 <input class="form-check-input" type="radio" name="sow[painter][internal_walls]" id="internal_walls_low_sheen" value="low_sheen" checked>
                 <label class="form-check-label" for="internal_walls_low_sheen">Low sheen wash & wear water based - 3 Coats</label>
             </div>
-            <div class="form-check">
+            <!-- <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[painter][internal_walls]" id="internal_walls_enamel" value="enamel">
                 <label class="form-check-label" for="internal_walls_enamel">Enamel ( Gloss )</label>
-            </div>
+            </div> -->
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sow[painter][internal_walls]" id="internal_walls_na" value="na">
                 <label class="form-check-label" for="internal_walls_na">N / A</label>
