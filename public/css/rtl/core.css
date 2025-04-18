@@ -365,7 +365,7 @@ td,
 th {
     border-color: inherit;
     border-style: solid;
-    border-width: 0;
+    border-width: 1px;
 }
 
 label {
@@ -2055,9 +2055,9 @@ progress {
     padding: 0.55rem 1.25rem;
     /* background-color: var(--bs-table-bg); */
     background-color: #fff;
-    border-bottom-width: 1px;
+    /* border-bottom-width: 1px;
     border-right-width: 1px;
-    border-left-width: 1px;
+    border-left-width: 1px; */
 
 
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
@@ -3444,7 +3444,7 @@ fieldset:disabled .btn {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color:#6f7172;
+    color: #6f7172;
     background-color: #e3e8eb;
 }
 
@@ -3976,7 +3976,7 @@ fieldset:disabled .btn {
         display: none;
     }
 
-   
+
     .navbar-expand-md .offcanvas {
         position: static;
         z-index: auto;
@@ -5282,6 +5282,7 @@ fieldset:disabled .btn {
     /* padding: 0.5rem; */
     margin: -1rem -1rem -1rem auto;
 }
+
 .close {
     float: right;
     font-size: 1.5rem;
@@ -5291,6 +5292,7 @@ fieldset:disabled .btn {
     text-shadow: rgb(255, 255, 255) 0px 1px 0px;
     opacity: 0.5;
 }
+
 .modal.fade .modal-dialog {
     transition: transform 0.15s ease-out;
     transform: translateY(-100px) scale(0.8);
@@ -9601,6 +9603,7 @@ html:not([dir=rtl]) .input-group>.btn-group:last-child>.btn:not([class*=btn-outl
 .nav~.tab-content {
     background: #fff;
 }
+
 /* .modal-dialog {
     margin-right: 723px;
     margin-top: -170px;
@@ -22278,6 +22281,9 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
     display: flex;
     flex: 1 1 auto;
     align-items: stretch;
+    height: 100%;
+    min-height: 100vh;
+
 }
 
 .layout-menu-offcanvas .layout-wrapper,
@@ -23366,8 +23372,8 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 .app-brand-link {
-max-width: 105px;
-width: 100%;
+    max-width: 105px;
+    width: 100%;
 }
 
 .app-brand-logo {

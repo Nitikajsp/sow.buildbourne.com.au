@@ -12,7 +12,7 @@
 
     <div class="container-fluid">
         @include('include.navbar')
-        <div class="listpadding">
+        <div class="py-3">
             <div class="row">
                 <div class="col-md-12">
                     <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
@@ -23,7 +23,7 @@
 
             <div class="container mt-5">
                 <div class="row">
-                    <div class="col-lg-12 margin-tb">
+                    <div class="col-lg-12 ">
                         <div class="pull-left head-label">
                             <h2>View Product</h2>
                         </div>
@@ -32,13 +32,15 @@
 
                 <div class="card px-3 py-4 table_scroll customer_table_width">
                     <div class="d-flex flex-end ms-auto">
-                        <a type="button" class="btn p-0 edit-btn text-info" href="{{ route('products.edit', $product->id) }}">
+                        <a type="button" class="btn p-0 edit-btn text-info"
+                            href="{{ route('products.edit', $product->id) }}">
                             <i class="ti ti-pencil me-1"></i>
                         </a>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST" id="deleteForm">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn p-0 delete-btn text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <button type="button" class="btn p-0 delete-btn text-danger" data-bs-toggle="modal"
+                                data-bs-target="#deleteModal">
                                 <i class="ti ti-trash me-1"></i>
                             </button>
                         </form>
@@ -92,22 +94,22 @@
     </div>
 
     <script>
-        $(document).ready(function() {
-            let formToSubmit;
+    $(document).ready(function() {
+        let formToSubmit;
 
-            // Open the modal and store the form to submit
-            $(document).on('click', '.delete-btn', function() {
-                formToSubmit = $(this).closest('form');
-                $('#deleteModal').modal('show');
-            });
-
-            // Submit the form when the confirm button is clicked
-            $('#confirmDeleteBtn').on('click', function() {
-                if (formToSubmit) {
-                    formToSubmit.submit();
-                }
-            });
+        // Open the modal and store the form to submit
+        $(document).on('click', '.delete-btn', function() {
+            formToSubmit = $(this).closest('form');
+            $('#deleteModal').modal('show');
         });
+
+        // Submit the form when the confirm button is clicked
+        $('#confirmDeleteBtn').on('click', function() {
+            if (formToSubmit) {
+                formToSubmit.submit();
+            }
+        });
+    });
     </script>
 
     @endsection

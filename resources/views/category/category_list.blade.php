@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @push('css')
 <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.1/jquery.bootstrap-touchspin.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.1/jquery.bootstrap-touchspin.min.css">
 @endpush
 @section('content')
 <div id="app" class="layout-wrapper">
@@ -12,7 +13,7 @@
 
 
         <div class="row">
-            <div class="col-md-12 d-flex justify-content-between align-items-center mt-3 p-5">
+            <div class="col-md-12 d-flex justify-content-between align-items-center py-4">
                 <a href="{{ route('home') }}" class="float-left d-flex text-black">
                     <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                 </a>
@@ -26,7 +27,9 @@
                 </div>
                 <div class="dt-action-buttons text-end pt-6 pt-md-0">
                     <div class="dt-buttons flex-wrap">
-                        <a href="{{ route('addcategory') }}" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded" tabindex="0" aria-controls="DataTables_Table_0">
+                        <a href="{{ route('addcategory') }}"
+                            class="btn btn-primary create-new waves-effect waves-light btn-dark rounded" tabindex="0"
+                            aria-controls="DataTables_Table_0">
                             <span><i class="ti ti-plus me-sm-1"></i> Add Category</span>
                         </a>
                     </div>
@@ -61,14 +64,17 @@
                                 <td>{{ $category->created_at->format('d M Y') }}</td>
                                 <!-- <td>{{ $category->updated_at->format('Y-m-d H:i:s') }}</td> -->
                                 <td class="d-flex justify-content-start align-items-center">
-                                    <a href="{{ route('editcategory', $category->id) }}" class="btn p-0 edit-btn dropdown-item">
+                                    <a href="{{ route('editcategory', $category->id) }}"
+                                        class="btn p-0 edit-btn dropdown-item">
                                         <i class="ti ti-pencil me-1"></i>
                                     </a>
 
                                     <form action="{{ route('destroycategory', $category->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="button" class="btn p-0 delete-btn text-danger dropdown-item" data-category-id="{{ $category->id }}" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                        <button type="button" class="btn p-0 delete-btn text-danger dropdown-item"
+                                            data-category-id="{{ $category->id }}" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal">
                                             <i class="ti ti-trash me-1"></i>
                                         </button>
                                     </form>
@@ -103,28 +109,28 @@
 
     @push('scripts')
     <script>
-        $(document).ready(function() {
-            $('#categorylist').DataTable({
-                order: [
-                    [0, 'desc']
-                ]
-            });
-
-            let categoryIdToDelete;
-
-            // Store the form to submit on confirmation
-            $(document).on('click', '.delete-btn', function() {
-                categoryIdToDelete = $(this).data('category-id');
-                var form = $(this).closest('form');
-                $('#confirmDeleteBtn').data('form', form);
-            });
-
-            // Submit the form when the confirm button is clicked
-            $('#confirmDeleteBtn').on('click', function() {
-                var form = $(this).data('form');
-                form.submit();
-            });
+    $(document).ready(function() {
+        $('#categorylist').DataTable({
+            order: [
+                [0, 'desc']
+            ]
         });
+
+        let categoryIdToDelete;
+
+        // Store the form to submit on confirmation
+        $(document).on('click', '.delete-btn', function() {
+            categoryIdToDelete = $(this).data('category-id');
+            var form = $(this).closest('form');
+            $('#confirmDeleteBtn').data('form', form);
+        });
+
+        // Submit the form when the confirm button is clicked
+        $('#confirmDeleteBtn').on('click', function() {
+            var form = $(this).data('form');
+            form.submit();
+        });
+    });
     </script>
     @endpush
     @endsection
