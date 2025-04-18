@@ -5,7 +5,7 @@
 
     @include('include.sidebar')
 
-    <div class="container addcartwidth">
+    <div class="container-fluid addcartwidth">
         @include('include.navbar')
 
         <div class="d-flex justify-content-between align-items-center mt-3 p-3">
@@ -294,16 +294,20 @@
                     <h5>1.8 Internal Clean (Prior to Handover)</h5>
                     <div>
                         <label class="me-3">
-                            By Builder <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="builder" checked>
+                            <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="builder" checked>
+                            By Builder
                         </label>
                         <label class="me-3">
-                            By Owner <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="owner">
+                            <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="owner">
+                            By Owner
                         </label>
                         <label>
-                            N/A <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="na">
+                            <input type="radio" class="form-check-input" name="sow[site_work][internal_clean]" value="na">
+                            N/A
                         </label>
                     </div>
                 </div>
+
                 <div class="card-body">
                     <p>If by builder:</p>
                     <div class="form-check">
@@ -362,6 +366,15 @@
                     <div class="mb-3">
                         <label for="protectionType">- Protection type:</label>
                         <input type="text" class="form-control form-control-sm w-50 d-inline-block ms-2" name="sow[site_work][termite_protection_type]" id="protectionType" placeholder="Enter protection type">
+                    </div>
+
+                    <div class="d-flex align-items-center">
+
+                        <!-- Label and Input -->
+
+                        <label for="site_work_note" class="me-2 mb-0">Notes to above:</label>
+                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                            name="sow[site_work][site_work_note]" id="site_work_note" placeholder="Enter access road to site notes">
                     </div>
                 </div>
             </div>

@@ -15,7 +15,7 @@
     @include('include.sidebar')
     <div class="main-content">
         @include('include.navbar')
-        <div class="container mt-4">
+        <div class="container-fluid mt-4">
             <h2 class="mb-4">Submission Details</h2>
             <div class="card-body">
                 <div style="background-color: #fff;

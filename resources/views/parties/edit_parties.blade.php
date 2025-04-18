@@ -8,7 +8,7 @@
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
 
-    <div class="container">
+    <div class="container-fluid">
         @include('include.navbar')
 
         <div class="row">

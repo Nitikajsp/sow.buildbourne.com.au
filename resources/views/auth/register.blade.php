@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-<div class="container-xxl register-form">
+<div class="container-fluid container-xxl register-form">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
             <div class="card register-card">

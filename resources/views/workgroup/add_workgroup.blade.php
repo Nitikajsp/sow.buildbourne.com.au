@@ -6,7 +6,7 @@
 @section('content')
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
-    <div class="container addcartwidth">
+    <div class="container-fluid addcartwidth">
         @include('include.navbar')
         <div class="row">
             <div class="col-md-12 d-flex justify-content-between align-items-center mt-3 p-5">

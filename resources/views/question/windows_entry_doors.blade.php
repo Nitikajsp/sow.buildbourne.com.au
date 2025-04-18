@@ -332,15 +332,15 @@
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_door_units]" value="door_units">
-                <label class="form-check-label">Door units <input type="radio" name="timber_door_units_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <label class="form-check-label">Door units <br> <input class="form-check-input" type="radio" name="timber_door_units_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding_doors]" value="sliding_doors">
-                <label class="form-check-label">Sliding doors <input type="radio" name="timber_sliding_doors_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <label class="form-check-label">Sliding doors <br> <input class="form-check-input" type="radio" name="timber_sliding_doors_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_windows]" value="windows">
-                <label class="form-check-label">Windows <input type="radio" name="sow[windows_and_entry_doors][timber_windows_na]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <label class="form-check-label">Windows <br> <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_windows_na]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
         </div>
     </div>

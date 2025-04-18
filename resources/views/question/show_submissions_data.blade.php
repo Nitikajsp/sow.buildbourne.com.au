@@ -12,7 +12,7 @@
     <div class="main-content">
         @include('include.navbar')
 
-        <div class="container mt-4">
+        <div class="container-fluid mt-4">
             <div class="d-flex flex-column flex-md-row justify-content-between">
                 <div class="head-label text-center">
                     <h2 class="card-title mb-0">All Site Work Submissions</h2>

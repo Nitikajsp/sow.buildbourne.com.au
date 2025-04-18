@@ -154,6 +154,13 @@
                 Standard Range Hume Door
             </label>
             <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][cavity_hume_style]" placeholder="Style e.g., Sorrento 5">
+
+            <div>
+                <input class="form-check-input" type="radio" name="sow[carpenter_interior][cavity_sliding_doors_other_style]" id="cavity_sliding_doors_other_style" value="cavity sliding doors other style">
+                <label class="form-check-label" for="cavity_sliding_doors_other_style_note">
+                </label>
+                <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][cavity_sliding_doors_other_style_note]" placeholder="cavity sliding doors other style note">
+            </div>
         </div>
     </div>
 
@@ -167,6 +174,12 @@
                 Standard Range Hume Door
             </label>
             <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][built_in_robe_style]" placeholder="Style e.g., Sorrento 5">
+            <div>
+                <input class="form-check-input" type="radio" name="sow[carpenter_interior][range_hume_door_other]" id="range_hume_door_other" value="range_hume_door_other" placeholder="range hume door other">
+                <label class="form-check-label" for="range_hume_door_other_note">
+                </label>
+                <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][range_hume_door_other_note]" placeholder="range hume door other note">
+            </div>
         </div>
     </div>
 
@@ -177,6 +190,8 @@
             <input class="form-check-input" type="radio" name="sow[carpenter_interior][sliding_robe_track]" id="sliding_robe_track" value="custom">
             <label class="form-check-label" for="sliding_robe_track">Custom Colour</label>
             <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][sliding_robe_track_colour]" placeholder="Specify colour e.g., Black, Silver">
+            N/A
+            <input class="form-check-input" type="radio" name="sow[carpenter_interior][sliding_robe_track_na]" id="sliding_robe_track" value="na">
         </div>
     </div>
 
@@ -192,7 +207,9 @@
 
     <!-- Question 5 -->
     <div class="p-3 mb-3 bg-white rounded shadow-sm">
-        <label><strong>Interior Passage Doors</strong></label>
+        <label><strong>Standard handle/knob & latch-type</strong></label>
+        <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][interior_passage_doors_note]" placeholder="interior passage doors  note">
+
         <div class="form-check">
             <input class="form-check-input" type="radio" name="sow[carpenter_interior][interior_passage_doors]" value="bright_chrome">
             <label class="form-check-label">Bright Chrome</label><br>
@@ -205,6 +222,7 @@
 
             <input class="form-check-input" type="radio" name="sow[carpenter_interior][interior_passage_doors]" value="other">
             <label class="form-check-label">Other</label>
+            <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][interior_passage_doors_other_note]" placeholder="interior passage doors other note">
         </div>
     </div>
 
@@ -226,7 +244,23 @@
     </div>
 
     <div class="p-3 mb-3 bg-white rounded shadow-sm">
-        <label><strong>Robes & Cupboards (Swinging Doors):</strong></label>
+        <label><strong> Robes & cupboards (Swinging Doors):</strong></label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sow[carpenter_interior][robes_cupboards]" value="robes_cupboards">
+            <label class="form-check-label">Standard dummy to match passage handles/knobs</label><br>
+            <div>
+                <label class="form-check-label" for="cavity_sliding_other_note">Other
+                </label>
+                <input class="form-check-input" type="radio" name="sow[carpenter_interior][robes_cupboards_other]" id="robes_cupboards_other" value="robes_cupboards_other">
+                <label class="form-check-label" for="robes_cupboards_other">
+                </label>
+                <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][robes_cupboards_other]" placeholder="robes cupboards other">
+            </div>
+        </div>
+    </div>
+
+    <div class="p-3 mb-3 bg-white rounded shadow-sm">
+        <label><strong>Cavity sliding:</strong></label>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="sow[carpenter_interior][robes_cupboards]" value="rectangular_cutout">
             <label class="form-check-label">Std. Rectangular Cut Out</label><br>
@@ -242,6 +276,14 @@
 
             <input class="form-check-input" type="radio" name="sow[carpenter_interior][robes_cupboards]" value="polished_chrome">
             <label class="form-check-label">Polished Chrome</label>
+            <div>
+                <label class="form-check-label" for="cavity_sliding_other_note">Other
+                </label>
+                <input class="form-check-input" type="radio" name="sow[carpenter_interior][cavity_sliding_other]" id="cavity_sliding_other" value="cavity_sliding_other">
+                <label class="form-check-label" for="cavity_sliding_other_note">
+                </label>
+                <input type="text" class="form-control mt-1 w-50" name="sow[carpenter_interior][cavity_sliding_other_note]" placeholder="cavity sliding other note">
+            </div>
         </div>
     </div>
 
