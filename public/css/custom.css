@@ -130,9 +130,6 @@
         width: 130px;
     }
 
-    .custmrmt0 {
-        margin-top: -45px !important;
-    }
 
     .inner-container {
         padding: 15px !important;
@@ -247,6 +244,10 @@ body {
 .sidebar {
     width: 132px;
     background-color: #5C662B;
+    position: fixed;
+    height: 100vh;
+    top: 0px;
+    z-index: 9999;
 }
 
 .content-wrapper {
@@ -292,6 +293,10 @@ body {
     width: 100%;
 }
 
+.page-header {
+    padding: 20px;
+}
+
 .customnav-link {
     width: 100%;
     display: flex;
@@ -305,8 +310,6 @@ body {
 .customnav-link .nav-icon {
     color: #fff;
 }
-
-
 
 .menu-inner {
     flex-direction: column;
@@ -541,14 +544,17 @@ body {
     margin: 0px !important;
 }
 
-div#DataTables_Table_0_wrapper {
+/* div#DataTables_Table_0_wrapper {
     padding-left: 20px;
     padding-right: 20px;
-}
+} */
+
 .main-content {
-    padding-left: 20px;
-    padding-right: 20px; 
+    padding-left: 132px;
+    padding-right: 0px;
+    width: 100%;
 }
+
 .table th {
     text-transform: unset !important;
 }
@@ -583,9 +589,9 @@ h5 {
 }
 
 .inner-container {
-    max-width: 80%;
+    /* max-width: 80%;
     margin: 0 auto;
-    margin-bottom: 150px;
+    margin-bottom: 150px; */
     background-color: #ffffff;
     padding: 40px;
 }
@@ -677,14 +683,9 @@ div.text-dark {
     border-color: #00c878 !important;
 }
 
-.listpadding {
-    padding: 30px !important;
-}
 
-.editpadding {
-    margin-top: 15px;
-    padding: 30px !important;
-}
+
+
 
 .showlstpad {
     padding: 30px !important;
@@ -722,8 +723,8 @@ div.text-dark {
 
 .form-check-input:checked,
 .form-check-input[type=checkbox]:indeterminate {
-    background-color: #00C878 !important;
-    border-color: #00C878 !important;
+    background-color: #5c662b !important;
+    border-color: #5c662b !important;
 }
 
 .form-check-input {
@@ -780,9 +781,10 @@ button.btn.p-0.delete-btn.text-danger.dropdown-item {
     margin-left: 15px !important;
 }
 
+/* 
 .container-partylist {
     max-width: calc(100% - 80px);
-}
+} */
 
 .table_scroll .dt-layout-row:nth-child(2) .dt-layout-cell {
     overflow-x: scroll;

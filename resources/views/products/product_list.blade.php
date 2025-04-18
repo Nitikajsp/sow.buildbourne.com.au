@@ -11,7 +11,7 @@
   <div class="container-fluid container-customerlist">
     @include('include.navbar')
     <div class="row mb-3">
-      <div class="col-12 editpadding">
+      <div class="col-12 page-header">
         <a href="{{ route('home') }}" class="d-flex align-items-center text-dark">
           <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2"></i> Back
         </a>
