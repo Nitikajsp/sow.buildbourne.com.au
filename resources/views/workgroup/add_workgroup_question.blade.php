@@ -11,7 +11,7 @@
 
     @include('include.sidebar')
 
-    <div class="container addcartwidth">
+    <div class="container-fluid addcartwidth">
         @include('include.navbar')
 
         <div class="row">

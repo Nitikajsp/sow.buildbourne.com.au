@@ -92,6 +92,9 @@
         <label for="external_notes">Notes to above</label>
         <textarea class="form-control" id="external_notes" rows="3"></textarea>
     </div>
+
+
+
     <div class="font-weight-bold font-size-lg mb-3">INTERNAL COLOURS</div>
     <div class="custom-resp-table">
         <table class="table table-bordered">

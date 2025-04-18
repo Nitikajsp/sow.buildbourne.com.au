@@ -69,10 +69,7 @@
                  <span>Existing</span>
                  <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="existing">
              </div>
-             <div class="me-3 mb-2">
-                 <span>N/A</span>
-                 <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="na">
-             </div>
+
          </div>
 
          <!-- Notes & Details -->
@@ -106,12 +103,13 @@
              </p>
 
              <!-- Notes Textarea -->
+
+             <p class="mt-3"><strong>Note:</strong> Allowance for sewer pipe connection to sewer main or tank is 10m from the last pickup point at house. Extra over 10m will be charged at $55.00 per meter including builder's margin and GST. Allowance is made for standard authority connection fee to sewer only (if applicable), extra contributions, levies, or access fees are payable by owners.</p>
              <div class="mt-3">
                  Notes to above:
                  <textarea class="form-control mt-2" rows="3" name="sow[drainage_to_concrete_slab_floors][sewerage_notes]" placeholder=".............................................................................."></textarea>
              </div>
 
-             <p class="mt-3"><strong>Note:</strong> Allowance for sewer pipe connection to sewer main or tank is 10m from the last pickup point at house. Extra over 10m will be charged at $55.00 per meter including builder's margin and GST. Allowance is made for standard authority connection fee to sewer only (if applicable), extra contributions, levies, or access fees are payable by owners.</p>
          </div>
      </div>
  </div>
@@ -145,12 +143,18 @@
 
              <ul class="mb-2 ps-3">
                  <li>To tank/s then (A) show location of tank on plan</li>
+                 <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][tank_on_plan]" value="tank_on_plan" class="ms-1" checked>
+
                  <li>(B) Are pressurised PVC down pipes required?
                      <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][pvc_required]" value="yes" class="ms-1" checked> Yes
                      <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][pvc_required]" value="no" class="ms-2"> No
                  </li>
                  <li>Rubble pit then show location and design on plan</li>
+                 <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][design_on_plan]" value="design_on_plan" class="ms-1">
+
                  <li>Existing or "by owner" then show location on plan</li>
+                 <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][location_on_plan]" value="location_on_plan" class="ms-1">
+
              </ul>
 
              <p class="small">

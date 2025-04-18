@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @push('css')
-    <link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
 @endpush
 
 @section('content')
 
 <div id="app" class="layout-wrapper">
 
-    @include('include.sidebar') 
+    @include('include.sidebar')
 
-    <div class="container">
-        @include('include.navbar') 
+    <div class="container-fluid">
+        @include('include.navbar')
         <div class="listpadding">
             <div class="row">
                 <div class="col-md-12">
@@ -92,17 +92,17 @@
     </div>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             let formToSubmit;
 
             // Open the modal and store the form to submit
-            $(document).on('click', '.delete-btn', function () {
+            $(document).on('click', '.delete-btn', function() {
                 formToSubmit = $(this).closest('form');
                 $('#deleteModal').modal('show');
             });
 
             // Submit the form when the confirm button is clicked
-            $('#confirmDeleteBtn').on('click', function () {
+            $('#confirmDeleteBtn').on('click', function() {
                 if (formToSubmit) {
                     formToSubmit.submit();
                 }
@@ -110,4 +110,4 @@
         });
     </script>
 
-@endsection
+    @endsection

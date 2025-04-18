@@ -3,7 +3,7 @@
 @section('content')
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
-    <div class="container-partylist w-100">
+    <div class="container-fluid container-partylist w-100">
         @include('include.navbar')
         <div class="row mb-3">
             <div class="col-12">

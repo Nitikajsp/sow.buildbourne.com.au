@@ -230,9 +230,8 @@ class ListController extends Controller
             return redirect()->route('cart.view', $listId)->with('success', 'Quantity and comment updated successfully.');
         }
 
-        return redirect()->route('cart.view', $listId)->with('error', 'Product not found in cart.');
+        return redirect()->route('cart.view', $listId)->with('error', 'Product not found    in cart.');
     }
-
 
     //  remove product in add to cart product //
 

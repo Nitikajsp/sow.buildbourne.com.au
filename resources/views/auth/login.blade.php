@@ -6,7 +6,7 @@
 @endpush
 
 @section('content')
-<div class="container-xxl login-form">
+<div class="container-fluid container-xxl login-form">
     <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner py-4">
             <div class="card login-card">

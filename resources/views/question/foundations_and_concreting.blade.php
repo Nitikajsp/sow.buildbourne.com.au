@@ -57,7 +57,7 @@
             </div>
             <div class="mb-2">
                 <p>
-                    - Specification: As per detailed engineer’s plans & specs
+                    - Specification: As per detailed engineer’s plans & specifications
                     <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][specification]" value="engineers_plans" checked>
                 </p>
                 <p>
@@ -73,6 +73,8 @@
                 <input type="text" class="form-control mt-1" name="sow[surveyor_set_out][concrete_slab_notes]" placeholder="..............................................................................">
             </div>
             <small class="d-block"><strong>Note 1:</strong> : Piering if required and /or indicated on engineer's plans will be charged at $110.00 inc.GST & Builders Margin per lineal metre.</small>
+
+            <small class="d-block"><strong>Note 2:</strong> : If rock or unstable soil materials are encountered during slab construction then piering or additional slab requirements for construction may be applied by the engineer. These additions to slab construction will not have been detailed in the original approved plans & specifications and therefore a variation at cost plus builder's margin will be charged to the owner to cover engineering and construction works.</small>
 
         </div>
     </div>
@@ -130,8 +132,6 @@
         </div>
     </div>
 </div>
-
-
 
 
 <!-- foundations-and-concreting.blade.php -->

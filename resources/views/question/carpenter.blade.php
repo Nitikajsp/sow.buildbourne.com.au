@@ -16,37 +16,41 @@
 
     <table class="table table-bordered">
         <tr>
-            <td>- Termite resistant particle board floor sheeting:</td>
+            <td>- Termite resistant particle board floor sheeting:
+                <input type="radio" name="sow[carpenter][termite_resistant]" value="termite_resistant" class="form-check-input" checked>
+
+            </td>
             <td>
                 <labelclass="form-check-input">N/A</label>
                     <input type="radio" name="sow[carpenter][termite_resistant]" value="na" class="form-check-input">
             </td>
-            <td>
-                <labelclass="form-check-input">Yes</label>
-                    <input type="radio" name="sow[carpenter][termite_resistant]" value="yes" class="form-check-input" checked>
-            </td>
+
         </tr>
         <tr>
-            <td>- Other:</td>
+            <td>- Other:
+                <input type="radio" name="sow[carpenter][other]" value="other" class="form-check-input">
+
+            </td>
+
+
             <td>
                 <labelclass="form-check-input">N/A</label>
                     <input type="radio" name="sow[carpenter][other]" value="na" class="form-check-input" checked>
             </td>
-            <td>
-                <labelclass="form-check-input">Yes</label>
-                    <input type="radio" name="sow[carpenter][other]" value="yes" class="form-check-input">
-            </td>
+
         </tr>
         <tr>
-            <td>- Floor Insulation:</td>
+            <td>- Floor Insulation:
+                <input type="radio" name="sow[carpenter][floor_insulation]" value="floor_insulation" class="form-check-input">
+
+            </td>
+
+
             <td>
                 <labelclass="form-check-input">N/A</label>
                     <input type="radio" name="sow[carpenter][floor_insulation]" value="na" class="form-check-input" checked>
             </td>
-            <td>
-                <labelclass="form-check-input">Yes</label>
-                    <input type="radio" name="sow[carpenter][floor_insulation]" value="yes" class="form-check-input">
-            </td>
+
         </tr>
     </table>
 
@@ -72,31 +76,39 @@
 
     <table class="table table-bordered">
         <tr>
-            <td>- Fibrous cement floor sheeting:</td>
+            <td>- Fibrous cement floor sheeting:
+                <input type="radio" name="sow[carpenter][fibrous_cement]" value="fibrous_cement" class="form-check-input">
+
+            </td>
             <td>
                 N/A <input type="radio" name="sow[carpenter][fibrous_cement]" value="no" class="form-check-input" checked>
             </td>
-            <td>
-                <input type="radio" name="sow[carpenter][fibrous_cement]" value="yes" class="form-check-input">
-            </td>
+
+
         </tr>
         <tr>
-            <td>- Treated pine decking:</td>
+            <td>- Treated pine decking:
+                <input type="radio" name="sow[carpenter][treated_pine]" value="treated_pine" class="form-check-input">
+
+            </td>
             <td>
                 N/A <input type="radio" name="sow[carpenter][treated_pine]" value="no" class="form-check-input" checked>
             </td>
-            <td>
-                <input type="radio" name="sow[carpenter][treated_pine]" value="yes" class="form-check-input">
-            </td>
+
+
         </tr>
         <tr>
-            <td>- Hardwood decking:</td>
+            <td>- Hardwood decking:
+                <input type="radio" name="sow[carpenter][hardwood_decking]" value="hardwood_decking" class="form-check-input">
+                <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][timber_selection]" id="timber_selection" placeholder="Enter timber selection notes">
+
+            </td>
             <td>
                 N/A <input type="radio" name="sow[carpenter][hardwood_decking]" value="no" class="form-check-input" checked>
             </td>
-            <td>
-                <input type="radio" name="sow[carpenter][hardwood_decking]" value="yes" class="form-check-input"> (Timber Selection)
-            </td>
+
+
         </tr>
     </table>
     <div class="d-flex align-items-center">
@@ -117,19 +129,12 @@
     </div>
 
     <table class="table table-bordered">
-        <tr>
-            <td colspan="3">
-                Per Plans & Specifications
-                <input type="radio" name="sow[carpenter][timber_verandah_per_plans]" value="yes" class="form-check-input">
-                N/A
-                <input type="radio" name="sow[carpenter][timber_verandah_per_plans]" value="no" class="form-check-input">
-            </td>
-        </tr>
+
     </table>
 
     <div class="p-3 mt-3" style="background-color: #e8f4ff;">
-        <p>🛈 <strong>Floor Systems Note 1:</strong> Floor systems in fire risk areas may have specific requirements to meet council consent, such as fibre cement sheet lining under...</p>
-        <p>🛈 <strong>Floor Systems Note 2:</strong> Conditions of Development Consent, Bushfire Assessment...
+        <p>🛈 <strong>Floor Systems Note 1:</strong> : Floor systems in fire risk areas may have specific requirements to meet council consent, such as fibre cement sheet lining under, minimum height under floor, fire resistant timber etc. Floor systems on or near the coast may, if exposed have special requirements to resist corrosion, Floor systems to meet BASIX requirements may require insulation.</p>
+        <p>🛈 <strong>Floor Systems Note 2:</strong> : Conditions of Development Consent, Bushfire Assessment, BASIX Certificate & the BCA must be checked prior to final selections being approved for construction.
             <input type="radio" name="sow[carpenter][bushfire_assessment]" value="yes" class="form-check-input"> (Checked)
         </p>
     </div>
@@ -189,8 +194,7 @@
         <div class="d-flex align-items-center mb-2">
             <span>Per Council Approved Plans & Specifications</span>
             <input type="radio" name="sow[carpenter][approved_plans]" value="yes" class="form-check-input" checked>
-            <span>N/A</span>
-            <input type="radio" name="sow[carpenter][approved_plans]" value="na" class="form-check-input">
+
         </div>
     </div>
 
@@ -457,6 +461,15 @@
             <input type="radio" class="form-check-input" id="doorSelectionsChecked" name="sow[carpenter][door_selections_checked]">
             <label class="form-check-label" for="doorSelectionsChecked">(Checked)</label>
         </div>
+        <div class="d-flex align-items-center">
+
+            <!-- Label and Input -->
+
+            <label for="exterior_door_furniture" class="me-2 mb-0">Notes to above:</label>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][exterior_door_furniture]" id="exterior_door_furniture" placeholder="Enter Exterior Door Furniture notes">
+        </div>
+
     </div>
 
 

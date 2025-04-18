@@ -9,7 +9,7 @@
   <div class="content-wrapper pl-30 ">
     @include('include.navbar')
 
-    <div class="container px-0">
+    <div class="container-fluid px-0">
       <div class="row g-3">
         <!-- section 1 start -->
         <div class="col-12 col-sm-6  col-lg-4">
