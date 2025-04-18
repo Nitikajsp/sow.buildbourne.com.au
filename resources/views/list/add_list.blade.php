@@ -7,105 +7,114 @@
 @section('content')
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
+    <div class="main-content">
 
-    <div class="container-fluid">
-        @include('include.navbar')
-        <div class="row">
-            <div class="col-md-12 d-flex justify-content-between align-items-center editpadding">
-                <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
-                    <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
-                </a>
-                <button type="button" class="btn btn-primary btn btn-dark float-end rounded"
-                    onclick="window.location.href='{{ route('parties.show', $party_id) }}'">
-                    View
-                </button>
+        <div class="container-fluid">
+            @include('include.navbar')
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
+                    <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
+                        <i
+                            class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
+                    </a>
+                    <button type="button" class="btn btn-primary btn btn-dark float-end rounded"
+                        onclick="window.location.href='{{ route('parties.show', $party_id) }}'">
+                        View
+                    </button>
+                </div>
             </div>
-        </div>
 
-        <div class="container mt-5">
-            <div class="inner-container custmrmt0">
-                <div class="row">
-                    <div class="col-lg-12 margin-tb">
-                        <div class="pull-left">
-                            <h2>Add Project</h2>
-                        </div>
-                        <div class="pull-left">
-                            <h5>Please enter your detail</h5>
-                        </div>
-                    </div>
-                </div>
-
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-
-                <form action="{{ route('lists.store') }}" method="POST" id="createBranchForm">
-
-                    @csrf
-
-                    <input type="hidden" name="parties_id" value="{{ $party_id }}">
-
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">Property Address</p>
-                                <input type="text" name="list_name" class="form-control border border-white-50">
-                                <div class="invalid-feedback"></div>
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="inner-container ">
+                        <div class="row">
+                            <div class="col-lg-12 ">
+                                <div class="pull-left">
+                                    <h2>Add Project</h2>
+                                </div>
+                                <div class="pull-left">
+                                    <h5>Please enter your detail</h5>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="suburb" class="text-secondary mb-1">Suburb</label>
-                                <input type="text" id="suburb" name="suburb" class="form-control border border-white-50">
-                                <span class="text-danger error-text suburb-error"></span>
-                            </div>
+
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="State" class="text-secondary mb-1">State</label>
-                                <select name="state" class="form-control border border-white-50">
-                                    <option value="" disabled selected>Select State</option>
-                                    <option value="New South Wales (NSW)">New South Wales (NSW)</option>
-                                    <option value="Victoria (VIC)">Victoria (VIC)</option>
-                                    <option value="Queensland (QLD)">Queensland (QLD)</option>
-                                    <option value="Western Australia (WA)">Western Australia (WA)</option>
-                                    <option value="South Australia (SA)">South Australia (SA)</option>
-                                    <option value="Tasmania (TAS)">Tasmania (TAS)</option>
-                                    <option value="Australian Capital Territory (ACT)">Australian Capital Territory (ACT)</option>
-                                    <option value="Northern Territory (NT)">Northern Territory (NT)</option>
-                                </select>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="pincode" class="text-secondary mb-1">Pincode</label>
-                                <input type="text" id="pincode" name="pincode" class="form-control border border-white-50">
-                                <span class="text-danger error-text pincod-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">Description</p>
-                                <textarea class="form-control border border-white-50" style="height:150px !important;" name="list_description"></textarea>
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">Contact Number</p>
-                                <input type="text" name="contact_number" class="form-control border border-white-50">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                        @endif
+
+                        <form action="{{ route('lists.store') }}" method="POST" id="createBranchForm">
+
+                            @csrf
+
+                            <input type="hidden" name="parties_id" value="{{ $party_id }}">
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <p class="text-secondary mb-1">Property Address</p>
+                                        <input type="text" name="list_name" class="form-control border border-white-50">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="suburb" class="text-secondary mb-1">Suburb</label>
+                                        <input type="text" id="suburb" name="suburb"
+                                            class="form-control border border-white-50">
+                                        <span class="text-danger error-text suburb-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="State" class="text-secondary mb-1">State</label>
+                                        <select name="state" class="form-control border border-white-50">
+                                            <option value="" disabled selected>Select State</option>
+                                            <option value="New South Wales (NSW)">New South Wales (NSW)</option>
+                                            <option value="Victoria (VIC)">Victoria (VIC)</option>
+                                            <option value="Queensland (QLD)">Queensland (QLD)</option>
+                                            <option value="Western Australia (WA)">Western Australia (WA)</option>
+                                            <option value="South Australia (SA)">South Australia (SA)</option>
+                                            <option value="Tasmania (TAS)">Tasmania (TAS)</option>
+                                            <option value="Australian Capital Territory (ACT)">Australian Capital
+                                                Territory
+                                                (ACT)</option>
+                                            <option value="Northern Territory (NT)">Northern Territory (NT)</option>
+                                        </select>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <label for="pincode" class="text-secondary mb-1">Pincode</label>
+                                        <input type="text" id="pincode" name="pincode"
+                                            class="form-control border border-white-50">
+                                        <span class="text-danger error-text pincod-error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <p class="text-secondary mb-1">Description</p>
+                                        <textarea class="form-control border border-white-50"
+                                            style="height:150px !important;" name="list_description"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
+                                    <div class="form-group">
+                                        <p class="text-secondary mb-1">Contact Number</p>
+                                        <input type="text" name="contact_number"
+                                            class="form-control border border-white-50">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
                             <div class="form-group">
                                 <p class="text-secondary mb-1">Builder Email</p>
                                 <input type="email" name="contact_email" class="form-control border border-white-50">
@@ -134,13 +143,17 @@
                             </div>
                         </div> -->
 
-                        <div class="pull-right mt-1 text-center">
-                            <button type="submit" class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
-                            <button type="reset" class="btn btn-outline-dark waves-effect rounded" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
-                        </div>
-                    </div>
+                                <div class="pull-right mt-1 text-center">
+                                    <button type="submit"
+                                        class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
+                                    <button type="reset" class="btn btn-outline-dark waves-effect rounded"
+                                        data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                </div>
+                            </div>
 
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -149,100 +162,101 @@
     @push('scripts')
 
     <script>
-        $(document).ready(function() {
-            $.validator.addMethod("validEmail", function(value, element) {
-                // General regex for email validation
-                return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-            }, "Please enter a valid email address.");
+    $(document).ready(function() {
+        $.validator.addMethod("validEmail", function(value, element) {
+            // General regex for email validation
+            return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        }, "Please enter a valid email address.");
 
-            $("#createBranchForm").validate({
-                rules: {
-                    list_name: {
-                        required: true,
-                    },
-
-                    suburb: {
-                        required: true,
-
-                    },
-                    state: {
-                        required: true,
-
-                    },
-                    pincod: {
-                        required: true,
-
-                    },
-                    list_description: {
-                        required: true,
-                    },
-                    contact_number: {
-                        required: true,
-                    },
-                    contact_email: {
-                        required: true,
-                        email: true,
-                        validEmail: true
-                    },
-                    builder_name: {
-                        required: true,
-                    },
-                    status: {
-                        required: true
-                    }
+        $("#createBranchForm").validate({
+            rules: {
+                list_name: {
+                    required: true,
                 },
-                messages: {
-                    list_name: {
-                        required: "Please enter the street name",
-                    },
 
-                    suburb: {
-                        required: "Please enter the suburb",
+                suburb: {
+                    required: true,
 
-                    },
-                    state: {
-                        required: "Please enter the state",
-
-                    },
-                    pincod: {
-                        required: "Please enter the pincod",
-
-                    },
-                    list_description: {
-                        required: "Please enter the list description",
-                    },
-                    contact_number: {
-                        required: "Please enter the contact number"
-                    },
-                    contact_email: {
-                        required: "Please enter the contact email",
-                        email: "Please enter a valid email address",
-                        validEmail: "Please enter a valid email address ending with '.com'"
-                    },
-                    builder_name: {
-                        required: "Please enter the builder name",
-                    },
-                    status: {
-                        required: "Please select an option"
-                    }
                 },
-                errorElement: 'div',
-                errorPlacement: function(error, element) {
-                    error.addClass('invalid-feedback');
-                    error.insertBefore(element);
+                state: {
+                    required: true,
+
                 },
-                highlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-invalid').removeClass('is-valid');
+                pincod: {
+                    required: true,
+
                 },
-                unhighlight: function(element, errorClass, validClass) {
-                    $(element).addClass('is-valid').removeClass('is-invalid');
+                list_description: {
+                    required: true,
+                },
+                contact_number: {
+                    required: true,
+                },
+                contact_email: {
+                    required: true,
+                    email: true,
+                    validEmail: true
+                },
+                builder_name: {
+                    required: true,
+                },
+                status: {
+                    required: true
                 }
-            });
+            },
+            messages: {
+                list_name: {
+                    required: "Please enter the street name",
+                },
 
-            // Trigger validation when an input field gains focus
-            $('#createBranchForm input, #createBranchForm textarea, #createBranchForm select').on('focus', function() {
+                suburb: {
+                    required: "Please enter the suburb",
+
+                },
+                state: {
+                    required: "Please enter the state",
+
+                },
+                pincod: {
+                    required: "Please enter the pincod",
+
+                },
+                list_description: {
+                    required: "Please enter the list description",
+                },
+                contact_number: {
+                    required: "Please enter the contact number"
+                },
+                contact_email: {
+                    required: "Please enter the contact email",
+                    email: "Please enter a valid email address",
+                    validEmail: "Please enter a valid email address ending with '.com'"
+                },
+                builder_name: {
+                    required: "Please enter the builder name",
+                },
+                status: {
+                    required: "Please select an option"
+                }
+            },
+            errorElement: 'div',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                error.insertBefore(element);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid').removeClass('is-valid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-valid').removeClass('is-invalid');
+            }
+        });
+
+        // Trigger validation when an input field gains focus
+        $('#createBranchForm input, #createBranchForm textarea, #createBranchForm select').on('focus',
+            function() {
                 $(this).valid();
             });
-        });
+    });
     </script>
     @endpush
