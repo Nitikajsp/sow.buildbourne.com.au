@@ -53,9 +53,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Cook top</th>
@@ -64,9 +64,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cook_top]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cook_top]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cook_top]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Range hood</th>
@@ -75,9 +75,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][range_hood]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][range_hood]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][range_hood]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Dishwasher</th>
@@ -86,9 +86,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher]" value="na"></td>
                 </tr>
             </tbody>
         </table>
@@ -152,9 +152,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Tub</th>
@@ -163,9 +163,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Tub taps</th>
@@ -174,9 +174,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Tub plug & waste</th>
@@ -185,9 +185,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_plug_waste]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_plug_waste]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][tub_plug_waste]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Washing m/c cocks</th>
@@ -196,9 +196,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][washing_cocks]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][washing_cocks]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][washing_cocks]" value="na"></td>
                 </tr>
             </tbody>
         </table>
@@ -249,9 +249,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Toilet roll holder</th>
@@ -260,9 +260,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath</th>
@@ -271,9 +271,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="rangehood_qty"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath taps</th>
@@ -282,9 +282,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath plug & waste</th>
@@ -293,9 +293,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath soap holder</th>
@@ -304,9 +304,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity</th>
@@ -315,9 +315,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity taps</th>
@@ -326,9 +326,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity plug & waste</th>
@@ -337,9 +337,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower screen</th>
@@ -348,9 +348,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower rose</th>
@@ -359,9 +359,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower taps</th>
@@ -370,9 +370,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower soap holder</th>
@@ -381,9 +381,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Floor grate</th>
@@ -392,9 +392,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Hand towel ring</th>
@@ -403,9 +403,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Towel rail</th>
@@ -414,9 +414,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Mirror</th>
@@ -425,9 +425,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="na"></td>
                 </tr>
             </tbody>
         </table>
@@ -484,9 +484,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cisterm]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Toilet roll holder</th>
@@ -495,9 +495,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="cooktop_qty"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Bath</th>
@@ -506,9 +506,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Bath taps</th>
@@ -517,9 +517,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Bath plug & waste</th>
@@ -528,9 +528,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Bath soap holder</th>
@@ -539,9 +539,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity</th>
@@ -550,9 +550,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity taps</th>
@@ -561,9 +561,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity plug & waste</th>
@@ -572,9 +572,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower screen</th>
@@ -583,9 +583,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower rose</th>
@@ -594,9 +594,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower taps</th>
@@ -605,9 +605,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_na]dishwasher_supplier"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_na]dishwasher_colour"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_na]dishwasher_qty"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]dishwasher_by" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]dishwasher_by" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]dishwasher_na" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower soap holder</th>
@@ -616,9 +616,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Floor grate</th>
@@ -627,9 +627,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="dishwasher_qty"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Hand towel ring</th>
@@ -638,9 +638,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Towel rail</th>
@@ -649,9 +649,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_brand]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rail]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Mirror</th>
@@ -660,9 +660,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="na"></td>
                     </tr>
                 </tbody>
             </table>
@@ -715,9 +715,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][oven_brand]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Toilet roll holder</th>
@@ -726,9 +726,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_brand]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity</th>
@@ -737,9 +737,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][oven_brand]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity taps</th>
@@ -748,9 +748,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Vanity plug & waste</th>
@@ -759,9 +759,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_plug__waste]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_plug__waste]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][vanity_plug__waste]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower screen</th>
@@ -770,9 +770,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_screen]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_screen]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_screen]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower rose</th>
@@ -781,9 +781,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_rose]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_rose]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_rose]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower taps</th>
@@ -792,9 +792,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_taps]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_taps]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_taps]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower soap holder</th>
@@ -803,9 +803,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder_1]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder_1]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder_1]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Floor grate</th>
@@ -814,9 +814,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][floor_grate]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][floor_grate]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][floor_grate]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Hand towel ring</th>
@@ -825,9 +825,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Towel rail</th>
@@ -836,9 +836,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][towel_rail]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][towel_rail]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][towel_rail]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Shower soap holder</th>
@@ -847,9 +847,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="na"></td>
                     </tr>
                     <tr>
                         <th scope="row">Mirror</th>
@@ -858,9 +858,9 @@
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                         <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][mirror]" value="builder"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][mirror]" value="owner"></td>
+                        <td class="text-center"><input type="radio" class="form-check-input" class="form-check-input" name="sow[pc_selections][mirror]" value="na"></td>
                     </tr>
 
                 </tbody>
@@ -913,9 +913,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][oven_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][oven_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_cistern]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Toilet roll holder</th>
@@ -924,9 +924,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][cooktop_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][cooktop_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][toilet_roll_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath</th>
@@ -935,9 +935,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][rangehood_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][rangehood_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath taps</th>
@@ -946,9 +946,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath plug & waste</th>
@@ -957,9 +957,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_plug_waste]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Bath soap holder</th>
@@ -968,9 +968,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][bath_soap_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity</th>
@@ -979,9 +979,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity taps</th>
@@ -990,9 +990,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Vanity plug & waste</th>
@@ -1001,9 +1001,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][vanity_plug_waste]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower screen</th>
@@ -1012,9 +1012,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_screen]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower rose</th>
@@ -1023,9 +1023,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_rose]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower taps</th>
@@ -1034,9 +1034,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_taps]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Shower soap holder</th>
@@ -1045,9 +1045,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][shower_soap_holder]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Floor grate</th>
@@ -1056,9 +1056,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][floor_grate]" value="na"></td>
                 </tr>
 
                 <tr>
@@ -1068,9 +1068,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][hand_towel_ring]" value="na"></td>
                 </tr>
                 <tr>
                     <th scope="row">Towel rall</th>
@@ -1079,9 +1079,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_qty]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_na]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rall]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rall]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][towel_rall]" value="na"></td>
                 </tr>
 
                 <tr>
@@ -1091,9 +1091,9 @@
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_supplier]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_colour]"></td>
                     <td><input type="text" class="form-control form-control-sm" name="sow[pc_selections][dishwasher_qty]"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="builder"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_by]" value="owner"></td>
-                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][dishwasher_qty]" value="na"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="builder"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="owner"></td>
+                    <td class="text-center"><input type="radio" class="form-check-input" name="sow[pc_selections][mirror]" value="na"></td>
                 </tr>
             </tbody>
         </table>

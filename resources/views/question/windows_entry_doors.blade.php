@@ -401,7 +401,6 @@
         <div class="col-sm-12">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][double_door_active_leaf]" value="active_leaf">
-                <label class="form-check-label">()</label>
             </div>
         </div>
     </div>
@@ -458,7 +457,9 @@
     </div>
 
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">-Location: <input type="text" name="sow[windows_and_entry_doors][location1]" class="form-control" value="FRONT ENTRANCE TO BOTH UNITS"></label>
+        <label class="col-sm-3 col-form-label">-Location:
+            <input type="text" name="sow[windows_and_entry_doors][location1]" class="form-control" value="FRONT ENTRANCE TO BOTH UNITS">
+        </label>
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type1]" id="clear1" value="clear">
@@ -468,15 +469,18 @@
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type1]" id="obscure1" value="obscure" checked>
                 <label class="form-check-label" for="obscure1">Obscure glass</label>
             </div>
-            <div class="form-check">
+            <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type1]" id="other1" value="other">
-                <label class="form-check-label" for="other1">Other</label>
+                <label class="form-check-label mr-2" for="other1">Other</label>
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type1_other]" id="otherText1" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify...">
             </div>
         </div>
     </div>
 
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">-Location: <input type="text" name="sow[windows_and_entry_doors][location2]" class="form-control"></label>
+        <label class="col-sm-3 col-form-label">-Location:
+            <input type="text" name="sow[windows_and_entry_doors][location2]" class="form-control">
+        </label>
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type2]" id="clear2" value="clear">
@@ -486,15 +490,19 @@
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type2]" id="obscure2" value="obscure">
                 <label class="form-check-label" for="obscure2">Obscure glass</label>
             </div>
-            <div class="form-check">
+            <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type2]" id="other2" value="other">
-                <label class="form-check-label" for="other2">Other</label>
+                <label class="form-check-label mr-2" for="other2">Other</label>
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type2_other]" id="otherText2" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
             </div>
         </div>
     </div>
 
+
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">-Location: <input type="text" name="sow[windows_and_entry_doors][location3]" class="form-control"></label>
+        <label class="col-sm-3 col-form-label">-Location:
+            <input type="text" name="sow[windows_and_entry_doors][location3]" class="form-control">
+        </label>
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type3]" id="clear3" value="clear">
@@ -504,15 +512,18 @@
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type3]" id="obscure3" value="obscure">
                 <label class="form-check-label" for="obscure3">Obscure glass</label>
             </div>
-            <div class="form-check">
+            <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type3]" id="other3" value="other">
-                <label class="form-check-label" for="other3">Other</label>
+                <label class="form-check-label mr-2" for="other3">Other</label>
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type3_other]" id="otherText3" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
             </div>
         </div>
     </div>
 
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">-Location: <input type="text" name="sow[windows_and_entry_doors][location4]" class="form-control"></label>
+        <label class="col-sm-3 col-form-label">-Location:
+            <input type="text" name="sow[windows_and_entry_doors][location4]" class="form-control">
+        </label>
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type4]" id="clear4" value="clear">
@@ -522,12 +533,14 @@
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type4]" id="obscure4" value="obscure">
                 <label class="form-check-label" for="obscure4">Obscure glass</label>
             </div>
-            <div class="form-check">
+            <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type4]" id="other4" value="other">
-                <label class="form-check-label" for="other4">Other</label>
+                <label class="form-check-label mr-2" for="other4">Other</label>
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type4_other]" id="otherText4" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
             </div>
         </div>
     </div>
+
 
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">Notes to above:</label>
@@ -588,7 +601,7 @@
                 <label class="form-check-label">Per Selections Below</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][security_door_na]" value="na">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][security_door_price]" value="na">
                 <label class="form-check-label">N/A</label>
             </div>
         </div>
@@ -599,9 +612,7 @@
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][security_door_sum]" value="provisional">
-                <label class="form-check-label">
-                    <img src="https://via.placeholder.com/150x30?text=Amount+to+be+shown+at+Section+16+'Schedule+of+Provisional+Sums'" alt="Provisional Sum Note">
-                </label>
+
             </div>
         </div>
     </div>
@@ -655,7 +666,7 @@
                 <label class="form-check-label">Per Quote Attached</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][window_shutter_na]" value="na">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][window_shutter_price]" value="na">
                 <label class="form-check-label">N/A</label>
             </div>
         </div>
@@ -666,9 +677,7 @@
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][window_shutter_sum]" value="provisional">
-                <label class="form-check-label">
-                    <img src="https://via.placeholder.com/150x30?text=Amount+to+be+shown+at+Section+16+'Schedule+of+Provisional+Sums'" alt="Provisional Sum Note">
-                </label>
+
             </div>
         </div>
     </div>
@@ -691,9 +700,19 @@
 
 
 <div class="card p-3 mb-3">
-    <h5>8.8 Garage Doors
-    </h5>
 
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>8.8 Garage Doors</h5>
+        <div>
+            <label class="me-3">As shown on plans
+                <input type="radio" name="sow[windows_and_entry_doors][garage_doors]" value="builder" class="form-check-input">
+            </label>
+
+            <label>N/A
+                <input type="radio" name="sow[windows_and_entry_doors][garage_doors]" value="na" class="form-check-input" checked>
+            </label>
+        </div>
+    </div>
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">- Door type:</label>
         <div class="col-sm-9">
@@ -753,11 +772,27 @@
             </div>
         </div>
     </div>
+    <div class="p-3 mt-4 text-white" style="background: linear-gradient(to right, #cc5200, #ff6600); border: 2px solid #000;">
+        <p class="mb-1" style="font-weight: bold; font-size: 1.2rem;">IMPORTANT!</p>
+        <p style="margin-bottom: 0;">
+            Windows and Entry Doors in fire risk areas may have specific requirements to meet council consent.
+            Conditions of development application <strong>MUST</strong> be checked prior to finalisation of selections.
+        </p>
 
-    <div class="alert alert-warning mt-4">
-        <p><strong>IMPORTANT!</strong></p>
-        <p>Windows and Entry Doors in fire risk areas may have specific requirements to meet council consent. Conditions of development application MUST be checked prior to finalisation of selections.</p>
+        <div class="mt-3">
+            <strong>Checked:</strong> <input type="checkbox" checked disabled class="ml-1 mr-3">
+            <strong>Bushfire Attack Level</strong>
+        </div>
+
+        <div class="mt-2">
+            <strong>Checked By:</strong> <input type="text" class="form-control d-inline-block ml-1" style="width: 200px;" placeholder="Signature or Name" readonly>
+        </div>
+
+        <div class="mt-1" style="font-size: 0.8rem;">
+            (N/A, 12.5, 19, 29, 40, FZ as per AS3959-2009)
+        </div>
     </div>
+
 
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">Checked:</label>

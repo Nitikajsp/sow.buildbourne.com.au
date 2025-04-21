@@ -574,9 +574,6 @@
         </table>
 
 
-
-
-
         <table style="width: 100%; border-collapse: collapse; border: 2px solid black;">
             <tbody>
                 <tr style="background: #d3d3d3">

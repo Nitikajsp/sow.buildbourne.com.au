@@ -104,19 +104,19 @@
         <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_position_plan]" value="Show_preferred_position"> Show preferred position of downpipes on plumbing & drainage plan
     </label>
     <label class="form-check-label me-3">
-        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_position_na]" value="N/A"> N/A
+        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_position_plan]" value="N/A"> N/A
     </label>
     <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_not_all_same]" value="Show_various_positions"> If NOT all the same type or colour show various positions on plan
     </label>
     <label class="form-check-label me-3">
-        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_various_positions_na]" value="N/A"> N/A
+        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_not_all_same]" value="N/A"> N/A
     </label>
     <label class="form-check-label">
         <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_water_tank_location]" value="Show_water_tank_location"> Show water tank location or direction to stormwater on plans
     </label>
     <label class="form-check-label me-3">
-        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_water_tank_na]" value="N/A"> N/A
+        <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_water_tank_location]" value="N/A"> N/A
     </label>
 
     <!-- Notes Input -->
