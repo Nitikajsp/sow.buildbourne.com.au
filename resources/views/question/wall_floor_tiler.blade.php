@@ -55,9 +55,15 @@
 
     <div class="font-weight-bold mb-2">Steps to Spa Baths</div>
 
-    <div class="form-group row">
-        <label class="col-sm-1 col-form-label">N/A</label>
+    <div class="form-group row align-items-center">
+        <div class="col-auto">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][steps_to_spa_baths]" id="steps_to_spa_baths_na" value="na" checked>
+                <label class="form-check-label" for="steps_to_spa_baths_na">N/A</label>
+            </div>
+        </div>
     </div>
+
 
     <div class="form-group">
         <div class="form-check">
@@ -87,7 +93,7 @@
 
 <div class="card p-3 mb-3">
 
-    <h5>12.2 Laundry</h5>
+    <h5> </h5>
 
     <div class="font-weight-bold mb-2">Floor</div>
 
@@ -106,7 +112,6 @@
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][laundry_floor_laying]" id="laundry_floor_features" value="features">
                 <label class="form-check-label" for="laundry_floor_features">Features <span class="text-muted">(Show locations on floor plan)</span></label>
             </div>
-            <div class="text-muted">UNIT I SAMETILE AS MAIN FLOOR</div>
         </div>
     </div>
 
@@ -119,8 +124,12 @@
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][laundry_floor_waste]" id="laundry_floor_waste_dry" value="dry" checked>
-                <label class="form-check-label" for="laundry_floor_waste_dry">Floor waste (dry) T / SCREV</label>
+                <label class="form-check-label" for="laundry_floor_waste_dry">Floor waste (dry)</label>
             </div>
+            <div class="form-group mt-2">
+                <input class="form-control" type="text" name="sow[wall_and_floor_tiling_notes][floor_waste_dry]" id="floor_waste_dry" value="dry">
+            </div>
+
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][laundry_grate_type]" id="laundry_grate_stainless" value="stainless" checked>
                 <label class="form-check-label" for="laundry_grate_stainless">Stainless Steel</label>
@@ -226,7 +235,6 @@
         </div>
     </div>
 
-    <div class="font-weight-bold mb-2">FLOOR</div>
 
 
 
@@ -243,7 +251,7 @@
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][ensuite_wall_laying]" id="ensuite_wall_lay_non_standard" value="non_standard" checked>
                 <label class="form-check-label" for="ensuite_wall_lay_non_standard">Non standard (eg Wall Tiles to 1200mm High etc)</label>
             </div>
-            <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_wall_requirements]" class="form-control mt-2" placeholder="Requirements SEE LAYOUTS & JACOBA QUOTES">
+            <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_wall_requirements]" class="form-control mt-2" placeholder="Requirements">
             <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_wall_height]" class="form-control mt-2" placeholder="Height">
         </div>
     </div>
@@ -263,7 +271,7 @@
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][ensuite_feature_tiling]" id="ensuite_feature_individual" value="individual" checked>
                 <label class="form-check-label" for="ensuite_feature_individual">Individual feature tiles</label>
             </div>
-            <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_feature_position]" class="form-control mt-2" placeholder="Position SEE LAYOUTS & JACOBA QUOTES">
+            <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_feature_position]" class="form-control mt-2" placeholder="Position">
             <input type="text" name="sow[wall_and_floor_tiling_notes][ensuite_feature_requirements]" class="form-control mt-2" placeholder="Requirements">
         </div>
     </div>
@@ -324,7 +332,7 @@
                 <label class="form-check-label" for="ensuite_required">Required</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][ensuite_na]" id="ensuite_na" value="na">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][ensuite_required]" id="ensuite_na" value="na">
                 <label class="form-check-label" for="ensuite_na">N/A</label>
             </div>
         </div>
@@ -382,8 +390,12 @@
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][bathroom_grate_type]" id="bathroom_grate_other" value="other">
-                <label class="form-check-label" for="bathroom_grate_other">Other</label>
+                <label class="form-check-label mr-2" for="bathroom_grate_other">Other</label>
+
+                <!-- Text input shown next to "Other" -->
+                <input type="text" class="form-control form-control-sm" name="sow[wall_and_floor_tiling_notes][bathroom_grate_other_text]" placeholder="Specify other" style="width: 150px;">
             </div>
+
         </div>
     </div>
 
@@ -579,23 +591,40 @@
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">- Fittings</label>
         <div class="col-sm-9">
+
+            <!-- Ceramic soap holders -->
             <div class="form-check form-check-inline">
-                <label class="form-check-label">Ceramic soap holders</label>
-                <input class="form-check-input ml-2" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_soap_na]" id="wc_ceramic_soap_na" value="na" checked>
-                <label class="form-check-label ml-1" for="wc_ceramic_soap_na">N / A</label>
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_soap_na]" id="ceramic_soap_holder" value="ceramic_soap_holder">
+                <label class="form-check-label mr-3" for="ceramic_soap_holder">Ceramic soap holders</label>
             </div>
             <div class="form-check form-check-inline">
-                <label class="form-check-label">Ceramic towel rails</label>
-                <input class="form-check-input ml-2" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_towel_na]" id="wc_ceramic_towel_na" value="na" checked>
-                <label class="form-check-label ml-1" for="wc_ceramic_towel_na">N / A</label>
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_soap_na]" id="wc_ceramic_soap_na" value="na">
+                <label class="form-check-label" for="wc_ceramic_soap_na">N / A</label>
+            </div>
+
+            <!-- Ceramic towel rails -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_towel_na]" id="ceramic_towel_rail" value="ceramic_towel_rail">
+                <label class="form-check-label mr-3" for="ceramic_towel_rail">Ceramic towel rails</label>
             </div>
             <div class="form-check form-check-inline">
-                <label class="form-check-label">Ceramic toilet roll</label>
-                <input class="form-check-input ml-2" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_toilet_roll_na]" id="wc_ceramic_toilet_roll_na" value="na" checked>
-                <label class="form-check-label ml-1" for="wc_ceramic_toilet_roll_na">N / A</label>
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_towel_na]" id="wc_ceramic_towel_na" value="na">
+                <label class="form-check-label" for="wc_ceramic_towel_na">N / A</label>
             </div>
+
+            <!-- Ceramic toilet roll -->
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_toilet_roll_na]" id="ceramic_toilet_roll" value="ceramic_toilet_roll">
+                <label class="form-check-label mr-3" for="ceramic_toilet_roll">Ceramic toilet roll</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_ceramic_toilet_roll_na]" id="wc_ceramic_toilet_roll_na" value="na">
+                <label class="form-check-label" for="wc_ceramic_toilet_roll_na">N / A</label>
+            </div>
+
         </div>
     </div>
+
 
     <div class="text-muted mt-2">
         <strong>Note:</strong> Ceramic fittings for tiler are required to fit during wall tiling process. Non ceramic fittings can be installed after tiling is completed. Ceramic towel rails and toilet roll holders generally require walls at least tiled to 1 metre in height.
@@ -620,7 +649,7 @@
                 <label class="form-check-label" for="wc_required">Required</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_na]" id="wc_na" value="na" checked>
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][wc_required]" id="wc_na" value="na" checked>
                 <label class="form-check-label" for="wc_na">N/A</label>
             </div>
         </div>
@@ -741,7 +770,7 @@
                 <label class="form-check-label" for="additional_wet_areas_plan">As shown on plan</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][additional_wet_areas_na]" id="additional_wet_areas_na" value="na" checked>
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][additional_wet_areas_plan]" id="additional_wet_areas_na" value="na" checked>
                 <label class="form-check-label" for="additional_wet_areas_na">N/A</label>
             </div>
         </div>
@@ -984,7 +1013,7 @@
                 <label class="form-check-label" for="exterior_floor_plan">As shown on plan</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][exterior_floor_na]" id="exterior_floor_na" value="na">
+                <input class="form-check-input" type="radio" name="sow[wall_and_floor_tiling_notes][exterior_floor_plan]" id="exterior_floor_na" value="na">
                 <label class="form-check-label" for="exterior_floor_na">N / A</label>
             </div>
         </div>

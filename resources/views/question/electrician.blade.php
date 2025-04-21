@@ -38,11 +38,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-12">
-            <p>OWNER PAYING FOR POLE TO FRONT OF PROPERTY</p>
-        </div>
-    </div>
+
     <div class="d-flex align-items-center">
         <!-- Label and Input -->
         <label for="power_into_property" class="me-2 mb-0">Notes to above:</label>
@@ -66,16 +62,17 @@
                 <input class="form-check-input" type="radio" name="sow[electrician][service_provider_fee]" id="fixed_builder" value="fixed_builder" checked>
                 <label class="form-check-label" for="fixed_builder">Fixed price by builder</label>
             </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[electrician][service_provider_fee]" id="by_owner_fee" value="by_owner">
-                <label class="form-check-label" for="by_owner_fee">By owner</label>
-            </div>
+
         </div>
 
     </div>
 
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">- Connection type:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sow[electrician][connection_type]" id="connection_type" value="by_owner">
+            <label class="form-check-label" for="connection_type">By owner</label>
+        </div>
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[electrician][connection_type]" id="provisional_sum_type" value="provisional_sum">
@@ -201,7 +198,7 @@
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">- If by builder: 1) Fixed price included in quote</label>
         <div class="col-sm-9">
-            <input type="radio" name="sow[electrician][fixed_price_quote]" id="fixed_price_quote" value="fixed_price_quote">
+            <input type="radio" class="form-check-input" name="sow[electrician][fixed_price_quote]" id="fixed_price_quote" value="fixed_price_quote">
         </div>
     </div>
 

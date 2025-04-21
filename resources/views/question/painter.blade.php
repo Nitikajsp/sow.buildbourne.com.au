@@ -83,6 +83,50 @@
                         <input type="radio" name="sow[painter][front_entry_door_check]" value="checked" class="form-check-input">
                     </td>
                 </tr>
+
+                <tr>
+                    <th scope="row">Rear entry door</th>
+                    <td><input type="text" name="sow[painter][rear_entry_door]" class="form-control form-control-sm"></td>
+                    <td>
+                        <input type="hidden" name="sow[painter][rear_entry_door_check]" value="unchecked">
+                        <input type="radio" name="sow[painter][rear_entry_door_check]" value="checked" class="form-check-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Rear entry door</th>
+                    <td><input type="text" name="sow[painter][rear_entry_door]" class="form-control form-control-sm"></td>
+                    <td>
+                        <input type="hidden" name="sow[painter][rear_entry_door_check]" value="unchecked">
+                        <input type="radio" name="sow[painter][rear_entry_door_check]" value="checked" class="form-check-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Handrail external</th>
+                    <td><input type="text" name="sow[painter][handrail_external]" class="form-control form-control-sm"></td>
+                    <td>
+                        <input type="hidden" name="sow[painter][handrail_external_door_check]" value="unchecked">
+                        <input type="radio" name="sow[painter][handrail_external_door_check]" value="checked" class="form-check-input">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Posts</th>
+                    <td><input type="text" name="sow[painter][posts]" class="form-control form-control-sm"></td>
+                    <td>
+                        <input type="hidden" name="sow[painter][posts_check]" value="unchecked">
+                        <input type="radio" name="sow[painter][posts_check]" value="checked" class="form-check-input">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">PVC downpipes</th>
+                    <td><input type="text" name="sow[painter][pvc_downpipes]" class="form-control form-control-sm"></td>
+                    <td>
+                        <input type="hidden" name="sow[painter][pvc_downpipes_check]" value="unchecked">
+                        <input type="radio" name="sow[painter][pvc_downpipes_check]" value="checked" class="form-check-input">
+                    </td>
+                </tr>
             </tbody>
 
         </table>
@@ -148,6 +192,93 @@
                     <td><input type="text" name="sow[painter][family_doors]" class="form-control form-control-sm"></td>
                     <td><input type="text" name="sow[painter][family_woodwork]" class="form-control form-control-sm"></td>
                     <td><input type="radio" name="sow[painter][family_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bathroom</th>
+                    <td><input type="text" name="sow[painter][bathroom_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bathroom_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bathroom_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bathroom_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bathroom_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Toilet</th>
+                    <td><input type="text" name="sow[painter][toilet_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][toilet_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][toilet_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][toilet_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][toilet_na]" class="form-check-input" value="1"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Bedroom 1</th>
+                    <td><input type="text" name="sow[painter][bedroom_1_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_1_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_1_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_1_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bedroom_1_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bedroom 2</th>
+                    <td><input type="text" name="sow[painter][bedroom_2_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_2_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_2_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_2_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bedroom_2_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bedroom 3</th>
+                    <td><input type="text" name="sow[painter][bedroom_3_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_3_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_3_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_3_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bedroom_3_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bedroom 4</th>
+                    <td><input type="text" name="sow[painter][bedroom_4_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_4_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_4_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_4_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bedroom_4_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Bedroom 5</th>
+                    <td><input type="text" name="sow[painter][bedroom_5_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_5_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_5_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][bedroom_5_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][bedroom_5_na]" class="form-check-input" value="1"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Ensuite</th>
+                    <td><input type="text" name="sow[painter][ensuite_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][ensuite_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][ensuite_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][ensuite_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][ensuite_na]" class="form-check-input" value="1"></td>
+                </tr>
+
+                <tr>
+                    <th scope="row">Powder</th>
+                    <td><input type="text" name="sow[painter][powder_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][powder_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][powder_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][powder_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][powder_na]" class="form-check-input" value="1"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Other</th>
+                    <td><input type="text" name="sow[painter][other_ceiling]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][other_wall]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][other_doors]" class="form-control form-control-sm"></td>
+                    <td><input type="text" name="sow[painter][other_woodwork]" class="form-control form-control-sm"></td>
+                    <td><input type="radio" name="sow[painter][other_na]" class="form-check-input" value="1"></td>
                 </tr>
             </tbody>
         </table>
@@ -215,33 +346,128 @@
                 <label class="form-check-label" for="internal_walls_na">N / A</label>
             </div>
         </div>
-        <div class="d-flex align-items-center">
-            <!-- Label and Input -->
-            <label for="paint_types" class="me-2 mb-0">Notes to above:</label>
-            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
-                name="sow[site_work][paint_types]" id="paint_types" placeholder="Enter paint types notes">
+
+    </div>
+    <!-- Interior timber -->
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- Interior timber:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_timber]" id="interior_timber_enamel" value="enamel" checked>
+                <label class="form-check-label" for="interior_timber_enamel">Enamel (Gloss)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_timber]" id="interior_timber_stained" value="stained">
+                <label class="form-check-label" for="interior_timber_stained">Stained (3 Coats of "Clear" or "Light Stained Polyurethane")</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_timber]" id="interior_timber_na" value="na">
+                <label class="form-check-label" for="interior_timber_na">N / A</label>
+            </div>
         </div>
     </div>
 
-    <!-- Repeat for each category -->
+    <!-- Interior doors -->
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- Interior doors:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_doors]" id="interior_doors_enamel" value="enamel" checked>
+                <label class="form-check-label" for="interior_doors_enamel">Enamel (Gloss)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_doors]" id="interior_doors_stained" value="stained">
+                <label class="form-check-label" for="interior_doors_stained">Stained (3 Coats of "Clear" or "Light Stained Polyurethane")</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][interior_doors]" id="interior_doors_na" value="na">
+                <label class="form-check-label" for="interior_doors_na">N / A</label>
+            </div>
+        </div>
+    </div>
 
+    <!-- Exterior doors -->
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- Exterior doors:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][exterior_doors]" id="exterior_doors_enamel" value="enamel" checked>
+                <label class="form-check-label" for="exterior_doors_enamel">Enamel (Gloss)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][exterior_doors]" id="exterior_doors_acrylic" value="acrylic">
+                <label class="form-check-label" for="exterior_doors_acrylic">Acrylic (Gloss)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][exterior_doors]" id="exterior_doors_oil_stained" value="oil_stained">
+                <label class="form-check-label" for="exterior_doors_oil_stained">Oil Stained</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][exterior_doors]" id="exterior_doors_na" value="na">
+                <label class="form-check-label" for="exterior_doors_na">N / A</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timber windows -->
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- Timber windows:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][timber_windows]" id="timber_windows_oil_stained" value="oil_stained">
+                <label class="form-check-label" for="timber_windows_oil_stained">Oil Stained</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][timber_windows]" id="timber_windows_na" value="na">
+                <label class="form-check-label" for="timber_windows_na">N / A</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- External trimmings -->
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- External trimmings:</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][external_trimmings]" id="external_trimmings_acrylic" value="acrylic">
+                <label class="form-check-label" for="external_trimmings_acrylic">Acrylic (Low Sheen)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[painter][external_trimmings]" id="external_trimmings_na" value="na">
+                <label class="form-check-label" for="external_trimmings_na">N / A</label>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Repeat for each category -->
+    <div class="d-flex align-items-center">
+        <!-- Label and Input -->
+        <label for="paint_types" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][paint_types]" id="paint_types" placeholder="Enter paint types notes">
+    </div>
 </div>
 
 <div class="card p-3 mb-3">
-    <h5>13.3 Feature Walls</h5>
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>13.3 Feature Walls</h5>
+        <div>
+            <label class="me-3">By Builder
+                <input type="radio" name="sow[painter][feature_walls]s" value="builder" class="form-check-input">
+            </label>
 
-    <div class="form-group row">
-        <label class="col-sm-3 col-form-label">Internal feature walls: Location(s) shown on plans</label>
-        <div class="col-sm-9">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="feature_walls_builder" name="sow[painter][feature_walls]" value="builder">
-                <label class="form-check-label" for="feature_walls_builder">By Builder (Checked)</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="feature_walls_na" name="sow[painter][feature_walls]" value="na" checked>
-                <label class="form-check-label" for="feature_walls_na">N / A</label>
-            </div>
+            <label>N/A
+                <input type="radio" name="sow[painter][feature_walls]" value="na" class="form-check-input" checked>
+            </label>
         </div>
+    </div>
+
+    <div>
+        <label class="col-sm-3 col-form-label">Internal feature walls: Location(s) shown on plans</label>
+        <input type="radio" name="sow[painter][Internal_feature_walls]" value="Internal_feature_walls" class="form-check-input">
+
     </div>
 
     <div class="form-group">

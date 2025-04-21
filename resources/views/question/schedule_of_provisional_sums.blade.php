@@ -261,33 +261,43 @@
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_item]" class="form-control form-control-sm" placeholder="Enter item name"></td>
                         <td class="text-center align-middle"></td>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_value]" class="form-control form-control-sm text-right" placeholder="Enter value"></td>
-                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio]" value="provisional_radio"></td>
+                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio_1]" value="provisional_radio_1"></td>
                     </tr>
 
                     <tr>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_item]" class="form-control form-control-sm" placeholder="Enter item name"></td>
                         <td class="text-center align-middle"></td>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_value]" class="form-control form-control-sm text-right" placeholder="Enter value"></td>
-                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio]" value="provisional_radio"></td>
+                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio_2]" value="provisional_radio_2"></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_item]" class="form-control form-control-sm" placeholder="Enter item name"></td>
                         <td class="text-center align-middle"></td>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_value]" class="form-control form-control-sm text-right" placeholder="Enter value"></td>
-                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio]" value="provisional_radio"></td>
+                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio_3]" value="provisional_radio_3"></td>
                     </tr>
                     <tr>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_item]" class="form-control form-control-sm" placeholder="Enter item name"></td>
                         <td class="text-center align-middle"></td>
                         <td><input type="text" name="sow[schedule_of_provisional_sum][provisional_value]" class="form-control form-control-sm text-right" placeholder="Enter value"></td>
-                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio]" value="provisional_radio"></td>
+                        <td class="text-center align-middle"><input type="radio" class="form-check-input" name="sow[schedule_of_provisional_sum][provisional_radio_4]" value="provisional_radio_4"></td>
                     </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <th scope="row" colspan="3" class="text-right align-middle font-weight-bold">Total of Provisional Sums</th>
-                        <td class="text-right align-middle font-weight-bold">
-                            <input type="number" name="sow[schedule_of_provisional_sum][total_provisional_sums]" class="form-control form-control-sm text-right font-weight-bold" id="totalProvisionalSums">
+                        <td class="align-middle">
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text font-weight-bold">$</span>
+                                </div>
+                                <input type="number"
+                                    name="sow[schedule_of_provisional_sum][total_provisional_sums]"
+                                    class="form-control text-right font-weight-bold"
+                                    id="totalProvisionalSums"
+                                    step="0.01"
+                                    min="0">
+                            </div>
                         </td>
                         <td></td>
                     </tr>

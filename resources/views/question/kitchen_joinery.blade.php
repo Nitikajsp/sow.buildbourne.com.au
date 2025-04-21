@@ -173,7 +173,7 @@
                 <label class="form-check-label" for="laundry_pc_selections">Per PC Selections</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][laundry_by_owner]" id="laundry_by_owner" value="by_owner">
+                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][laundry_pc_selections]" id="laundry_by_owner" value="by_owner">
                 <label class="form-check-label" for="laundry_by_owner">By Owner</label>
             </div>
         </div>
@@ -187,18 +187,13 @@
                 <label class="form-check-label" for="tub_supply_builder">Tub supply only by Builder (See PC Selections)</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][tub_supply_custom]" id="tub_supply_custom" value="custom">
+                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][tub_supply_builder]" id="tub_supply_custom" value="custom">
                 <label class="form-check-label" for="tub_supply_custom">Custom made unit by radio manufacturer</label>
             </div>
-            <div class="form-check">
-                <label>
-                    Amount to be shown at Section 16 "Schedule of Provisional Sums"
-                </label>
-            </div>
+
         </div>
     </div>
     <div class="d-flex align-items-center">
-        <!-- Label and Input -->
         <label for="laundry_tub" class="me-2 mb-0">Notes to above:</label>
         <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
             name="sow[site_work][laundry_tub]" id="laundry_tub" placeholder="Enter  laundry tub/unitsg notes">
@@ -275,6 +270,11 @@
                 <input class="form-check-input" type="radio" name="sow[radio_and_joinery][staircase_fixed_price]" id="staircase_fixed_price" value="fixed_price">
                 <label class="form-check-label" for="staircase_fixed_price">Fixed Price included in Quote</label>
             </div>
+            <div class="form-check form-check-inline">
+
+                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][staircase_fixed_price]" id="staircase_fixed_price" value="provisional_sum">
+                <label class="form-check-label" for="staircase_fixed_price">Provisional Sum</label>
+            </div>
         </div>
     </div>
 
@@ -285,13 +285,7 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-12">
-            <label>
-                Amount to be shown at Section 16 "Schedule of Provisional Sums"
-            </label>
-        </div>
-    </div>
+
 
     <div class="font-weight-bold mb-2">Balustrade</div>
 
@@ -300,6 +294,10 @@
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sow[radio_and_joinery][balustrade_fixed_price]" id="balustrade_fixed_price" value="fixed_price">
                 <label class="form-check-label" for="balustrade_fixed_price">Fixed Price included in Quote</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="sow[radio_and_joinery][balustrade_fixed_price]" id="balustrade_fixed_price" value="provisional_sum">
+                <label class="form-check-label" for="balustrade_fixed_price">Provisional Sum</label>
             </div>
         </div>
     </div>
@@ -311,12 +309,11 @@
         </div>
     </div>
 
-    <div class="form-group row">
-        <div class="col-sm-12">
-            <label>
-                Amount to be shown at Section 16 "Schedule of Provisional Sums"
-            </label>
-        </div>
+    <div class="d-flex align-items-center">
+        <!-- Label and Input -->
+        <label for="manufacturer_note" class="me-2 mb-0">Notes to above:</label>
+        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+            name="sow[site_work][manufacturer_note]" id="manufacturer_note" placeholder="Manufacturer Note">
     </div>
 
     <div class="form-group">
@@ -328,9 +325,8 @@
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="sow[radio_and_joinery][beading_trimming_checked]" id="beading_trimming_checked" value="checked">
-            <label class="form-check-label" for="beading_trimming_checked">
-                <strong>Note 2:</strong> Beadings and trimming off, if required, will be charged as an extra. (Staircase supplier/installer should generally supply and install all necessary moldings required to trim off the staircase to linings).
+
+            <strong>Note 2:</strong> Beadings and trimming off, if required, will be charged as an extra. (Staircase supplier/installer should generally supply and install all necessary moldings required to trim off the staircase to linings).
             </label>
         </div>
     </div>
