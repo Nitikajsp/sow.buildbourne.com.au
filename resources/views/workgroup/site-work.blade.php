@@ -3,7 +3,7 @@
 
 <div id="app" class="layout-wrapper">
 
-    <!-- @include('include.sidebar') -->
+    @include('include.sidebar')
 
     <div class="container-fluid addcartwidth">
         @include('include.navbar')
