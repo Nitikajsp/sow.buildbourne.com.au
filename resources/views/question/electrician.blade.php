@@ -97,12 +97,12 @@
                 <label class="form-check-label" for="existing_sub_board">From existing sub board</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="radio" name="sow[electrician][existing_meter_box]" id="existing_meter_box" value="existing_meter_box">
-                <label class="form-check-label" for="existing_meter_box">From existing meter box</label>
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board]" id="existing_sub_board" value="existing_meter_box">
+                <label class="form-check-label" for="existing_sub_board">From existing meter box</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="radio" name="sow[electrician][public_main_dwelling]" id="public_main_dwelling" value="public_main_dwelling">
-                <label class="form-check-label" for="public_main_dwelling">Public main to dwelling</label>
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board]" id="existing_sub_board" value="public_main_dwelling">
+                <label class="form-check-label" for="existing_sub_board">Public main to dwelling</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[electrician][aerial]" id="aerial" value="aerial" checked>
@@ -113,15 +113,15 @@
                 <label class="form-check-label" for="existing_sub_board_pole">From existing sub board or meter box on pole</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="radio" name="sow[electrician][public_main_dwelling_aerial]" id="public_main_dwelling_aerial" value="public_main_dwelling_aerial" checked>
-                <label class="form-check-label" for="public_main_dwelling_aerial">Public main to dwelling</label>
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board_pole]" id="public_main_dwelling_aerial" value="public_main_dwelling_aerial" checked>
+                <label class="form-check-label" for="existing_sub_board_pole">Public main to dwelling</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="radio" name="sow[electrician][public_private_aerial]" id="public_private_aerial" value="public_private_aerial">
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board_pole]" id="existing_sub_board_pole" value="public_private_aerial">
                 <label class="form-check-label" for="public_private_aerial">Public main to private pole/s then aerial to dwelling</label>
             </div>
             <div class="form-check ml-4">
-                <input class="form-check-input" type="radio" name="sow[electrician][public_private_underground]" id="public_private_underground" value="public_private_underground">
+                <input class="form-check-input" type="radio" name="sow[electrician][existing_sub_board_pole]" id="existing_sub_board_pole" value="public_private_underground">
                 <label class="form-check-label" for="public_private_underground">Public main to private pole/s then underground to dwelling</label>
             </div>
         </div>
@@ -270,111 +270,154 @@
                 <div class="col-sm-6">
                     <input type="text" name="sow[electrician][smoke_detectors]" class="form-control" placeholder="Qty =">
                 </div>
-                <div class="form-group row">
 
-                    <div class="col-sm-9">
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sow[electrician][electrical_layout_plans]" id="electrical_layout_plans" value="electrical_layout_plans">
-                                    <label class="form-check-label" for="electrical_layout_plans">- As per electrical layout plans, completed & signed by owners</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sow[electrician][kitchen_layout_plans]" id="kitchen_layout_plans" value="kitchen_layout_plans">
-                                    <label class="form-check-label" for="kitchen_layout_plans">- As per kitchen manufactures layout plan provided</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sow[electrician][plumbing_layout_plans]" id="plumbing_layout_plans" value="plumbing_layout_plans">
-                                    <label class="form-check-label" for="plumbing_layout_plans">- As per plumbing & drainage layout plan (showing locations of hot water service, pumps etc)</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="sow[electrician][pc_selections]" id="pc_selections" value="pc_selections">
-                                    <label class="form-check-label" for="pc_selections">- As per PC selections</label>
+                <div class="form-group row">
+                    <label class="col-sm-6 col-form-label">Fluco Garage Lights</label>
+                    <div class="col-sm-6">
+                        <input type="text" name="sow[electrician][fluco_garage_lights]" class="form-control" placeholder="Qty =">
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-sm-9">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Electrical Layout Plans:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][electrical_layout_plans]" id="electrical_layout_plans_yes" value="As per electrical layout plans, completed & signed by owners">
+                                            <label class="form-check-label" for="electrical_layout_plans_yes">As per electrical layout plans, completed & signed by owners</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][electrical_layout_plans]" id="electrical_layout_plans_na" value="N/A">
+                                            <label class="form-check-label" for="electrical_layout_plans_na">N/A</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Kitchen Layout Plans:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][kitchen_layout_plans]" id="kitchen_layout_plans_yes" value="As per kitchen manufacturer's layout plan provided">
+                                            <label class="form-check-label" for="kitchen_layout_plans_yes">As per kitchen manufacturer's layout plan provided</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][kitchen_layout_plans]" id="kitchen_layout_plans_na" value="N/A">
+                                            <label class="form-check-label" for="kitchen_layout_plans_na">N/A</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Plumbing Layout Plans:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][plumbing_layout_plans]" id="plumbing_layout_plans_yes" value="As per plumbing & drainage layout plan (showing locations of hot water service, pumps etc)">
+                                            <label class="form-check-label" for="plumbing_layout_plans_yes">As per plumbing & drainage layout plan</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][plumbing_layout_plans]" id="plumbing_layout_plans_na" value="N/A">
+                                            <label class="form-check-label" for="plumbing_layout_plans_na">N/A</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>PC Selections:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][pc_selections]" id="pc_selections_yes" value="As per PC selections">
+                                            <label class="form-check-label" for="pc_selections_yes">As per PC selections</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][pc_selections]" id="pc_selections_na" value="N/A">
+                                            <label class="form-check-label" for="pc_selections_na">N/A</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Provisional Sum:</label><br>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="sow[electrician][provisional_sum_pc_selections]" id="provisional_sum" value="Provisional Sum">
+                                            <label class="form-check-label" for="provisional_sum">Provisional Sum</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-muted mb-3">
+                            <strong>Note 1:</strong> Unless otherwise specified herein all light fittings (with the exception of garage fluro lights) including ceiling fans are to be purchased by the owner and provided when requested by the electrician for installation. If not provided as requested batten holders only will be fitted.
+                        </div>
 
+                        <div class="text-muted mb-3">
+                            <strong>Note 2:</strong> Power supply to pumps and septic system is included up to a distance of 10 Metres. Distances over 10 Metres will be charge as an extra at cost plus builders margin. Extra Standard Internal lights will be charged at $60.00 each, extra internal double power points will be charged at $60.00 each and extra external power points will be charged at $100.00 each.
+                        </div>
+
+                        <div class="text-muted mb-3">
+                            <strong>Note 3:</strong> Appliance's to be installed which may require special wiring (eg 15 amp outlets for dryers or pumps, Hot water services with twin elements or boosters for solar and cook tops which require an extra phase) should have installation requirements attached from the manufacturer or list special requirements below
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="sow[electrician][checked]" id="checked" value="checked">
+                                <label class="form-check-label" for="checked">(Checked)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Special requirements:</label>
+                            <textarea name="sow[electrician][checked]" class="form-control"></textarea>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">- Power Supply to Waste Water System (Septic)</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="sow[electrician][power_supply_waste_water]" class="form-control mb-2" value="Position Shown on Plans">
+                                <input type="text" name="sow[electrician][length_run_system]" class="form-control" value="Length of run to system (max 15m)">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Optimum Air <br>See Quote <br>Air conditioning</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="sow[electrician][air_conditioning_type]" class="form-control mb-2" value="Type SPLIT SYSTEM">
+                                <input type="text" name="sow[electrician][air_conditioning_supply]" class="form-control mb-2" value="Supply required">
+                                <input type="text" name="sow[electrician][air_conditioning_position]" class="form-control" value="Position Shown on Electrical Plan">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">- Indicate specific items on Plan:</label>
+                            <div class="col-sm-8">
+                                <input type="text" name="sow[electrician][specific_items_plan]" class="form-control" value="Type & Supply required">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Other items</label>
+                            <input type="text" name="sow[electrician][other_items]" class="form-control" value="Positions shown on Electrical Plan">
+                        </div>
+
+                        <div class="form-group">
+                            <label>- Light Switch's & Power Points</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="standard_white" value="standard_white">
+                                <label class="form-check-label" for="standard_white">Standard White</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="other" value="other">
+                                <label class="form-check-label" for="other">Other</label>
+                            </div>
+                            <input type="text" name="sow[electrician][light_switch_manufacturer]" class="form-control mb-2" placeholder="Manufacturer:">
+                            <input type="text" name="sow[electrician][light_switch_type_text]" class="form-control mb-2" placeholder="Type:">
+                            <input type="text" name="sow[electrician][light_switch_pn]" class="form-control" placeholder="Style or P/N:">
+                        </div>
+
+                        <div class="text-muted mb-3">
+                            <strong>Note 4:</strong> Light Fittings other than standard batten holders are to be supplied by the owner prior to final fit out. The cost of assembly and fitting of lights and fans will be charged as an extra being cost plus builder's margin and GST.
+                        </div>
+
+                        <div class="text-muted mb-3">
+                            <strong>Note 5:</strong> No allowance has been made in the event of rock excavation and the resultant extra construction time. Any rock excavation and extra construction time required will be charged at an hourly rate of builder's cost plus builder's margin and GST. This rate will be inclusive of both labour and equipment hire.
+                        </div>
                     </div>
-                </div>
-                <div class="text-muted mb-3">
-                    <strong>Note 1:</strong> Unless otherwise specified herein all light fittings (with the exception of garage fluro lights) including ceiling fans are to be purchased by the owner and provided when requested by the electrician for installation. If not provided as requested batten holders only will be fitted.
-                </div>
-
-                <div class="text-muted mb-3">
-                    <strong>Note 2:</strong> Power supply to pumps and septic system is included up to a distance of 10 Metres. Distances over 10 Metres will be charge as an extra at cost plus builders margin. Extra Standard Internal lights will be charged at $60.00 each, extra internal double power points will be charged at $60.00 each and extra external power points will be charged at $100.00 each.
-                </div>
-
-                <div class="text-muted mb-3">
-                    <strong>Note 3:</strong> Appliance's to be installed which may require special wiring (eg 15 amp outlets for dryers or pumps, Hot water services with twin elements or boosters for solar and cook tops which require an extra phase) should have installation requirements attached from the manufacturer or list special requirements below
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="sow[electrician][checked]" id="checked" value="checked">
-                        <label class="form-check-label" for="checked">(Checked)</label>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Special requirements:</label>
-                    <textarea name="sow[electrician][checked]" class="form-control"></textarea>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">- Power Supply to Waste Water System (Septic)</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="sow[electrician][power_supply_waste_water]" class="form-control mb-2" value="Position Shown on Plans">
-                        <input type="text" name="sow[electrician][length_run_system]" class="form-control" value="Length of run to system (max 15m)">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">Optimum Air <br>See Quote <br>Air conditioning</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="sow[electrician][air_conditioning_type]" class="form-control mb-2" value="Type SPLIT SYSTEM">
-                        <input type="text" name="sow[electrician][air_conditioning_supply]" class="form-control mb-2" value="Supply required">
-                        <input type="text" name="sow[electrician][air_conditioning_position]" class="form-control" value="Position Shown on Electrical Plan">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label">- Indicate specific items on Plan:</label>
-                    <div class="col-sm-8">
-                        <input type="text" name="sow[electrician][specific_items_plan]" class="form-control" value="Type & Supply required">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label>Other items</label>
-                    <input type="text" name="sow[electrician][other_items]" class="form-control" value="Positions shown on Electrical Plan">
-                </div>
-
-                <div class="form-group">
-                    <label>- Light Switch's & Power Points</label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="standard_white" value="standard_white">
-                        <label class="form-check-label" for="standard_white">Standard White</label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sow[electrician][light_switch_type]" id="other" value="other">
-                        <label class="form-check-label" for="other">Other</label>
-                    </div>
-                    <input type="text" name="sow[electrician][light_switch_manufacturer]" class="form-control mb-2" placeholder="Manufacturer:">
-                    <input type="text" name="sow[electrician][light_switch_type_text]" class="form-control mb-2" placeholder="Type:">
-                    <input type="text" name="sow[electrician][light_switch_pn]" class="form-control" placeholder="Style or P/N:">
-                </div>
-
-                <div class="text-muted mb-3">
-                    <strong>Note 4:</strong> Light Fittings other than standard batten holders are to be supplied by the owner prior to final fit out. The cost of assembly and fitting of lights and fans will be charged as an extra being cost plus builder's margin and GST.
-                </div>
-
-                <div class="text-muted mb-3">
-                    <strong>Note 5:</strong> No allowance has been made in the event of rock excavation and the resultant extra construction time. Any rock excavation and extra construction time required will be charged at an hourly rate of builder's cost plus builder's margin and GST. This rate will be inclusive of both labour and equipment hire.
                 </div>
             </div>
+            <div class="d-flex align-items-center">
+                <!-- Label and Input -->
+                <label for="electrical wiring" class="me-2 mb-0">Notes to above:</label>
+                <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][electrical wiring]" id="electrical wiring" placeholder="Enter  electrical wiring notes">
+            </div>
         </div>
-    </div>
-    <div class="d-flex align-items-center">
-        <!-- Label and Input -->
-        <label for="electrical wiring" class="me-2 mb-0">Notes to above:</label>
-        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
-            name="sow[site_work][electrical wiring]" id="electrical wiring" placeholder="Enter  electrical wiring notes">
-    </div>
-</div>
