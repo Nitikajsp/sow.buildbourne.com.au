@@ -296,15 +296,16 @@
                 <label class="form-check-label">Door units <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_sliding_doors]" value="sliding_doors">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_door_units]" value="sliding_doors">
                 <label class="form-check-label">Sliding doors <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_windows]" value="windows">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_door_units]" value="windows">
                 <label class="form-check-label">Windows <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
-            <input type="text" class="form-control" name="sow[windows_and_entry_doors][aluminium_colour]" value="Woodlands Grey">
             <small class="form-text text-muted">Colour Selection</small>
+
+            <input type="text" class="form-control" name="sow[windows_and_entry_doors][aluminium_colour]" value="Woodlands Grey">
         </div>
     </div>
 
@@ -316,11 +317,11 @@
                 <label class="form-check-label">Sliding</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_double_hung]" value="double_hung">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_sliding]" value="double_hung">
                 <label class="form-check-label">Double hung</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_other]" value="other">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][aluminium_sliding]" value="other">
                 <label class="form-check-label">Other</label>
             </div>
             <input type="text" class="form-control" name="sow[windows_and_entry_doors][aluminium_other_details]" value="Ann">
@@ -333,15 +334,15 @@
         <div class="col-sm-9">
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_door_units]" value="door_units">
-                <label class="form-check-label">Door units <br> <input class="form-check-input" type="radio" name="timber_door_units_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <label class="form-check-label">Door units <br> <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_door_units]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding_doors]" value="sliding_doors">
-                <label class="form-check-label">Sliding doors <br> <input class="form-check-input" type="radio" name="timber_sliding_doors_na" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <label class="form-check-label">Sliding doors <br> <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding_doors]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_windows]" value="windows">
-                <label class="form-check-label">Windows <br> <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_windows_na]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding_doors]" value="windows">
+                <label class="form-check-label">Windows <br> <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding_doors]" value="na"> N/A <span class="text-success" style="font-size: 1.5em;"></span></label>
             </div>
         </div>
     </div>
@@ -354,13 +355,16 @@
                 <label class="form-check-label">Sliding</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_double_hung]" value="double_hung">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding]" value="double_hung">
                 <label class="form-check-label">Double hung</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_other]" value="other">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][timber_sliding]" value="other">
                 <label class="form-check-label">Other</label>
+
             </div>
+            <input type="text" class="form-control mt-2 w-50" name="door_other" placeholder="Other Colour">
+
         </div>
     </div>
 
@@ -422,13 +426,11 @@
             </div>
         </div>
     </div>
-
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">Notes to above:</label>
-        <div class="col-sm-9">
-            <textarea class="form-control" name="sow[windows_and_entry_doors][notes_to_above]"></textarea>
-        </div>
+        <input type="text" class="form-control" name="sow[windows_and_entry_doors][notes_to_above]">
     </div>
+
 </div>
 
 
@@ -493,7 +495,8 @@
             <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type2]" id="other2" value="other">
                 <label class="form-check-label mr-2" for="other2">Other</label>
-                <input type="text" name="sow[windows_and_entry_doors][glazing_type2_other]" id="otherText2" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type2_other]" id="otherText2" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify...">
+
             </div>
         </div>
     </div>
@@ -515,7 +518,7 @@
             <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type3]" id="other3" value="other">
                 <label class="form-check-label mr-2" for="other3">Other</label>
-                <input type="text" name="sow[windows_and_entry_doors][glazing_type3_other]" id="otherText3" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type3_other]" id="otherText3" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify...">
             </div>
         </div>
     </div>
@@ -536,7 +539,7 @@
             <div class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][glazing_type4]" id="other4" value="other">
                 <label class="form-check-label mr-2" for="other4">Other</label>
-                <input type="text" name="sow[windows_and_entry_doors][glazing_type4_other]" id="otherText4" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify..." style="display: none;">
+                <input type="text" name="sow[windows_and_entry_doors][glazing_type4_other]" id="otherText4" class="form-control form-control-sm w-50 ml-2" placeholder="Please specify...">
             </div>
         </div>
     </div>
@@ -659,7 +662,8 @@
     <h5>8.7 Security Window Shutters</h5>
 
     <div class="form-group row">
-        <label class="col-sm-3 col-form-label">- If by builder: 1) Fixed price included in quote</label>
+
+
         <div class="col-sm-9">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][window_shutter_price]" value="fixed">
@@ -671,7 +675,15 @@
             </div>
         </div>
     </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">- If by builder: 1) Fixed price included in quote</label>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][window_shutter_price]" value="fixed">
 
+            </div>
+        </div>
+    </div>
     <div class="form-group row">
         <label class="col-sm-3 col-form-label">Or 2) Provisional Sum</label>
         <div class="col-sm-9">
@@ -726,6 +738,25 @@
             </div>
         </div>
     </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Style:</label>
+        <div class="col-sm-9">
+            <input type="text" name="sow[windows_and_entry_doors][style_1]" class="form-control" value="MADISON">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Supplier:</label>
+        <div class="col-sm-9">
+            <input type="text" name="sow[windows_and_entry_doors][supplier_2]" class="form-control" value="HVGO">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Colorbond Colour:</label>
+        <div class="col-sm-9">
+            <input type="text" name="sow[windows_and_entry_doors][colorbond_colour_1]" class="form-control" value="Woodlands Grey">
+        </div>
+    </div>
+
 
     <div class="form-group row">
         <label class="col-sm-3 col-form-label"></label>
@@ -755,6 +786,8 @@
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][other]" id="other" value="other">
                 <label class="form-check-label" for="other">Other</label>
+                <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][garage_doors_other_note]" id="garage_doors_other_note" placeholder="Enter garage doors notes">
             </div>
         </div>
     </div>
@@ -770,6 +803,14 @@
                 <input class="form-check-input" type="radio" name="sow[windows_and_entry_doors][motorised_openings]" id="listed_doors" value="listed_doors">
                 <label class="form-check-label" for="listed_doors">Doors as listed</label>
             </div>
+            <div>
+                <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][garage_doors_other_note]" id="garage_doors_other_note" placeholder="Enter garage doors notes">
+            </div>
+            <div><input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][garage_doors_other_note]" id="garage_doors_other_note" placeholder="Enter garage doors notes"></div>
+            <div><input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                    name="sow[site_work][garage_doors_other_note]" id="garage_doors_other_note" placeholder="Enter garage doors notes"></div>
         </div>
     </div>
     <div class="p-3 mt-4 text-white" style="background: linear-gradient(to right, #cc5200, #ff6600); border: 2px solid #000;">

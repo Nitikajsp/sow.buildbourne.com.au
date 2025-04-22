@@ -458,16 +458,27 @@
         <label class="form-check-label">Colour selection:</label><br>
 
         <!-- Standard natural grey -->
-        <label for="colour_standard_natural_grey">Standard natural grey</label>
-        <input type="text" class="form-control w-50" name="sow[bricklayer_masonry][colour_standard_natural_grey]" value="">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sow[bricklayer_masonry][colour]" id="colour_standard_natural_grey" value="Standard natural grey">
+            <label class="form-check-label" for="colour_standard_natural_grey">Standard natural grey(Grey Portland Cement, Brickies Sand & Mortar Additives)</label>
+        </div>
 
         <!-- Standard off-white -->
-        <label for="colour_standard_off_white">Standard off-white</label>
-        <input type="text" class="form-control w-50" name="sow[bricklayer_masonry][colour_standard_off_white]" value="">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sow[bricklayer_masonry][colour]" id="colour_standard_off_white" value="Standard off-white">
+            <label class="form-check-label" for="colour_standard_off_white">Standard off-white(Off-White Portland Cement, Off-White Sand & Mortar Additives. Note: Colour can vary depending on sand supplied)</label>
+
+        </div>
 
         <!-- Oxide coloured -->
-        <label for="colour_oxide_coloured">Oxide coloured</label>
-        <input type="text" class="form-control w-50" name="sow[bricklayer_masonry][colour_oxide_coloured]" value="">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sow[bricklayer_masonry][colour]" id="colour_oxide_coloured" value="Oxide coloured">
+            <label class="form-check-label" for="colour_oxide_coloured">Oxide coloured</label>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][approx_colour]" id="approx_colour" placeholder="Approx Colour">
+            <small><strong></strong>(Sample mixed on site and approved by owner prior to laying bricks. Note: If owner cannot meet on site to approve colour then a guarantee of required colour cannot be given)</small>
+
+        </div>
     </div>
 
     <!-- Notes to above -->
@@ -497,9 +508,10 @@
 
     <!-- Colour selection -->
     <div class="form-check">
-        <label for="colour_standard_natural_grey">Standard natural grey</label>
+        <label for="colour_standard_natural_grey">Standard natural grey(Grey Portland Cement, Brickies Sand & Mortar Additives)</label>
         <input class="form-check-input" type="radio" name="sow[bricklayer_masonry][colour_standard_natural_grey]" value="Standard_natural_grey">
     </div>
+    <small><strong>Note :</strong>A Render finish is applied by trowelling on a coat of sand and cement render mix to the brickwork approx, 10mm thick which is screeded plumb and straight then floated and sponged to even texture and finish. Generally this is then painted to a colour of choice.</small>
 
     <div class="d-flex align-items-center">
         <!-- Label and Input -->
@@ -563,6 +575,15 @@
         <!-- Foam Board radio -->
         <input class="form-check-input" type="radio" name="sow[bricklayer_masonry][other_masonry_type]" value="Foam_Board_(Foam_Board_Sheet_Acrylic_Rendered)">
         <label for="style">Foam Board (Foam Board Sheet Acrylic Rendered)</label>
+
+        <div>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][supplier_or_type]" id="supplier_or_type" placeholder="Supplier or Type">
+        </div>
+        <div>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][thickness]" id="thickness" placeholder="Thickness (Nom.)">
+        </div>
     </div>
 
     <!-- Notes Input Field -->

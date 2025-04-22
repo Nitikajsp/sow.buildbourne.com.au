@@ -3,7 +3,7 @@
 
 <div id="app" class="layout-wrapper">
 
-    @include('include.sidebar')
+    <!-- @include('include.sidebar') -->
 
     <div class="container-fluid addcartwidth">
         @include('include.navbar')
@@ -22,6 +22,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5>1.1 Access Road to Site</h5>
                     <div>
+
                         <label class="me-3">By Builder
                             <input type="radio" name="sow[site_work][access_road]" value="builder" class="form-check-input">
                         </label>

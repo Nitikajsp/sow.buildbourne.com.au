@@ -13,6 +13,10 @@
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][roof_fascia_barges]" value="Colorbond_colour"> Colorbond colour
         </label>
+        <div>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][roof_plumber_other_color]" id="roof_plumber_other_color" placeholder="Color">
+        </div>
     </div>
     <div class="d-flex align-items-center">
         <!-- Label and Input -->
@@ -35,6 +39,10 @@
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][metal_gutters_colour]" value="Colorbond_colour"> Colorbond colour
         </label>
+        <div>
+            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                name="sow[site_work][metal_gutters_other_color]" id="metal_gutters_other_color" placeholder="Color">
+        </div>
     </div>
 
     <!-- Gutter Type -->
@@ -77,9 +85,16 @@
         <label class="form-check-label me-3">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_colour]" value="Colorbond_Colour"> Colorbond Colour
         </label>
+        <div>
+            <input type="text" class="form-control mt-2 w-50" name="colorbond_colour" placeholder="Colour">
+        </div>
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_colour]" value="Or Paint_Colour"> Or Paint Colour
         </label>
+        <div>
+            <input type="text" class="form-control mt-2 w-50" name="or_paint_colour" placeholder="Colour">
+        </div>
+
     </div>
 
     <!-- Type -->
@@ -88,6 +103,19 @@
         <label class="form-check-label me-3">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_type]" value="Standard_PVC_90mm_dia_Round"> Standard PVC 90mm dia. Round
         </label>
+        <div>
+            <label class="form-check-label me-3">
+                SPressurised to tank
+            </label>
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="sow[roof_plumber][spressurised_to_tank]" value="yes"> Yes
+            </label>
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="sow[roof_plumber][spressurised_to_tank]" value="no"> No
+            </label>
+        </div>
+    </div>
+    <div>
         <label class="form-check-label">
             <input class="form-check-input" type="radio" name="sow[roof_plumber][downpipes_type]" value="OTHER"> OTHER (Eg. Rectangular metal or Round metal)
         </label>
