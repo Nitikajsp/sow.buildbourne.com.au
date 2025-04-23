@@ -164,9 +164,9 @@ class PartyController extends Controller
     public function showSiteWork($partyId, $listId)
     {
         $party = Parties::findOrFail($partyId);
-        $groups = WorkGroup::with('questions')->get();
+        // $groups = WorkGroup::with('questions')->get();
 
-        return view('workgroup.site-work', compact('party', 'groups', 'listId'));
+        return view('workgroup.site-work', compact('party', 'listId'));
     }
 
 

@@ -56,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
 
 
+
         Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
         Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');
         Route::get('workquestionview/{id}', 'workquestionview')->name('workquestionview');
