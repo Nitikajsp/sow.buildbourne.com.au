@@ -929,27 +929,31 @@
                             <div class="card-header">
                                 <h5>2.6 Tank Pads or Other</h5>
                             </div>
-                            <div class="mb-2 px-3 pt-2">
-                                <!-- Tank Pads Radio Buttons -->
-                                <label class="me-3">
-                                    <input type="radio" class="form-check-input me-1"
-                                        name="sow[surveyor_set_out][tank_pads]" value="plans_and_specs"
-                                        {{ (isset($workData['sow']['surveyor_set_out']['tank_pads']) && $workData['sow']['surveyor_set_out']['tank_pads'] == 'plans_and_specs') ? 'checked' : '' }}>
-                                    Par Plans & Specifications
-                                </label>
-                                <label>
-                                    <input type="radio" class="form-check-input me-1"
-                                        name="sow[surveyor_set_out][tank_pads]" value="na"
-                                        {{ (isset($workData['sow']['surveyor_set_out']['tank_pads']) && $workData['sow']['surveyor_set_out']['tank_pads'] == 'na') ? 'checked' : '' }}>
-                                    N/A
-                                </label>
-                            </div>
                             <div class="card-body">
-                                <p>Notes to above:</p>
-                                <!-- Tank Pads Notes Text Field -->
-                                <input type="text" class="form-control" name="sow[surveyor_set_out][tank_pads_notes]"
-                                    placeholder=".............................................................................."
-                                    value="{{ $workData['sow']['surveyor_set_out']['tank_pads_notes'] ?? '' }}">
+
+                                <div class="mb-2 px-3 pt-2">
+                                    <!-- Tank Pads Radio Buttons -->
+                                    <label class="me-3">
+                                        <input type="radio" class="form-check-input me-1"
+                                            name="sow[surveyor_set_out][tank_pads]" value="plans_and_specs"
+                                            {{ (isset($workData['sow']['surveyor_set_out']['tank_pads']) && $workData['sow']['surveyor_set_out']['tank_pads'] == 'plans_and_specs') ? 'checked' : '' }}>
+                                        Par Plans & Specifications
+                                    </label>
+                                    <label>
+                                        <input type="radio" class="form-check-input me-1"
+                                            name="sow[surveyor_set_out][tank_pads]" value="na"
+                                            {{ (isset($workData['sow']['surveyor_set_out']['tank_pads']) && $workData['sow']['surveyor_set_out']['tank_pads'] == 'na') ? 'checked' : '' }}>
+                                        N/A
+                                    </label>
+                                </div>
+                                <div class="card-body">
+                                    <p>Notes to above:</p>
+                                    <!-- Tank Pads Notes Text Field -->
+                                    <input type="text" class="form-control"
+                                        name="sow[surveyor_set_out][tank_pads_notes]"
+                                        placeholder=".............................................................................."
+                                        value="{{ $workData['sow']['surveyor_set_out']['tank_pads_notes'] ?? '' }}">
+                                </div>
                             </div>
                         </div>
 
@@ -997,7 +1001,7 @@
                         </table>
 
                         <!-- Section 3.1 -->
-                        <div class="card p-4 my-3">
+                        <div class="card pdf-card">
 
                             <h5>3.1 Drainage to Concrete Slab Floors</h5>
 
@@ -1285,7 +1289,7 @@
                             </div>
                         </div>
 
-                        <div class="card p-4 my-3">
+                        <div class="card pdf-card">
                             <div class="rounded p-3">
                                 <h5 class="mb-2">3.5 Water Services</h5>
                                 <div class="d-flex align-items-center flex-wrap mb-2">
@@ -1563,41 +1567,42 @@
 
 
                     <!-- Main section -->
-                    <div class="p-4 my-3">
 
-                        <!-- Q2: Tapware -->
-                        <div class="card p-4 my-3">
+
+                    <!-- Q2: Tapware -->
+                    <div class="card pdf-card">
+
+                        <div class="card-header d-flex justify-content-between align-items-center">
                             <h5>3.6 Tapware & PC Items </h5>
-                            <div class="d-flex align-items-center mb-2">
-                                <span>Per PC Selection Section</span>
-                                <input type="radio" class="form-check-input"
-                                    name="sow[drainage_to_concrete_slab_floors][pc_selection]" value="yes"
-                                    class="ms-1 me-3"
-                                    {{ isset($workData['sow']['drainage_to_concrete_slab_floors']['pc_selection']) && $workData['sow']['drainage_to_concrete_slab_floors']['pc_selection'] == 'yes' ? 'checked' : '' }}>
-                            </div>
-                            <p>🛈 <strong>Note:</strong> PC items with special requirements should have installation
-                                instructions from the manufacturer also attached.
-                                <input type="radio" class="form-check-input"
-                                    name="sow[drainage_to_concrete_slab_floors][pc_checked]" value="checked"
-                                    class="ms-2"
-                                    {{ isset($workData['sow']['drainage_to_concrete_slab_floors']['pc_checked']) && $workData['sow']['drainage_to_concrete_slab_floors']['pc_checked'] == 'checked' ? 'checked' : '' }}>
-                                (Checked)
-                            </p>
-                            <div class="d-flex align-items-center">
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span>Per PC Selection Section</span>
+                            <input type="radio" class="form-check-input"
+                                name="sow[drainage_to_concrete_slab_floors][pc_selection]" value="yes" class="ms-1 me-3"
+                                {{ isset($workData['sow']['drainage_to_concrete_slab_floors']['pc_selection']) && $workData['sow']['drainage_to_concrete_slab_floors']['pc_selection'] == 'yes' ? 'checked' : '' }}>
+                        </div>
+                        <p>🛈 <strong>Note:</strong> PC items with special requirements should have installation
+                            instructions from the manufacturer also attached.
+                            <input type="radio" class="form-check-input"
+                                name="sow[drainage_to_concrete_slab_floors][pc_checked]" value="checked" class="ms-2"
+                                {{ isset($workData['sow']['drainage_to_concrete_slab_floors']['pc_checked']) && $workData['sow']['drainage_to_concrete_slab_floors']['pc_checked'] == 'checked' ? 'checked' : '' }}>
+                            (Checked)
+                        </p>
+                        <div class="d-flex align-items-center">
 
-                                <!-- Label and Input -->
-                                <label for="tapware_pc_items" class="me-2 mb-0">Notes to above:</label>
-                                <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
-                                    name="sow[site_work][tapware_pc_items]" id="tapware_pc_items"
-                                    placeholder="Enter Tapware & PC Items notes"
-                                    value="{{ isset($workData['sow']['site_work']['tapware_pc_items']) ? $workData['sow']['site_work']['tapware_pc_items'] : '' }}">
-                            </div>
+                            <!-- Label and Input -->
+                            <label for="tapware_pc_items" class="me-2 mb-0">Notes to above:</label>
+                            <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                                name="sow[site_work][tapware_pc_items]" id="tapware_pc_items"
+                                placeholder="Enter Tapware & PC Items notes"
+                                value="{{ isset($workData['sow']['site_work']['tapware_pc_items']) ? $workData['sow']['site_work']['tapware_pc_items'] : '' }}">
                         </div>
                     </div>
 
+
                     <!-- Q3: Gasfitter -->
                     <!-- Q3: Gasfitter -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <h5>3.7 Gasfitter</h5>
 
                         <!-- Gas Type Selection -->
@@ -1709,7 +1714,7 @@
                         </tbody>
                     </table>
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <h6>4.1 Steel House Floor System</h6>
                         <div class="d-flex align-items-center mb-2">
                             <label class="me-2">Per Plans & Specifications</label>
@@ -1780,7 +1785,7 @@
                     </div>
 
                     <!-- Section 4.2 -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <h6>4.2 Steel Verandah Floor System</h6>
                         <div class="d-flex align-items-center mb-2">
                             <span>Per Plans & Specifications</span>
@@ -1846,7 +1851,7 @@
 
 
                     <!-- Section 4.3 -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <h6>4.3 Timber Verandah Floor System</h6>
                         <div class="d-flex align-items-center mb-2">
                             <span>Per Plans & Specifications</span>
@@ -1898,7 +1903,7 @@
 
 
                     <!-- Section 4.4 -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <h6>4.4 Frames</h6>
 
                         <div class="d-flex align-items-center mb-2">
@@ -1949,7 +1954,7 @@
                         </div>
                     </div>
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
 
                         <!-- Section 4.5 -->
                         <h5 class="mt-4">4.5 Roof Trusses & Beams</h5>
@@ -2021,7 +2026,7 @@
 
                     <!-- Section 4.6 -->
                     <!-- Section 4.6 -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
 
                         <h5 class="mt-4">4.6 Verandahs</h5>
 
@@ -2111,7 +2116,7 @@
                     </div>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
 
                         <!-- Section 4.7 -->
                         <h5 class="mt-4">4.7 External Stairs</h5>
@@ -2263,7 +2268,7 @@
                     </div>
 
                     <!-- Section 4.8 -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <div class="mt-4">
                             <h5>4.8 Features / Trims etc</h5>
 
@@ -2360,7 +2365,7 @@
                     </div>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <!-- 4.9 Exterior Door Selections & Exterior Door Furniture -->
                         <div class="mt-4">
                             <h5>4.9 Exterior Door Selections & Exterior Door Furniture</h5>
@@ -2376,7 +2381,7 @@
                     </div>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <div class="mt-4">
                             <h5>4.10 Eaves and Soffit Linings</h5>
 
@@ -2415,7 +2420,7 @@
                     </div>
 
                     <!-- 4.11 External Cladding -->
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <div class="mt-4">
                             <h5>4.11 External Cladding</h5>
 
@@ -2541,7 +2546,7 @@
                     </div>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <!-- External Balustrade Section -->
                         <div class="p-2 mb-3">
                             <h5>4.12 External Balustrade</h5>
@@ -2717,7 +2722,7 @@
                     </table>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
 
                         <!-- Section 5.1 -->
                         <h5 class="mt-4">5.1 Mouldings</h5>
@@ -2894,7 +2899,7 @@
                     </div>
 
 
-                    <div class="card p-4 my-3">
+                    <div class="card pdf-card">
                         <!-- Section 5.2 -->
                         <h5 class="mt-4">5.2 Doors</h5>
 
@@ -3001,7 +3006,7 @@
                         </div>
 
 
-                        <div class="card p-4 my-3">
+                        <div class="card pdf-card">
                             <!-- Section 5.3 -->
                             <h5 class="mt-4">5.3 Internal Door Furniture</h5>
 
@@ -3215,7 +3220,7 @@
                         </div>
 
 
-                        <div class="card p-4 my-3">
+                        <div class="card pdf-card">
 
                             <h5 class="mt-4">5.4 Built in Robes & Cupboards</h5>
 
