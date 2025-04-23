@@ -172,8 +172,6 @@
                             </div>
                         </div>
 
-
-
                         <!-- Question 3 -->
                         <div class="card mb-3">
                             <div class="card-header d-flex justify-content-between align-items-center">
@@ -523,6 +521,13 @@
                                         name="sow[site_work][termite_protection_type]" id="protectionType"
                                         placeholder="Enter protection type"
                                         value="{{ isset($workData['sow']['site_work']['termite_protection_type']) ? $workData['sow']['site_work']['termite_protection_type'] : '' }}">
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <label for="site_work_note" class="me-2 mb-0">Notes to above:</label>
+                                    <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
+                                        name="sow[site_work][site_work_note]" id="site_work_note"
+                                        placeholder="Enter access road to site notes"
+                                        value="{{ isset($workData['sow']['site_work']['site_work_note']) ? $workData['sow']['site_work']['site_work_note'] : '' }}">
                                 </div>
                             </div>
                         </div>

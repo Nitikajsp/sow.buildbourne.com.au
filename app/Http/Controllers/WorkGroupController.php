@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\WorkGroup;
 use App\Models\WorkQuestion;
+use App\Models\Form;
 
 class WorkGroupController extends Controller
 {
@@ -21,24 +22,26 @@ class WorkGroupController extends Controller
         return view('workgroup.add_workgroup');
     }
 
+
+    public function testfile()
+    {
+
+        return view('workgroup.test');
+    }
+
     public function store(Request $request)
 
     {
-        $request->validate([
-            'group_name' => 'required|string|max:255',
-        ]);
 
-        $workgroup = new WorkGroup();
-        $workgroup->group_name = $request->input('group_name');
-        $workgroup->save();
-
-        return redirect()->route('workgroup.showworkgroup')->with('success', 'Group added successfully!');
+        $WorkQuestion = new WorkQuestion();
+        $WorkQuestion->questions_from_data = $request->form_data;
+        $WorkQuestion->save();
+        return response()->json(['success' => true]);
     }
 
     public function addworkquestion()
 
     {
-
         // In Controller
         $workgroups = WorkGroup::all();
 
