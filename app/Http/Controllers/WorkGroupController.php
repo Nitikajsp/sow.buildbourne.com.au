@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\HelloMail;
 use Illuminate\Http\Request;
 use App\Models\WorkGroup;
 use App\Models\WorkQuestion;
 use App\Models\Form;
+
+use function Laravel\Prompts\alert;
 
 class WorkGroupController extends Controller
 {
@@ -145,30 +148,39 @@ class WorkGroupController extends Controller
     }
 
 
+
+    // public function workgroupquestionedit($id)
+    // {
+    //     $workgroupquestion = WorkQuestion::findOrFail($id);
+    //     $groups = WorkGroup::all();
+
+    //     return view('workgroup.edit_group_question', compact('workgroupquestion', 'groups'));
+    // }
+
     public function workgroupquestionedit($id)
     {
-        $workgroupquestion = WorkQuestion::findOrFail($id);
-        $groups = WorkGroup::all();
+        $question = WorkQuestion::findOrFail($id);
 
-        return view('workgroup.edit_group_question', compact('workgroupquestion', 'groups'));
+        return view('workgroup.edit_group_question', [
+            'questionJson' => $question->questions_from_data,
+            'questionId' => $id, // Make sure the ID is being passed correctly
+        ]);
     }
+
 
 
     public function workgroupquestionupdate(Request $request, $id)
     {
-        $request->validate([
-            'workgroup_id' => 'required|string|max:255',
-            'question_title' => 'required|string|max:255',
-            'question_value' => 'required|string|max:255'
-        ]);
 
-        $workgroup = WorkQuestion::findOrFail($id);
-        $workgroup->workgroup_id = $request->workgroup_id;
-        $workgroup->question_title = $request->question_title;
-        $workgroup->question_value = $request->question_value;
 
-        $workgroup->save();
+        $question = WorkQuestion::findOrFail($id);
 
-        return redirect()->route('workgroup.showgroupquestion')->with('success', 'Workgroup question updated successfully!');
+        $formData = $request->input('form_data');
+
+        $question->questions_from_data = $formData;
+
+        $question->save();
+
+        return response()->json(['message' => 'Workgroup question updated successfully!']);
     }
 }

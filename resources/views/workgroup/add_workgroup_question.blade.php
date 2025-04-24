@@ -38,7 +38,6 @@
                                 <div id="build-wrap"></div>
                                 <button id="save-form" type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white">Save Form</button>
                                 <button type="button" id="addSubfield" class="mt-4 px-4 py-2 bg-green-600 text-white">Add Subfield</button>
-
                             </div>
                         </div>
                     </div>
