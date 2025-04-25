@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submissions', 'showAllSubmissions')->name('submissions.index');
         Route::get('/submissions/{id}/edit', 'editsubmissions')->name('editsubmissions.show');
         Route::get('/submissions/{id}', 'showsubmissions')->name('showsubmissions.show');
-        Route::put('/submissions/{id}/update',  'updateSubmission')->name('submission.update');
+        Route::post('/submissions',  'updateSubmission')->name('submission.update');
     });
 
     Route::post('/submissions/{id}', [PartyController::class, 'update'])->name('submissions.update');

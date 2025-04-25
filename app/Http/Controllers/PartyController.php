@@ -272,43 +272,42 @@ class PartyController extends Controller
         return back()->with('success', 'Site work updated successfully!');
     }
 
-    public function updateSubmission(Request $request, $id)
+    public function updateSubmission(Request $request)
     {
+        $id = $request->input('submissionId');
+        $form_data = $request->input('form_data');
+
         $submission = Submission::find($id);
 
         if (!$submission) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Submission not found.']);
+            }
             return redirect()->back()->with('error', 'Submission not found.');
         }
 
-        $sowData = $request->input('sow');
-
-        if (!$sowData) {
-            return redirect()->back()->with('error', 'No work data received.');
-        }
-
-        $workData = [
-            'sow' => $sowData,
-            'action' => 'save'
-        ];
-
-        $submission->work = json_encode($workData);
+        $submission->work = json_encode($form_data);
         $submission->save();
 
-        if ($request->input('action') === 'save_send') {
-            $party = Parties::findOrFail($submission->party_id);
+        // if ($request->input('action') === 'save_send') {
+        //     $party = Parties::findOrFail($submission->party_id);
 
-            $pdf = Pdf::loadView('emails.site_work_submitted', [
-                'party' => $party,
-                'workData' => $workData
-            ]);
+        //     $pdf = Pdf::loadView('emails.site_work_submitted', [
+        //         'party' => $party,
+        //         'workData' => $workData
+        //     ]);
 
-            Mail::send([], [], function ($message) use ($party, $pdf) {
-                $message->to($party->email)
-                    ->subject('Site Work Updated')
-                    ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
-            });
+        //     Mail::send([], [], function ($message) use ($party, $pdf) {
+        //         $message->to($party->email)
+        //             ->subject('Site Work Updated')
+        //             ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
+        //     });
 
-            return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully and email sent.');
+        //     return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully and email sent.');
+        // }
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => 'Submission updated successfully!']);
         }
 
         return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully!');
