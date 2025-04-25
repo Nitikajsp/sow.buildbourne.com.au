@@ -51,6 +51,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+
 <script>
     $(function() {
         var fb = $('#build-wrap').formBuilder({
@@ -166,11 +167,12 @@
             const formJson = fb.actions.getData('json');
 
             $.ajax({
-                url: "{{ route('workgroup.store') }}", // Laravel route or PHP endpoint
+                url: "{{ route('workgroup.store') }}",
+                =
                 method: 'POST',
                 data: {
                     form_data: formJson,
-                    _token: '{{ csrf_token() }}' // Required for Laravel
+                    _token: '{{ csrf_token() }}'
                 },
                 success: function(res) {
                     alert('Form saved successfully!');
