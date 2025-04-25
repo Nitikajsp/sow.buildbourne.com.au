@@ -33,11 +33,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/lists/{list}/projects/{party}/work-type', 'updateWorkType')->name('parties.updateWorkType');
         Route::get('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');
         // Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
-        Route::post('/save-site-work/{party}/list/{list}', 'saveSiteWork')->name('parties.saveSiteWork');
+        Route::post('/save-site-work', 'saveSiteWork')->name('parties.saveSiteWork');
         Route::get('/submissions', 'showAllSubmissions')->name('submissions.index');
         Route::get('/submissions/{id}/edit', 'editsubmissions')->name('editsubmissions.show');
         Route::get('/submissions/{id}', 'showsubmissions')->name('showsubmissions.show');
-
         Route::put('/submissions/{id}/update',  'updateSubmission')->name('submission.update');
     });
 

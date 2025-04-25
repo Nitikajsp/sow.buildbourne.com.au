@@ -22,13 +22,11 @@
 
             <div class="row">
                 <div class="col-md-7">
-                    <div class="inner-container ">
+                    <div class="inner-container">
                         <h2>Edit Work Group Question</h2>
 
                         @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
+                        <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
 
                         <div class="row">
@@ -36,14 +34,10 @@
                                 @csrf
                                 <div id="build-wrap"></div>
                                 <button id="update-form" type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white">Update Form</button>
-                                <button type="button" id="addSubfield" class="mt-4 px-4 py-2 bg-green-600 text-white">Add Subfield</button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="fb-render">
-
             </div>
         </div>
     </div>
@@ -60,53 +54,86 @@
         const savedJson = @json($questionJson);
         var existingFormData = @json($questionJson ?? []);
 
+        // Initialize FormBuilder
         var fb = $('#build-wrap').formBuilder({
-            formData: existingFormData
+            formData: existingFormData,
+            inputSets: [{
+                label: 'Grouped Custom Fields',
+                name: 'grouped-custom-fields',
+                className: 'responsible-header',
+                //name: 'responsible_header',
+                showHeader: true,
+                fields: [{
+                        type: 'radio-group',
+                        label: 'Responsible Party',
+                        className: 'responsible-party',
+                        //name: 'responsible_party',
+                        values: [{
+                                label: 'By Builder',
+                                value: 'By Builder'
+                            },
+                            {
+                                label: 'By Owner',
+                                value: 'By Owner'
+                            },
+                            {
+                                label: 'N/A',
+                                value: 'N/A'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'radio-group',
+                        label: 'Builder Details',
+                        className: 'buildr-details',
+                        //name: 'builder_details',
+                        values: [{
+                                label: 'Option A',
+                                value: 'option-a'
+                            },
+                            {
+                                label: 'Option B',
+                                value: 'option-a'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'radio-group',
+                        label: 'Owner Details',
+                        className: 'owner-details',
+                        //name: 'owner_details',
+                        values: [{
+                                label: 'Option A',
+                                value: 'option-a'
+                            },
+                            {
+                                label: 'Option B',
+                                value: 'option-a'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'checkbox',
+                        label: 'Add Notes',
+                        className: 'add-notes',
+                        //name: 'terms'
+                    },
+                    {
+                        type: 'textarea',
+                        label: 'Additional Notes',
+                        className: 'additional-notes',
+                        // name: 'notes'
+                    }
+                ]
+            }],
+
+
+            disabledAttrs: ['name'],
+            controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
         });
 
-        let subfieldCounter = existingFormData.length + 1;
-
-        $('#addSubfield').on('click', function() {
-            const uniqueSuffix = subfieldCounter++;
-
-            fb.actions.addField({
-                type: 'radio-group',
-                label: `Subfield Options ${uniqueSuffix}`,
-                name: `subfield_options_${uniqueSuffix}`,
-                values: [{
-                    label: 'Option 1',
-                    value: 'option1'
-                }, {
-                    label: 'Option 2',
-                    value: 'option2'
-                }],
-                className: 'form-control'
-            });
-
-            fb.actions.addField({
-                type: 'text',
-                label: `Subfield Question ${uniqueSuffix}`,
-                name: `subfield_question_${uniqueSuffix}`,
-                className: 'form-control'
-            });
-
-            fb.actions.addField({
-                type: 'email',
-                label: `Subfield Email ${uniqueSuffix}`,
-                name: `subfield_email_${uniqueSuffix}`,
-                className: 'form-control'
-            });
-
-            fb.actions.addField({
-                type: 'text',
-                label: `Subfield Address ${uniqueSuffix}`,
-                name: `subfield_address_${uniqueSuffix}`,
-                className: 'form-control'
-            });
-        });
-
+        // Update the form via AJAX
         $('#update-form').on('click', function() {
-
             const formJson = fb.actions.getData('json');
 
             $.ajax({
@@ -114,7 +141,6 @@
                 method: 'POST',
                 data: {
                     form_data: formJson,
-
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(res) {
@@ -127,9 +153,6 @@
             });
         });
 
-        $('.fb-render').formRender({
-            formData: existingFormData
-        });
     });
 </script>
 @endsection
