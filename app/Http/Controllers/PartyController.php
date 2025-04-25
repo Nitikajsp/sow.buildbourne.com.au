@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
 use App\Models\Submission;
+use App\Models\WorkQuestion;
+
 use Illuminate\Support\Facades\Mail;
 
 class PartyController extends Controller
@@ -153,12 +155,25 @@ class PartyController extends Controller
             'work_type' => 'required|in:Basic,Upgrade',
         ]);
 
+        // Find the party by ID
         $party = Parties::findOrFail($partyId);
+
+        // Update the work type
         $party->choose_your_work_type = $request->work_type;
         $party->save();
 
-        return redirect()->route('parties.siteWork', ['party' => $partyId, 'list' => $listId]);
+        // Fetch all work questions
+        $questions = WorkQuestion::findOrFail('14');
+
+
+        // Return the view with the updated data
+        return view('workgroup.site-work', [
+            'partyId' => $partyId,
+            'listId' => $listId,
+            'questionJson' => $questions->questions_from_data,
+        ]);
     }
+
 
 
     public function showSiteWork($partyId, $listId)
@@ -169,39 +184,26 @@ class PartyController extends Controller
         return view('workgroup.site-work', compact('party', 'listId'));
     }
 
-
-    public function saveSiteWork(Request $request, $partyId, $listId)
+    public function saveSiteWork(Request $request)
     {
-        $party = Parties::findOrFail($partyId);
-        $formData = $request->except('_token');
-        $workDataJson = json_encode($formData);
-
-        Submission::create([
-            'project_id' => $listId,
-            'party_id' => $partyId,
-            'work' => $workDataJson,
-            'status' => 'pending'
+        $request->validate([
+            'form_data' => 'required',
+            'partyId' => 'required',
+            'listId' => 'required', // This is project_id
         ]);
 
-        if ($request->input('action') === 'save_send') {
-            $pdf = Pdf::loadView('emails.site_work_submitted', [
-                'party' => $party,
-                'workData' => $formData
-            ]);
+        $form_data = $request->input('form_data');
 
-            Mail::send([], [], function ($message) use ($party, $pdf) {
-                $message->to($party->email)
-                    ->subject('New Site Work Submitted')
-                    ->attachData($pdf->output(), 'SiteWork_Submitted.pdf');
-            });
-        }
+        $workGroup = new Submission();
+        $workGroup->project_id = $request->input('listId');   // Use correct field name
+        $workGroup->party_id = $request->input('partyId');    // Use correct field name
+        $workGroup->work = json_encode($form_data);           // Store as JSON string
 
-        return redirect()->route('showlistparty', [
-            'listId' => $listId,
-            'partyId' => $partyId
-        ])->with('success', 'Site work saved successfully' .
-            ($request->input('action') === 'save_send' ? ' and email sent.' : '.'));
+        $workGroup->save();
+
+        return response()->json(['success' => true]);
     }
+
 
 
     public function showAllSubmissions()

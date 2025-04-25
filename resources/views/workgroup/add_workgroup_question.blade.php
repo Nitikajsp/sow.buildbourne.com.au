@@ -37,7 +37,6 @@
                                 @csrf
                                 <div id="build-wrap"></div>
                                 <button id="save-form" type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white">Save Form</button>
-                                <button type="button" id="addSubfield" class="mt-4 px-4 py-2 bg-green-600 text-white">Add Subfield</button>
                             </div>
                         </div>
                     </div>
@@ -55,37 +54,115 @@
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
 <script>
     $(function() {
-        var fb = $('#build-wrap').formBuilder();
-        jQuery(function($) {
+        var fb = $('#build-wrap').formBuilder({
+            formData: existingFormData,
+            inputSets: [{
+                label: 'Grouped Custom Fields',
+                name: 'grouped-custom-fields',
+                className: 'responsible-header',
+                //name: 'responsible_header',
+                showHeader: true,
+                fields: [{
+                        type: 'radio-group',
+                        label: 'Responsible Party',
+                        className: 'responsible-party',
+                        //name: 'responsible_party',
+                        values: [{
+                                label: 'By Builder',
+                                value: 'By Builder'
+                            },
+                            {
+                                label: 'By Owner',
+                                value: 'By Owner'
+                            },
+                            {
+                                label: 'N/A',
+                                value: 'N/A'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'radio-group',
+                        label: 'Builder Details',
+                        className: 'buildr-details',
+                        //name: 'builder_details',
+                        values: [{
+                                label: 'Option A',
+                                value: 'option-a'
+                            },
+                            {
+                                label: 'Option B',
+                                value: 'option-a'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'radio-group',
+                        label: 'Owner Details',
+                        className: 'owner-details',
+                        //name: 'owner_details',
+                        values: [{
+                                label: 'Option A',
+                                value: 'option-a'
+                            },
+                            {
+                                label: 'Option B',
+                                value: 'option-a'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'checkbox',
+                        label: 'Add Notes',
+                        className: 'add-notes',
+                        //name: 'terms'
+                    },
+                    {
+                        type: 'textarea',
+                        label: 'Additional Notes',
+                        className: 'additional-notes',
+                        // name: 'notes'
+                    }
+                ]
+            }],
 
-            let subfieldCounter = 1;
 
-            $('#addSubfield').on('click', function() {
-                const timestamp = Date.now();
-                const uniqueSuffix = subfieldCounter++;
+            disabledAttrs: ['name'],
+            controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
+        });
 
-                fb.actions.addField({
-                    type: 'text',
-                    label: `Subfield Name ${uniqueSuffix}`,
-                    name: `subfield_name_${uniqueSuffix}`,
-                    className: 'form-control'
-                });
+        setTimeout(function() {
+            const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];
 
-                fb.actions.addField({
-                    type: 'email',
-                    label: `Subfield Email ${uniqueSuffix}`,
-                    name: `subfield_email_${uniqueSuffix}`,
-                    className: 'form-control'
-                });
+            $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
+                const $inputs = $(this).find('input');
 
-                fb.actions.addField({
-                    type: 'text',
-                    label: `Subfield Address ${uniqueSuffix}`,
-                    name: `subfield_address_${uniqueSuffix}`,
-                    className: 'form-control'
+                $inputs.each(function() {
+                    const inputClasses = $(this).attr('class');
+                    if (inputClasses) {
+                        inputClasses.split(' ').forEach(cls => {
+                            if (targetClasses.includes(cls)) {
+                                $(this).closest('.form-group').addClass(cls);
+                            }
+                        });
+                    }
                 });
             });
-        });
+
+            // For textareas
+            $('.formbuilder-textarea').each(function() {
+                const $textarea = $(this).find('textarea');
+                const textareaClasses = $textarea.attr('class');
+
+                if (textareaClasses) {
+                    textareaClasses.split(' ').forEach(cls => {
+                        if (targetClasses.includes(cls)) {
+                            $(this).addClass(cls);
+                        }
+                    });
+                }
+            });
+        }, 200);
 
         $('#save-form').on('click', function() {
             const formJson = fb.actions.getData('json');

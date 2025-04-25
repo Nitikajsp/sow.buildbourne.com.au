@@ -53,7 +53,6 @@
                                         {{-- Show the header and ID of the radio group --}}
                                         <div class="radio-group">
                                             <h5>{{ $item['label'] }} (ID: {{ $item['name'] }})</h5>
-                                            <p>{{ $item['description'] }}</p>
                                             @foreach ($item['values'] as $value)
                                             <label>
                                                 <input type="radio" name="{{ $item['name'] }}" value="{{ $value['value'] }}"
