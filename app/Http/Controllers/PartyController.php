@@ -152,18 +152,19 @@ class PartyController extends Controller
     public function updateWorkType(Request $request, $listId, $partyId)
     {
         $request->validate([
-            'work_type' => 'required|in:Basic,Upgrade',
+            'work_type' => 'required',
         ]);
 
-        // Find the party by ID
-        $party = Parties::findOrFail($partyId);
+        // // Find the party by ID
+        // $party = Parties::findOrFail($partyId);
 
-        // Update the work type
-        $party->choose_your_work_type = $request->work_type;
-        $party->save();
+        // // Update the work type
+        // $party->choose_your_work_type = $request->work_type;
+
+        // $party->save();
 
         // Fetch all work questions
-        $questions = WorkQuestion::findOrFail('14');
+        $questions = WorkQuestion::where('form_name', $request->work_type)->first();
 
 
         // Return the view with the updated data
@@ -171,6 +172,8 @@ class PartyController extends Controller
             'partyId' => $partyId,
             'listId' => $listId,
             'questionJson' => $questions->questions_from_data,
+            'workType' => $request->work_type, // Pass work_type to the view
+
         ]);
     }
 

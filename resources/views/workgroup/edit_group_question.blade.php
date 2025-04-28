@@ -23,6 +23,8 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="inner-container">
+                        <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage" value="{{ old('form_name', $form_name ?? '') }}">
+
                         <h2>Edit Work Group Question</h2>
 
                         @if (session('success'))
@@ -135,12 +137,15 @@
         // Update the form via AJAX
         $('#update-form').on('click', function() {
             const formJson = fb.actions.getData('json');
+            const form_name = $('#form_name').val();
+
 
             $.ajax({
                 url: "{{ route('workgroup.workgroupquestionupdate', ['id' => $questionId]) }}",
                 method: 'POST',
                 data: {
                     form_data: formJson,
+                    form_name: form_name,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(res) {

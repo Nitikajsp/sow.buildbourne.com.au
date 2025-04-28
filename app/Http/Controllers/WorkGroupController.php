@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\WorkGroup;
 use App\Models\WorkQuestion;
 use App\Models\Form;
+use PhpParser\Node\Expr\Print_;
 
 use function Laravel\Prompts\alert;
 
@@ -38,6 +39,8 @@ class WorkGroupController extends Controller
 
         $WorkQuestion = new WorkQuestion();
         $WorkQuestion->questions_from_data = $request->form_data;
+        $WorkQuestion->form_name = $request->form_name;
+
         $WorkQuestion->save();
         return response()->json(['success' => true]);
     }
@@ -163,21 +166,24 @@ class WorkGroupController extends Controller
 
         return view('workgroup.edit_group_question', [
             'questionJson' => $question->questions_from_data,
-            'questionId' => $id, // Make sure the ID is being passed correctly
+            'questionId' => $id,
+            'form_name' => $question->form_name,
         ]);
     }
-
 
 
     public function workgroupquestionupdate(Request $request, $id)
     {
 
-
         $question = WorkQuestion::findOrFail($id);
 
         $formData = $request->input('form_data');
 
+        $form_name = $request->input('form_name');
+
         $question->questions_from_data = $formData;
+
+        $question->form_name = $form_name;
 
         $question->save();
 

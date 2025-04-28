@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 // make sure to import listmodel
 use App\Models\ListModel;
+use App\Models\WorkQuestion;
+
 use App\Models\Order;
 use App\Models\Parties; // Import the Parties model
 use App\Mail\OrderConfirmation;
@@ -124,13 +126,19 @@ class ListController extends Controller
         return redirect()->back()->with('success', 'List deleted successfully.');
     }
 
-
-    // add cart product controller start  //
-
     public function addcartproject($list, $partyId)
     {
+        // Find the list by its ID
         $list = ListModel::findOrFail($list);
-        return view('list.add_cart_project', compact('list', 'partyId'));
+
+        // Fetch all data related to the party_id (from WorkQuestion or other relevant models)
+        $workQuestions = WorkQuestion::all();  // Fetch all records
+
+        return view('list.add_cart_project', [
+            'list' => $list,
+            'partyId' => $partyId,
+            'workQuestions' => $workQuestions,  // Passing all data
+        ]);
     }
 
 
