@@ -36,15 +36,12 @@
                                 action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="work_type" class="form-label">Types</label>
-                                    <select class="form-select" id="work_type" name="work_type" required>
-                                        <!-- Default option -->
+                                    <label for="work_id" class="form-label">Types</label>
+                                    <select class="form-select" id="work_id" name="work_id" required>
                                         <option value="" disabled selected>Select Type</option>
-
-                                        <!-- Loop through all the workQuestions data and display dynamically -->
                                         @foreach($workQuestions as $workQuestion)
-                                        <option value="{{ $workQuestion->form_name }}"
-                                            {{ old('work_type', $list->work_type) == $workQuestion->form_name ? 'selected' : '' }}>
+                                        <option value="{{ $workQuestion->id }}"
+                                            {{ old('work_id', $list->work_id) == $workQuestion->id ? 'selected' : '' }}>
                                             {{ $workQuestion->form_name }}
                                         </option>
                                         @endforeach
