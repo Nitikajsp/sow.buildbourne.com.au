@@ -32,6 +32,7 @@
         const partyId = @json($partyId);
         const listId = @json($listId);
 
+
         var fb = $('.fb-render').formRender({
             formData: formData
         });

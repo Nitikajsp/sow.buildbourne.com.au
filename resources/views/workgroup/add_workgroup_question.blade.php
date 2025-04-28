@@ -22,6 +22,8 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="inner-container ">
+                        <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage">
+
 
                         <!-- <div class="col-md-12 d-flex justify-content-between align-items-center "> -->
 
@@ -165,14 +167,17 @@
 
         $('#save-form').on('click', function() {
             const formJson = fb.actions.getData('json');
+            const form_name = $('#form_name').val();
+
 
             $.ajax({
                 url: "{{ route('workgroup.store') }}",
-                =
+
                 method: 'POST',
                 data: {
                     form_data: formJson,
-                    _token: '{{ csrf_token() }}'
+                    form_name: form_name, // The tax percentage value
+                    _token: '{{ csrf_token() }}' // Required for Laravel
                 },
                 success: function(res) {
                     alert('Form saved successfully!');

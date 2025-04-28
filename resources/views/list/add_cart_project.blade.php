@@ -38,15 +38,19 @@
                                 <div class="mb-3">
                                     <label for="work_type" class="form-label">Types</label>
                                     <select class="form-select" id="work_type" name="work_type" required>
-                                        <option value="Basic "
-                                            {{ old('work_type', $list->work_type) == 'Basic ' ? 'selected' : '' }}>Basic
+                                        <!-- Default option -->
+                                        <option value="" disabled selected>Select Type</option>
+
+                                        <!-- Loop through all the workQuestions data and display dynamically -->
+                                        @foreach($workQuestions as $workQuestion)
+                                        <option value="{{ $workQuestion->form_name }}"
+                                            {{ old('work_type', $list->work_type) == $workQuestion->form_name ? 'selected' : '' }}>
+                                            {{ $workQuestion->form_name }}
                                         </option>
-                                        <option value="Upgrade "
-                                            {{ old('work_type', $list->work_type) == 'Upgrade ' ? 'selected' : '' }}>
-                                            Upgrade
-                                        </option>
+                                        @endforeach
                                     </select>
                                 </div>
+
                                 <div class="pull-right mt-1 text-center">
                                     <button type="submit" class="btn btn-primary me-1 rounded">Save</button>
                                     <a href="{{ route('parties.show', $list->parties_id) }}"
