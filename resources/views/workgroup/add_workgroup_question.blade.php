@@ -176,11 +176,13 @@
                 method: 'POST',
                 data: {
                     form_data: formJson,
-                    form_name: form_name, // The tax percentage value
-                    _token: '{{ csrf_token() }}' // Required for Laravel
+                    form_name: form_name,
+                    _token: '{{ csrf_token() }}'
                 },
                 success: function(res) {
                     alert('Form saved successfully!');
+                    window.location.href = "{{ route('workgroup.showgroupquestion') }}";
+
                 },
                 error: function(err) {
                     alert('Error saving form.');
@@ -190,9 +192,6 @@
         });
         return false;
     });
-</script>
-<script>
-
 </script>
 
 @endsection

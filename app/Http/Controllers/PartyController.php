@@ -177,6 +177,7 @@ class PartyController extends Controller
         return view('workgroup.site-work', compact('party', 'listId'));
     }
 
+
     public function saveSiteWork(Request $request)
     {
         $request->validate([
@@ -196,8 +197,30 @@ class PartyController extends Controller
 
         $workGroup->save();
 
-        return response()->json(['success' => true]);
+        $party = Parties::find($request->partyId);
+
+        if ($party && $party->email) {
+            $workData = $form_data;
+
+            $pdf = Pdf::loadView('emails.site_work_submitted', [
+                'party' => $party,
+                'workData' => $workData
+            ]);
+
+
+            Mail::send([], [], function ($message) use ($party, $pdf) {
+                $message->to($party->email)
+                    ->subject('Site Work Updated')
+                    ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
+            });
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Form submitted successfully!'
+        ]);
     }
+
 
 
 

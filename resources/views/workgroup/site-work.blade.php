@@ -53,15 +53,20 @@
                     _token: "{{ csrf_token() }}",
                     partyId: partyId,
                     listId: listId,
-                    form_data: formDatasub,
                     work_id: work_id,
+                    form_data: formDatasub,
                 },
                 success: function(response) {
                     if (response.success) {
-                        alert('Form submitted successfully!');
+                        alert(response.message);
+                        window.location.href = "{{ route('submissions.index') }}";
                     } else {
-                        alert('Error submitting form.');
+                        alert('Error: ' + response.message); // Show error message
                     }
+                },
+                error: function(err) {
+                    alert('Error submitting form.');
+                    console.error(err);
                 }
             });
         });
