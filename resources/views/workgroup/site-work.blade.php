@@ -31,6 +31,7 @@
         const formData = @json($questionJson ?? []);
         const partyId = @json($partyId);
         const listId = @json($listId);
+        const work_id = @json($work_id);
 
 
         var fb = $('.fb-render').formRender({
@@ -39,6 +40,7 @@
 
 
         $('#submit-form').on('click', function() {
+
 
 
             // Get the form data as JSON
@@ -51,7 +53,8 @@
                     _token: "{{ csrf_token() }}",
                     partyId: partyId,
                     listId: listId,
-                    form_data: formDatasub
+                    form_data: formDatasub,
+                    work_id: work_id,
                 },
                 success: function(response) {
                     if (response.success) {

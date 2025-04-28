@@ -152,37 +152,27 @@ class PartyController extends Controller
     public function updateWorkType(Request $request, $listId, $partyId)
     {
         $request->validate([
-            'work_type' => 'required',
+            'work_id' => 'required',
         ]);
 
-        // // Find the party by ID
-        // $party = Parties::findOrFail($partyId);
+        // ID pramane record lavso
+        $questions = WorkQuestion::findOrFail($request->work_id);
 
-        // // Update the work type
-        // $party->choose_your_work_type = $request->work_type;
-
-        // $party->save();
-
-        // Fetch all work questions
-        $questions = WorkQuestion::where('form_name', $request->work_type)->first();
-
-
-        // Return the view with the updated data
         return view('workgroup.site-work', [
             'partyId' => $partyId,
             'listId' => $listId,
             'questionJson' => $questions->questions_from_data,
-            'workType' => $request->work_type, // Pass work_type to the view
-
+            'workType' => $questions->form_name,
+            'work_id' => $request->work_id,
         ]);
     }
+
 
 
 
     public function showSiteWork($partyId, $listId)
     {
         $party = Parties::findOrFail($partyId);
-        // $groups = WorkGroup::with('questions')->get();
 
         return view('workgroup.site-work', compact('party', 'listId'));
     }
@@ -192,15 +182,17 @@ class PartyController extends Controller
         $request->validate([
             'form_data' => 'required',
             'partyId' => 'required',
-            'listId' => 'required', // This is project_id
+            'listId' => 'required',
+            'work_id' => 'required'
         ]);
 
         $form_data = $request->input('form_data');
 
         $workGroup = new Submission();
-        $workGroup->project_id = $request->input('listId');   // Use correct field name
-        $workGroup->party_id = $request->input('partyId');    // Use correct field name
-        $workGroup->work = json_encode($form_data);           // Store as JSON string
+        $workGroup->project_id = $request->input('listId');
+        $workGroup->party_id = $request->input('partyId');
+        $workGroup->work_id = $request->input('work_id');
+        $workGroup->work = json_encode($form_data);
 
         $workGroup->save();
 

@@ -48,19 +48,17 @@
                                         {{-- Loop through the decoded data --}}
                                         @foreach ($questionData as $item)
                                         @if ($item['type'] === 'header')
-                                        <h3>{{ $item['label'] }}</h3>
                                         @elseif ($item['type'] === 'radio-group')
                                         {{-- Show the header and ID of the radio group --}}
-                                        <div class="radio-group">
-                                            <h5>{{ $item['label'] }} (ID: {{ $item['name'] }})</h5>
-                                            @foreach ($item['values'] as $value)
-                                            <label>
-                                                <input type="radio" name="{{ $item['name'] }}" value="{{ $value['value'] }}"
-                                                    @if($value['selected']) checked @endif>
-                                                {{ $value['label'] }}
-                                            </label><br>
-                                            @endforeach
-                                        </div>
+                                        <!--<div class="radio-group">-->
+                                        <!--    @foreach ($item['values'] as $value)-->
+                                        <!--    <label>-->
+                                        <!--        <input type="radio" name="{{ $item['name'] }}" value="{{ $value['value'] }}"-->
+                                        <!--            @if($value['selected']) checked @endif>-->
+                                        <!--        {{ $value['label'] }}-->
+                                        <!--    </label><br>-->
+                                        <!--    @endforeach-->
+                                        <!--</div>-->
                                         @endif
                                         @endforeach
                                         @else

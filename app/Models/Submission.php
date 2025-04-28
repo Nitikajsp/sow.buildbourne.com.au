@@ -10,10 +10,12 @@ class Submission extends Model
     use HasFactory;
 
     protected $fillable = [
+        'work_id',
         'project_id',
         'party_id',  // Ensure this field exists in your database
         'work',  // Ensure this field exists in your database
         'status',
+
     ];
 
     // Relationships
