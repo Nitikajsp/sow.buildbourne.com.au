@@ -41,9 +41,6 @@
 
         $('#submit-form').on('click', function() {
 
-
-
-            // Get the form data as JSON
             var formDatasub = fb.userData;
 
             $.ajax({
@@ -59,9 +56,9 @@
                 success: function(response) {
                     if (response.success) {
                         alert(response.message);
-                        window.location.href = "{{ route('submissions.index') }}";
+                        window.location.href = "{{ route('submissions.index') }}?success=1";
                     } else {
-                        alert('Error: ' + response.message); // Show error message
+                        alert('Error: ' + response.message);
                     }
                 },
                 error: function(err) {

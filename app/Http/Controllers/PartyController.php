@@ -32,6 +32,11 @@ class PartyController extends Controller
         return view('parties.add_parties');
     }
 
+    public function addtestform()
+    {
+
+        return view('workgroup.add_test_form');
+    }
 
     public function store(Request $request)
     {
@@ -217,12 +222,9 @@ class PartyController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Form submitted successfully!'
+            'message' => 'Successfully saved!',
         ]);
     }
-
-
-
 
     public function showAllSubmissions()
     {
