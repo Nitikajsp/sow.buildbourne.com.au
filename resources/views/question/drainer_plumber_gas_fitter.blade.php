@@ -11,21 +11,18 @@
 
  <div class="card pdf-card mb-3">
      <div class="card-header d-flex justify-content-between align-items-center">
-
          <h5>3.1 Drainage to Concrete Slab Floors</h5>
+         <div class="radiobuttons-wrap">
+             <label class="me-3">Par Plans & Specifications <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][drainage_option]" value="plans" checked></label>
+
+             <label>N/A <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][drainage_option]" value="na"></label>
+
+         </div>
      </div>
      <!-- Par Plans & Specifications / N/A -->
      <div class="card-body">
-
-         <div class="d-flex align-items-center mb-2">
-             <span>Par Plans & Specifications</span>
-             <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][drainage_option]"
-                 value="plans" checked>
-             <span>N/A</span>
-             <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][drainage_option]"
-                 value="na">
-         </div>
-
 
          <div>
              <p><strong>Note:</strong> To correctly determine the position of drainage pipes prior to concrete being
@@ -77,33 +74,31 @@
  <div class="card pdf-card">
      <div class="card-header d-flex justify-content-between align-items-center">
          <h5>3.2 Sewerage System</h5>
+         <div class="radiobuttons-wrap">
+
+             <label class="me-3">Town Sewer <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="town_sewer" checked>
+             </label>
+
+             <label class="me-3">Aerated/Septic <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="aerated_septic"></label>
+
+
+             <label class="me-3">Pump Out <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="pump_out"></label>
+
+
+             <label>Existing <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="existing"></label>
+
+
+
+         </div>
      </div>
      <!-- Options Row -->
      <div class="card-body">
 
-         <div class="d-flex flex-wrap align-items-center mb-3">
-             <div class="me-3 mb-2">
-                 <span>Town Sewer</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="town_sewer" checked>
-             </div>
-             <div class="me-3 mb-2">
-                 <span>Aerated/Septic</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="aerated_septic">
-             </div>
-             <div class="me-3 mb-2">
-                 <span>Pump Out</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="pump_out">
-             </div>
-             <div class="me-3 mb-2">
-                 <span>Existing</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][sewerage_system]" value="existing">
-             </div>
 
-         </div>
 
          <!-- Notes & Details -->
          <div>
@@ -163,39 +158,31 @@
  <!-- Container for Section 3 -->
  <!-- Container for Section 3 -->
 
- <div class="card pdf-card">
+ <div class="card pdf-card mb-3">
 
-     <!-- Section 3.3 -->
-     <!-- <div class="mb-4 rounded p-3"> -->
      <div class="card-header d-flex justify-content-between align-items-center">
          <h5>3.3 Stormwater</h5>
+         <div class="radiobuttons-wrap">
+
+             <label class="me-3">Town Stormwater <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="town_stormwater"
+                     class="ms-1" checked></label>
+
+
+             <label class="me-3">To Tank/s <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="tank" class="ms-1"></label>
+
+
+             <label class="me-3">Rubble Pitts <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="rubble_pits"
+                     class="ms-1"></label>
+
+             <label>Existing <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="existing"
+                     class="ms-1"></label>
+         </div>
      </div>
      <div class="card-body">
-
-         <div class="d-flex align-items-center flex-wrap mb-3">
-             <div class="me-3 mb-2">
-                 <span>Town Stormwater</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="town_stormwater"
-                     class="ms-1" checked>
-             </div>
-             <div class="me-3 mb-2">
-                 <span>To Tank/s</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="tank" class="ms-1">
-             </div>
-             <div class="me-3 mb-2">
-                 <span>Rubble Pitts</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="rubble_pits" class="ms-1">
-             </div>
-             <div class="me-3 mb-2">
-                 <span>Existing</span>
-                 <input type="radio" class="form-check-input"
-                     name="sow[drainage_to_concrete_slab_floors][stormwater_option]" value="existing" class="ms-1">
-             </div>
-         </div>
-
          <ul class="mb-2 ps-3">
              <li>To tank/s then (A) show location of tank on plan</li>
              <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][tank_on_plan]"
@@ -232,14 +219,18 @@
  </div>
 
  <!-- Section 3.4 -->
- <div class="card pdf-card ">
-     <div class="mb-4 rounded p-3">
-         <h6 class="mb-2">3.4 Plumbing Layout Plan</h6>
-         <div class="d-flex align-items-center flex-wrap mb-2">
-             <span>As per plans provided, completed, and signed by owners</span>
-             <input type="radio" class="form-check-input"
-                 name="sow[drainage_to_concrete_slab_floors][plumbing_plan_provided]" class="ms-1 me-3" checked>
+ <div class="card pdf-card mb-3">
+     <div class="card-header d-flex justify-content-between align-items-center">
+         <h5>3.4 Plumbing Layout Plan</h5>
+         <div class="radiobuttons-wrap">
+             <label class="me-3">As per plans provided, completed, and signed by owners <input type="radio"
+                     class="form-check-input" name="sow[drainage_to_concrete_slab_floors][plumbing_plan_provided]"
+                     class="ms-1 me-3" checked></label>
+
          </div>
+     </div>
+     <div class="card-body">
+
          <p class="small"><strong>Note:</strong> This plan is to include the preferred position of: Rainwater tank/s
              (if applicable) including position of designated fire tank (if applicable), Water pump (if applicable),
              BASIX rainwater storage tank, Hot water tank and or solar panels, shower rose's and tap handles, bath
@@ -264,6 +255,7 @@
          </div>
      </div>
  </div>
+
 
 
  <!-- Section 3.5 -->
@@ -468,13 +460,15 @@
  <div class="card pdf-card">
      <div class="card-header d-flex justify-content-between align-items-center">
          <h5>3.6 Tapware & PC Items </h5>
+         <div class="radiobuttons-wrap">
+             <label class="me-2">Per PC Selection Section <input type="radio" class="form-check-input"
+                     name="sow[drainage_to_concrete_slab_floors][pc_selection]" value="yes" class="ms-1 me-3"
+                     checked></label>
+
+         </div>
      </div>
      <div class="card-body">
-         <div class="d-flex align-items-center mb-2">
-             <span>Per PC Selection Section</span>
-             <input type="radio" class="form-check-input" name="sow[drainage_to_concrete_slab_floors][pc_selection]"
-                 value="yes" class="ms-1 me-3" checked>
-         </div>
+
          <p>🛈 <strong>Note:</strong> PC items with special requirements should have installation instructions from
              the manufacturer also attached.
              <input type="radio" class="form-check-input" class="form-check-input"

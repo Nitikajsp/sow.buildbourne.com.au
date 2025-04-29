@@ -592,11 +592,11 @@
         <div class="radiobuttons-wrap">
             <!-- radio for As Selected -->
 
-            <label class="form-check-label">As Selected <input class="form-check-input" type="radio"
+            <label class="me-3">As Selected <input class="form-check-input" type="radio"
                     name="sow[bricklayer_masonry][full_render_coat_selection]" value="As_Selected"></label>
 
             <!-- radio for N/A -->
-            <label class="form-check-label">N/A <input class="form-check-input" type="radio"
+            <label>N/A <input class="form-check-input" type="radio"
                     name="sow[bricklayer_masonry][full_render_coat_selection]" value="N/A">
             </label>
         </div>
@@ -665,11 +665,11 @@
         <div class="radiobuttons-wrap">
             <!-- radio for Per Plans & Specifications -->
 
-            <label class="form-check-label">Per Plans & Specifications <input class="form-check-input" type="radio"
+            <label class="me-3">Per Plans & Specifications <input class="form-check-input" type="radio"
                     name="sow[bricklayer_masonry][other_masonry_selection]" value="Per_Plans_&_Specifications"></label>
 
             <!-- radio for N/A -->
-            <label class="form-check-label">N/A <input class="form-check-input" type="radio"
+            <label>N/A <input class="form-check-input" type="radio"
                     name="sow[bricklayer_masonry][other_masonry_selection]" value="N/A">
             </label>
         </div>

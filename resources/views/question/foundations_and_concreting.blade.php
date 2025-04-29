@@ -40,11 +40,9 @@
 
 <!-- Question 2.2 -->
 <div class="card pdf-card  mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h5>2.2 Concrete Slab Floors</h5>
-    </div>
-    <div class="card-body">
-        <div class="mb-2">
+        <div class="radiobuttons-wrap">
             <label class="me-3">
                 Sub Floor
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][concrete_slab_floors]"
@@ -66,6 +64,8 @@
                     value="na">
             </label>
         </div>
+    </div>
+    <div class="card-body">
         <div class="mb-2">
             <p>
                 - Specification: As per detailed engineer’s plans & specifications
@@ -105,11 +105,9 @@
 <!-- Question 2.3 -->
 <!-- Question 2.3 -->
 <div class="card pdf-card  mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h5>2.3 Electrical</h5>
-    </div>
-    <div class="card-body">
-        <div class="mb-2">
+        <div class="radiobuttons-wrap">
             <label class="me-3">
                 Underground
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][electrical_type]"
@@ -126,6 +124,8 @@
                     value="na">
             </label>
         </div>
+    </div>
+    <div class="card-body">
 
         <p>- If underground, is entry conduit required to be set in concrete?</p>
         <label class="me-2">
@@ -174,11 +174,9 @@
 
 <!-- Section 2.4 -->
 <div class="card pdf-card  mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h5>2.4 Verandah Slab/s</h5>
-    </div>
-    <div class="card-body">
-        <div class="mb-2">
+        <div class="radiobuttons-wrap">
             <label class="me-3">
                 Par Plans & Specifications
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][verandah_specs]"
@@ -190,6 +188,8 @@
                     value="na">
             </label>
         </div>
+    </div>
+    <div class="card-body">
 
         <div>
             <p>- Plain concrete standard non-slip cove finish:</p>
@@ -233,11 +233,9 @@
 <!-- Section 2.5 -->
 <!-- Section 2.5 -->
 <div class="card pdf-card  mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h5>2.5 Paths or Driveway</h5>
-    </div>
-    <div class="card-body">
-        <div class="mb-2">
+        <div class="radiobuttons-wrap">
             <label class="me-3">
                 Par Plans & Specifications
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][driveway_specs]"
@@ -249,6 +247,8 @@
                     value="na">
             </label>
         </div>
+    </div>
+    <div class="card-body">
 
         <div>
             <p>- Plain concrete standard non-slip cove finish:</p>
@@ -292,12 +292,9 @@
 <!-- Section 2.6 -->
 <!-- Section 2.6 -->
 <div class="card pdf-card  mb-3">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
         <h5>2.6 Tank Pads or Other</h5>
-    </div>
-    <div class="card-body">
-
-        <div class="mb-2">
+        <div class="radiobuttons-wrap">
             <label class="me-3">
                 Par Plans & Specifications
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][tank_pads]"
@@ -308,9 +305,10 @@
                 <input type="radio" class="form-check-input ms-1" name="sow[surveyor_set_out][tank_pads]" value="na">
             </label>
         </div>
+    </div>
+    <div class="card-body">
 
         <div class="d-flex align-items-center">
-
             <p>Notes to above:</p>
             <input type="text" class="form-control" name="sow[surveyor_set_out][tank_pads_notes]"
                 placeholder="..............................................................................">

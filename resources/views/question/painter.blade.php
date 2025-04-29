@@ -17,8 +17,6 @@
         </div>
     </div>
     <div class="card-body">
-
-
         <p class="font-weight-bold">Note 1 :</p>
         <p class="text-muted">Our painters use quality brand paints and Taubmans are the main paint supplier of
             paints
