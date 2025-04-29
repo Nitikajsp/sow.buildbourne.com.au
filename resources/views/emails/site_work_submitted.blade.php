@@ -47,25 +47,29 @@
         }
     </style>
 </head>
+
 <body>
     <h2>Site Work Submission</h2>
     @foreach ($workData as $field)
     <div class="form-group">
         <div class="label">{{ $field['label'] ?? 'Unnamed Field' }}</div>
+
         {{-- Autocomplete, Radio Group, Checkbox Group --}}
         @if(isset($field['values']) && is_array($field['values']))
         <div class="options">
             @foreach($field['values'] as $option)
             <div class="option 
-                    {{ in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
+                {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
                 {{ $option['label'] }}
-                @if(in_array($option['value'], $field['userData'])) ✅ @endif
+                @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
             </div>
             @endforeach
         </div>
+
         {{-- Text Inputs / Textareas --}}
         @elseif(isset($field['userData']) && is_array($field['userData']))
         <textarea readonly>{{ implode(', ', $field['userData']) }}</textarea>
+
         {{-- Default fallback --}}
         @else
         <div class="option">N/A</div>
@@ -74,4 +78,5 @@
     <hr>
     @endforeach
 </body>
+
 </html>

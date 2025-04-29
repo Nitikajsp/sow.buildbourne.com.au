@@ -221,7 +221,7 @@ class PartyController extends Controller
         }
 
         return response()->json([
-            'success' => true,
+            'redirect_url' => route('submissions.index'),
             'message' => 'Successfully saved!',
         ]);
     }
