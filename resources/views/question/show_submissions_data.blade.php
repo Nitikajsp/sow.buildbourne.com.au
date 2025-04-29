@@ -19,12 +19,19 @@
                     <h2 class="card-title mb-2">All Site Work Submissions</h2>
                 </div>
             </div>
-            @if(request('success') == 1)
+            <script>
+                const msg = sessionStorage.getItem('siteWorkMessage');
+                if (msg) {
+                    document.write(`
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Successfully saved!
+                ${msg}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            @endif
+        `);
+                    sessionStorage.removeItem('siteWorkMessage'); // clear after showing
+                }
+            </script>
+
 
 
             @if(session('success'))

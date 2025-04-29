@@ -54,11 +54,10 @@
                     form_data: formDatasub,
                 },
                 success: function(response) {
-                    if (response.success) {
-                        alert(response.message);
-                        window.location.href = "{{ route('submissions.index') }}?success=1";
-                    } else {
-                        alert('Error: ' + response.message);
+                    if (response.redirect_url) {
+                        // Store the message in sessionStorage before redirect
+                        sessionStorage.setItem('siteWorkMessage', response.message);
+                        window.location.href = response.redirect_url;
                     }
                 },
                 error: function(err) {
@@ -66,6 +65,7 @@
                     console.error(err);
                 }
             });
+
         });
 
 
