@@ -57,6 +57,14 @@
 <script>
     $(function() {
         var fb = $('#build-wrap').formBuilder({
+            stickyControls: {
+            enable: true,
+                offset: {
+                    top: 20,
+                    right: 20,
+                    left: 'auto'
+                }
+            },
             inputSets: [{
                 label: 'Grouped Custom Fields',
                 name: 'grouped-custom-fields',
