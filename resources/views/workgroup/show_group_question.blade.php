@@ -23,11 +23,13 @@
                             </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
+                    @if(request('success') == 1)
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Successfully saved!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                     @endif
+
                     <div class="card mt-4 p-2">
                         <div class="partyscroll">
                             @forelse ($workgroupquestions as $question)

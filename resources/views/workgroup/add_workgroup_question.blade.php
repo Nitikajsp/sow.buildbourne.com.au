@@ -189,7 +189,7 @@
                 },
                 success: function(res) {
                     alert('Form saved successfully!');
-                    window.location.href = "{{ route('workgroup.showgroupquestion') }}";
+                    window.location.href = "{{ route('workgroup.showgroupquestion') }}?success=1";
 
                 },
                 error: function(err) {

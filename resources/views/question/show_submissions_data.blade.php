@@ -19,6 +19,13 @@
                     <h2 class="card-title mb-2">All Site Work Submissions</h2>
                 </div>
             </div>
+            @if(request('success') == 1)
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Successfully saved!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            @endif
+
 
             @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -72,37 +79,37 @@
 @push('scripts')
 
 <script>
-$(document).ready(function() {
-    $('#submissionTable').DataTable({
-        "order": [
-            [0, 'asc']
-        ],
-        "columnDefs": [{
-            "orderable": false,
-            "targets": 4
-        }],
-        "pageLength": 10,
-        "language": {
-            "search": "Search:",
-            "lengthMenu": "Show _MENU_ entries",
-            "info": "Showing _START_ to _END_ of _TOTAL_ entries"
-        }
-    });
-
-    $('.dataTables_filter input')
-        .css({
-            'width': '150px',
-            'padding': '4px 8px',
-            'border-radius': '4px',
-            'border': '1px solid #ced4da'
+    $(document).ready(function() {
+        $('#submissionTable').DataTable({
+            "order": [
+                [0, 'asc']
+            ],
+            "columnDefs": [{
+                "orderable": false,
+                "targets": 4
+            }],
+            "pageLength": 10,
+            "language": {
+                "search": "Search:",
+                "lengthMenu": "Show _MENU_ entries",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries"
+            }
         });
 
-    $('.dataTables_filter label').css({
-        'display': 'flex',
-        'align-items': 'center',
-        'gap': '5px'
+        $('.dataTables_filter input')
+            .css({
+                'width': '150px',
+                'padding': '4px 8px',
+                'border-radius': '4px',
+                'border': '1px solid #ced4da'
+            });
+
+        $('.dataTables_filter label').css({
+            'display': 'flex',
+            'align-items': 'center',
+            'gap': '5px'
+        });
     });
-});
 </script>
 @endpush
 @endsection
