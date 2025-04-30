@@ -28,10 +28,6 @@
             margin-bottom: 3px;
         }
 
-        .selected {
-            font-weight: bold;
-            color: green;
-        }
 
         textarea {
             border: 1px solid #ccc;
@@ -60,8 +56,13 @@
             @foreach($field['values'] as $option)
             <div class="option 
                 {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
-                {{ $option['label'] }}
-                @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
+                <label>
+                    <input type="checkbox"
+                        {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'checked' : '' }}
+                        disabled>
+                    {{ $option['label'] }}
+                    @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
+                </label>
             </div>
             @endforeach
         </div>

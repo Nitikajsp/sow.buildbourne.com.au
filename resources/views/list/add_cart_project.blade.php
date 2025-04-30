@@ -32,16 +32,14 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <form method="POST"
-                                action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId]) }}">
-                                @csrf
+                            <form method="GET" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId, 'work_id' => '']) }}">
                                 <div class="mb-3">
                                     <label for="work_id" class="form-label">Types</label>
-                                    <select class="form-select" id="work_id" name="work_id" required>
-                                        <option value="" disabled selected>Select Type</option>
+                                    <select class="form-select" id="work_id" name="work_id" required onchange="this.form.submit()">
+                                        <option value="" disabled {{ !request('work_id') ? 'selected' : '' }}>Select Type</option>
                                         @foreach($workQuestions as $workQuestion)
                                         <option value="{{ $workQuestion->id }}"
-                                            {{ old('work_id', $list->work_id) == $workQuestion->id ? 'selected' : '' }}>
+                                            {{ request('work_id') == $workQuestion->id ? 'selected' : '' }}>
                                             {{ $workQuestion->form_name }}
                                         </option>
                                         @endforeach
@@ -49,12 +47,13 @@
                                 </div>
 
                                 <div class="pull-right mt-1 text-center">
-                                    <button type="submit" class="btn btn-primary me-1 rounded">Save</button>
-                                    <a href="{{ route('parties.show', $list->parties_id) }}"
-                                        class="btn btn-outline-dark waves-effect rounded">Cancel</a>
+                                    <button type="submit" class="btn btn-dark me-1 rounded">Save</button>
+                                    <a href="{{ route('parties.show', $list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
                                 </div>
                             </form>
                         </div>
+
+
                     </div>
                 </div>
             </div>
