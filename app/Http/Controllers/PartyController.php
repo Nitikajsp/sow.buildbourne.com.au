@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
 
 use Illuminate\Http\Request;
 use App\Models\Parties;
@@ -153,22 +154,20 @@ class PartyController extends Controller
         return response()->json(['available' => !$exists]);
     }
 
-
     public function updateWorkType(Request $request, $listId, $partyId)
     {
-        $request->validate([
-            'work_id' => 'required',
-        ]);
+        $work_id = $request->query('work_id');  // Fetch 'work_id' from the query string directly
 
-        // ID pramane record lavso
-        $questions = WorkQuestion::findOrFail($request->work_id);
+        if (!$work_id) {
+            return redirect()->back()->with('error', 'Please select a work type.');
+        }
+
+        $questions = WorkQuestion::findOrFail($work_id);
 
         return view('workgroup.site-work', [
             'partyId' => $partyId,
             'listId' => $listId,
             'questionJson' => $questions->questions_from_data,
-            'workType' => $questions->form_name,
-            'work_id' => $request->work_id,
         ]);
     }
 

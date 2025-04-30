@@ -31,7 +31,7 @@
         const formData = @json($questionJson ?? []);
         const partyId = @json($partyId);
         const listId = @json($listId);
-        const work_id = @json($work_id);
+        const work_id = @json(request('work_id'));
 
 
         var fb = $('.fb-render').formRender({

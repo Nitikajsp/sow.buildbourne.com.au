@@ -9,13 +9,12 @@
             @include('include.navbar')
 
             <div class="d-flex justify-content-between align-items-center mt-3 p-3">
-                <!-- <h2>1) Site Work 265</h2> -->
                 <a href="{{ route('workgroup.addworkquestion') }}" class="btn btn-dark">+ Add Question</a>
             </div>
 
             <div class=" pdf-design-wrap  overflow-hidden ">
                 <div class="pdf-header">
-                    <h2>1) Site Work 265</h2>
+                    <h2>1) Site Work</h2>
                 </div>
 
 
@@ -25,7 +24,6 @@
                     id="siteWorkForm">
                     @csrf
 
-                    <!-- Question 1 -->
 
                     <div class="card pdf-card mb-3">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -88,7 +86,7 @@
 
                             <div class="d-flex align-items-center">
 
-                                <!-- Label and Input -->
+
 
                                 <label for="access_road_to_site" class="me-2  mb-0 flex-shrink-0">Notes to
                                     above:</label>
@@ -100,7 +98,7 @@
 
                     </div>
 
-                    <!-- Question 2 -->
+
 
                     <div class="card pdf-card mb-3">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -153,8 +151,6 @@
                         </div>
                     </div>
 
-
-                    <!-- Question 3 -->
 
                     <div class="card pdf-card mb-3">
                         <div class="card-header d-flex justify-content-between align-items-center">
@@ -211,11 +207,7 @@
                                 </tbody>
                             </table>
 
-
-
                             <div class="d-flex align-items-center">
-
-                                <!-- Label and Input -->
 
                                 <label for="excavation_of_site" class="me-2 flex-shrink-0 mb-0 flex-shrink-0">Notes to
                                     above:</label>
@@ -225,9 +217,6 @@
                             </div>
                         </div>
                     </div>
-
-
-                    <!-- Question 4 -->
 
                     <div class="card pdf-card  mb-3">
                         <div class="card-header d-flex justify-content-between align-items-center">

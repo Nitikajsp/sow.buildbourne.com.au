@@ -58,7 +58,7 @@
     $(function() {
         var fb = $('#build-wrap').formBuilder({
             stickyControls: {
-            enable: true,
+                enable: true,
                 offset: {
                     top: 20,
                     right: 20,
