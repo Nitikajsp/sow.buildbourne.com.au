@@ -915,3 +915,7 @@ div#app {
 .pdf-card .borderless-table td:first-child {
     width: 25%;
 }
+
+.form-actions.btn-group {
+    display: none !important;
+}

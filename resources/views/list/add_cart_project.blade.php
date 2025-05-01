@@ -35,7 +35,7 @@
                             <form method="GET" action="{{ route('parties.updateWorkType', ['list' => $list->id, 'party' => $partyId, 'work_id' => '']) }}">
                                 <div class="mb-3">
                                     <label for="work_id" class="form-label">Types</label>
-                                    <select class="form-select" id="work_id" name="work_id" required onchange="this.form.submit()">
+                                    <select class="form-select" id="work_id" name="work_id" required>
                                         <option value="" disabled {{ !request('work_id') ? 'selected' : '' }}>Select Type</option>
                                         @foreach($workQuestions as $workQuestion)
                                         <option value="{{ $workQuestion->id }}"

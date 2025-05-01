@@ -150,8 +150,6 @@ class WorkGroupController extends Controller
         return view('workgroup.edit_group', compact('workgroupquestion'));
     }
 
-
-
     // public function workgroupquestionedit($id)
     // {
     //     $workgroupquestion = WorkQuestion::findOrFail($id);
