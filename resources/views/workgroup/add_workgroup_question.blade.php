@@ -38,7 +38,7 @@
                             <div class="col-md-12">
                                 @csrf
                                 <div id="build-wrap"></div>
-                                <button id="save-form" type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white">Save Form</button>
+                                <button id="save-form" type="submit" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Save Form</button>
                             </div>
                         </div>
                     </div>
@@ -69,13 +69,11 @@
                 label: 'Grouped Custom Fields',
                 name: 'grouped-custom-fields',
                 className: 'responsible-header',
-                //name: 'responsible_header',
                 showHeader: true,
                 fields: [{
                         type: 'radio-group',
                         label: 'Responsible Party',
                         className: 'responsible-party',
-                        //name: 'responsible_party',
                         values: [{
                                 label: 'By Builder',
                                 value: 'By Builder'
@@ -94,7 +92,6 @@
                         type: 'radio-group',
                         label: 'Builder Details',
                         className: 'buildr-details',
-                        //name: 'builder_details',
                         values: [{
                                 label: 'Option A',
                                 value: 'option-a'
@@ -109,7 +106,6 @@
                         type: 'radio-group',
                         label: 'Owner Details',
                         className: 'owner-details',
-                        //name: 'owner_details',
                         values: [{
                                 label: 'Option A',
                                 value: 'option-a'
@@ -124,13 +120,11 @@
                         type: 'checkbox',
                         label: 'Add Notes',
                         className: 'add-notes',
-                        //name: 'terms'
                     },
                     {
                         type: 'textarea',
                         label: 'Additional Notes',
                         className: 'additional-notes',
-                        // name: 'notes'
                     }
                 ]
             }],
