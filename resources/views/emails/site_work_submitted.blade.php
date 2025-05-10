@@ -28,7 +28,6 @@
             margin-bottom: 3px;
         }
 
-
         textarea {
             border: 1px solid #ccc;
             padding: 6px;
@@ -50,7 +49,6 @@
     <div class="form-group">
         <div class="label">{{ $field['label'] ?? 'Unnamed Field' }}</div>
 
-        {{-- Autocomplete, Radio Group, Checkbox Group --}}
         @if(isset($field['values']) && is_array($field['values']))
         <div class="options">
             @foreach($field['values'] as $option)

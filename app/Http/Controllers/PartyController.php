@@ -184,6 +184,9 @@ class PartyController extends Controller
 
     public function saveSiteWork(Request $request)
     {
+
+
+
         $request->validate([
             'form_data' => 'required',
             'partyId' => 'required',
@@ -191,7 +194,10 @@ class PartyController extends Controller
             'work_id' => 'required'
         ]);
 
+
+
         $form_data = $request->input('form_data');
+
 
         $workGroup = new Submission();
         $workGroup->project_id = $request->input('listId');

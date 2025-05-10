@@ -52,7 +52,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Project Name</th>
-                                    <th>Party Name</th>
+                                    <th>Client Name</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
