@@ -11,14 +11,11 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
-
             <div class="row">
-
                 <div class="col-md-12">
                     <h2>View Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
-
                 </div>
             </div>
         </div>
@@ -34,14 +31,16 @@
         const work_id = @json(request('work_id'));
 
 
+
         var fb = $('.fb-render').formRender({
             formData: formData
         });
 
 
         $('#submit-form').on('click', function() {
-
             var formDatasub = fb.userData;
+            console.log(formDatasub);
+
 
             $.ajax({
                 url: "{{ route('parties.saveSiteWork') }}",
@@ -55,7 +54,6 @@
                 },
                 success: function(response) {
                     if (response.redirect_url) {
-                        // Store the message in sessionStorage before redirect
                         sessionStorage.setItem('siteWorkMessage', response.message);
                         window.location.href = response.redirect_url;
                     }
@@ -65,7 +63,6 @@
                     console.error(err);
                 }
             });
-
         });
 
 
@@ -87,7 +84,6 @@
                 });
             });
 
-            // For textareas
             $('.formbuilder-textarea').each(function() {
                 const $textarea = $(this).find('textarea');
                 const textareaClasses = $textarea.attr('class');
