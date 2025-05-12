@@ -60,7 +60,7 @@ class ListController extends Controller
         ]);
 
 
-        return redirect()->route('parties.show', $request->input('parties_id'))
+        return redirect()->route('client.show', $request->input('parties_id'))
             ->with('success', 'List created successfully.');
     }
 
@@ -109,7 +109,7 @@ class ListController extends Controller
 
         $list->update($request->all());
 
-        return redirect()->route('parties.show', $list->parties_id)
+        return redirect()->route('client.show', $list->parties_id)
             ->with('success', 'List updated successfully.');
     }
 

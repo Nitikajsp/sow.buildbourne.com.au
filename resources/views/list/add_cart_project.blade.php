@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
                     <div class="col-md-12">
-                        <a href="{{ route('parties.show', $list->parties_id ?? $partyId) }}"
+                        <a href="{{ route('client.show', $list->parties_id ?? $partyId) }}"
                             class="float-left d-flex text-black">
                             <i
                                 class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
@@ -48,7 +48,7 @@
 
                                 <div class="pull-right mt-1 text-center">
                                     <button type="submit" class="btn btn-dark me-1 rounded">Next</button>
-                                    <a href="{{ route('parties.show', $list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
+                                    <a href="{{ route('client.show', $list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
                                 </div>
                             </form>
                         </div>

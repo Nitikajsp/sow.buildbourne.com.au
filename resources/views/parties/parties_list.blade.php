@@ -15,7 +15,7 @@
                         </div>
                         <div class="dt-action-buttons text-end pt-6 pt-md-0">
                             <div class="dt-buttons flex-wrap">
-                                <a href="{{ route('parties.create') }}"
+                                <a href="{{ route('client.create') }}"
                                     class="btn btn-primary create-new waves-effect waves-light btn-dark rounded"
                                     tabindex="0" aria-controls="DataTables_Table_0">
                                     <span><i class="ti ti-plus me-sm-1"></i> Add Client</span>
@@ -62,17 +62,17 @@
                                                     <i class="ti ti-dots-vertical ti-md"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end m-0">
-                                                    <a href="{{ route('parties.edit', $party->id) }}"
+                                                    <a href="{{ route('client.edit', $party->id) }}"
                                                         class="btn p-0 edit-btn dropdown-item">
                                                         <i class="ti ti-pencil me-1"></i> Edit
                                                     </a>
-                                                    <a href="{{ route('parties.show', $party->id) }}"
+                                                    <a href="{{ route('client.show', $party->id) }}"
                                                         class="btn p-0 view-btn dropdown-item">
                                                         <i class="ti ti-eye me-1"></i> View
                                                     </a>
                                                     <div class="dropdown-divider"></div>
                                                     <form id="deletePartyForm"
-                                                        action="{{ route('parties.destroy', $party->id) }}"
+                                                        action="{{ route('client.destroy', $party->id) }}"
                                                         method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -100,18 +100,18 @@
     </div>
 </div>
 <style>
-#partylist thead tr:first-child th {
-    background-color: #f8f9fa;
-    font-weight: bold;
-}
+    #partylist thead tr:first-child th {
+        background-color: #f8f9fa;
+        font-weight: bold;
+    }
 
-#partylist tbody tr:nth-child(odd) {
-    /* border-bottom: 2px solid #ddd; */
-}
+    #partylist tbody tr:nth-child(odd) {
+        /* border-bottom: 2px solid #ddd; */
+    }
 
-#partylist tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+    #partylist tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
 </style>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -160,87 +160,87 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    $('#partylist').DataTable({
-        "order": [
-            [0, 'asc']
-        ],
-        "columnDefs": [{
-            "orderable": false,
-            "targets": 4
-        }],
-        "pageLength": 10,
-        "language": {
-            "search": "Search:",
-            "lengthMenu": "Show _MENU_ entries",
-            "info": "Showing _START_ to _END_ of _TOTAL_ entries"
-        }
-    });
-});
-</script>
-<script>
-$(document).ready(function() {
-    let partyIdToDelete;
-    $(document).on('click', '.delete-btn', function() {
-        cpartyIdToDelete = $(this).data('party-id');
-        var form = $(this).closest('form');
-        $('#confirmDeleteBtn').data('form', form);
-    });
-
-    $('#confirmDeleteBtn').on('click', function() {
-        var form = $(this).data('form');
-        form.submit();
-    });
-});
-</script>
-
-<script>
-$(document).on('click', '.set-btn', function() {
-    var partyId = $(this).data('party-id');
-    $('#selectedPartyId').val(partyId);
-
-    $.ajax({
-        url: '/get-lists',
-        method: 'GET',
-        data: {
-            party_id: partyId
-        },
-        success: function(response) {
-            let options = '<option value="" disabled selected required>Select...</option>';
-            if (response.length > 0) {
-                response.forEach(function(list) {
-                    options += `<option value="${list.id}">${list.name}</option>`;
-                });
-            } else {
-                options = '<option value="" disabled>No lists available</option>';
+    $(document).ready(function() {
+        $('#partylist').DataTable({
+            "order": [
+                [0, 'asc']
+            ],
+            "columnDefs": [{
+                "orderable": false,
+                "targets": 4
+            }],
+            "pageLength": 10,
+            "language": {
+                "search": "Search:",
+                "lengthMenu": "Show _MENU_ entries",
+                "info": "Showing _START_ to _END_ of _TOTAL_ entries"
             }
-            $('#dropdownList').html(options);
-
-            let baseCreateUrl = "{{ url('/createproject') }}/";
-            $('#createListLink').attr('href', baseCreateUrl + partyId);
-
-            $('#setModal').modal('show');
-        },
-        error: function(xhr, status, error) {
-            console.error('Error fetching lists:', error);
-        }
+        });
     });
-});
+</script>
+<script>
+    $(document).ready(function() {
+        let partyIdToDelete;
+        $(document).on('click', '.delete-btn', function() {
+            cpartyIdToDelete = $(this).data('party-id');
+            var form = $(this).closest('form');
+            $('#confirmDeleteBtn').data('form', form);
+        });
 
-$('#setPartyForm').on('submit', function(event) {
-    event.preventDefault();
+        $('#confirmDeleteBtn').on('click', function() {
+            var form = $(this).data('form');
+            form.submit();
+        });
+    });
+</script>
 
-    let partyId = $('#selectedPartyId').val();
-    let listId = $('#dropdownList').val();
+<script>
+    $(document).on('click', '.set-btn', function() {
+        var partyId = $(this).data('party-id');
+        $('#selectedPartyId').val(partyId);
 
-    if (!listId) {
-        alert('Please select a list.');
-        return;
-    }
+        $.ajax({
+            url: '/get-lists',
+            method: 'GET',
+            data: {
+                party_id: partyId
+            },
+            success: function(response) {
+                let options = '<option value="" disabled selected required>Select...</option>';
+                if (response.length > 0) {
+                    response.forEach(function(list) {
+                        options += `<option value="${list.id}">${list.name}</option>`;
+                    });
+                } else {
+                    options = '<option value="" disabled>No lists available</option>';
+                }
+                $('#dropdownList').html(options);
 
-    let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
-    window.location.href = redirectUrl;
-});
+                let baseCreateUrl = "{{ url('/createproject') }}/";
+                $('#createListLink').attr('href', baseCreateUrl + partyId);
+
+                $('#setModal').modal('show');
+            },
+            error: function(xhr, status, error) {
+                console.error('Error fetching lists:', error);
+            }
+        });
+    });
+
+    $('#setPartyForm').on('submit', function(event) {
+        event.preventDefault();
+
+        let partyId = $('#selectedPartyId').val();
+        let listId = $('#dropdownList').val();
+
+        if (!listId) {
+            alert('Please select a list.');
+            return;
+        }
+
+        let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
+        window.location.href = redirectUrl;
+    });
 </script>
 
 @endpush

@@ -49,7 +49,7 @@
                         </div>
                         @endif
 
-                        <form id="partiesForm" action="{{ route('parties.store') }}" method="POST">
+                        <form id="partiesForm" action="{{ route('client.store') }}" method="POST">
                             @csrf
 
                             <div class="row">
@@ -106,109 +106,109 @@
 
 
     <script>
-    $(document).ready(function() {
-        // Add CSRF token to all AJAX requests
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
+        $(document).ready(function() {
+            // Add CSRF token to all AJAX requests
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-        $.validator.addMethod("validName", function(value, element) {
-            return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
-        }, "Name should contain only letters.");
+            $.validator.addMethod("validName", function(value, element) {
+                return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
+            }, "Name should contain only letters.");
 
-        $.validator.addMethod("validEmail", function(value, element) {
-            // General regex for email validation
-            return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        }, "Please enter a valid email address.");
+            $.validator.addMethod("validEmail", function(value, element) {
+                // General regex for email validation
+                return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            }, "Please enter a valid email address.");
 
 
 
-        $('#partiesForm').validate({
-            rules: {
-                name: {
-                    required: true,
-                    validName: true,
-                    minlength: 3
-                },
-                email: {
-                    required: true,
-                    validEmail: true,
-                    remote: {
-                        url: "{{ route('check.email') }}",
-                        type: "POST",
-                        data: {
-                            email: function() {
-                                return $('#email').val();
+            $('#partiesForm').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        validName: true,
+                        minlength: 3
+                    },
+                    email: {
+                        required: true,
+                        validEmail: true,
+                        remote: {
+                            url: "{{ route('check.email') }}",
+                            type: "POST",
+                            data: {
+                                email: function() {
+                                    return $('#email').val();
+                                }
+                            },
+                            dataFilter: function(response) {
+                                var json = JSON.parse(response);
+                                return json.available ? 'true' : 'false';
                             }
-                        },
-                        dataFilter: function(response) {
-                            var json = JSON.parse(response);
-                            return json.available ? 'true' : 'false';
                         }
+                    },
+                    street: {
+                        required: true,
+                    },
+
+                    phone: {
+                        required: true,
+                    },
+                    suburb: {
+                        required: true,
+                    },
+                    state: {
+                        required: true,
+                    },
+                    pincode: {
+                        required: true,
                     }
                 },
-                street: {
-                    required: true,
+                messages: {
+                    name: {
+                        required: "Please enter your name"
+                    },
+                    email: {
+                        required: "Please enter your email address",
+                        remote: "The email address has already been taken"
+                    },
+                    street: {
+                        required: "Please enter your Address/Location"
+                    },
+
+                    phone: {
+                        required: "Please enter your phone number"
+                    },
+                    suburb: {
+                        required: "Please enter your suburb"
+                    },
+                    state: {
+                        required: "Please enter your state"
+                    },
+                    pincode: {
+                        required: "Please enter your pincode"
+                    }
                 },
 
-                phone: {
-                    required: true,
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    error.appendTo(element.parent().find('.error-text'));
                 },
-                suburb: {
-                    required: true,
+
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid').removeClass('is-valid');
                 },
-                state: {
-                    required: true,
+
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid').addClass('is-valid');
                 },
-                pincode: {
-                    required: true,
+
+                submitHandler: function(form) {
+                    form.submit();
                 }
-            },
-            messages: {
-                name: {
-                    required: "Please enter your name"
-                },
-                email: {
-                    required: "Please enter your email address",
-                    remote: "The email address has already been taken"
-                },
-                street: {
-                    required: "Please enter your Address/Location"
-                },
-
-                phone: {
-                    required: "Please enter your phone number"
-                },
-                suburb: {
-                    required: "Please enter your suburb"
-                },
-                state: {
-                    required: "Please enter your state"
-                },
-                pincode: {
-                    required: "Please enter your pincode"
-                }
-            },
-
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                error.appendTo(element.parent().find('.error-text'));
-            },
-
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid').removeClass('is-valid');
-            },
-
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).removeClass('is-invalid').addClass('is-valid');
-            },
-
-            submitHandler: function(form) {
-                form.submit();
-            }
+            });
         });
-    });
     </script>
     @endpush

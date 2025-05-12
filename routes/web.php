@@ -25,10 +25,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', 'index')->name('home');
         Route::get('/home', 'index')->name('home');
     });
+    Route::resource('client', PartyController::class);
 
     Route::controller(PartyController::class)->group(function () {
-        Route::resource('parties', PartyController::class);
-        Route::put('/parties/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
+
+        Route::put('/client/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
         Route::post('/check-email', 'checkEmail')->name('check.email');
         Route::get('/lists/{list}/projects/{party}/work_type', 'updateWorkType')->name('parties.updateWorkType');
         Route::post('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');

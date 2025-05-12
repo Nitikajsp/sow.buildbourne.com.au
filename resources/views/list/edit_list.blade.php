@@ -16,7 +16,7 @@
                             <i
                                 class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                         </a>
-                        <a href="{{ route('parties.show', $list->parties_id) }}"
+                        <a href="{{ route('client.show', $list->parties_id) }}"
                             class="btn btn-primary btn-dark float-end rounded">
                             View
                         </a>
@@ -185,102 +185,102 @@
             @push('scripts')
 
             <script>
-            $(document).ready(function() {
+                $(document).ready(function() {
 
-                $.validator.addMethod("validEmail", function(value, element) {
-                    // General regex for email validation
-                    return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-                }, "Please enter a valid email address.");
+                    $.validator.addMethod("validEmail", function(value, element) {
+                        // General regex for email validation
+                        return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+                    }, "Please enter a valid email address.");
 
-                $("#editListForm").validate({
-                    rules: {
-                        name: {
-                            required: true,
-                        },
+                    $("#editListForm").validate({
+                        rules: {
+                            name: {
+                                required: true,
+                            },
 
-                        suburb: {
-                            required: true,
+                            suburb: {
+                                required: true,
 
-                        },
-                        state: {
-                            required: true,
+                            },
+                            state: {
+                                required: true,
 
-                        },
-                        pincod: {
-                            required: true,
+                            },
+                            pincod: {
+                                required: true,
 
+                            },
+                            description: {
+                                required: true,
+                            },
+                            contact_number: {
+                                required: true,
+                            },
+                            contact_email: {
+                                required: true,
+                                email: true,
+                                validEmail: true
+                            },
+                            builder_name: {
+                                required: true,
+                            },
+                            status: {
+                                required: true
+                            }
                         },
-                        description: {
-                            required: true,
+                        messages: {
+                            name: {
+                                required: "Please enter the street name",
+                            },
+
+                            suburb: {
+                                required: "Please enter the suburb",
+
+                            },
+                            state: {
+                                required: "Please enter the state",
+
+                            },
+                            pincod: {
+                                required: "Please enter the pincod",
+
+                            },
+                            description: {
+                                required: "Please enter the description",
+                            },
+                            contact_number: {
+                                required: "Please enter the contact number"
+                            },
+                            contact_email: {
+                                required: "Please enter the contact email",
+                                email: "Please enter a valid email address",
+                                validEmail: "Please enter a valid email address ending with '.com'"
+                            },
+                            builder_name: {
+                                required: "Please enter the builder name",
+                            },
+                            status: {
+                                required: "Please select a status"
+                            }
                         },
-                        contact_number: {
-                            required: true,
+                        errorElement: 'div',
+                        errorPlacement: function(error, element) {
+                            error.addClass('invalid-feedback');
+                            error.insertBefore(
+                                element); // Places the error message above the input field
                         },
-                        contact_email: {
-                            required: true,
-                            email: true,
-                            validEmail: true
+                        highlight: function(element, errorClass, validClass) {
+                            $(element).addClass('is-invalid').removeClass('is-valid');
                         },
-                        builder_name: {
-                            required: true,
-                        },
-                        status: {
-                            required: true
+                        unhighlight: function(element, errorClass, validClass) {
+                            $(element).addClass('is-valid').removeClass('is-invalid');
                         }
-                    },
-                    messages: {
-                        name: {
-                            required: "Please enter the street name",
-                        },
+                    });
 
-                        suburb: {
-                            required: "Please enter the suburb",
-
-                        },
-                        state: {
-                            required: "Please enter the state",
-
-                        },
-                        pincod: {
-                            required: "Please enter the pincod",
-
-                        },
-                        description: {
-                            required: "Please enter the description",
-                        },
-                        contact_number: {
-                            required: "Please enter the contact number"
-                        },
-                        contact_email: {
-                            required: "Please enter the contact email",
-                            email: "Please enter a valid email address",
-                            validEmail: "Please enter a valid email address ending with '.com'"
-                        },
-                        builder_name: {
-                            required: "Please enter the builder name",
-                        },
-                        status: {
-                            required: "Please select a status"
-                        }
-                    },
-                    errorElement: 'div',
-                    errorPlacement: function(error, element) {
-                        error.addClass('invalid-feedback');
-                        error.insertBefore(
-                            element); // Places the error message above the input field
-                    },
-                    highlight: function(element, errorClass, validClass) {
-                        $(element).addClass('is-invalid').removeClass('is-valid');
-                    },
-                    unhighlight: function(element, errorClass, validClass) {
-                        $(element).addClass('is-valid').removeClass('is-invalid');
-                    }
+                    // Trigger validation when an input field gains focus
+                    $('#editListForm input, #editListForm textarea, #editListForm select').on('focus', function() {
+                        $(this).valid();
+                    });
                 });
-
-                // Trigger validation when an input field gains focus
-                $('#editListForm input, #editListForm textarea, #editListForm select').on('focus', function() {
-                    $(this).valid();
-                });
-            });
             </script>
             @endpush

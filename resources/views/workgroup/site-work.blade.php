@@ -24,13 +24,20 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h2>View Work Group Question</h2>
+                    <h2>Add Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div id="loading-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background-color: rgba(255, 255, 255, 0.8); z-index: 9999; text-align: center; padding-top: 20%;">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="mt-2">Please wait, redirecting...</div>
 </div>
 
 <script>
@@ -52,6 +59,8 @@
             var formDatasub = fb.userData;
             console.log(formDatasub);
 
+            // Show loader before sending AJAX
+            $('#loading-overlay').show();
 
             $.ajax({
                 url: "{{ route('parties.saveSiteWork') }}",
@@ -67,14 +76,18 @@
                     if (response.redirect_url) {
                         sessionStorage.setItem('siteWorkMessage', response.message);
                         window.location.href = response.redirect_url;
+                    } else {
+                        $('#loading-overlay').hide();
                     }
                 },
                 error: function(err) {
+                    $('#loading-overlay').hide();
                     alert('Error submitting form.');
                     console.error(err);
                 }
             });
         });
+
 
 
         setTimeout(function() {

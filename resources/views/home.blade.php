@@ -14,7 +14,7 @@
                 <div class="row g-3">
                     <!-- section 1 start -->
                     <div class="col-12 col-sm-6  col-lg-4">
-                        <a href="{{ route('parties.index') }}" class="menu-link d-block">
+                        <a href="{{ route('client.index') }}" class="menu-link d-block">
                             <div class="dashboard-card card">
                                 <div class="d-flex justify-content-between mb-2">
                                     <h5 class=" mb-0 fs-4 fw-bold">{{ $partyCount  }}</h5>
@@ -182,17 +182,17 @@
                                                         <i class="ti ti-dots-vertical ti-md"></i>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-end m-0">
-                                                        <a href="{{ route('parties.edit', $party->id) }}"
+                                                        <a href="{{ route('client.edit', $party->id) }}"
                                                             class="btn p-0 edit-btn dropdown-item">
                                                             <i class="ti ti-pencil me-1"></i> Edit
                                                         </a>
-                                                        <a href="{{ route('parties.show', $party->id) }}"
+                                                        <a href="{{ route('client.show', $party->id) }}"
                                                             class="btn p-0 view-btn dropdown-item">
                                                             <i class="ti ti-eye me-1"></i> View
                                                         </a>
 
                                                         <div class="dropdown-divider"></div>
-                                                        <form action="{{ route('parties.destroy', $party->id) }}"
+                                                        <form action="{{ route('client.destroy', $party->id) }}"
                                                             method="POST">
                                                             @csrf
                                                             @method('DELETE')
@@ -226,52 +226,53 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-$(document).ready(function() {
-    // Initialize DataTable
-    let table = new DataTable('#orderstabale', {
-        order: [
-            [3, 'desc'] // Sort by hidden "created_at" column
-        ],
-        columnDefs: [{
-            targets: 3,
-            visible: false,
-            searchable: false
-        }]
-    });
-
-
-    // Chart.js setup
-    const ctx = document.getElementById('monthlyOrdersChart').getContext('2d');
-    const monthlyOrdersChart = new Chart(ctx, {
-        type: 'bar', // Changed to bar chart
-        data: {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
-                'Dec'],
-            datasets: [{
-                label: 'Order Percentage',
-                data: @json(array_values($monthlyDataPercentages)),
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1
+    $(document).ready(function() {
+        // Initialize DataTable
+        let table = new DataTable('#orderstabale', {
+            order: [
+                [3, 'desc'] // Sort by hidden "created_at" column
+            ],
+            columnDefs: [{
+                targets: 3,
+                visible: false,
+                searchable: false
             }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    max: 100, // Set maximum value of y-axis to 100%
-                    ticks: {
-                        stepSize: 10, // Control the increments on y-axis
-                        callback: function(value) {
-                            return value + '%'; // Append percentage sign
+        });
+
+
+        // Chart.js setup
+        const ctx = document.getElementById('monthlyOrdersChart').getContext('2d');
+        const monthlyOrdersChart = new Chart(ctx, {
+            type: 'bar', // Changed to bar chart
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov',
+                    'Dec'
+                ],
+                datasets: [{
+                    label: 'Order Percentage',
+                    data: @json(array_values($monthlyDataPercentages)),
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100, // Set maximum value of y-axis to 100%
+                        ticks: {
+                            stepSize: 10, // Control the increments on y-axis
+                            callback: function(value) {
+                                return value + '%'; // Append percentage sign
+                            }
                         }
                     }
                 }
             }
-        }
+        });
     });
-});
 </script>
 
 @endsection
