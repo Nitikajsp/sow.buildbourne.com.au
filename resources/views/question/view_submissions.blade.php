@@ -11,6 +11,17 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
+                    <div class="col-md-12">
+                        <a href="{{ url()->previous() }}"
+                            class="float-left d-flex text-black">
+                            <i
+                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
 

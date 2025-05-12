@@ -11,14 +11,22 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
-
             <div class="row">
-
+                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
+                    <div class="col-md-12">
+                        <a href="{{ url()->previous() }}"
+                            class="float-left d-flex text-black">
+                            <i
+                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-12">
-                    <h2>View Work Group Question</h2>
+                    <h2>Edit Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
-
                 </div>
             </div>
         </div>
@@ -30,7 +38,7 @@
 
         const formData = @json($workData ?? []);
 
-             const submissionId = @json($submissionId);
+        const submissionId = @json($submissionId);
 
 
         var fb = $('.fb-render').formRender({
@@ -63,31 +71,31 @@
 
 
         setTimeout(() => {
-      formData.forEach(field => {
-        if (field.userData && field.name) {
-          const value = field.userData[0]; 
+            formData.forEach(field => {
+                if (field.userData && field.name) {
+                    const value = field.userData[0];
 
-          switch (field.type) {
-            case 'radio-group':
-              $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
-              break;
-            case 'checkbox':
-              field.userData.forEach(val => {
-                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
-              });
-              break;
-            case 'textarea':
-              $(`[name="${field.name}"]`).val(value);
-              break;
-            case 'text':
-            case 'number':
-            case 'email':
-              $(`[name="${field.name}"]`).val(value);
-              break;
-          }
-        }
-      });
-    }, 200);
+                    switch (field.type) {
+                        case 'radio-group':
+                            $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
+                            break;
+                        case 'checkbox':
+                            field.userData.forEach(val => {
+                                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
+                            });
+                            break;
+                        case 'textarea':
+                            $(`[name="${field.name}"]`).val(value);
+                            break;
+                        case 'text':
+                        case 'number':
+                        case 'email':
+                            $(`[name="${field.name}"]`).val(value);
+                            break;
+                    }
+                }
+            });
+        }, 200);
 
         setTimeout(function() {
             const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];

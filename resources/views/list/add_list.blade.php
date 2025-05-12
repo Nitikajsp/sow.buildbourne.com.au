@@ -18,7 +18,7 @@
                             class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                     </a>
                     <button type="button" class="btn btn-primary btn btn-dark float-end rounded"
-                        onclick="window.location.href='{{ route('parties.show', $party_id) }}'">
+                        onclick="window.location.href='{{ route('client.show', $party_id) }}'">
                         View
                     </button>
                 </div>
@@ -162,101 +162,101 @@
     @push('scripts')
 
     <script>
-    $(document).ready(function() {
-        $.validator.addMethod("validEmail", function(value, element) {
-            // General regex for email validation
-            return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-        }, "Please enter a valid email address.");
+        $(document).ready(function() {
+            $.validator.addMethod("validEmail", function(value, element) {
+                // General regex for email validation
+                return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            }, "Please enter a valid email address.");
 
-        $("#createBranchForm").validate({
-            rules: {
-                list_name: {
-                    required: true,
-                },
+            $("#createBranchForm").validate({
+                rules: {
+                    list_name: {
+                        required: true,
+                    },
 
-                suburb: {
-                    required: true,
+                    suburb: {
+                        required: true,
 
-                },
-                state: {
-                    required: true,
+                    },
+                    state: {
+                        required: true,
 
-                },
-                pincod: {
-                    required: true,
+                    },
+                    pincod: {
+                        required: true,
 
+                    },
+                    list_description: {
+                        required: true,
+                    },
+                    contact_number: {
+                        required: true,
+                    },
+                    contact_email: {
+                        required: true,
+                        email: true,
+                        validEmail: true
+                    },
+                    builder_name: {
+                        required: true,
+                    },
+                    status: {
+                        required: true
+                    }
                 },
-                list_description: {
-                    required: true,
+                messages: {
+                    list_name: {
+                        required: "Please enter the street name",
+                    },
+
+                    suburb: {
+                        required: "Please enter the suburb",
+
+                    },
+                    state: {
+                        required: "Please enter the state",
+
+                    },
+                    pincod: {
+                        required: "Please enter the pincod",
+
+                    },
+                    list_description: {
+                        required: "Please enter the list description",
+                    },
+                    contact_number: {
+                        required: "Please enter the contact number"
+                    },
+                    contact_email: {
+                        required: "Please enter the contact email",
+                        email: "Please enter a valid email address",
+                        validEmail: "Please enter a valid email address ending with '.com'"
+                    },
+                    builder_name: {
+                        required: "Please enter the builder name",
+                    },
+                    status: {
+                        required: "Please select an option"
+                    }
                 },
-                contact_number: {
-                    required: true,
+                errorElement: 'div',
+                errorPlacement: function(error, element) {
+                    error.addClass('invalid-feedback');
+                    error.insertBefore(element);
                 },
-                contact_email: {
-                    required: true,
-                    email: true,
-                    validEmail: true
+                highlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-invalid').removeClass('is-valid');
                 },
-                builder_name: {
-                    required: true,
-                },
-                status: {
-                    required: true
+                unhighlight: function(element, errorClass, validClass) {
+                    $(element).addClass('is-valid').removeClass('is-invalid');
                 }
-            },
-            messages: {
-                list_name: {
-                    required: "Please enter the street name",
-                },
-
-                suburb: {
-                    required: "Please enter the suburb",
-
-                },
-                state: {
-                    required: "Please enter the state",
-
-                },
-                pincod: {
-                    required: "Please enter the pincod",
-
-                },
-                list_description: {
-                    required: "Please enter the list description",
-                },
-                contact_number: {
-                    required: "Please enter the contact number"
-                },
-                contact_email: {
-                    required: "Please enter the contact email",
-                    email: "Please enter a valid email address",
-                    validEmail: "Please enter a valid email address ending with '.com'"
-                },
-                builder_name: {
-                    required: "Please enter the builder name",
-                },
-                status: {
-                    required: "Please select an option"
-                }
-            },
-            errorElement: 'div',
-            errorPlacement: function(error, element) {
-                error.addClass('invalid-feedback');
-                error.insertBefore(element);
-            },
-            highlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-invalid').removeClass('is-valid');
-            },
-            unhighlight: function(element, errorClass, validClass) {
-                $(element).addClass('is-valid').removeClass('is-invalid');
-            }
-        });
-
-        // Trigger validation when an input field gains focus
-        $('#createBranchForm input, #createBranchForm textarea, #createBranchForm select').on('focus',
-            function() {
-                $(this).valid();
             });
-    });
+
+            // Trigger validation when an input field gains focus
+            $('#createBranchForm input, #createBranchForm textarea, #createBranchForm select').on('focus',
+                function() {
+                    $(this).valid();
+                });
+        });
     </script>
     @endpush

@@ -26,7 +26,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         `);
-                    sessionStorage.removeItem('siteWorkMessage'); // clear after showing
+                    sessionStorage.removeItem('siteWorkMessage');
                 }
             </script>
 

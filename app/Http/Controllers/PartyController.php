@@ -68,28 +68,29 @@ class PartyController extends Controller
             'party_type'
         ]));
 
-        return redirect()->route('parties.index')->with('success', 'Client created successfully.');
+        return redirect()->route('client.index')->with('success', 'Client created successfully.');
     }
 
 
-    public function show(Parties $party)
+    public function show(Parties $client)
     {
-        $lists = $party->lists()
+
+        $lists = $client->lists()
             ->where('delete_status', 1)
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('parties.show_parties', compact('party', 'lists'));
+        return view('parties.show_parties', compact('client', 'lists'));
     }
 
-    public function edit(Parties $party)
+    public function edit(Parties $client)
 
     {
-        return view('parties.edit_parties', compact('party'));
+        return view('parties.edit_parties', compact('client'));
     }
 
 
-    public function update(Request $request, Parties $party)
+    public function update(Request $request, Parties $client)
 
     {
         $request->validate([
@@ -102,9 +103,9 @@ class PartyController extends Controller
             'phone.regex' => 'The phone number must be in international format, e.g., +1234567890.',
         ]);
 
-        $party->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'party_type']));
+        $client->update($request->only(['name', 'email', 'phone', 'street', 'house_number', 'party_type']));
 
-        return redirect()->route('parties.edit', ['party' => $party->id])->with('success', 'Client updated successfully.');
+        return redirect()->route('client.edit', ['client' => $client->id])->with('success', 'Client updated successfully.');
     }
 
     public function destroy($id)
@@ -116,7 +117,7 @@ class PartyController extends Controller
         $party->delete_status = 1;
         $party->save();
 
-        return redirect()->route('parties.index')->with('success', 'client  deleted successfully.');
+        return redirect()->route('client.index')->with('success', 'client  deleted successfully.');
     }
 
     public function updateStatus(Request $request, $id)

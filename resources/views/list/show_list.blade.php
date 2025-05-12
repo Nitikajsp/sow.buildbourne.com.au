@@ -22,7 +22,7 @@
                         <!-- <div class="row">
                         <div class="col-lg-12 "> -->
                         <div class="pull-left head-label mt-3">
-                            <h2>View Clint And Submission Detail </h2>
+                            <h2>View Client And Submission Detail </h2>
                         </div>
                         <!-- </div>
                     </div> -->
@@ -34,21 +34,7 @@
                         @endif
 
                         <div class="card px-3 py-4 table_scroll party_table_width">
-                            <!-- <div class="d-flex flex-end ms-auto">
-            <a href="{{ route('parties.edit', $list->id) }}" class="btn p-0 edit-btn text-info">
-              <i class="ti ti-pencil me-1"></i>
-            </a>
 
-
-            <form id="deletePartyForm" action="{{ route('parties.destroy', $list->id) }}" method="POST" style="display: none;">
-              @csrf
-              @method('DELETE')
-            </form>
-            <button type="button" class="btn p-0 delete-btn text-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-              <i class="ti ti-trash me-1"></i>
-            </button>
-
-          </div> -->
                             <div class="d-flex">
                                 <div class=" d-flex flex-column justify-content-center w-100">
                                     <div class="row mb-2">
@@ -69,18 +55,25 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             <div class="row mt-3 customr_btn_centr">
+
                                 <div class="col-lg-12 ">
-                                    <div class="pull-right text-end">
-                                        <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}"
-                                            class="btn btn-outline-dark text-dark rounded" tabindex="0"
-                                            aria-controls="DataTables_Table_0">
-                                            <span><i class="ti ti-plus me-sm-1"></i> Add Submission</span>
-                                        </a>
+                                    <div class="d-flex justify-content-between">
+                                        <h3>Submission List</h3>
+
+                                        <div class="pull-right text-end">
+                                            <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}"
+                                                class="btn btn-outline-dark text-dark rounded" tabindex="0"
+                                                aria-controls="DataTables_Table_0">
+                                                <span><i class="ti ti-plus me-sm-1"></i> Add Submission</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <h3>Submission List</h3>
+
 
                             <table id="partyListsTable" class="table table-bordered mt-3 show_custmer "
                                 style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
