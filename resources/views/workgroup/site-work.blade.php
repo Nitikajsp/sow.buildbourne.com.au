@@ -11,11 +11,22 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
+                    <div class="col-md-12">
+                        <a href="{{ url()->previous() }}"
+                            class="float-left d-flex text-black">
+                            <i
+                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
 
                 <div class="col-md-12">
-                    <h2>View Work Group Question</h2>
+                    <h2>Add Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
 
@@ -79,7 +90,13 @@
                                 return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
                             } else if (f.type === 'checkbox') {
                                 const checked = row[f.key] ? 'checked' : '';
-                                return `<td><input type = "checkbox" name="${inputName}" class = "${f.className}"${checked} /></td>`;
+                                return ` < td > < input type = "checkbox"
+                    name = "${inputName}"
+                    class = "${f.className}"
+                    $ {
+                        checked
+                    }
+                    /></td > `;
                             }
                             return '<td></td>';
                         }).join('')}
@@ -120,7 +137,7 @@
             // Clear previous userData
             var userDataCustom = fb.userData;
             fb.userData = [];
-            
+
 
             originalFormData.forEach((field, index) => {
                 console.log('All field', field);
@@ -169,7 +186,7 @@
                                 }
                             });
 
-                       
+
 
                             console.log("before userData :", userDataCustom[index]);
 

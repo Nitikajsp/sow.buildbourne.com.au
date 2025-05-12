@@ -33,7 +33,7 @@
                                         <path d="M8 15h3" />
                                     </svg>
                                 </div>
-                                <p class="text-secondary">Parties</p>
+                                <p class="text-secondary">Client</p>
                             </div>
                         </a>
                     </div>
@@ -137,7 +137,7 @@
                                     <thead class="" style="background-color:#000000;">
                                         <tr>
                                             <th class="partylist_text">
-                                                Party
+                                                Client
                                             </th>
 
                                             <th class="partylist_text ">Email</th>
