@@ -5,14 +5,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.1/jquery.bootstrap-touchspin.min.css">
 @endpush
 
-
 @section('content')
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
-
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-between align-items-center py-4">
                     <a href="{{ route('workgroup.showworkgroup') }}" class="float-left d-flex text-black">
@@ -21,26 +19,20 @@
                 </div>
             </div>
 
-
             <div class="row">
                 <div class="col-md-7">
                     <div id="form-success-message" class="alert alert-success d-none"></div>
-
                     <div class="inner-container">
-
                         <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage" value="{{ old('form_name', $form_name ?? '') }}">
-
                         <h2>Edit Work Group Question</h2>
-
                         @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
-
                         <div class="row">
                             <div class="col-md-12">
                                 @csrf
                                 <div id="build-wrap"></div>
-                                <button id="update-form" type="submit" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Update Form</button>
+                                <button id="update-form" type="button" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Update Form</button>
                             </div>
                         </div>
                     </div>
@@ -54,15 +46,194 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script>
 
 <script>
-    $(function() {
+    $(document).ready(function() {
+        const fields = [
+            {
+                label: 'Repeater Table',
+                class: 'repeater-table',
+                attrs: {
+                    type: 'customRepeaterTable',
+                    values: [
+                        {
+                            label: 'Option A',
+                            value: 'option-a'
+                        },
+                        {
+                            label: 'Option B',
+                            value: 'option-b'
+                        }
+                    ],
+                    fields: [
+                        { label: 'Description', type: 'text', className: 'custom-text-description' },
+                        { label: 'Colour', type: 'text', className: 'custom-text-colour' },
+                        { label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+                    ]
+                },
+                value: [
+                    {
+                        description: 'Option A Description',
+                        colour: 'Red',
+                        na: 1
+                    },
+                    {
+                        description: 'Option B Description',
+                        colour: 'Blue',
+                        na: 0
+                    }
+                ],
+                icon: '📋'
+            }
+        ];
+
+        const templates = {
+            customRepeaterTable: function(fieldData) {
+                const fieldName = fieldData.name || 'repeater';
+                const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+                const fields = fieldData.fields || fieldData.attrs?.fields || [
+                    { key: 'description', label: 'Description', type: 'text', className: 'custom-text-description' },
+                    { key: 'colour', label: 'Colour', type: 'text', className: 'custom-text-colour' },
+                    { key: 'na', label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+                ];
+
+                // Normalize value
+                let rawValue = fieldData.value || fieldData.attrs?.value || [];
+                let value = [];
+                if (typeof rawValue === 'string') {
+                    try {
+                        value = JSON.parse(rawValue);
+                    } catch (e) {
+                        value = [];
+                    }
+                } else if (Array.isArray(rawValue)) {
+                    value = rawValue;
+                } else if (typeof rawValue === 'object' && rawValue !== null) {
+                    value = [rawValue];
+                }
+
+                const rowsHtml = value.map((row, index) => {
+                    return `<tr>
+                        ${fields.map(f => {
+                            const inputName = `${fieldName}[row_${index}][${f.key}]`;
+                            if (!f.key) return '';
+                            if (f.type === 'text') {
+                                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" value="${row[f.key] || ''}" /></td>`;
+                            } else if (f.type === 'checkbox') {
+                                const checked = row[f.key] ? 'checked' : '';
+                                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" ${checked} /></td>`;
+                            }
+                            return '<td></td>';
+                        }).join('')}
+                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                    </tr>`;
+                }).join('');
+
+                return {
+                    field: `
+                        <div class="custom-repeater-table" data-field-id="${uniqueId}">
+                            <table class="table table-bordered" id="${uniqueId}">
+                                <thead>
+                                    <tr>
+                                        ${fields.map(f => `<th>${f.label}</th>`).join('')}
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHtml || `<tr>
+                                        ${fields.map(f => {
+                                            const inputName = `${fieldName}[row_0][${f.key}]`;
+                                            if (f.type === 'text') {
+                                                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+                                            } else if (f.type === 'checkbox') {
+                                                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+                                            }
+                                            return '<td></td>';
+                                        }).join('')}
+                                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                                    </tr>`}
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary btn-sm add-row">Add Row</button>
+                            <textarea name="${fieldName}_json" class="d-none serialized-data" id="${uniqueId}_json" data-table-id="${uniqueId}" data-field-name="${fieldName}"></textarea>
+                        </div>
+                    `,
+                    onRender: function() {
+                        const $wrapper = $(`[data-field-id="${uniqueId}"]`);
+                        const $table = $wrapper.find('table');
+                        const $textarea = $wrapper.find(`textarea[data-table-id="${uniqueId}"]`);
+
+                        const updateTextarea = () => {
+                            const data = [];
+                            $table.find('tbody tr').each(function () {
+                                const row = {};
+                                $(this).find('input').each(function () {
+                                    const type = $(this).attr('type');
+                                    const name = $(this).attr('name');
+                                    if (!name) return;
+                                    const match = name.match(/\[([^\]]+)\]$/);
+                                    const key = match ? match[1] : null;
+                                    if (!key) return;
+                                    if (type === 'checkbox') {
+                                        row[key] = $(this).is(':checked') ? 1 : 0;
+                                    } else {
+                                        row[key] = $(this).val();
+                                    }
+                                });
+                                if (Object.keys(row).length > 0) data.push(row);
+                            });
+                            $textarea.val(JSON.stringify(data));
+                        };
+
+                        $wrapper.on('click', '.add-row', function () {
+                            const rowId = `row_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+                            const newRow = `<tr>
+                                ${fields.map(f => {
+                                    const inputName = `${fieldName}[${rowId}][${f.key}]`;
+                                    if (f.type === 'text') {
+                                        return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+                                    } else if (f.type === 'checkbox') {
+                                        return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+                                    }
+                                    return '<td></td>';
+                                }).join('')}
+                                <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                            </tr>`;
+                            $table.find('tbody').append(newRow);
+                            updateTextarea();
+                        });
+
+                        $wrapper.on('click', '.remove-row', function () {
+                            $(this).closest('tr').remove();
+                            updateTextarea();
+                        });
+
+                        $wrapper.on('change', 'input', function () {
+                            updateTextarea();
+                        });
+
+                        updateTextarea(); // Initial call
+                    }
+                };
+            }
+        };
+
+        var renderOpts = {
+            controlConfig: {
+                'textarea.tinymce': {
+                    paste_data_images: false
+                }
+            }
+        };
+
         const questionId = @json($questionId);
         const savedJson = @json($questionJson);
-        var existingFormData = @json($questionJson ?? []);
 
-        var fb = $('#build-wrap').formBuilder({
-            formData: existingFormData,
+        const fb = $('#build-wrap').formBuilder({
+            fields,
+            templates,
+            formData: savedJson,
             inputSets: [{
                 label: 'Grouped Custom Fields',
                 name: 'grouped-custom-fields',
@@ -126,25 +297,56 @@
                     }
                 ]
             }],
-
             disabledAttrs: ['name'],
             controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
         });
 
         $('#update-form').on('click', function() {
-            const formJson = fb.actions.getData('json');
+            fb.actions.save(); // Save form builder data
+            let formJson = JSON.parse(fb.actions.getData('json'));
             const form_name = $('#form_name').val();
 
+            const repeaterMap = {};
+
+            $('textarea.serialized-data').each(function () {
+                const json = $(this).val();
+                const fieldName = $(this).attr('data-field-name');
+                const cleanFieldName = fieldName?.replace(/-preview$/, '');
+
+                if (json && cleanFieldName) {
+                    try {
+                        JSON.parse(json); // Ensure valid JSON
+                        repeaterMap[cleanFieldName] = json;
+                    } catch (e) {
+                        console.warn("Invalid JSON for:", cleanFieldName);
+                    }
+                }
+            });
+
+            formJson.forEach((field) => {
+                if (field.type === 'customRepeaterTable') {
+                    if (repeaterMap.hasOwnProperty(field.name)) {
+                        field.value = repeaterMap[field.name];
+                    } else {
+                        console.warn("No repeater data found for:", field.name);
+                    }
+                }
+            });
+
+            console.log("formJson", formJson);
+
+            $('.render-wrap').formRender({ formData: formJson });
 
             $.ajax({
                 url: "{{ route('workgroup.workgroupquestionupdate', ['id' => $questionId]) }}",
                 method: 'POST',
                 data: {
-                    form_data: formJson,
+                    form_data: JSON.stringify(formJson),
                     form_name: form_name,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(res) {
+                    console.log('Form updated successfully:', res);
                     $('#form-success-message')
                         .removeClass('d-none')
                         .text(res.message)
@@ -153,12 +355,11 @@
                         .fadeOut();
                 },
                 error: function(err) {
-                    alert('Error updating form.');
                     console.error(err);
                 }
             });
         });
-
     });
 </script>
+
 @endsection

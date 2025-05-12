@@ -28,6 +28,7 @@
             margin-bottom: 3px;
         }
 
+
         textarea {
             border: 1px solid #ccc;
             padding: 6px;
@@ -44,38 +45,64 @@
 </head>
 
 <body>
-    <h2>Site Work Submission</h2>
-    @foreach ($workData as $field)
+ <h2>Site Work Submission</h2>
+
+@foreach ($workData as $field)
     <div class="form-group">
         <div class="label">{{ $field['label'] ?? 'Unnamed Field' }}</div>
 
-        @if(isset($field['values']) && is_array($field['values']))
-        <div class="options">
-            @foreach($field['values'] as $option)
-            <div class="option 
-                {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
-                <label>
-                    <input type="checkbox"
-                        {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'checked' : '' }}
-                        disabled>
-                    {{ $option['label'] }}
-                    @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
-                </label>
+        {{-- Custom Repeater Table --}}
+        @if($field['type'] === 'customRepeaterTable' && isset($field['userData']) && is_array($field['userData']))
+            <div class="custom-repeater-output">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            @foreach(array_keys($field['userData'][0]) as $column)
+                                <th>{{ ucfirst($column) }}</th>
+                            @endforeach
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($field['userData'] as $row)
+                            <tr>
+                                @foreach($row as $value)
+                                    <td>{{ $value }}</td>
+                                @endforeach
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            @endforeach
-        </div>
+
+        {{-- Autocomplete, Radio Group, Checkbox Group --}}
+        @elseif(isset($field['values']) && is_array($field['values']))
+            <div class="options">
+                @foreach($field['values'] as $option)
+                    <div class="option 
+                        {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
+                        <label>
+                            <input type="checkbox"
+                                {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'checked' : '' }}
+                                disabled>
+                            {{ $option['label'] }}
+                            @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
+                        </label>
+                    </div>
+                @endforeach
+            </div>
 
         {{-- Text Inputs / Textareas --}}
         @elseif(isset($field['userData']) && is_array($field['userData']))
-        <textarea readonly>{{ implode(', ', $field['userData']) }}</textarea>
+            <textarea readonly>{{ implode(', ', $field['userData']) }}</textarea>
 
         {{-- Default fallback --}}
         @else
-        <div class="option">N/A</div>
+            <div class="option">N/A</div>
         @endif
     </div>
     <hr>
-    @endforeach
+@endforeach
+
 </body>
 
 </html>
