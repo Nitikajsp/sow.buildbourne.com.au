@@ -33,7 +33,7 @@
                                     <h2>Add Project</h2>
                                 </div>
                                 <div class="pull-left">
-                                    <h5>Please enter your detail</h5>
+                                    <h5>Please enter your project detail</h5>
                                 </div>
                             </div>
                         </div>

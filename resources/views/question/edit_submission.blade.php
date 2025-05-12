@@ -11,11 +11,22 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
+            <div class="row">
+                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
+                    <div class="col-md-12">
+                        <a href="{{ url()->previous() }}"
+                            class="float-left d-flex text-black">
+                            <i
+                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
 
                 <div class="col-md-12">
-                    <h2>View Work Group Question</h2>
+                    <h2>Edit Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
 
@@ -24,7 +35,7 @@
         </div>
     </div>
 </div>
-<?php 
+<?php
 echo '<pre>';
 print_r($workData);
 echo '</pre>';
@@ -83,7 +94,13 @@ echo '</pre>';
                                 return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
                             } else if (f.type === 'checkbox') {
                                 const checked = row[f.key] ? 'checked' : '';
-                                return `<td><input type = "checkbox" name="${inputName}" class = "${f.className}"${checked} /></td>`;
+                                return ` < td > < input type = "checkbox"
+                    name = "${inputName}"
+                    class = "${f.className}"
+                    $ {
+                        checked
+                    }
+                    /></td > `;
                             }
                             return '<td></td>';
                         }).join('')}
@@ -125,7 +142,7 @@ echo '</pre>';
             // Get the form data as JSON
             var userDataCustom = fb.userData;
             fb.userData = [];
-            
+
 
             originalFormData.forEach((field, index) => {
                 console.log('All field', field);
@@ -174,7 +191,7 @@ echo '</pre>';
                                 }
                             });
 
-                       
+
 
                             console.log("before userData :", userDataCustom[index]);
 
@@ -211,31 +228,31 @@ echo '</pre>';
 
 
         setTimeout(() => {
-      formData.forEach(field => {
-        if (field.userData && field.name) {
-          const value = field.userData[0]; 
+            formData.forEach(field => {
+                if (field.userData && field.name) {
+                    const value = field.userData[0];
 
-          switch (field.type) {
-            case 'radio-group':
-              $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
-              break;
-            case 'checkbox':
-              field.userData.forEach(val => {
-                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
-              });
-              break;
-            case 'textarea':
-              $(`[name="${field.name}"]`).val(value);
-              break;
-            case 'text':
-            case 'number':
-            case 'email':
-              $(`[name="${field.name}"]`).val(value);
-              break;
-          }
-        }
-      });
-    }, 200);
+                    switch (field.type) {
+                        case 'radio-group':
+                            $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
+                            break;
+                        case 'checkbox':
+                            field.userData.forEach(val => {
+                                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
+                            });
+                            break;
+                        case 'textarea':
+                            $(`[name="${field.name}"]`).val(value);
+                            break;
+                        case 'text':
+                        case 'number':
+                        case 'email':
+                            $(`[name="${field.name}"]`).val(value);
+                            break;
+                    }
+                }
+            });
+        }, 200);
 
         setTimeout(function() {
             const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];
