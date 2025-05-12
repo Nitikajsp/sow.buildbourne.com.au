@@ -16,7 +16,6 @@
                                 class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 "></i>Back</a>
                     </div>
                 </div>
-
                 <div class="row mt-3">
                     <div class="col-md-7">
                         <div class="row">
@@ -27,8 +26,6 @@
                             </div>
                         </div>
                         <div class="card px-3 py-4 table_scroll party_table_width">
-
-
                             <div class="d-flex">
                                 <div class=" d-flex flex-column justify-content-center w-100">
                                     <div class="row mb-2">
@@ -51,7 +48,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mt-3 customr_btn_centr">
                                 <div class="col-lg-12 ">
                                     <div class="pull-right text-end">
@@ -63,7 +59,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <table id="partyListsTable" class="table table-bordered mt-3 show_custmer "
                                 style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
                                 <thead class="table-dark">
@@ -152,25 +147,25 @@
     </div>
 
     <script>
-    $(document).ready(function() {
-        let formToSubmit;
+        $(document).ready(function() {
+            let formToSubmit;
 
-        // Open the modal and store the form to submit
-        $(document).on('click', '.delete-btn', function() {
-            formToSubmit = $(this).closest('form'); // ✅ fix here
-        });
+            // Open the modal and store the form to submit
+            $(document).on('click', '.delete-btn', function() {
+                formToSubmit = $(this).closest('form'); // ✅ fix here
+            });
 
-        // Submit the form when the confirm button is clicked
-        $('#confirmDeleteBtn').on('click', function() {
-            if (formToSubmit) {
-                formToSubmit.submit();
-            }
+            // Submit the form when the confirm button is clicked
+            $('#confirmDeleteBtn').on('click', function() {
+                if (formToSubmit) {
+                    formToSubmit.submit();
+                }
+            });
         });
-    });
     </script>
 
 
     <script>
-    $('#partyListsTable').DataTable();
+        $('#partyListsTable').DataTable();
     </script>
     @endsection

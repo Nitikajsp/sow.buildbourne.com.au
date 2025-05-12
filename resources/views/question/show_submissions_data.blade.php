@@ -9,9 +9,7 @@
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
 
-
     @include('include.navbar')
-
     <div class="container-fluid mt-4">
         <div class="main-content">
             <div class="d-flex flex-column flex-md-row justify-content-between">
@@ -31,8 +29,6 @@
                     sessionStorage.removeItem('siteWorkMessage'); // clear after showing
                 }
             </script>
-
-
 
             @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">

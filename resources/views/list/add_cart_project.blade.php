@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="pull-right mt-1 text-center">
-                                    <button type="submit" class="btn btn-dark me-1 rounded">Save</button>
+                                    <button type="submit" class="btn btn-dark me-1 rounded">Next</button>
                                     <a href="{{ route('parties.show', $list->parties_id) }}" class="btn btn-outline-dark waves-effect rounded">Cancel</a>
                                 </div>
                             </form>

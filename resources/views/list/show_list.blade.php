@@ -22,7 +22,7 @@
                         <!-- <div class="row">
                         <div class="col-lg-12 "> -->
                         <div class="pull-left head-label mt-3">
-                            <h2>View Project Detail </h2>
+                            <h2>View Clint And Submission Detail </h2>
                         </div>
                         <!-- </div>
                     </div> -->
@@ -49,7 +49,6 @@
             </button>
 
           </div> -->
-
                             <div class="d-flex">
                                 <div class=" d-flex flex-column justify-content-center w-100">
                                     <div class="row mb-2">
@@ -70,18 +69,18 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row mt-3 customr_btn_centr">
                                 <div class="col-lg-12 ">
                                     <div class="pull-right text-end">
-                                        <a href="{{ route('createlist', ['party_id' => $list->id]) }}"
+                                        <a href="{{ route('lists.addcartproject', ['list' => $list->id, 'party' => $list->parties_id]) }}"
                                             class="btn btn-outline-dark text-dark rounded" tabindex="0"
                                             aria-controls="DataTables_Table_0">
-                                            <span><i class="ti ti-plus me-sm-1"></i> Create Project</span>
+                                            <span><i class="ti ti-plus me-sm-1"></i> Add Submission</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
+                            <h3>Submission List</h3>
 
                             <table id="partyListsTable" class="table table-bordered mt-3 show_custmer "
                                 style="border: 1px solid #DDDDDD; border-spacing: 0 10px;">
@@ -104,14 +103,14 @@
                                             {{ $submission->status ?? 'Pending' }}
                                         </td>
                                         <td>
+                                            <a href="{{ route('editsubmissions.show', $submission->id) }}"
+                                                class="btn btn-warning btn-sm">Edit</a>
                                             <a href="{{ route('showsubmissions.show', $submission->id) }}"
                                                 class="btn btn-warning btn-sm">View</a>
                                         </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
-
-
                             </table>
                         </div>
                     </div>
@@ -139,25 +138,25 @@
     </div>
 
     <script>
-    $(document).ready(function() {
-        let formToSubmit;
+        $(document).ready(function() {
+            let formToSubmit;
 
-        // Open the modal and store the form to submit
-        $(document).on('click', '.delete-btn', function() {
-            formToSubmit = $(this).closest('form'); // ✅ fix here
-        });
+            // Open the modal and store the form to submit
+            $(document).on('click', '.delete-btn', function() {
+                formToSubmit = $(this).closest('form'); // ✅ fix here
+            });
 
-        // Submit the form when the confirm button is clicked
-        $('#confirmDeleteBtn').on('click', function() {
-            if (formToSubmit) {
-                formToSubmit.submit();
-            }
+            // Submit the form when the confirm button is clicked
+            $('#confirmDeleteBtn').on('click', function() {
+                if (formToSubmit) {
+                    formToSubmit.submit();
+                }
+            });
         });
-    });
     </script>
 
 
     <script>
-    $('#partyListsTable').DataTable();
+        $('#partyListsTable').DataTable();
     </script>
     @endsection
