@@ -93,7 +93,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cart/view/{listId}', 'viewCart')->name('cart.view');
         Route::patch('/cart/update/{list}/{productId}', 'updateqty')->name('cart.updateqty');
         Route::post('/orders/save', 'saveOrder')->name('orders.save');
-        Route::get('/project/{listId}/party/{partyId}', 'showListParty')->name('showlistparty');
+        Route::get('/project/{listId}/client/{partyId}', 'showListParty')->name('showlistparty');
         Route::patch('/orders/{order}/updateQuantity', 'updateQuantity')->name('orders.updateQuantity');
         Route::delete('/orders/{order}', 'destroyOrders')->name('orders.destroyOrders');
         Route::get('/send-email/{list_id}/{party_id}', 'sendEmail')->name('send.email');
