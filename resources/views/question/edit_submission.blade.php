@@ -11,30 +11,103 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
+
             <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                    <div class="col-md-12">
-                        <a href="{{ url()->previous() }}"
-                            class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
+
                 <div class="col-md-12">
-                    <h2>Edit Work Group Question</h2>
+                    <h2>View Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<?php 
+echo '<pre>';
+print_r($workData);
+echo '</pre>';
+?>
 <script>
     $(function() {
+        const originalFormData = @json($workData ?? []);
+        // console.log('originalFormData', originalFormData);
+
+        originalFormData.forEach((field) => {
+            if (field.type === 'customRepeaterTable') {
+                if (typeof field.value === 'string') {
+                    try {
+                        field.value = JSON.parse(field.value);
+                    } catch (e) {
+                        field.value = [];
+                    }
+                }
+            }
+        });
+
+
+        // Register the customRepeaterTable template before calling formRender
+        const templates = {
+            customRepeaterTable: function(fieldData) {
+                const fieldName = fieldData.name || 'repeater';
+                const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+                const fields = fieldData.fields || fieldData.attrs?.fields || [{
+                        key: 'description',
+                        label: 'Description',
+                        type: 'text',
+                        className: 'custom-text-description'
+                    },
+                    {
+                        key: 'colour',
+                        label: 'Colour',
+                        type: 'text',
+                        className: 'custom-text-colour'
+                    },
+                    {
+                        key: 'na',
+                        label: 'NA',
+                        type: 'checkbox',
+                        className: 'custom-text-na'
+                    }
+                ];
+
+                let value = Array.isArray(fieldData.value) ? fieldData.value : [];
+                const rowsHtml = value.map((row, index) => {
+                    return `<tr>
+                        ${fields.map((f, fieldIndex) => {
+                            const inputName = `${fieldName}[row_${index}][${f.key}]`;
+                            if (!f.key) return '';
+                            if (f.type === 'text') {
+                                const readonlyAttr = fieldIndex === 0 ? 'readonly' : '';
+                                return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
+                            } else if (f.type === 'checkbox') {
+                                const checked = row[f.key] ? 'checked' : '';
+                                return `<td><input type = "checkbox" name="${inputName}" class = "${f.className}"${checked} /></td>`;
+                            }
+                            return '<td></td>';
+                        }).join('')}
+                    </tr>`;
+                }).join('');
+
+                return {
+                    field: `
+                        <div class="custom-repeater-table" data-field-id="${fieldName}">
+                            <table class="table table-bordered" id="${fieldName}">
+                                <thead>
+                                    <tr>
+                                        ${fields.map(f => `<th>${f.label}</th>`).join('')}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHtml || `<tr><td colspan="${fields.length}">No data</td></tr>`}
+                                </tbody>
+                            </table>
+                        </div>
+                    `
+                };
+            }
+        };
 
         const formData = @json($workData ?? []);
 
@@ -42,14 +115,81 @@
 
 
         var fb = $('.fb-render').formRender({
-            formData: formData
+            formData: originalFormData,
+            templates: templates
         });
 
 
         $('#submit-form').on('click', function() {
 
             // Get the form data as JSON
-            var formDatasub = fb.userData;
+            var userDataCustom = fb.userData;
+            fb.userData = [];
+            
+
+            originalFormData.forEach((field, index) => {
+                console.log('All field', field);
+                if (field.type === 'customRepeaterTable') {
+                    const fieldName = field.name; // Dynamically get field name for each field
+
+                    // Match only the tables related to this field.name
+                    $('.custom-repeater-table').each(function() {
+                        const tableId = $(this).data('field-id'); // Get the table's data-field-id
+                        // console.log("fieldName : ", fieldName);
+                        // console.log("tableId : ", tableId);
+
+                        // Check if the fieldName is exactly equal to the tableId (after trimming extra parts if necessary)
+                        if (tableId && tableId.includes(fieldName)) {
+                            // Proceed with your logic for this specific table
+                            const $table = $(this);
+                            let tableData = [];
+
+                            $table.find('tbody tr').each(function() {
+                                let rowData = {};
+                                let isRowValid = false;
+
+                                $(this).find('input, select, textarea').each(function() {
+                                    const inputName = $(this).attr('name');
+                                    if (inputName && inputName.startsWith(fieldName)) {
+                                        const keyMatch = inputName.match(/\[([^\]]+)]$/);
+                                        if (keyMatch) {
+                                            const key = keyMatch[1];
+                                            const inputType = $(this).attr('type');
+                                            let value = (inputType === 'checkbox') ?
+                                                ($(this).is(':checked') ? '1' : '0') :
+                                                $(this).val();
+
+                                            if (value !== '' && value !== null) {
+                                                isRowValid = true;
+                                            }
+
+                                            rowData[key] = value;
+                                        }
+                                    }
+                                });
+                                console.log("before rowData", rowData);
+                                if (isRowValid && Object.keys(rowData).length > 0) {
+                                    tableData.push(rowData);
+                                    console.log("after rowData", tableData);
+                                }
+                            });
+
+                       
+
+                            console.log("before userData :", userDataCustom[index]);
+
+                            if (tableData.length > 0) {
+                                field = tableData;
+                                console.log("after push data :", field);
+                                userDataCustom[index].userData = field;
+                            }
+                            console.log("after userData :", userDataCustom[index].userData);
+                        }
+                    });
+                }
+            });
+
+            console.log("FINAL FORM DATA:", userDataCustom);
 
             $.ajax({
                 url: "{{ route('submission.update') }}",
@@ -57,7 +197,7 @@
                 data: {
                     _token: "{{ csrf_token() }}",
                     submissionId: submissionId,
-                    form_data: formDatasub
+                    form_data: userDataCustom
                 },
                 success: function(response) {
                     if (response.success) {
@@ -71,31 +211,31 @@
 
 
         setTimeout(() => {
-            formData.forEach(field => {
-                if (field.userData && field.name) {
-                    const value = field.userData[0];
+      formData.forEach(field => {
+        if (field.userData && field.name) {
+          const value = field.userData[0]; 
 
-                    switch (field.type) {
-                        case 'radio-group':
-                            $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
-                            break;
-                        case 'checkbox':
-                            field.userData.forEach(val => {
-                                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
-                            });
-                            break;
-                        case 'textarea':
-                            $(`[name="${field.name}"]`).val(value);
-                            break;
-                        case 'text':
-                        case 'number':
-                        case 'email':
-                            $(`[name="${field.name}"]`).val(value);
-                            break;
-                    }
-                }
-            });
-        }, 200);
+          switch (field.type) {
+            case 'radio-group':
+              $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
+              break;
+            case 'checkbox':
+              field.userData.forEach(val => {
+                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
+              });
+              break;
+            case 'textarea':
+              $(`[name="${field.name}"]`).val(value);
+              break;
+            case 'text':
+            case 'number':
+            case 'email':
+              $(`[name="${field.name}"]`).val(value);
+              break;
+          }
+        }
+      });
+    }, 200);
 
         setTimeout(function() {
             const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];

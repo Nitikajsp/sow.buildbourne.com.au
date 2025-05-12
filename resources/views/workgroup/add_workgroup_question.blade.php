@@ -56,7 +56,193 @@
 
 <script>
     $(function() {
+        
+        const fields = [
+            {
+                label: 'Repeater Table',
+                class: 'repeater-table',
+                attrs: {
+                    type: 'customRepeaterTable',
+                    values: [
+                        {
+                            label: 'Option A',
+                            value: 'option-a'
+                        },
+                        {
+                            label: 'Option B',
+                            value: 'option-b'
+                        }
+                    ],
+                    fields: [
+                        { label: 'Description', type: 'text', className: 'custom-text-description' },
+                        { label: 'Colour', type: 'text', className: 'custom-text-colour' },
+                        { label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+                    ]
+                },
+                value: [
+                    {
+                        description: 'Option A Description',
+                        colour: 'Red',
+                        na: 1
+                    },
+                    {
+                        description: 'Option B Description',
+                        colour: 'Blue',
+                        na: 0
+                    }
+                ],
+                icon: '📋'
+            }
+        ];
+
+        const templates = {
+            customRepeaterTable: function(fieldData) {
+                const fieldName = fieldData.name || 'repeater';
+                const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+                const fields = fieldData.fields || [
+                    { key: 'description', label: 'Description', type: 'text', className: 'custom-text-description' },
+                    { key: 'colour', label: 'Colour', type: 'text', className: 'custom-text-colour' },
+                    { key: 'na', label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+                ];
+
+                // Generate rows from value : NEW CODE
+                // const value = fieldData.value || [];
+                let rawValue = fieldData.value || fieldData.attrs?.value || [];
+                let value = [];
+                if (typeof rawValue === 'string') {
+                    try {
+                        value = JSON.parse(rawValue);
+                    } catch (e) {
+                        console.warn("Invalid JSON in fieldData.value:", rawValue);
+                        value = [];
+                    }
+                } else if (Array.isArray(rawValue)) {
+                    value = rawValue; // already an array
+                } else if (typeof rawValue === 'object' && rawValue !== null) {
+                    value = [rawValue]; // single object
+                }
+                console.log("value", value);
+                const rowsHtml = value.map((row, index) => {
+                    return `<tr>
+                        ${fields.map(f => {
+                            const inputName = `${fieldName}[row_${index}][${f.key}]`;
+                            if (!f.key) return '';
+                            if (f.type === 'text') {
+                                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" value="${row[f.key] || ''}" /></td>`;
+                            } else if (f.type === 'checkbox') {
+                                const checked = row[f.key] ? 'checked' : '';
+                                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" ${checked} /></td>`;
+                            }
+                        }).join('')}
+                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                    </tr>`;
+                }).join('') || '';
+
+                return {
+                    field: `
+                        <div class="custom-repeater-table">
+                            <table class="table table-bordered" id="${uniqueId}">
+                                <thead>
+                                    <tr>
+                                        ${fields.map(f => `<th>${f.label}</th>`).join('')}
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rowsHtml || `<tr>
+                                        ${fields.map(f => {
+                                            const inputName = `${fieldName}[row_0][${f.key}]`;
+                                            if (f.type === 'text') {
+                                                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+                                            } else if (f.type === 'checkbox') {
+                                                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+                                            }
+                                        }).join('')}
+                                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                                    </tr>`}
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary btn-sm add-row">Add Row</button>
+                            <textarea name="${fieldName}_json" class="d-none serialized-data" id="${uniqueId}_json"></textarea>
+                        </div>
+                    `,
+                    onRender: function() {
+                        const $wrapper = $(`#${uniqueId}`).closest('.custom-repeater-table');
+                        const $table = $wrapper.find('table');
+                        const $textarea = $wrapper.find('textarea.serialized-data');
+
+                        const updateTextarea = () => {
+                            const data = [];
+                            $table.find('tbody tr').each(function () {
+                                const row = {};
+                                $(this).find('input').each(function () {
+                                    const type = $(this).attr('type');
+                                    const name = $(this).attr('name');
+                                    if (!name) return;
+
+                                    const match = name.match(/\[([^\]]+)\]$/);
+                                    const key = match ? match[1] : null;
+                                    if (!key) return;
+
+                                    if (type === 'checkbox') {
+                                        row[key] = $(this).is(':checked') ? 1 : 0;
+                                    } else {
+                                        row[key] = $(this).val();
+                                    }
+                                });
+                                if (Object.keys(row).length > 0) data.push(row);
+                            });
+
+                            const formattedData = data;
+                            console.log("Repeater Data JSON:", formattedData);
+                            $textarea.val(JSON.stringify(formattedData));
+                        };
+
+                        $wrapper.on('click', '.add-row', function() {
+                            const rowId = `row_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
+                            const newRow = `<tr>
+                                ${fields.map(f => {
+                                    const inputName = `${fieldName}[${rowId}][${f.key}]`;
+                                    if (f.type === 'text') {
+                                        return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+                                    } else if (f.type === 'checkbox') {
+                                        return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+                                    }
+                                    return '<td></td>';
+                                }).join('')}
+                                <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                            </tr>`;
+                            $table.find('tbody').append(newRow);
+                            updateTextarea();
+                        });
+
+                        $wrapper.on('click', '.remove-row', function() {
+                            $(this).closest('tr').remove();
+                            updateTextarea();
+                        });
+
+                        $wrapper.on('change', 'input', function() {
+                            updateTextarea();
+                        });
+
+                        // Initial call to populate data
+                        updateTextarea();
+                    }
+                };
+            }
+        };
+        var renderOpts = {
+            controlConfig: {
+                'textarea.tinymce': {
+                    paste_data_images: false
+                }
+            }
+        };
+
+
         var fb = $('#build-wrap').formBuilder({
+            fields,
+            templates,
             stickyControls: {
                 enable: true,
                 offset: {
@@ -168,16 +354,37 @@
         }, 200);
 
         $('#save-form').on('click', function() {
-            const formJson = fb.actions.getData('json');
+            fb.actions.save();
+            let formJson = JSON.parse(fb.actions.getData('json'));
+            console.log('Add formdata', formJson);
             const form_name = $('#form_name').val();
+            let repeater_table_data = [];
+            $('textarea.serialized-data').each(function () {
+                const json = $(this).val();
+                if (json) {
+                    repeater_table_data.push(JSON.parse(json));
+                }
+            });
 
+            // Update the customRepeaterTable field's value with the correct serialized repeater data
+            formJson.forEach((field) => {
+                if (field.type === 'customRepeaterTable') {
+                    let merged = [];
+                    repeater_table_data.forEach(arr => {
+                        if (Array.isArray(arr)) {
+                            merged = merged.concat(arr);
+                        }
+                    });
+                    field.value = JSON.stringify(merged);
+                }
+            });
 
             $.ajax({
                 url: "{{ route('workgroup.store') }}",
 
                 method: 'POST',
                 data: {
-                    form_data: formJson,
+                    form_data: JSON.stringify(formJson),
                     form_name: form_name,
                     _token: '{{ csrf_token() }}'
                 },
