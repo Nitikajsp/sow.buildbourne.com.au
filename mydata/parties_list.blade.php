@@ -43,7 +43,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Name</th>
+                                <th>Client</th>
                                 <th>Email</th>
                                 <th>Phone</th>
                                 <th>Action</th>
