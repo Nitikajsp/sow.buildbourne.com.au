@@ -22,7 +22,7 @@
                         <!-- <div class="row">
                         <div class="col-lg-12 "> -->
                         <div class="pull-left head-label mt-3">
-                            <h2>View Client And Submission Detail </h2>
+                            <h2>View Project And Submission Detail </h2>
                         </div>
                         <!-- </div>
                     </div> -->
@@ -42,16 +42,16 @@
                                         <div class="col-sm-8">{{ $list->name }}</div>
                                     </div>
                                     <div class="row mb-2">
-                                        <div class="col-sm-4 fw-bold">Client ID:</div>
+                                        <div class="col-sm-4 fw-bold">Project ID:</div>
                                         <div class="col-sm-8">{{ $list->id }}</div>
                                     </div>
 
                                     <div class="row mb-2">
                                         <div class="col-sm-4 fw-bold">Phone Number:</div>
                                         <div class="col-sm-8">
-                                            <a href="tel:{{ $list->phone }}"
-                                                class="text-dark">{{ $list->contact_number }}</a>
+                                            <a href="tel:{{ $list->phone }}" style="color: #6f6b7d;">{{ $list->contact_number }}</a>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
