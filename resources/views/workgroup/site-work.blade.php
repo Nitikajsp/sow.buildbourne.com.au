@@ -36,6 +36,22 @@
     </div>
 </div>
 
+
+<!-- Centered Small Loader Modal -->
+<div id="mini-loader" style="display: none; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px; border-radius: 10px; z-index: 9999; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <div class="text-center">
+        <div class="spinner-border text-success" role="status" style="width: 2.5rem; height: 2.5rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 mb-0 fw-bold">Please wait...</p>
+    </div>
+</div>
+
+
+
+
 <script>
     $(function() {
         const originalFormData = JSON.parse(@json($questionJson ?? '[]'));
@@ -134,25 +150,22 @@
         });
 
         $('#submit-form').on('click', function() {
-            // Clear previous userData
+            // Show mini popup loader
+            $('#mini-loader').show();
+
+            // Disable the button and show "Submitting..."
+            $('#submit-form').prop('disabled', true).text('Submitting...');
+
             var userDataCustom = fb.userData;
             fb.userData = [];
 
-
             originalFormData.forEach((field, index) => {
-                console.log('All field', field);
                 if (field.type === 'customRepeaterTable') {
-                    const fieldName = field.name; // Dynamically get field name for each field
+                    const fieldName = field.name;
 
-                    // Match only the tables related to this field.name
                     $('.custom-repeater-table').each(function() {
-                        const tableId = $(this).data('field-id'); // Get the table's data-field-id
-                        // console.log("fieldName : ", fieldName);
-                        // console.log("tableId : ", tableId);
-
-                        // Check if the fieldName is exactly equal to the tableId (after trimming extra parts if necessary)
+                        const tableId = $(this).data('field-id');
                         if (tableId && tableId.includes(fieldName)) {
-                            // Proceed with your logic for this specific table
                             const $table = $(this);
                             let tableData = [];
 
@@ -179,30 +192,22 @@
                                         }
                                     }
                                 });
-                                console.log("before rowData", rowData);
+
                                 if (isRowValid && Object.keys(rowData).length > 0) {
                                     tableData.push(rowData);
-                                    console.log("after rowData", tableData);
                                 }
                             });
 
-
-
-                            console.log("before userData :", userDataCustom[index]);
-
                             if (tableData.length > 0) {
                                 field = tableData;
-                                console.log("after push data :", field);
                                 userDataCustom[index].userData = field;
                             }
-                            console.log("after userData :", userDataCustom[index].userData);
                         }
                     });
                 }
             });
 
-            console.log("FINAL FORM DATA:", userDataCustom);
-
+            // AJAX submit
             $.ajax({
                 url: "{{ route('parties.saveSiteWork') }}",
                 type: 'POST',
@@ -222,6 +227,11 @@
                 error: function(err) {
                     alert('Error submitting form.');
                     console.error(err);
+                },
+                complete: function() {
+                    // Hide loader and re-enable button
+                    $('#mini-loader').hide();
+                    $('#submit-form').prop('disabled', false).text('Submit Form');
                 }
             });
         });
