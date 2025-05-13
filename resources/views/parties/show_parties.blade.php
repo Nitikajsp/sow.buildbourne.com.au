@@ -45,7 +45,7 @@
                                     <div class="row mb-2">
                                         <div class="col-sm-4 fw-bold">Phone Number:</div>
                                         <div class="col-sm-8">
-                                            <a href="tel:{{ $client->phone }}" class="text-dark">{{ $client->phone }}</a>
+                                            <a href="tel:{{ $client->phone }}" style="color: #6f6b7d;">{{ $client->phone }}</a>
                                         </div>
                                     </div>
                                 </div>
