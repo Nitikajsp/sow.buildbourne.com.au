@@ -28,7 +28,6 @@
             margin-bottom: 3px;
         }
 
-
         textarea {
             border: 1px solid #ccc;
             padding: 6px;
@@ -49,16 +48,16 @@
 
     @foreach ($workData as $field)
     <div class="form-group">
-        <div class="label">{{ $field['label'] ?? 'Unnamed Field' }}</div>
+        <div class="label">{{ strip_tags($field['label'] ?? 'Unnamed Field') }}</div>
 
         {{-- Custom Repeater Table --}}
         @if($field['type'] === 'customRepeaterTable' && isset($field['userData']) && is_array($field['userData']))
         <div class="custom-repeater-output">
-            <table class="table table-bordered">
+            <table class="table table-bordered" border="1" cellspacing="0" cellpadding="5">
                 <thead>
                     <tr>
                         @foreach(array_keys($field['userData'][0]) as $column)
-                        <th>{{ ucfirst($column) }}</th>
+                        <th>{{ ucfirst(strip_tags($column)) }}</th>
                         @endforeach
                     </tr>
                 </thead>
@@ -66,7 +65,7 @@
                     @foreach($field['userData'] as $row)
                     <tr>
                         @foreach($row as $value)
-                        <td>{{ $value }}</td>
+                        <td>{{ strip_tags($value) }}</td>
                         @endforeach
                     </tr>
                     @endforeach
@@ -78,13 +77,12 @@
         @elseif(isset($field['values']) && is_array($field['values']))
         <div class="options">
             @foreach($field['values'] as $option)
-            <div class="option 
-                        {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'selected' : '' }}">
+            <div class="option">
                 <label>
                     <input type="checkbox"
                         {{ isset($field['userData']) && in_array($option['value'], $field['userData']) ? 'checked' : '' }}
                         disabled>
-                    {{ $option['label'] }}
+                    {{ strip_tags($option['label']) }}
                     @if(isset($field['userData']) && in_array($option['value'], $field['userData'])) ✅ @endif
                 </label>
             </div>
@@ -93,9 +91,13 @@
 
         {{-- Text Inputs / Textareas --}}
         @elseif(isset($field['userData']) && is_array($field['userData']))
-        <textarea readonly>{{ implode(', ', $field['userData']) }}</textarea>
+        <div>
+            @foreach($field['userData'] as $text)
+            {{ strip_tags($text) }}<br>
+            @endforeach
+        </div>
 
-        {{-- Default fallback --}}
+        {{-- Fallback --}}
         @else
         <div class="option">N/A</div>
         @endif
