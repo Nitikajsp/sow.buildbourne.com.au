@@ -12,10 +12,11 @@
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
             <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center py-4">
+                <div class=" d-flex justify-content-between align-items-center py-4">
                     <a href="{{ route('workgroup.showworkgroup') }}" class="float-left d-flex text-black">
                         <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                     </a>
+                    <button id="update-form" type="button" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Update Form</button>
                 </div>
             </div>
 
@@ -50,52 +51,73 @@
 
 <script>
     $(document).ready(function() {
-        const fields = [
-            {
-                label: 'Repeater Table',
-                class: 'repeater-table',
-                attrs: {
-                    type: 'customRepeaterTable',
-                    values: [
-                        {
-                            label: 'Option A',
-                            value: 'option-a'
-                        },
-                        {
-                            label: 'Option B',
-                            value: 'option-b'
-                        }
-                    ],
-                    fields: [
-                        { label: 'Description', type: 'text', className: 'custom-text-description' },
-                        { label: 'Colour', type: 'text', className: 'custom-text-colour' },
-                        { label: 'NA', type: 'checkbox', className: 'custom-text-na' }
-                    ]
-                },
-                value: [
-                    {
-                        description: 'Option A Description',
-                        colour: 'Red',
-                        na: 1
+        const fields = [{
+            label: 'Repeater Table',
+            class: 'repeater-table',
+            attrs: {
+                type: 'customRepeaterTable',
+                values: [{
+                        label: 'Option A',
+                        value: 'option-a'
                     },
                     {
-                        description: 'Option B Description',
-                        colour: 'Blue',
-                        na: 0
+                        label: 'Option B',
+                        value: 'option-b'
                     }
                 ],
-                icon: '📋'
-            }
-        ];
+                fields: [{
+                        label: 'Description',
+                        type: 'text',
+                        className: 'custom-text-description'
+                    },
+                    {
+                        label: 'Colour',
+                        type: 'text',
+                        className: 'custom-text-colour'
+                    },
+                    {
+                        label: 'NA',
+                        type: 'checkbox',
+                        className: 'custom-text-na'
+                    }
+                ]
+            },
+            value: [{
+                    description: 'Option A Description',
+                    colour: 'Red',
+                    na: 1
+                },
+                {
+                    description: 'Option B Description',
+                    colour: 'Blue',
+                    na: 0
+                }
+            ],
+            icon: '📋'
+        }];
 
         const templates = {
             customRepeaterTable: function(fieldData) {
                 const fieldName = fieldData.name || 'repeater';
                 const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-                const fields = fieldData.fields || fieldData.attrs?.fields || [
-                    { key: 'description', label: 'Description', type: 'text', className: 'custom-text-description' },
-                    { key: 'colour', label: 'Colour', type: 'text', className: 'custom-text-colour' },
-                    { key: 'na', label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+                const fields = fieldData.fields || fieldData.attrs?.fields || [{
+                        key: 'description',
+                        label: 'Description',
+                        type: 'text',
+                        className: 'custom-text-description'
+                    },
+                    {
+                        key: 'colour',
+                        label: 'Colour',
+                        type: 'text',
+                        className: 'custom-text-colour'
+                    },
+                    {
+                        key: 'na',
+                        label: 'NA',
+                        type: 'checkbox',
+                        className: 'custom-text-na'
+                    }
                 ];
 
                 // Normalize value
@@ -122,11 +144,17 @@
                                 return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" value="${row[f.key] || ''}" /></td>`;
                             } else if (f.type === 'checkbox') {
                                 const checked = row[f.key] ? 'checked' : '';
-                                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" ${checked} /></td>`;
+                                return ` < td > < input type = "checkbox"
+                    name = "${inputName}"
+                    class = "${f.className}"
+                    $ {
+                        checked
+                    }
+                    /></td > `;
                             }
                             return '<td></td>';
                         }).join('')}
-                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                        <td><button type="button" class="btn btn-danger btn-sm remove-row">âˆ’</button></td>
                     </tr>`;
                 }).join('');
 
@@ -148,21 +176,30 @@
                                                 return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
                                             } else if (f.type === 'checkbox') {
                                                 return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
-                                            }
-                                            return '<td></td>';
-                                        }).join('')}
-                                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
-                                    </tr>`}
-                                </tbody>
-                            </table>
-                            <button type="button" class="btn btn-primary btn-sm add-row">Add Row</button>
-                            <textarea name="${fieldName}_json" class="d-none serialized-data" id="${uniqueId}_json" data-table-id="${uniqueId}" data-field-name="${fieldName}"></textarea>
-                        </div>
-                    `,
+                }
+                return '<td></td>';
+            }).join('')
+    } <
+    td > < button type = "button"
+    class = "btn btn-danger btn-sm remove-row" > âˆ’ < /button></td >
+    <
+    /tr>`} < /
+    tbody > <
+    /table> <
+    button type = "button"
+    class = "btn btn-primary btn-sm add-row" > Add Row < /button> <
+    textarea name = "${fieldName}_json"
+    class = "d-none serialized-data"
+    id = "${uniqueId}_json"
+    data - table - id = "${uniqueId}"
+    data - field - name = "${fieldName}" > < /textarea> < /
+    div >
+    `,
                     onRender: function() {
-                        const $wrapper = $(`[data-field-id="${uniqueId}"]`);
+                        const $wrapper = $(` [data - field - id = "${uniqueId}"] `);
                         const $table = $wrapper.find('table');
-                        const $textarea = $wrapper.find(`textarea[data-table-id="${uniqueId}"]`);
+                        const $textarea = $wrapper.find(`
+    textarea[data - table - id = "${uniqueId}"] `);
 
                         const updateTextarea = () => {
                             const data = [];
@@ -187,54 +224,64 @@
                         };
 
                         $wrapper.on('click', '.add-row', function () {
-                            const rowId = `row_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-                            const newRow = `<tr>
-                                ${fields.map(f => {
-                                    const inputName = `${fieldName}[${rowId}][${f.key}]`;
-                                    if (f.type === 'text') {
-                                        return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
-                                    } else if (f.type === 'checkbox') {
-                                        return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
-                                    }
-                                    return '<td></td>';
-                                }).join('')}
-                                <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
-                            </tr>`;
-                            $table.find('tbody').append(newRow);
-                            updateTextarea();
-                        });
-
-                        $wrapper.on('click', '.remove-row', function () {
-                            $(this).closest('tr').remove();
-                            updateTextarea();
-                        });
-
-                        $wrapper.on('change', 'input', function () {
-                            updateTextarea();
-                        });
-
-                        updateTextarea(); // Initial call
-                    }
-                };
+                            const rowId = `
+    row_$ {
+        Date.now()
+    }
+    _$ {
+        Math.floor(Math.random() * 10000)
+    }
+    `;
+                            const newRow = ` < tr >
+    $ {
+        fields.map(f => {
+            const inputName = `${fieldName}[${rowId}][${f.key}]`;
+            if (f.type === 'text') {
+                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+            } else if (f.type === 'checkbox') {
+                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
             }
-        };
+            return '<td></td>';
+        }).join('')
+    } <
+    td > < button type = "button"
+    class = "btn btn-danger btn-sm remove-row" > âˆ’ < /button></td >
+    <
+    /tr>`;
+    $table.find('tbody').append(newRow); updateTextarea();
+    });
 
-        var renderOpts = {
-            controlConfig: {
-                'textarea.tinymce': {
-                    paste_data_images: false
-                }
+    $wrapper.on('click', '.remove-row', function() {
+        $(this).closest('tr').remove();
+        updateTextarea();
+    });
+
+    $wrapper.on('change', 'input', function() {
+        updateTextarea();
+    });
+
+    updateTextarea(); // Initial call
+    }
+    };
+    }
+    };
+
+    var renderOpts = {
+        controlConfig: {
+            'textarea.tinymce': {
+                paste_data_images: false
             }
-        };
+        }
+    };
 
-        const questionId = @json($questionId);
-        const savedJson = @json($questionJson);
+    const questionId = @json($questionId);
+    const savedJson = @json($questionJson);
 
-        const fb = $('#build-wrap').formBuilder({
-            fields,
-            templates,
-            formData: savedJson,
-            inputSets: [{
+    const fb = $('#build-wrap').formBuilder({
+        fields,
+        templates,
+        formData: savedJson,
+        inputSets: [{
                 label: 'Grouped Custom Fields',
                 name: 'grouped-custom-fields',
                 className: 'responsible-header',
@@ -296,69 +343,96 @@
                         className: 'additional-notes',
                     }
                 ]
-            }],
-            disabledAttrs: ['name'],
-            controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
-        });
-
-        $('#update-form').on('click', function() {
-            fb.actions.save(); // Save form builder data
-            let formJson = JSON.parse(fb.actions.getData('json'));
-            const form_name = $('#form_name').val();
-
-            const repeaterMap = {};
-
-            $('textarea.serialized-data').each(function () {
-                const json = $(this).val();
-                const fieldName = $(this).attr('data-field-name');
-                const cleanFieldName = fieldName?.replace(/-preview$/, '');
-
-                if (json && cleanFieldName) {
-                    try {
-                        JSON.parse(json); // Ensure valid JSON
-                        repeaterMap[cleanFieldName] = json;
-                    } catch (e) {
-                        console.warn("Invalid JSON for:", cleanFieldName);
+            },
+            {
+                label: 'Conditional Notes Fields',
+                name: 'conditional-notes-fields',
+                className: 'responsible-header',
+                icon: '📝',
+                showHeader: false,
+                fields: [{
+                        type: 'checkbox',
+                        label: 'Add Notes',
+                        className: 'add-notes',
+                        name: 'check-add-notes',
+                        values: [{
+                            label: 'Add Notes',
+                            value: 'add-notes',
+                            selected: false
+                        }]
+                    },
+                    {
+                        type: 'textarea',
+                        label: 'Additional Notes',
+                        className: 'additional-notes',
                     }
-                }
-            });
+                ]
+            },
+        ],
+        disabledAttrs: ['name'],
+        controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
+    });
 
-            formJson.forEach((field) => {
-                if (field.type === 'customRepeaterTable') {
-                    if (repeaterMap.hasOwnProperty(field.name)) {
-                        field.value = repeaterMap[field.name];
-                    } else {
-                        console.warn("No repeater data found for:", field.name);
-                    }
-                }
-            });
+    $('#update-form').on('click', function() {
+    fb.actions.save(); // Save form builder data
+    let formJson = JSON.parse(fb.actions.getData('json'));
+    const form_name = $('#form_name').val();
 
-            console.log("formJson", formJson);
+    const repeaterMap = {};
 
-            $('.render-wrap').formRender({ formData: formJson });
+    $('textarea.serialized-data').each(function() {
+        const json = $(this).val();
+        const fieldName = $(this).attr('data-field-name');
+        const cleanFieldName = fieldName?.replace(/-preview$/, '');
 
-            $.ajax({
-                url: "{{ route('workgroup.workgroupquestionupdate', ['id' => $questionId]) }}",
-                method: 'POST',
-                data: {
-                    form_data: JSON.stringify(formJson),
-                    form_name: form_name,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(res) {
-                    console.log('Form updated successfully:', res);
-                    $('#form-success-message')
-                        .removeClass('d-none')
-                        .text(res.message)
-                        .fadeIn()
-                        .delay(3000)
-                        .fadeOut();
-                },
-                error: function(err) {
-                    console.error(err);
-                }
-            });
-        });
+        if (json && cleanFieldName) {
+            try {
+                JSON.parse(json); // Ensure valid JSON
+                repeaterMap[cleanFieldName] = json;
+            } catch (e) {
+                console.warn("Invalid JSON for:", cleanFieldName);
+            }
+        }
+    });
+
+    formJson.forEach((field) => {
+        if (field.type === 'customRepeaterTable') {
+            if (repeaterMap.hasOwnProperty(field.name)) {
+                field.value = repeaterMap[field.name];
+            } else {
+                console.warn("No repeater data found for:", field.name);
+            }
+        }
+    });
+
+    console.log("formJson", formJson);
+
+    $('.render-wrap').formRender({
+        formData: formJson
+    });
+
+    $.ajax({
+        url: "{{ route('workgroup.workgroupquestionupdate', ['id' => $questionId]) }}",
+        method: 'POST',
+        data: {
+            form_data: JSON.stringify(formJson),
+            form_name: form_name,
+            _token: '{{ csrf_token() }}'
+        },
+        success: function(res) {
+            console.log('Form updated successfully:', res);
+            $('#form-success-message')
+                .removeClass('d-none')
+                .text(res.message)
+                .fadeIn()
+                .delay(3000)
+                .fadeOut();
+        },
+        error: function(err) {
+            console.error(err);
+        }
+    });
+    });
     });
 </script>
 
