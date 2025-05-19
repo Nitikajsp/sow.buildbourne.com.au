@@ -35,7 +35,7 @@
                             @forelse ($workgroupquestions as $question)
                             <div class="card mb-4">
                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h5 class="mb-0">Question ID: {{ $question->id }}</h5>
+                                    <h5 class="mb-0">Question Name: {{ $question->form_name }}</h5>
                                     <a href="{{ route('workgroup.workgroupquestionedit', $question->id) }}" class="btn btn-sm btn-dark">Edit</a>
                                 </div>
                                 <div class="card-body">

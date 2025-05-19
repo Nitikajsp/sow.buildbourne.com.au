@@ -33,7 +33,7 @@
                                     <h2>Add Project</h2>
                                 </div>
                                 <div class="pull-left">
-                                    <h5>Please enter your detail</h5>
+                                    <h5>Please enter project details</h5>
                                 </div>
                             </div>
                         </div>
@@ -114,40 +114,13 @@
                                         <div class="invalid-feedback"></div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">Builder Email</p>
-                                <input type="email" name="contact_email" class="form-control border border-white-50">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="builder" class="text-secondary mb-1">Builder Name</label>
-                                <input type="text" id="builder" name="builder_name" class="form-control border border-white-50">
-                                <span class="text-danger error-text builder-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <label for="status" class="text-secondary mb-1">Status For</label>
-                                <div class="input-group">
-                                    <select id="status" name="status" class="form-select">
-                                        <option value="">Select...</option>
-                                        <option value="Pending">Pending</option>
-                                        <option value="In Progress">In Progress</option>
-                                        <option value="Completed">Completed</option>
-                                    </select>
-                                </div>
-                                <span class="text-danger error-text status-error"></span>
-                            </div>
-                        </div> -->
+
 
                                 <div class="pull-right mt-1 text-center">
                                     <button type="submit"
                                         class="btn btn-primary btn btn-dark me-1 rounded">Save</button>
-                                    <button type="reset" class="btn btn-outline-dark waves-effect rounded"
-                                        data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                                    <a href="{{ url()->previous() }}" class="btn btn-outline-dark waves-effect rounded" data-bs-dismiss="modal" aria-label="Close">Cancel</a>
+
                                 </div>
                             </div>
 

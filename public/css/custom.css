@@ -919,3 +919,141 @@ div#app {
 .form-actions.btn-group {
     display: none !important;
 }
+
+
+
+/* Form Container */
+.rendered-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fdfdfd;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+ 
+/* Headings */
+.rendered-form h2 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #333;
+  border-left: 5px solid #007bff;
+  padding-left: 15px;
+  margin-bottom: 30px;
+}
+ 
+/* Form Groups */
+.form-group {
+  margin-bottom: 25px;
+}
+ 
+/* Labels */
+.formbuilder-radio-group-label,
+.formbuilder-textarea-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 10px;
+}
+ 
+/* Required Asterisk */
+.formbuilder-required {
+  color: #dc3545;
+  margin-left: 4px;
+}
+ 
+/* Tooltip Styling */
+.tooltip-element {
+  display: inline-block;
+  font-size: 14px;
+  color: #007bff;
+  margin-left: 6px;
+  cursor: pointer;
+}
+ 
+/* Radio Group */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+ 
+.formbuilder-radio {
+  display: flex;
+  align-items: center;
+}
+ 
+.formbuilder-radio input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  accent-color: #007bff;
+}
+ 
+/* Textarea Styling */
+textarea.form-control {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px;
+  font-size: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.3s;
+}
+ 
+textarea.form-control:focus {
+  border-color: #80bdff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+ 
+/* Conditional 'If by builder' Sections */
+.buildr-details {
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+ 
+.buildr-details label {
+  font-weight: 500;
+  font-size: 15px;
+  margin-bottom: 8px;
+  display: block;
+}
+ 
+/* Hide on page load (if required) */
+.buildr-details[style*="display: none"] {
+  display: none !important;
+}
+
+
+.formbuilder-radio-group.form-group {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border-bottom: 1px solid #CFCFCF;
+    align-items: center;
+}
+ 
+.formbuilder-radio-group label {
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+}
+ 
+.radio-group {
+    flex-direction: row;
+    gap: 30px;
+}
+ 
+.formbuilder-radio-group label {
+    margin-bottom: 0px;
+}

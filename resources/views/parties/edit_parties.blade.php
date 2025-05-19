@@ -31,7 +31,7 @@
                                     <h2>Edit Client</h2>
                                 </div>
                                 <div class="pull-left">
-                                    <h5>Please update the details below</h5>
+                                    <h5>Please update the client details </h5>
                                 </div>
                             </div>
                         </div>
@@ -93,39 +93,7 @@
 
                                 <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
 
-                                    <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">State</p>
-                                <select name="state" class="form-control border border-white-50">
-                                    <option value="New South Wales (NSW)" {{ old('state', $client->state) == 'New South Wales (NSW)' ? 'selected' : '' }}>New South Wales (NSW)</option>
-                                    <option value="Victoria (VIC)" {{ old('state', $client->state) == 'Victoria (VIC)' ? 'selected' : '' }}>Victoria (VIC)</option>
-                                    <option value="Queensland (QLD)" {{ old('state', $client->state) == 'Queensland (QLD)' ? 'selected' : '' }}>Queensland (QLD)</option>
-                                    <option value="Western Australia (WA)" {{ old('state', $client->state) == 'Western Australia (WA)' ? 'selected' : '' }}>Western Australia (WA)</option>
-                                    <option value="South Australia (SA)" {{ old('state', $client->state) == 'South Australia (SA)' ? 'selected' : '' }}>South Australia (SA)</option>
-                                    <option value="Tasmania (TAS)" {{ old('state', $client->state) == 'Tasmania (TAS)' ? 'selected' : '' }}>Tasmania (TAS)</option>
-                                    <option value="Australian Capital Territory (ACT)" {{ old('state', $client->state) == 'Australian Capital Territory (ACT)' ? 'selected' : '' }}>Australian Capital Territory (ACT)</option>
-                                    <option value="Northern Territory (NT)" {{ old('state', $client->state) == 'Northern Territory (NT)' ? 'selected' : '' }}>Northern Territory (NT)</option>
-                                </select>
-                            </div>
-                        </div> -->
 
-                                    <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                                <div class="form-group">
-                                    <p class="text-secondary mb-1">client Type</p>
-                                    <select name="client_type" class="form-control border border-white-50">
-                                        <option value="builder" {{ old('client_type', $client->client_type) == 'Builder' ? 'selected' : '' }}>Builder</option>
-                                        <option value="builder" {{ old('client_type', $client->client_type) == 'Owner' ? 'selected' : '' }}>Owner</option>
-                                    </select>
-                                </div>
-                            </div> -->
-
-                                    <!-- <div class="col-xs-12 col-sm-12 col-md-12 mb-3">
-                            <div class="form-group">
-                                <p class="text-secondary mb-1">Pincode</p>
-                                <input type="text" name="pincode" value="{{ old('pincode', $client->pincode) }}" class="form-control border border-white-50" placeholder="Pincode">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div> -->
 
                                     <div class="pull-right mt-1 text-center">
                                         <button type="submit"
@@ -146,9 +114,7 @@
 
     <script>
         $(document).ready(function() {
-            // Custom validation methods
             $.validator.addMethod("validEmail", function(value, element) {
-                // General regex for email validation
                 return this.optional(element) || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
             }, "Please enter a valid email address.");
 
@@ -158,7 +124,6 @@
                 return this.optional(element) || /^[a-zA-Z\s]+$/.test(value);
             }, "Name should contain only letters and spaces.");
 
-            // Initialize form validation
             $("#editclientForm").validate({
                 rules: {
                     name: {
