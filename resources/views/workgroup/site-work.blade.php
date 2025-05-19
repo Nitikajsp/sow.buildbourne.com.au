@@ -308,4 +308,9 @@
         }, 500);
     });
 </script>
+<script>
+    $(document).ready(function() {
+        $('input[type="checkbox"].add-notes').prop('checked', false);
+    });
+</script>
 @endsection

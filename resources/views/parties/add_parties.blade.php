@@ -33,7 +33,7 @@
                                     <h2>Add Client </h2>
                                 </div>
                                 <div class="pull-left">
-                                    <h5>Please enter your details</h5>
+                                    <h5>Please enter your client details</h5>
                                 </div>
                             </div>
                         </div>

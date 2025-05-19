@@ -61,7 +61,7 @@ class ListController extends Controller
 
 
         return redirect()->route('client.show', $request->input('parties_id'))
-            ->with('success', 'List created successfully.');
+            ->with('success', 'project created successfully.');
     }
 
 

@@ -27,6 +27,13 @@
                                 </div>
                             </div>
                         </div>
+                        @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
+
                         <div class="card px-3 py-4 table_scroll party_table_width">
                             <div class="d-flex">
                                 <div class=" d-flex flex-column justify-content-center w-100">
