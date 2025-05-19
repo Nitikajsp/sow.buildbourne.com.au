@@ -39,37 +39,7 @@
                                     <a href="{{ route('workgroup.workgroupquestionedit', $question->id) }}" class="btn btn-sm btn-dark">Edit</a>
                                 </div>
                                 <div class="card-body">
-                                    <div class="rendered-form" id="form-render-{{ $question->id }}">
-                                        {{-- Decode the JSON data and loop through it --}}
-                                        @if($question->questions_from_data)
-                                        @php
-                                        $questionData = json_decode($question->questions_from_data, true);
-                                        @endphp
 
-                                        @if(is_array($questionData))
-                                        {{-- Loop through the decoded data --}}
-                                        @foreach ($questionData as $item)
-                                        @if ($item['type'] === 'header')
-                                        @elseif ($item['type'] === 'radio-group')
-                                        {{-- Show the header and ID of the radio group --}}
-                                        <!--<div class="radio-group">-->
-                                        <!--    @foreach ($item['values'] as $value)-->
-                                        <!--    <label>-->
-                                        <!--        <input type="radio" name="{{ $item['name'] }}" value="{{ $value['value'] }}"-->
-                                        <!--            @if($value['selected']) checked @endif>-->
-                                        <!--        {{ $value['label'] }}-->
-                                        <!--    </label><br>-->
-                                        <!--    @endforeach-->
-                                        <!--</div>-->
-                                        @endif
-                                        @endforeach
-                                        @else
-                                        <p>Invalid form data format.</p>
-                                        @endif
-                                        @else
-                                        <p>No form data available.</p>
-                                        @endif
-                                    </div>
                                 </div>
                             </div>
                             @empty
@@ -88,16 +58,13 @@
             font-weight: bold;
         }
 
-        #partylist tbody tr:nth-child(odd) {
-            /* border-bottom: 2px solid #ddd; */
-        }
+        #partylist tbody tr:nth-child(odd) {}
 
         #partylist tbody tr:nth-child(even) {
             background-color: #f9f9f9;
         }
     </style>
 
-    <!-- Delete Confirmation Modal -->
     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
