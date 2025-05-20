@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @push('css')
-<link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+<!-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}" /> -->
+<link rel="stylesheet" href="{{ asset('css/add_and_edit_custom.css') }}" />
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.1/jquery.bootstrap-touchspin.min.css">
 @endpush
@@ -23,9 +24,6 @@
                 <div class="col-md-7">
                     <div class="inner-container ">
                         <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage">
-
-
-                        <!-- <div class="col-md-12 d-flex justify-content-between align-items-center "> -->
 
                         <h2>Work Group Question</h2>
                         <!-- </div> -->
@@ -189,15 +187,15 @@
     td > < button type = "button"
     class = "btn btn-danger btn-sm remove-row" > âˆ’ < /button></td >
     <
-    /tr>`} <
-    /tbody> <
+    /tr>`} < /
+    tbody > <
     /table> <
     button type = "button"
     class = "btn btn-primary btn-sm add-row" > Add Row < /button> <
     textarea name = "${fieldName}_json"
     class = "d-none serialized-data"
-    id = "${uniqueId}_json" > < /textarea> <
-    /div>
+    id = "${uniqueId}_json" > < /textarea> < /
+    div >
     `,
                     onRender: function() {
                         const $wrapper = $(`
