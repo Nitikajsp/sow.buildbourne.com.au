@@ -24,7 +24,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Edit Submission Question</h2>
+                    <h2 class="page-title text-center">Edit Submission Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
                 </div>
@@ -132,7 +132,6 @@
 
         $('#submit-form').on('click', function() {
 
-            // Get the form data as JSON
             var userDataCustom = fb.userData;
             fb.userData = [];
 
@@ -140,17 +139,11 @@
             originalFormData.forEach((field, index) => {
                 console.log('All field', field);
                 if (field.type === 'customRepeaterTable') {
-                    const fieldName = field.name; // Dynamically get field name for each field
-
-                    // Match only the tables related to this field.name
+                    const fieldName = field.name;
                     $('.custom-repeater-table').each(function() {
-                        const tableId = $(this).data('field-id'); // Get the table's data-field-id
-                        // console.log("fieldName : ", fieldName);
-                        // console.log("tableId : ", tableId);
+                        const tableId = $(this).data('field-id');
 
-                        // Check if the fieldName is exactly equal to the tableId (after trimming extra parts if necessary)
                         if (tableId && tableId.includes(fieldName)) {
-                            // Proceed with your logic for this specific table
                             const $table = $(this);
                             let tableData = [];
 

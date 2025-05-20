@@ -226,6 +226,35 @@
                         };
 
                         $wrapper.on('click', '.add-row', function () {
+<<<<<<< HEAD
+         const rowId = `
+    row_$ {
+        Date.now()
+    }
+    _$ {
+        Math.floor(Math.random() * 10000)
+    }
+    `;
+ 
+                                const newRow = ` < tr >
+    $ {
+        fields.map(f => {
+            const inputName = `${fieldName}[${rowId}][${f.key}]`;
+            if (f.type === 'text') {
+                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+            } else if (f.type === 'checkbox') {
+                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+            }
+            return '<td></td>';
+        }).join('')
+    } <
+    td > < button type = "button"
+    class = "btn btn-danger btn-sm remove-row" > − < /button></td >
+    <
+    /tr>`;
+    $table.find('tbody').append(newRow); updateTextarea();
+    });
+=======
                             const rowId = `row_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
 
                                 const newRow = `<tr>
@@ -242,6 +271,7 @@
                                 </tr>`;
                                 $table.find('tbody').append(newRow); updateTextarea();
                             });
+>>>>>>> 853aef85d5e89732e67870b7bc89150e399f3432
 
     $wrapper.on('click', '.remove-row', function() {
         $(this).closest('tr').remove();
