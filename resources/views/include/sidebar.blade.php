@@ -39,11 +39,10 @@
         </li>
 
 
-
+        <!-- 
         <li class="nav-item {{ request()->routeIs('workgroup.showworkgroup') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showworkgroup') }}" class="customnav-link  text-white">
 
-                <!-- SVG Icon -->
 
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
@@ -53,7 +52,8 @@
                 </svg>
                 <span class="text-small" style="font-size: 12px;">WorkGroup</span>
             </a>
-        </li>
+        </li> -->
+
         <li class="nav-item {{ request()->routeIs('workgroup.showgroupquestion') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showgroupquestion') }}" class="customnav-link  text-white">
 
@@ -84,22 +84,6 @@
         </li>
 
 
-        <!-- Categories -->
-        <!-- <li class="nav-item {{ request()->routeIs('showcategory') ? 'active' : '' }}">
-            <a href="{{ route('showcategory') }}" class="customnav-link  text-white">
-                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M11.5 21h-2.926a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304h11.339a2 2 0 0 1 1.977 2.304l-.5 3.248" />
-                    <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
-                    <path d="M15 19l2 2l4 -4" />
-                </svg>
-                <span class="text-small" style="font-size: 12px; ">Categories</span>
-            </a>
-        </li> -->
-
-        <!-- Settings -->
 
         <li class="nav-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
             <a href="{{ route('settings.index') }}" class="customnav-link  text-white">
