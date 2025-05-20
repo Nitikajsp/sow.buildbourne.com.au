@@ -226,32 +226,22 @@
                         };
 
                         $wrapper.on('click', '.add-row', function () {
-                            const rowId = `
-    row_$ {
-        Date.now()
-    }
-    _$ {
-        Math.floor(Math.random() * 10000)
-    }
-    `;
-                            const newRow = ` < tr >
-    $ {
-        fields.map(f => {
-            const inputName = `${fieldName}[${rowId}][${f.key}]`;
-            if (f.type === 'text') {
-                return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
-            } else if (f.type === 'checkbox') {
-                return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
-            }
-            return '<td></td>';
-        }).join('')
-    } <
-    td > < button type = "button"
-    class = "btn btn-danger btn-sm remove-row" > âˆ’ < /button></td >
-    <
-    /tr>`;
-    $table.find('tbody').append(newRow); updateTextarea();
-    });
+                            const rowId = `row_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+
+                                const newRow = `<tr>
+                                ${fields.map(f => {
+                                    const inputName = `${fieldName}[${rowId}][${f.key}]`;
+                                    if (f.type === 'text') {
+                                    return `<td><input type="text" name="${inputName}" class="form-control ${f.className}" /></td>`;
+                                    } else if (f.type === 'checkbox') {
+                                    return `<td><input type="checkbox" name="${inputName}" class="${f.className}" /></td>`;
+                                    }
+                                    return '<td></td>';
+                                }).join('')}
+                                <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                                </tr>`;
+                                $table.find('tbody').append(newRow); updateTextarea();
+                            });
 
     $wrapper.on('click', '.remove-row', function() {
         $(this).closest('tr').remove();
@@ -381,7 +371,38 @@
         return false;
     });
 
+   setTimeout(function() {
+        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site'];
 
+        $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
+            const $inputs = $(this).find('input');
+
+            $inputs.each(function() {
+                const inputClasses = $(this).attr('class');
+                if (inputClasses) {
+                    inputClasses.split(' ').forEach(cls => {
+                        if (targetClasses.includes(cls)) {
+                            $(this).closest('.form-group').addClass(cls);
+                        }
+                    });
+                }
+            });
+        });
+
+        // For textareas
+        $('.formbuilder-textarea').each(function() {
+            const $textarea = $(this).find('textarea');
+            const textareaClasses = $textarea.attr('class');
+
+            if (textareaClasses) {
+                textareaClasses.split(' ').forEach(cls => {
+                    if (targetClasses.includes(cls)) {
+                        $(this).addClass(cls);
+                    }
+                });
+            }
+        });
+    }, 1000);
     $('#update-form').on('click', function() {
     fb.actions.save();
     let formJson = JSON.parse(fb.actions.getData('json'));
