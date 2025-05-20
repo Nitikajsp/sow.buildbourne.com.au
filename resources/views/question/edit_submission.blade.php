@@ -22,24 +22,17 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
-
                 <div class="col-md-12">
-                    <h2>Edit Work Group Question</h2>
+                    <h2>Edit Submission Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-<?php
-echo '<pre>';
-print_r($workData);
-echo '</pre>';
-?>
+
 <script>
     $(function() {
         const originalFormData = @json($workData ?? []);

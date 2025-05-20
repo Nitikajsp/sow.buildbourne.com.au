@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @push('css')
-<link rel="stylesheet" href="{{ asset('css/custom.css') }}" />
+<!-- <link rel="stylesheet" href="{{ asset('css/custom.css') }}" /> -->
+<link rel="stylesheet" href="{{ asset('css/add_and_edit_custom.css') }}" />
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.1/jquery.bootstrap-touchspin.min.css">
 @endpush
 
@@ -16,7 +18,6 @@
                     <a href="{{ route('workgroup.showworkgroup') }}" class="float-left d-flex text-black">
                         <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                     </a>
-                    <button id="update-form" type="button" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Update Form</button>
                 </div>
             </div>
 
@@ -25,6 +26,8 @@
                     <div id="form-success-message" class="alert alert-success d-none"></div>
                     <div class="inner-container">
                         <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage" value="{{ old('form_name', $form_name ?? '') }}">
+                        <button id="#update-top-form" type="button" class="btn btn-primary create-new waves-effect waves-light btn-dark rounded">Update Form</button>
+
                         <h2>Edit Work Group Question</h2>
                         @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
@@ -120,7 +123,6 @@
                     }
                 ];
 
-                // Normalize value
                 let rawValue = fieldData.value || fieldData.attrs?.value || [];
                 let value = [];
                 if (typeof rawValue === 'string') {
@@ -260,7 +262,7 @@
         updateTextarea();
     });
 
-    updateTextarea(); // Initial call
+    updateTextarea();
     }
     };
     }
@@ -373,8 +375,15 @@
         controlOrder: ['text', 'radio-group', 'checkbox', 'textarea'],
     });
 
+
+    $('#update-top-form').on('click', function() {
+        $('#update-form').trigger('click');
+        return false;
+    });
+
+
     $('#update-form').on('click', function() {
-    fb.actions.save(); // Save form builder data
+    fb.actions.save();
     let formJson = JSON.parse(fb.actions.getData('json'));
     const form_name = $('#form_name').val();
 
@@ -387,7 +396,7 @@
 
         if (json && cleanFieldName) {
             try {
-                JSON.parse(json); // Ensure valid JSON
+                JSON.parse(json);
                 repeaterMap[cleanFieldName] = json;
             } catch (e) {
                 console.warn("Invalid JSON for:", cleanFieldName);
