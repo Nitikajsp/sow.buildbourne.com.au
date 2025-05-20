@@ -230,6 +230,11 @@ input[type="radio"] {
     accent-color: #5c662b;
 }
 
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #5c662b;
+}
 
 .link-color {
     color: #364494
@@ -952,6 +957,17 @@ div#app {
     padding-bottom: 10px;
 }
 
+.header-question-set {
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    font-weight: 600;
+    color: #000;
+}
+
+
+
 /* Form Groups */
 .form-group {
     margin-bottom: 25px;
@@ -985,7 +1001,7 @@ div#app {
 /* Radio Group */
 .radio-group {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 6px;
 }
 
@@ -1146,5 +1162,10 @@ textarea.form-control:focus {
     padding: 10px;
 }
 
+.formbuilder-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
 
 /* .form-wrap.form-builder .tooltip-element {} */
