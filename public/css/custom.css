@@ -978,7 +978,7 @@ div#app {
 .formbuilder-textarea-label {
     display: block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500 !important;
     color: #222;
     margin-bottom: 10px;
 }
@@ -999,14 +999,15 @@ div#app {
 }
 
 /* Radio Group */
-.radio-group {
+.radio-group:not(:has(.formbuilder-radio-inline)) {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     gap: 6px;
 }
 
 .formbuilder-radio {
     display: flex;
+    gap: 10px;
     align-items: center;
 }
 
@@ -1043,10 +1044,11 @@ textarea.form-control:focus {
     margin-top: 10px;
 }
 
-.buildr-details label {
+.buildr-details .formbuilder-radio label,
+.buildr-details .formbuilder-radio-inline label {
     font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    /* margin-bottom: 12px; */
 }
 
 .buildr-details .formbuilder-radio-inline label {
@@ -1104,6 +1106,7 @@ textarea.form-control:focus {
 }
 
 .responsible-party .radio-group {
+    display: flex;
     flex-direction: row;
     gap: 30px;
 }
@@ -1120,6 +1123,7 @@ textarea.form-control:focus {
     margin-bottom: 0px;
 }
 
+.formbuilder-radio-group.responsible-party .formbuilder-radio label,
 .formbuilder-radio-group.responsible-party .formbuilder-radio-inline label {
     font-size: 12px;
     line-height: 16px;
@@ -1160,6 +1164,14 @@ textarea.form-control:focus {
 
 .form-wrap.form-builder .frmb .prev-holder {
     padding: 10px;
+}
+
+.formbuilder-radio-inline {
+    display: inline-flex;
+}
+
+.formbuilder-radio-inline input[type="radio"] {
+    vertical-align: middle;
 }
 
 .formbuilder-checkbox {
