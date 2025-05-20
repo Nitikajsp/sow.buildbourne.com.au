@@ -149,6 +149,39 @@
             templates: templates
         });
 
+           setTimeout(function() {
+        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site'];
+
+        $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
+            const $inputs = $(this).find('input');
+
+            $inputs.each(function() {
+                const inputClasses = $(this).attr('class');
+                if (inputClasses) {
+                    inputClasses.split(' ').forEach(cls => {
+                        if (targetClasses.includes(cls)) {
+                            $(this).closest('.form-group').addClass(cls);
+                        }
+                    });
+                }
+            });
+        });
+
+        // For textareas
+        $('.formbuilder-textarea').each(function() {
+            const $textarea = $(this).find('textarea');
+            const textareaClasses = $textarea.attr('class');
+
+            if (textareaClasses) {
+                textareaClasses.split(' ').forEach(cls => {
+                    if (targetClasses.includes(cls)) {
+                        $(this).addClass(cls);
+                    }
+                });
+            }
+        });
+    }, 1000);
+
         $('#submit-form').on('click', function() {
             // Show mini popup loader
             $('#mini-loader').show();
