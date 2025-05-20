@@ -26,7 +26,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <h2>Add Work Group Question</h2>
+                    <h2 class="page-title text-center">Add Work Group Question</h2>
                     <div class="fb-render"></div>
                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
 

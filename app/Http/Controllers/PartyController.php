@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\Browsershot\Browsershot;
+
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
 
@@ -205,19 +207,25 @@ class PartyController extends Controller
         $party = Parties::find($request->partyId);
 
         if ($party && $party->email) {
+
             $workData = $form_data;
+
+            // $html = view('emails.site_work_submitted', [])->render();
+
+            // $pdf = Browsershot::html($html)->pdf();
 
             $pdf = Pdf::loadView('emails.site_work_submitted', [
                 'party' => $party,
                 'workData' => $workData
             ]);
 
-
             Mail::send([], [], function ($message) use ($party, $pdf) {
                 $message->to($party->email)
                     ->subject('Site Work Updated')
                     ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
             });
+
+            // Mail::to('user@example.com')->send(new \App\Mail\ChartMail($pdf));
         }
 
         return response()->json([
