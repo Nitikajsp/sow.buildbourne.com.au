@@ -15,7 +15,7 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    <h2>View Submission Data</h2>
+                    <h2 class="page-title text-center">View Submission Data</h2>
                     <div class="fb-render"></div>
                 </div>
             </div>
@@ -26,9 +26,7 @@
 <script>
     $(function() {
 
-         const originalFormData = @json($workData ?? []);
-        //  const formData = @json($workData ?? []);
-        // console.log('originalFormData', originalFormData);
+        const originalFormData = @json($workData ?? []);
 
         originalFormData.forEach((field) => {
             if (field.type === 'customRepeaterTable') {
@@ -79,7 +77,13 @@
                                 return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
                             } else if (f.type === 'checkbox') {
                                 const checked = row[f.key] ? 'checked' : '';
-                                return `<td><input type = "checkbox" name="${inputName}" class = "${f.className}"${checked} /></td>`;
+                                return ` < td > < input type = "checkbox"
+                    name = "${inputName}"
+                    class = "${f.className}"
+                    $ {
+                        checked
+                    }
+                    /></td > `;
                             }
                             return '<td></td>';
                         }).join('')}

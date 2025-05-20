@@ -226,7 +226,7 @@
                         };
 
                         $wrapper.on('click', '.add-row', function () {
-                            const rowId = `
+         const rowId = `
     row_$ {
         Date.now()
     }
@@ -234,7 +234,8 @@
         Math.floor(Math.random() * 10000)
     }
     `;
-                            const newRow = ` < tr >
+ 
+                                const newRow = ` < tr >
     $ {
         fields.map(f => {
             const inputName = `${fieldName}[${rowId}][${f.key}]`;
@@ -247,7 +248,7 @@
         }).join('')
     } <
     td > < button type = "button"
-    class = "btn btn-danger btn-sm remove-row" > âˆ’ < /button></td >
+    class = "btn btn-danger btn-sm remove-row" > − < /button></td >
     <
     /tr>`;
     $table.find('tbody').append(newRow); updateTextarea();
