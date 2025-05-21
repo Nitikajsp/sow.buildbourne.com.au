@@ -230,6 +230,12 @@ input[type="radio"] {
     accent-color: #5c662b;
 }
 
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #5c662b;
+}
+
 .page-header {
     max-width: 900px;
     margin: 0px auto;
@@ -955,6 +961,17 @@ div#app {
     padding-bottom: 10px;
 }
 
+.header-question-set {
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    font-weight: 600;
+    color: #000;
+}
+
+
+
 /* Form Groups */
 .form-group {
     margin-bottom: 25px;
@@ -965,7 +982,7 @@ div#app {
 .formbuilder-textarea-label {
     display: block;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 500 !important;
     color: #222;
     margin-bottom: 10px;
 }
@@ -986,7 +1003,7 @@ div#app {
 }
 
 /* Radio Group */
-.radio-group {
+.radio-group:not(:has(.formbuilder-radio-inline)) {
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -994,6 +1011,7 @@ div#app {
 
 .formbuilder-radio {
     display: flex;
+    gap: 10px;
     align-items: center;
 }
 
@@ -1030,10 +1048,11 @@ textarea.form-control:focus {
     margin-top: 10px;
 }
 
-.buildr-details label {
+.buildr-details .formbuilder-radio label,
+.buildr-details .formbuilder-radio-inline label {
     font-weight: 500;
-    font-size: 15px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    /* margin-bottom: 12px; */
 }
 
 .buildr-details .formbuilder-radio-inline label {
@@ -1091,6 +1110,7 @@ textarea.form-control:focus {
 }
 
 .responsible-party .radio-group {
+    display: flex;
     flex-direction: row;
     gap: 30px;
 }
@@ -1107,6 +1127,7 @@ textarea.form-control:focus {
     margin-bottom: 0px;
 }
 
+.formbuilder-radio-group.responsible-party .formbuilder-radio label,
 .formbuilder-radio-group.responsible-party .formbuilder-radio-inline label {
     font-size: 12px;
     line-height: 16px;
@@ -1149,18 +1170,18 @@ textarea.form-control:focus {
     padding: 10px;
 }
 
-.kc-toggle {
-    display: none !important;
+.formbuilder-radio-inline {
+    display: inline-flex;
 }
 
+.formbuilder-radio-inline input[type="radio"] {
+    vertical-align: middle;
+}
 
-.kc-toggle {
-    all: unset !important;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    appearance: none !important;
-    pointer-events: none !important;
+.formbuilder-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px
 }
 
 /* .form-wrap.form-builder .tooltip-element {} */

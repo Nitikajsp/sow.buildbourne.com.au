@@ -107,7 +107,7 @@
                                 return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
                             } else if (f.type === 'checkbox') {
                                 const checked = row[f.key] ? 'checked' : '';
-                                return ` < td > < input type = "checkbox"
+                                return `<td> <input type = "checkbox"
                     name = "${inputName}"
                     class = "${f.className}"
                     $ {
@@ -150,8 +150,8 @@
             templates: templates
         });
 
-        setTimeout(function() {
-            const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes', 'section_initial_power_to_site'];
+           setTimeout(function() {
+        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site','protection-question'];
 
             $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
                 const $inputs = $(this).find('input');
@@ -302,19 +302,23 @@
             });
         }, 200);
 
-        function applyConditionalVisibility() {
-            $('.buildr-details, .owner-details').closest('.form-group').hide();
-            $('.formbuilder-radio-group.responsible-party').each(function() {
-                const $group = $(this);
-                const selected = $group.find('input[type="radio"]:checked').val();
+      function applyConditionalVisibility() {
+    // Hide all relevant details initially
+    $('.buildr-details, .owner-details').closest('.form-group').hide();
 
-                if (selected === 'By Builder') {
-                    $group.nextAll('.buildr-details').first().closest('.form-group').show();
-                } else if (selected === 'By Owner') {
-                    $group.nextAll('.owner-details').first().closest('.form-group').show();
-                }
-            });
+    // Combine selectors for both radio groups
+    $('.formbuilder-radio-group.responsible-party, .formbuilder-radio-group.protection-question').each(function () {
+        const $group = $(this);
+        const selected = $group.find('input[type="radio"]:checked').val();
+
+        if (selected === 'By Builder' || selected === 'Yes') {
+            $group.nextAll('.buildr-details').first().closest('.form-group').show();
+        } else if (selected === 'By Owner') {
+            $group.nextAll('.owner-details').first().closest('.form-group').show();
         }
+    });
+}
+
 
         function applyNotesVisibility() {
             $('.formbuilder-checkbox.add-notes').each(function() {
@@ -331,7 +335,11 @@
         $(document).on('change', 'input.responsible-party[type="radio"]', function() {
             applyConditionalVisibility();
         });
+         $(document).on('change', 'input.protection-question[type="radio"]', function() {
+            applyConditionalVisibility();
+        });
 
+ 
         $(document).on('change', 'input.add-notes[type="checkbox"]', function() {
             applyNotesVisibility();
         });
