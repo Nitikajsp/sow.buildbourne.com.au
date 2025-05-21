@@ -11,19 +11,15 @@
 
         <div class="container-fluid ">
             @include('include.navbar')
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                    <div class="col-md-12">
-                        <a href="{{ route('client.show', $list->parties_id ?? $partyId) }}"
-                            class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-                        </a>
-                    </div>
-                </div>
+            <div class=" d-flex justify-content-between align-items-center page-header">
+                <a href="{{ route('client.show', $list->parties_id ?? $partyId) }}"
+                    class="float-left d-flex text-black">
+                    <i
+                        class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                </a>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-7">
                     <div class="inner-container ">
                         <div class="row">

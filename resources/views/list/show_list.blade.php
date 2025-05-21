@@ -10,22 +10,18 @@
             @include('include.navbar')
 
             <div class="py-3">
-                <div class="row">
-                    <div class="col-md-12">
-                        <a href="{{ url()->previous() }}" class="float-left d-flex text-black"><i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 "></i>Back</a>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center page-header">
+                    <a href="{{ url()->previous() }}" class="float-left d-flex text-black"><i
+                            class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 "></i>Back</a>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-7">
-                        <!-- <div class="row">
-                        <div class="col-lg-12 "> -->
-                        <div class="pull-left head-label mt-3">
+
+                        <div class="pull-left head-label mt-3 text-center">
                             <h2>View Project And Submission Detail </h2>
                         </div>
-                        <!-- </div>
-                    </div> -->
+
                         @if(session('success'))
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             {{ session('success') }}
