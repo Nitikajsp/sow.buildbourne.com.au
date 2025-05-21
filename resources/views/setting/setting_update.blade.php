@@ -11,22 +11,18 @@
         <div class="container-fluid">
             @include('include.navbar')
 
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                    <div class="col-md-12">
-                        <a href="{{ route('home') }}" class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-                        </a>
-                    </div>
-                </div>
+            <div class=" d-flex justify-content-between align-items-center page-header">
+                <a href="{{ route('home') }}" class="float-left d-flex text-black">
+                    <i
+                        class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                </a>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-7">
                     <div class="inner-container  ">
                         <div class="d-flex gap-2 justify-content-between ">
                             <div class="  ">
-                                <div class="pull-left">
+                                <div class="pull-left text-center">
                                     <h2>Update Setting</h2>
                                 </div>
                                 <div class="pull-left">
@@ -119,63 +115,63 @@
 
 @push('scripts')
 <script>
-$(document).ready(function() {
-    // jQuery validation
-    $('#settings-form').validate({
-        rules: {
-            logo: {
-                accept: "image/*"
+    $(document).ready(function() {
+        // jQuery validation
+        $('#settings-form').validate({
+            rules: {
+                logo: {
+                    accept: "image/*"
+                },
+                address: {
+                    required: true,
+                },
+                phone_number: {
+                    required: true,
+                    digits: true,
+                    minlength: 10,
+                    maxlength: 10
+                }
             },
-            address: {
-                required: true,
+            messages: {
+                logo: {
+                    accept: "Please upload a valid image file."
+                },
+                address: {
+                    required: "Please enter your address.",
+                },
+                phone_number: {
+                    required: "Please provide a phone number.",
+                    digits: "Please enter only digits.",
+                    minlength: "Your phone number must be exactly 10 digits.",
+                    maxlength: "Your phone number must be exactly 10 digits."
+                }
             },
-            phone_number: {
-                required: true,
-                digits: true,
-                minlength: 10,
-                maxlength: 10
+            errorElement: 'div',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                if (element.prop('type') === 'checkbox') {
+                    error.insertAfter(element.siblings('label'));
+                } else {
+                    error.insertAfter(element);
+                }
+            },
+            highlight: function(element) {
+                $(element).addClass('is-invalid').removeClass('is-valid');
+            },
+            unhighlight: function(element) {
+                $(element).addClass('is-valid').removeClass('is-invalid');
             }
-        },
-        messages: {
-            logo: {
-                accept: "Please upload a valid image file."
-            },
-            address: {
-                required: "Please enter your address.",
-            },
-            phone_number: {
-                required: "Please provide a phone number.",
-                digits: "Please enter only digits.",
-                minlength: "Your phone number must be exactly 10 digits.",
-                maxlength: "Your phone number must be exactly 10 digits."
-            }
-        },
-        errorElement: 'div',
-        errorPlacement: function(error, element) {
-            error.addClass('invalid-feedback');
-            if (element.prop('type') === 'checkbox') {
-                error.insertAfter(element.siblings('label'));
-            } else {
-                error.insertAfter(element);
-            }
-        },
-        highlight: function(element) {
-            $(element).addClass('is-invalid').removeClass('is-valid');
-        },
-        unhighlight: function(element) {
-            $(element).addClass('is-valid').removeClass('is-invalid');
-        }
+        });
     });
-});
 
-function previewLogo(event) {
-    var reader = new FileReader();
-    reader.onload = function() {
-        var output = document.getElementById('logo-preview');
-        output.src = reader.result;
-        output.style.display = 'block';
-    };
-    reader.readAsDataURL(event.target.files[0]);
-}
+    function previewLogo(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('logo-preview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
 </script>
 @endpush

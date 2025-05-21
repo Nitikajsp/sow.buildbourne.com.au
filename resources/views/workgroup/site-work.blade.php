@@ -3,24 +3,24 @@
 @section('content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
-<script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
-<script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+<!-- <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-render.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-builder.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-render.min.js"></script>
 
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                    <div class="col-md-12">
-                        <a href="{{ url()->previous() }}"
-                            class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-                        </a>
-                    </div>
-                </div>
+            <div class=" d-flex justify-content-between align-items-center page-header">
+                <a href="{{ url()->previous() }}"
+                    class="float-left d-flex text-black">
+                    <i
+                        class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                </a>
+
+
             </div>
 
             <div class="row">
@@ -28,8 +28,9 @@
                 <div class="col-md-12">
                     <h2 class="page-title text-center">Add Work Group Question</h2>
                     <div class="fb-render"></div>
-                    <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
-
+                    <div class=" d-flex justify-content-between align-items-center page-header">
+                        <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,38 +150,38 @@
             templates: templates
         });
 
-           setTimeout(function() {
-        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site'];
+        setTimeout(function() {
+            const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes', 'section_initial_power_to_site'];
 
-        $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
-            const $inputs = $(this).find('input');
+            $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
+                const $inputs = $(this).find('input');
 
-            $inputs.each(function() {
-                const inputClasses = $(this).attr('class');
-                if (inputClasses) {
-                    inputClasses.split(' ').forEach(cls => {
+                $inputs.each(function() {
+                    const inputClasses = $(this).attr('class');
+                    if (inputClasses) {
+                        inputClasses.split(' ').forEach(cls => {
+                            if (targetClasses.includes(cls)) {
+                                $(this).closest('.form-group').addClass(cls);
+                            }
+                        });
+                    }
+                });
+            });
+
+            // For textareas
+            $('.formbuilder-textarea').each(function() {
+                const $textarea = $(this).find('textarea');
+                const textareaClasses = $textarea.attr('class');
+
+                if (textareaClasses) {
+                    textareaClasses.split(' ').forEach(cls => {
                         if (targetClasses.includes(cls)) {
-                            $(this).closest('.form-group').addClass(cls);
+                            $(this).addClass(cls);
                         }
                     });
                 }
             });
-        });
-
-        // For textareas
-        $('.formbuilder-textarea').each(function() {
-            const $textarea = $(this).find('textarea');
-            const textareaClasses = $textarea.attr('class');
-
-            if (textareaClasses) {
-                textareaClasses.split(' ').forEach(cls => {
-                    if (targetClasses.includes(cls)) {
-                        $(this).addClass(cls);
-                    }
-                });
-            }
-        });
-    }, 1000);
+        }, 1000);
 
         $('#submit-form').on('click', function() {
             // Show mini popup loader

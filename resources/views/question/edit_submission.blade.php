@@ -11,22 +11,21 @@
     <div class="main-content">
         <div class="container-fluid addcartwidth">
             @include('include.navbar')
-            <div class="row">
-                <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                    <div class="col-md-12">
-                        <a href="{{ url()->previous() }}"
-                            class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-                        </a>
-                    </div>
-                </div>
+            <div class=" d-flex justify-content-between align-items-center page-header">
+                <a href="{{ url()->previous() }}"
+                    class="float-left d-flex text-black">
+                    <i
+                        class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                </a>
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <h2 class="page-title text-center">Edit Submission Question</h2>
                     <div class="fb-render"></div>
-                    <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
+                    <div class=" d-flex justify-content-between align-items-center page-header">
+
+                        <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,9 +33,31 @@
 </div>
 
 <script>
+    function convertStringsToBooleans(obj) {
+    if (Array.isArray(obj)) {
+        return obj.map(convertStringsToBooleans);
+    } else if (obj !== null && typeof obj === 'object') {
+        for (const key in obj) {
+            if (typeof obj[key] === 'string') {
+                if (obj[key].toLowerCase() === 'true') {
+                    obj[key] = true;
+                } else if (obj[key].toLowerCase() === 'false') {
+                    obj[key] = false;
+                }
+            } else if (typeof obj[key] === 'object') {
+                obj[key] = convertStringsToBooleans(obj[key]);
+            }
+        }
+        return obj;
+    }
+    return obj;
+}
+ 
     $(function() {
         const originalFormData = @json($workData ?? []);
         // console.log('originalFormData', originalFormData);
+
+        const cleanedFormData = convertStringsToBooleans(originalFormData);
 
         originalFormData.forEach((field) => {
             if (field.type === 'customRepeaterTable') {

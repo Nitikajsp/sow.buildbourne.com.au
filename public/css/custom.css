@@ -230,6 +230,11 @@ input[type="radio"] {
     accent-color: #5c662b;
 }
 
+.page-header {
+    max-width: 900px;
+    margin: 0px auto;
+    padding: 20px 0px;
+}
 
 .link-color {
     color: #364494
@@ -299,9 +304,7 @@ body {
     width: 100%;
 }
 
-.page-header {
-    padding: 20px;
-}
+
 
 .customnav-link {
     width: 100%;
@@ -1146,5 +1149,18 @@ textarea.form-control:focus {
     padding: 10px;
 }
 
+.kc-toggle {
+    display: none !important;
+}
+
+
+.kc-toggle {
+    all: unset !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    appearance: none !important;
+    pointer-events: none !important;
+}
 
 /* .form-wrap.form-builder .tooltip-element {} */
