@@ -9,31 +9,27 @@
 
             <div class="container-fluid">
                 @include('include.navbar')
-                <div class="row">
 
-                    <div class="col-md-12 d-flex justify-content-between align-items-center page-header">
-                        <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
-                            <i
-                                class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
-                        </a>
-                        <a href="{{ route('client.show', $list->parties_id) }}"
-                            class="btn btn-primary btn-dark float-end rounded">
-                            View
-                        </a>
-                    </div>
+                <div class=" d-flex justify-content-between align-items-center page-header">
+                    <a href="{{ url()->previous() }}" class="float-left d-flex text-black">
+                        <i
+                            class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
+                    </a>
+                    <a href="{{ route('client.show', $list->parties_id) }}"
+                        class="btn btn-primary btn-dark float-end rounded">
+                        View
+                    </a>
                 </div>
 
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-7">
                         <div class="inner-container">
                             <div class="row">
-                                <div class="col-lg-12 ">
-                                    <div class="pull-left">
-                                        <h2>Edit Project</h2>
-                                    </div>
-                                    <div class="pull-left">
-                                        <h5>Please enter project details</h5>
-                                    </div>
+                                <div class="pull-left text-center">
+                                    <h2>Edit Project</h2>
+                                </div>
+                                <div class="pull-left">
+                                    <h5>Please enter project details</h5>
                                 </div>
                             </div>
 

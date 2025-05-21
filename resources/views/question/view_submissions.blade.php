@@ -24,9 +24,31 @@
 </div>
 
 <script>
+     function convertStringsToBooleans(obj) {
+    if (Array.isArray(obj)) {
+        return obj.map(convertStringsToBooleans);
+    } else if (obj !== null && typeof obj === 'object') {
+        for (const key in obj) {
+            if (typeof obj[key] === 'string') {
+                if (obj[key].toLowerCase() === 'true') {
+                    obj[key] = true;
+                } else if (obj[key].toLowerCase() === 'false') {
+                    obj[key] = false;
+                }
+            } else if (typeof obj[key] === 'object') {
+                obj[key] = convertStringsToBooleans(obj[key]);
+            }
+        }
+        return obj;
+    }
+    return obj;
+}
     $(function() {
 
         const originalFormData = @json($workData ?? []);
+        
+                const cleanedFormData = convertStringsToBooleans(originalFormData);
+
 
         originalFormData.forEach((field) => {
             if (field.type === 'customRepeaterTable') {
