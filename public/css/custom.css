@@ -964,6 +964,8 @@ div#app {
     align-items: center;
     font-weight: 600;
     color: #000;
+    margin-bottom: 15px;
+
 }
 
 
@@ -1002,7 +1004,7 @@ div#app {
 .radio-group:not(:has(.formbuilder-radio-inline)) {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 16px;
 }
 
 .formbuilder-radio {
@@ -1071,6 +1073,7 @@ textarea.form-control:focus {
     gap: 30px;
 }
 
+
 .formbuilder-radio-group.form-group.section_initial_power_to_site {
     display: block;
 }
@@ -1088,7 +1091,7 @@ textarea.form-control:focus {
 
 .formbuilder-radio-group.responsible-party .formbuilder-radio-inline {
     display: inline-flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     margin-right: 0px;
     gap: 5px;
@@ -1129,6 +1132,12 @@ textarea.form-control:focus {
     line-height: 16px;
 }
 
+.rendered-form.formbuilder-embedded-bootstrap .section_initial_power_to_site .formbuilder-radio label {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .formbuilder-radio-group.responsible-party .formbuilder-radio-inline input[type="radio"] {
     margin-right: 0px;
 }
@@ -1138,7 +1147,7 @@ textarea.form-control:focus {
 }
 
 .rendered-form.formbuilder-embedded-bootstrap textarea {
-    border: 1px dashed #AFB691;
+    border: 1px dashed #CFCFCF;
     min-height: 100px;
     width: 100%;
     height: 100%;
@@ -1178,6 +1187,14 @@ textarea.form-control:focus {
     display: flex;
     align-items: center;
     gap: 10px
+}
+
+.notes {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+
 }
 
 /* .form-wrap.form-builder .tooltip-element {} */
