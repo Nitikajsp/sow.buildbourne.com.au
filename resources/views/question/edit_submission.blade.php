@@ -1,19 +1,13 @@
 @extends('layouts.app')
-<<<<<<< HEAD
 <link rel="stylesheet" href="{{ asset('css/render-form-custom.css') }}" />
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
 @section('content')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
-<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
@@ -25,7 +19,6 @@
                     class="float-left d-flex text-black">
                     <i
                         class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
-<<<<<<< HEAD
                     </a>
                        <button id="download-pdf" class="btn btn-success">Download PDF</button>
                        <a href="{{ route('sitework.sendemail') }}" class="btn btn-success">
@@ -68,21 +61,6 @@
 <div id="loader" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; height: 100vh; width: 100vw; background: rgba(255,255,255,0.7); align-items: center; justify-content: center;">
     <div class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
-=======
-                </a>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="page-title text-center">Edit Submission Question</h2>
-                    <div class="fb-render"></div>
-                    <div class=" d-flex justify-content-between align-items-center page-header">
-
-                        <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
-                    </div>
-                </div>
-            </div>
-        </div>
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     </div>
 </div>
 
@@ -106,7 +84,6 @@
     }
     return obj;
 }
-<<<<<<< HEAD
 
 
  
@@ -114,14 +91,6 @@
         const originalFormData = @json($workData ?? []);
 
       
-=======
- 
-    $(function() {
-        const originalFormData = @json($workData ?? []);
-        // console.log('originalFormData', originalFormData);
-
-        const cleanedFormData = convertStringsToBooleans(originalFormData);
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
         originalFormData.forEach((field) => {
             if (field.type === 'customRepeaterTable') {
@@ -135,11 +104,6 @@
             }
         });
 
-<<<<<<< HEAD
-=======
-
-        // Register the customRepeaterTable template before calling formRender
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
         const templates = {
             customRepeaterTable: function(fieldData) {
                 const fieldName = fieldData.name || 'repeater';
@@ -166,7 +130,6 @@
 
                 let value = Array.isArray(fieldData.value) ? fieldData.value : [];
                 const rowsHtml = value.map((row, index) => {
-<<<<<<< HEAD
     return `<tr>${
         fields.map((f, fieldIndex) => {
             if (!f.key) return '';
@@ -182,29 +145,6 @@
         }).join('')
     }</tr>`;
 }).join('');
-=======
-                    return `<tr>
-                        ${fields.map((f, fieldIndex) => {
-                            const inputName = `${fieldName}[row_${index}][${f.key}]`;
-                            if (!f.key) return '';
-                            if (f.type === 'text') {
-                                const readonlyAttr = fieldIndex === 0 ? 'readonly' : '';
-                                return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
-                            } else if (f.type === 'checkbox') {
-                                const checked = row[f.key] ? 'checked' : '';
-                                return ` < td > < input type = "checkbox"
-                    name = "${inputName}"
-                    class = "${f.className}"
-                    $ {
-                        checked
-                    }
-                    /></td > `;
-                            }
-                            return '<td></td>';
-                        }).join('')}
-                    </tr>`;
-                }).join('');
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
                 return {
                     field: `
@@ -229,17 +169,12 @@
 
         const submissionId = @json($submissionId);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
         var fb = $('.fb-render').formRender({
             formData: originalFormData,
             templates: templates
         });
 
 
-<<<<<<< HEAD
    function saveForm(isManual, status = 'draft') {
     if (isManual) {
         $('#mini-loader').show(); 
@@ -328,88 +263,6 @@
      
         $('.fb-render').on('change', 'input, select, textarea', function () {
             saveForm(false, 'draft');
-=======
-        $('#submit-form').on('click', function() {
-
-            var userDataCustom = fb.userData;
-            fb.userData = [];
-
-
-            originalFormData.forEach((field, index) => {
-                console.log('All field', field);
-                if (field.type === 'customRepeaterTable') {
-                    const fieldName = field.name;
-                    $('.custom-repeater-table').each(function() {
-                        const tableId = $(this).data('field-id');
-
-                        if (tableId && tableId.includes(fieldName)) {
-                            const $table = $(this);
-                            let tableData = [];
-
-                            $table.find('tbody tr').each(function() {
-                                let rowData = {};
-                                let isRowValid = false;
-
-                                $(this).find('input, select, textarea').each(function() {
-                                    const inputName = $(this).attr('name');
-                                    if (inputName && inputName.startsWith(fieldName)) {
-                                        const keyMatch = inputName.match(/\[([^\]]+)]$/);
-                                        if (keyMatch) {
-                                            const key = keyMatch[1];
-                                            const inputType = $(this).attr('type');
-                                            let value = (inputType === 'checkbox') ?
-                                                ($(this).is(':checked') ? '1' : '0') :
-                                                $(this).val();
-
-                                            if (value !== '' && value !== null) {
-                                                isRowValid = true;
-                                            }
-
-                                            rowData[key] = value;
-                                        }
-                                    }
-                                });
-                                console.log("before rowData", rowData);
-                                if (isRowValid && Object.keys(rowData).length > 0) {
-                                    tableData.push(rowData);
-                                    console.log("after rowData", tableData);
-                                }
-                            });
-
-
-
-                            console.log("before userData :", userDataCustom[index]);
-
-                            if (tableData.length > 0) {
-                                field = tableData;
-                                console.log("after push data :", field);
-                                userDataCustom[index].userData = field;
-                            }
-                            console.log("after userData :", userDataCustom[index].userData);
-                        }
-                    });
-                }
-            });
-
-            console.log("FINAL FORM DATA:", userDataCustom);
-
-            $.ajax({
-                url: "{{ route('submission.update') }}",
-                type: 'POST',
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    submissionId: submissionId,
-                    form_data: userDataCustom
-                },
-                success: function(response) {
-                    if (response.success) {
-                        alert('Form updated successfully!');
-                    } else {
-                        alert('Error submitting form: ' + (response.message || 'Unknown error'));
-                    }
-                }
-            });
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
         });
 
 
@@ -423,7 +276,6 @@
                             $(`input[name="${field.name}"][value="${value}"]`).prop('checked', true);
                             break;
                         case 'checkbox':
-<<<<<<< HEAD
                           
                             $(`input[name="${field.name}"]`).prop('checked', false);
 
@@ -434,11 +286,6 @@
                             } else if (typeof field.userData === 'string') {
                                 $(`input[name="${field.name}"][value="${field.userData}"]`).prop('checked', true);
                             }   
-=======
-                            field.userData.forEach(val => {
-                                $(`input[name="${field.name}[]"][value="${val}"]`).prop('checked', true);
-                            });
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
                             break;
                         case 'textarea':
                             $(`[name="${field.name}"]`).val(value);
@@ -454,11 +301,7 @@
         }, 200);
 
         setTimeout(function() {
-<<<<<<< HEAD
             const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes', 'sub-option-details'];
-=======
-            const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
             $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
                 const $inputs = $(this).find('input');
@@ -475,10 +318,6 @@
                 });
             });
 
-<<<<<<< HEAD
-=======
-            // For textareas
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
             $('.formbuilder-textarea').each(function() {
                 const $textarea = $(this).find('textarea');
                 const textareaClasses = $textarea.attr('class');
@@ -532,7 +371,6 @@
         }, 500);
     });
 </script>
-<<<<<<< HEAD
 <script>
 document.getElementById('download-pdf').addEventListener('click', function () {
     const formElement = document.querySelector('.fb-render');
@@ -555,6 +393,4 @@ document.getElementById('download-pdf').addEventListener('click', function () {
     });
 });
 </script>
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 @endsection

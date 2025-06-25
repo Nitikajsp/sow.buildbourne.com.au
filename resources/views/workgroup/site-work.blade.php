@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/render-form-custom.css') }}" />
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <!-- <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
 <script src="https://formbuilder.online/assets/js/form-render.min.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-builder.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-render.min.js"></script>
-<<<<<<< HEAD
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
 <div id="app" class="layout-wrapper">
     @include('include.sidebar')
@@ -24,7 +23,6 @@
                     <i
                         class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
                 </a>
-<<<<<<< HEAD
                  <button id="download-pdf" class="btn btn-success">Download PDF</button>
             </div>
 
@@ -37,19 +35,6 @@
                 <button id="saveSendBtn" class="btn btn-primary ">Save & Send</button>
 
                      <button id="saveBtn" class="btn btn-primary">Save</button>
-=======
-
-
-            </div>
-
-            <div class="row">
-
-                <div class="col-md-12">
-                    <h2 class="page-title text-center">Add Work Group Question</h2>
-                    <div class="fb-render"></div>
-                    <div class=" d-flex justify-content-between align-items-center page-header">
-                        <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
                     </div>
                 </div>
             </div>
@@ -57,15 +42,11 @@
     </div>
 </div>
 
-<<<<<<< HEAD
 <div id="loader" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; height: 100vh; width: 100vw; background: rgba(255,255,255,0.7); align-items: center; justify-content: center;">
     <div class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
 </div>
-=======
-
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 <!-- Centered Small Loader Modal -->
 <div id="mini-loader" style="display: none; position: fixed; top: 50%; left: 50%;
     transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95);
@@ -94,181 +75,6 @@
                     } catch (e) {
                         field.value = [];
                     }
-<<<<<<< HEAD
-=======
-                }
-            }
-        });
-
-
-        // Register the customRepeaterTable template before calling formRender
-        const templates = {
-            customRepeaterTable: function(fieldData) {
-                const fieldName = fieldData.name || 'repeater';
-                const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
-                const fields = fieldData.fields || fieldData.attrs?.fields || [{
-                        key: 'description',
-                        label: 'Description',
-                        type: 'text',
-                        className: 'custom-text-description'
-                    },
-                    {
-                        key: 'colour',
-                        label: 'Colour',
-                        type: 'text',
-                        className: 'custom-text-colour'
-                    },
-                    {
-                        key: 'na',
-                        label: 'NA',
-                        type: 'checkbox',
-                        className: 'custom-text-na'
-                    }
-                ];
-
-                let value = Array.isArray(fieldData.value) ? fieldData.value : [];
-                const rowsHtml = value.map((row, index) => {
-                    return `<tr>
-                        ${fields.map((f, fieldIndex) => {
-                            const inputName = `${fieldName}[row_${index}][${f.key}]`;
-                            if (!f.key) return '';
-                            if (f.type === 'text') {
-                                const readonlyAttr = fieldIndex === 0 ? 'readonly' : '';
-                                return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
-                            } else if (f.type === 'checkbox') {
-                                const checked = row[f.key] ? 'checked' : '';
-                                return `<td> <input type = "checkbox"
-                    name = "${inputName}"
-                    class = "${f.className}"
-                    $ {
-                        checked
-                    }
-                    /></td > `;
-                            }
-                            return '<td></td>';
-                        }).join('')}
-                    </tr>`;
-                }).join('');
-
-                return {
-                    field: `
-                        <div class="custom-repeater-table" data-field-id="${fieldName}">
-                            <table class="table table-bordered" id="${fieldName}">
-                                <thead>
-                                    <tr>
-                                        ${fields.map(f => `<th>${f.label}</th>`).join('')}
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${rowsHtml || `<tr><td colspan="${fields.length}">No data</td></tr>`}
-                                </tbody>
-                            </table>
-                        </div>
-                    `
-                };
-            }
-        };
-
-        const formData = @json($questionJson ?? []);
-        const partyId = @json($partyId);
-        const listId = @json($listId);
-        const work_id = @json(request('work_id'));
-
-
-        var fb = $('.fb-render').formRender({
-            formData: originalFormData,
-            templates: templates
-        });
-
-           setTimeout(function() {
-        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site','protection-question'];
-
-            $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
-                const $inputs = $(this).find('input');
-
-                $inputs.each(function() {
-                    const inputClasses = $(this).attr('class');
-                    if (inputClasses) {
-                        inputClasses.split(' ').forEach(cls => {
-                            if (targetClasses.includes(cls)) {
-                                $(this).closest('.form-group').addClass(cls);
-                            }
-                        });
-                    }
-                });
-            });
-
-            // For textareas
-            $('.formbuilder-textarea').each(function() {
-                const $textarea = $(this).find('textarea');
-                const textareaClasses = $textarea.attr('class');
-
-                if (textareaClasses) {
-                    textareaClasses.split(' ').forEach(cls => {
-                        if (targetClasses.includes(cls)) {
-                            $(this).addClass(cls);
-                        }
-                    });
-                }
-            });
-        }, 1000);
-
-        $('#submit-form').on('click', function() {
-            // Show mini popup loader
-            $('#mini-loader').show();
-
-            // Disable the button and show "Submitting..."
-            $('#submit-form').prop('disabled', true).text('Submitting...');
-
-            var userDataCustom = fb.userData;
-            fb.userData = [];
-
-            originalFormData.forEach((field, index) => {
-                if (field.type === 'customRepeaterTable') {
-                    const fieldName = field.name;
-
-                    $('.custom-repeater-table').each(function() {
-                        const tableId = $(this).data('field-id');
-                        if (tableId && tableId.includes(fieldName)) {
-                            const $table = $(this);
-                            let tableData = [];
-
-                            $table.find('tbody tr').each(function() {
-                                let rowData = {};
-                                let isRowValid = false;
-
-                                $(this).find('input, select, textarea').each(function() {
-                                    const inputName = $(this).attr('name');
-                                    if (inputName && inputName.startsWith(fieldName)) {
-                                        const keyMatch = inputName.match(/\[([^\]]+)]$/);
-                                        if (keyMatch) {
-                                            const key = keyMatch[1];
-                                            const inputType = $(this).attr('type');
-                                            let value = (inputType === 'checkbox') ?
-                                                ($(this).is(':checked') ? '1' : '0') :
-                                                $(this).val();
-
-                                            if (value !== '' && value !== null) {
-                                                isRowValid = true;
-                                            }
-
-                                            rowData[key] = value;
-                                        }
-                                    }
-                                });
-
-                                if (isRowValid && Object.keys(rowData).length > 0) {
-                                    tableData.push(rowData);
-                                }
-                            });
-
-                            if (tableData.length > 0) {
-                                field = tableData;
-                                userDataCustom[index].userData = field;
-                            }
-                        }
-                    });
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
                 }
             }
         });
@@ -383,7 +189,6 @@
                 });
             });
 
-<<<<<<< HEAD
             // For textareas
             $('.formbuilder-textarea').each(function() {
                 const $textarea = $(this).find('textarea');
@@ -523,38 +328,6 @@ $(document).ready(function () {
         return userDataCustom;
     }
 });
-=======
-            // AJAX submit
-            $.ajax({
-                url: "{{ route('parties.saveSiteWork') }}",
-                type: 'POST',
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    partyId: partyId,
-                    listId: listId,
-                    work_id: work_id,
-                    form_data: userDataCustom
-                },
-                success: function(response) {
-                    if (response.redirect_url) {
-                        sessionStorage.setItem('siteWorkMessage', response.message);
-                        window.location.href = response.redirect_url;
-                    }
-                },
-                error: function(err) {
-                    alert('Error submitting form.');
-                    console.error(err);
-                },
-                complete: function() {
-                    // Hide loader and re-enable button
-                    $('#mini-loader').hide();
-                    $('#submit-form').prop('disabled', false).text('Submit Form');
-                }
-            });
-        });
-
-
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
         setTimeout(function() {
             const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];
@@ -632,7 +405,6 @@ $(document).ready(function () {
             applyConditionalVisibility();
             applyNotesVisibility();
         }, 500);
-<<<<<<< HEAD
     });
 </script>
 <script>
@@ -657,13 +429,4 @@ document.getElementById('download-pdf').addEventListener('click', function () {
     });
 });
 </script>
-=======
-    });
-</script>
-<script>
-    $(document).ready(function() {
-        $('input[type="checkbox"].add-notes').prop('checked', false);
-    });
-</script>
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 @endsection
