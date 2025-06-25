@@ -37,7 +37,11 @@ class PartyController extends Controller
 public function sendSiteWorkEmail()
 {
     $partyName = "John Doe";
+<<<<<<< HEAD
     $partyEmail = "john@example.com";
+=======
+$partyEmail = "miteshdalsaniya@jspinfotech.com";
+>>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
     $jobId = 1001;
     $locatedAt = "123 Freedom St, NSW";
     $currentDate = now()->format('d-m-Y');

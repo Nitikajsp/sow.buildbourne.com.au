@@ -10,6 +10,13 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        "mpdf/mpdf": "^8.2",
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
+>>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
         "spatie/browsershot": "^5.0"
     },
     "require-dev": {

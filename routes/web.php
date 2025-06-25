@@ -63,6 +63,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('workgroupupdate/{id}', 'workgroupupdate')->name('workgroupupdate');
         Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
 
         Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
         Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');
