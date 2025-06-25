@@ -6209,6 +6209,7 @@
             "install-path": "../sebastian/version"
         },
         {
+<<<<<<< HEAD
             "name": "setasign/fpdi",
             "version": "v2.6.3",
             "version_normalized": "2.6.3.0",
@@ -6284,6 +6285,8 @@
             "install-path": "../setasign/fpdi"
         },
         {
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
             "name": "spatie/browsershot",
             "version": "5.0.10",
             "version_normalized": "5.0.10.0",

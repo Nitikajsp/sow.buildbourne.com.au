@@ -23,14 +23,33 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                         @if(session('success'))
                             <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('success') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
+=======
+                    @if(request('success') == 1)
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Successfully saved!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    @endif
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
+                    <div class="card mt-4 p-2">
+                        <div class="partyscroll">
+                            @forelse ($workgroupquestions as $question)
+                            <div class="card mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h5 class="mb-0">Question Name: {{ $question->form_name }}</h5>
+                                    <a href="{{ route('workgroup.workgroupquestionedit', $question->id) }}" class="btn btn-sm btn-dark">Edit</a>
+                                </div>
+                                <div class="card-body">
 
+<<<<<<< HEAD
                     @if(request('success') == 1)
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         Successfully saved!
@@ -54,6 +73,8 @@
                                 </div>
                             </div>
                                 <div class="card-body">
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
                                 </div>
                             </div>
                             @empty

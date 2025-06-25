@@ -40,10 +40,13 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submissions/{id}', 'showsubmissions')->name('showsubmissions.show');
         Route::post('/submissions',  'updateSubmission')->name('submission.update');
         Route::get('addtestform', 'addtestform')->name('addtestform');
+<<<<<<< HEAD
           Route::get('/viewemail/{id}', 'viewemail')->name('viewemail');
           Route::get('/sitework/send-email', 'sendSiteWorkEmail')->name('sitework.sendemail');
 
 
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     });
 
     Route::post('/submissions/{id}', [PartyController::class, 'update'])->name('submissions.update');
@@ -63,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('workgroupupdate/{id}', 'workgroupupdate')->name('workgroupupdate');
         Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
         
+
 
         Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
         Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');

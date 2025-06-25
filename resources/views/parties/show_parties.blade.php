@@ -52,10 +52,13 @@
                             </div>
                         </div>
                         <div class="row mt-3 customr_btn_centr">
+<<<<<<< HEAD
                               <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
                                                 <button class="btn btn-primary me-md-2 rounded set-btn set-btn-class"
                                                     data-party-id="{{ $client->id }}" type="button">Set</button>
                                             </div>
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
                             <div class="col-lg-12 ">
                                 <div class="pull-right text-end">
                                     <a href="{{ route('createlist', ['party_id' => $client->id]) }}"
@@ -182,6 +185,7 @@
 
 
 <script>
+<<<<<<< HEAD
    $(document).on('click', '.set-btn', function () {
     var partyId = $(this).data('party-id');
     $('#selectedPartyId').val(partyId);
@@ -235,11 +239,28 @@
 
         let redirectUrl = "{{ url('/lists') }}/" + listId + "/projects/" + partyId;
         window.location.href = redirectUrl;
+=======
+    $(document).ready(function() {
+        let formToSubmit;
+
+        // Open the modal and store the form to submit
+        $(document).on('click', '.delete-btn', function() {
+            formToSubmit = $(this).closest('form'); // ✅ fix here
+        });
+
+        // Submit the form when the confirm button is clicked
+        $('#confirmDeleteBtn').on('click', function() {
+            if (formToSubmit) {
+                formToSubmit.submit();
+            }
+        });
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     });
 </script>
 
 
 <script>
+<<<<<<< HEAD
     $(document).ready(function() {
         let formToSubmit;
 
@@ -261,4 +282,8 @@
 <script>
     $('#partyListsTable').DataTable();
 </script>
+=======
+    $('#partyListsTable').DataTable();
+</script>
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 @endsection

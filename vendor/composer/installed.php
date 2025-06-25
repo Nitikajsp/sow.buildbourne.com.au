@@ -3,7 +3,11 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
+<<<<<<< HEAD
         'reference' => '8bbf013e75ba6eecb8049ca4bad1babbd2043ce9',
+=======
+        'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -424,7 +428,11 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
+<<<<<<< HEAD
             'reference' => '8bbf013e75ba6eecb8049ca4bad1babbd2043ce9',
+=======
+            'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1067,6 +1075,7 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+<<<<<<< HEAD
         'setasign/fpdi' => array(
             'pretty_version' => 'v2.6.3',
             'version' => '2.6.3.0',
@@ -1076,6 +1085,8 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
         'spatie/browsershot' => array(
             'pretty_version' => '5.0.10',
             'version' => '5.0.10.0',

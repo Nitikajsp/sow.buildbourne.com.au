@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Spatie\Browsershot\Browsershot;
 
+<<<<<<< HEAD
 // use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
 use Mpdf\Mpdf;
 
 use Illuminate\Support\Facades\View;
+=======
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Log;
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
 use Illuminate\Http\Request;
 use App\Models\Parties;
@@ -32,6 +37,7 @@ class PartyController extends Controller
         return view('parties.parties_list', compact('parties'));
     }
 
+<<<<<<< HEAD
 
 
 public function sendSiteWorkEmail()
@@ -114,6 +120,8 @@ $partyEmail = "miteshdalsaniya@jspinfotech.com";
 }
 
 
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     public function create()
 
     {
@@ -125,6 +133,7 @@ $partyEmail = "miteshdalsaniya@jspinfotech.com";
 
         return view('workgroup.add_test_form');
     }
+<<<<<<< HEAD
 
    public function viewemail($id)
 {
@@ -142,6 +151,8 @@ $partyEmail = "miteshdalsaniya@jspinfotech.com";
     ]);
 }
 
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 
     public function store(Request $request)
     {
@@ -248,8 +259,11 @@ $partyEmail = "miteshdalsaniya@jspinfotech.com";
 
         return view('list.show_list', compact('party'));
     }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     public function checkEmail(Request $request)
 
     {
@@ -262,6 +276,7 @@ $partyEmail = "miteshdalsaniya@jspinfotech.com";
         return response()->json(['available' => !$exists]);
     }
 
+<<<<<<< HEAD
 
 public function updateWorkType(Request $request, $listId, $partyId)
 {
@@ -269,6 +284,23 @@ public function updateWorkType(Request $request, $listId, $partyId)
 
     if (!$work_id) {
         return redirect()->back()->with('error', 'Please select a work type.');
+=======
+    public function updateWorkType(Request $request, $listId, $partyId)
+    {
+        $work_id = $request->query('work_id');  // Fetch 'work_id' from the query string directly
+
+        if (!$work_id) {
+            return redirect()->back()->with('error', 'Please select a work type.');
+        }
+
+        $questions = WorkQuestion::findOrFail($work_id);
+
+        return view('workgroup.site-work', [
+            'partyId' => $partyId,
+            'listId' => $listId,
+            'questionJson' => $questions->questions_from_data,
+        ]);
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     }
 
     $questions = WorkQuestion::findOrFail($work_id);
@@ -303,6 +335,8 @@ if ($existingDraft) {
 
 
 
+
+
     public function showSiteWork($partyId, $listId)
     {
         $party = Parties::findOrFail($partyId);
@@ -310,6 +344,7 @@ if ($existingDraft) {
         return view('workgroup.site-work', compact('party', 'listId'));
     }
 
+<<<<<<< HEAD
 public function saveSiteWork(Request $request)
 {
     
@@ -414,6 +449,87 @@ public function editsubmissions(Request $request, $id)
 
     public function showsubmissions($id)
 
+=======
+
+    public function saveSiteWork(Request $request)
+    {
+        $request->validate([
+            'form_data' => 'required',
+            'partyId' => 'required',
+            'listId' => 'required',
+            'work_id' => 'required'
+        ]);
+
+        $form_data = $request->input('form_data');
+
+        $workGroup = new Submission();
+        $workGroup->project_id = $request->input('listId');
+        $workGroup->party_id = $request->input('partyId');
+        $workGroup->work_id = $request->input('work_id');
+        $workGroup->work = json_encode($form_data);
+
+        $workGroup->save();
+
+        $party = Parties::find($request->partyId);
+
+        if ($party && $party->email) {
+
+            $workData = $form_data;
+
+            // $html = view('emails.site_work_submitted', [])->render();
+
+            // $pdf = Browsershot::html($html)->pdf();
+
+            $pdf = Pdf::loadView('emails.site_work_submitted', [
+                'party' => $party,
+                'workData' => $workData
+            ]);
+
+            Mail::send([], [], function ($message) use ($party, $pdf) {
+                $message->to($party->email)
+                    ->subject('Site Work Updated')
+                    ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
+            });
+
+            // Mail::to('user@example.com')->send(new \App\Mail\ChartMail($pdf));
+        }
+
+        return response()->json([
+            'redirect_url' => route('submissions.index'),
+            'message' => 'Successfully saved!',
+        ]);
+    }
+
+    public function showAllSubmissions()
+    {
+        $submissions = Submission::with(['project', 'party'])
+            ->whereHas('project', function ($query) {
+                $query->where('delete_status', 0);
+            })
+            ->whereHas('party', function ($query) {
+                $query->where('delete_status', 0);
+            })
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('question.show_submissions_data', compact('submissions'));
+    }
+
+
+    public function editsubmissions($id)
+    {
+        $data = Submission::find($id);
+        $workData = json_decode($data->work, true);
+
+        return view('question.edit_submission', [
+            'workData' => $workData,
+            'submissionId' => $id
+        ]);
+    }
+
+    public function showsubmissions($id)
+
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     {
         $data = Submission::find($id);
         $workData = json_decode($data->work, true);
@@ -422,6 +538,77 @@ public function editsubmissions(Request $request, $id)
             'workData' => $workData,
             'submissionId' => $id
         ]);
+<<<<<<< HEAD
+=======
+    }
+
+    public function updateSiteWork(Request $request)
+    {
+        $input = $request->all();
+
+        $siteWorkData = [];
+
+        foreach ($input as $key => $value) {
+            if (is_array($value)) {
+                $siteWorkData[$key] = $value;
+            }
+        }
+
+        $sowData = [
+            'site_work' => $siteWorkData
+        ];
+
+        $model = Submission::find($request->input('id'));
+        $existingData = json_decode($model->work, true) ?? [];
+
+        $existingData['sow'] = $sowData;
+
+        $model->work_ = json_encode($existingData);
+        $model->save();
+
+        return back()->with('success', 'Site work updated successfully!');
+    }
+
+    public function updateSubmission(Request $request)
+    {
+        $id = $request->input('submissionId');
+        $form_data = $request->input('form_data');
+
+        $submission = Submission::find($id);
+
+        if (!$submission) {
+            if ($request->ajax()) {
+                return response()->json(['success' => false, 'message' => 'Submission not found.']);
+            }
+            return redirect()->back()->with('error', 'Submission not found.');
+        }
+
+        $submission->work = json_encode($form_data);
+        $submission->save();
+
+        // if ($request->input('action') === 'save_send') {
+        //     $party = Parties::findOrFail($submission->party_id);
+
+        //     $pdf = Pdf::loadView('emails.site_work_submitted', [
+        //         'party' => $party,
+        //         'workData' => $workData
+        //     ]);
+
+        //     Mail::send([], [], function ($message) use ($party, $pdf) {
+        //         $message->to($party->email)
+        //             ->subject('Site Work Updated')
+        //             ->attachData($pdf->output(), 'SiteWork_Updated.pdf');
+        //     });
+
+        //     return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully and email sent.');
+        // }
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true, 'message' => 'Submission updated successfully!']);
+        }
+
+        return redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully!');
+>>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
     }
 
     public function updateSiteWork(Request $request)
