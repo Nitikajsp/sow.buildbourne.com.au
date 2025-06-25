@@ -25,18 +25,29 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', 'index')->name('home');
         Route::get('/home', 'index')->name('home');
     });
+    Route::resource('client', PartyController::class);
 
     Route::controller(PartyController::class)->group(function () {
-        Route::resource('parties', PartyController::class);
-        Route::put('/parties/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
+
+        Route::put('/client/{id}/updateStatus', 'updateStatus')->name('parties.updateStatus');
         Route::post('/check-email', 'checkEmail')->name('check.email');
-        Route::post('/lists/{list}/projects/{party}/work-type', 'updateWorkType')->name('parties.updateWorkType');
-        Route::get('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');
+        Route::get('/lists/{list}/projects/{party}/work_type', 'updateWorkType')->name('parties.updateWorkType');
+        Route::post('/site-work/{party}/list/{list}', 'showSiteWork')->name('parties.siteWork');
         // Route::post('/site-work/{party}/save', 'saveSiteWork')->name('parties.saveSiteWork');
-        Route::post('/save-site-work/{party}/list/{list}', 'saveSiteWork')->name('parties.saveSiteWork');
+        Route::post('/save-site-work', 'saveSiteWork')->name('parties.saveSiteWork');
         Route::get('/submissions', 'showAllSubmissions')->name('submissions.index');
-        Route::get('/submissions/{id}', 'showsubmissions')->name('submissions.show');
+        Route::get('/submissions/{id}/edit', 'editsubmissions')->name('editsubmissions.show');
+        Route::get('/submissions/{id}', 'showsubmissions')->name('showsubmissions.show');
+        Route::post('/submissions',  'updateSubmission')->name('submission.update');
+        Route::get('addtestform', 'addtestform')->name('addtestform');
+          Route::get('/viewemail/{id}', 'viewemail')->name('viewemail');
+          Route::get('/sitework/send-email', 'sendSiteWorkEmail')->name('sitework.sendemail');
+
+
     });
+
+    Route::post('/submissions/{id}', [PartyController::class, 'update'])->name('submissions.update');
+
 
     Route::controller(WorkGroupController::class)->prefix('work-group')->name('workgroup.')->group(function () {
 
@@ -44,11 +55,14 @@ Route::middleware(['auth'])->group(function () {
         Route::get('showworkgroup', 'showworkgroup')->name('showworkgroup');
         Route::get('addworkquestion', 'addworkquestion')->name('addworkquestion');
         Route::post('save', 'store')->name('store');
+        Route::get('/workgroup/duplicate/{id}', 'duplicate')->name('duplicate');
+
+
         Route::get('workgroupview/{id}', 'workgroupview')->name('workgroupview');
         Route::get('workgroupedit/{id}', 'workgroupedit')->name('workgroupedit');
         Route::put('workgroupupdate/{id}', 'workgroupupdate')->name('workgroupupdate');
         Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
-
+        
 
         Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
         Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');
@@ -56,7 +70,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('workquestiondelete/{id}', 'workquestiondelete')->name('workquestiondelete');
         Route::get('workquestionedit/{id}', 'workquestionedit')->name('workquestionedit');
         Route::get('workgroupquestionedit/{id}', 'workgroupquestionedit')->name('workgroupquestionedit');
-        Route::put('workgroupquestionupdate/{id}', 'workgroupquestionupdate')->name('workgroupquestionupdate');
+        Route::post('workgroupquestionupdate/{id}', 'workgroupquestionupdate')->name('workgroupquestionupdate');
     });
 
 
@@ -72,10 +86,10 @@ Route::middleware(['auth'])->group(function () {
     // List Routes
     Route::controller(ListController::class)->group(function () {
         Route::get('/get-lists', 'getLists')->name('get-lists');
-        Route::get('/createlist/{party_id}', 'createlist')->name('createlist');
+        Route::get('/createproject/{party_id}', 'createproject')->name('createlist');
         Route::post('/lists', 'store')->name('lists.store');
         Route::get('/lists/{id}', 'show')->name('lists.show');
-        Route::get('/lists/{id}/edit', 'edit')->name('lists.edit');
+        Route::get('/project/{id}/edit', 'edit')->name('lists.edit');
         Route::put('/lists/{id}', 'update')->name('lists.update');
         Route::delete('/lists/{id}', 'destroy')->name('lists.destroy');
         Route::get('/lists/{list}/projects/{party}', 'addCartProject')->name('lists.addcartproject');
@@ -86,7 +100,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cart/view/{listId}', 'viewCart')->name('cart.view');
         Route::patch('/cart/update/{list}/{productId}', 'updateqty')->name('cart.updateqty');
         Route::post('/orders/save', 'saveOrder')->name('orders.save');
-        Route::get('/list/{listId}/party/{partyId}', 'showListParty')->name('showlistparty');
+        Route::get('/project/{listId}/client/{partyId}', 'showListParty')->name('showlistparty');
         Route::patch('/orders/{order}/updateQuantity', 'updateQuantity')->name('orders.updateQuantity');
         Route::delete('/orders/{order}', 'destroyOrders')->name('orders.destroyOrders');
         Route::get('/send-email/{list_id}/{party_id}', 'sendEmail')->name('send.email');
@@ -97,7 +111,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/showorder', 'showallorderdata')->name('showorder');
         Route::get('/viewsingalorders/{listId}', 'viewsingalorders')->name('vieworders');
     });
-
 
 
     // Category Routes

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Work Submission</title>
+    <style>
+        body {
+            font-family: DejaVu Sans, sans-serif;
+            font-size: 12px;
+            /* Increased margins slightly for more clearance */
+            margin-top: 120px; /* Increased to give more space for header */
+            margin-bottom: 70px; /* Increased to give more space for footer */
+            position: relative; /* Needed for page-break-after/before if used on body */
+        }
+
+        /* Existing CSS from your provided code */
+        .formbuilder-checkbox-group,
+        .formbuilder-radio-group {
+            padding:10px 0px;
+            break-inside: avoid; /* Prevent these groups from being split across pages */
+        }
+        .formbuilder-checkbox-group h2,
+        .formbuilder-radio-group h2 {
+            font-size: 16px;
+            margin-top:0px;
+            margin-bottom: 0px;
+            break-inside: avoid; /* Prevent header from being split */
+        }
+        .form-group {
+            background-color: #EBEAEA;
+            padding: 10px 15px;
+            border: 1px solid #CFCFCF;
+            margin-bottom: 10px;
+            break-inside: avoid; /* Prevent form-groups from being split across pages */
+        }
+        .checkbox-option input,
+        .radio-option input{
+            vertical-align: middle;
+            background:transparent;
+            margin:0px
+        }
+        .checkbox-option input {
+            vertical-align: middle;
+        }
+        label {
+            font-weight: bold;
+            line-height: 1.2rem;
+        }
+        .buildr-details {
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #5c662b;
+            margin-top: 10px;
+            break-inside: avoid;
+        }
+        textarea {
+            border: 1px dashed #CFCFCF;
+            min-height: 100px;
+            width: 100%;
+            margin-top: 10px;
+            break-inside: avoid; /* Try to keep textarea content together */
+        }
+        .cehckbox-group,
+        .radio-group {
+            display: inline-block;
+            float: right;
+            vertical-align: middle;
+        }
+        .checkbox-group label,
+        .radio-group label{
+            display: inline-block;
+        }
+        .formbuilder-radio {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .sub-option-details {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #5c662b;
+            margin-top: 10px;
+            break-inside: avoid;
+        }
+        .sub-option-details .checkbox-group,
+        .sub-option-details .radio-group{
+            display: block ;
+            float:unset;
+        }
+        .sub-option-details .checkbox-group .formbuilder-checkbox,
+        .sub-option-details .radio-group .formbuilder-radio {
+            display:block;
+        }
+        .paragraph p {
+            background-color: #EBEAEA;
+            padding: 10px 15px;
+            border: 1px solid #CFCFCF;
+            color: #000;
+            margin-bottom: 15px;
+            font-weight: bold;
+            break-inside: avoid; /* Prevent paragraphs from being split */
+        }
+
+        /* Fixed Header CSS */
+        .page-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px 2rem;
+            background-color: #ffffff;
+            border-bottom: 1px solid #000;
+            z-index: 1000;
+            box-sizing: border-box;
+            height: 90px; 
+        }
+        .page-header table {
+            width: 100%;
+        }
+        .page-header .header-logo img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+        }
+        .page-header .header-info {
+            text-align: right;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+        .page-header .header-info div {
+            margin-bottom: 2px;
+        }
+
+        /* Fixed Footer CSS */
+        .page-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 10px 2rem;
+            background-color: #ffffff;
+            border-top: 1px solid #000;
+            font-size: 10px;
+            color: #555;
+            z-index: 1000;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px; /* Explicit height to better calculate body margin-bottom */
+        }
+        .page-footer .footer-left,
+        .page-footer .footer-right {
+            display: inline-block;
+        }
+        .page-footer .footer-left {
+            flex-grow: 1;
+        }
+        .page-footer .footer-right {
+            text-align: right;
+        }
+
+        .document-container {
+            max-width: 800px;
+            /* Removed top/bottom margins here as body margin handles the fixed header/footer spacing */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem; /* Keep padding for inner content spacing */
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            break-inside: avoid; /* Try to keep the entire container together if possible, or break gracefully */
+        }
+        .header-logo-container {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header-logo-container img {
+            max-width: 200px;
+        }
+
+        .header-tagline {
+            font-size: 1.25rem;
+            color: #555;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            break-after: avoid; /* Avoid breaking immediately after a title */
+        }
+        .info-label {
+            font-weight: bold;
+            color: #444;
+        }
+        .table-header {
+            background-color: #e2e8f0;
+            font-weight: bold;
+            padding: 0.75rem 0.5rem;
+            text-align: left;
+            border-radius: 0.5rem;
+        }
+
+        .text-center {
+            text-align:center
+        }
+
+        .custom-table{
+            width: 100%;
+            margin:0px auto;
+            break-inside: avoid; /* Prevent table from being split across pages */
+        }
+
+        .custom-table,   .custom-table th,   .custom-table td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .table-cell {
+            padding: 0.5rem;
+        }
+        .checkbox-cell {
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .formbuilder-checkbox {
+            break-inside: avoid; /* Keep checkbox and label together */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-header">
+        <table style="width:100%;">
+            <tbody>
+                <tr>
+                    <td style="width:50%;">
+                        <div class="header-logo" style="margin-bottom: 0px;">
+                            <img src="{{ public_path('img/logo.png') }}" style="max-width: 200px;" alt="Logo">
+                        </div>
+                    </td>
+                    <td style="width:50%;">
+                        <div class="header-info">
+                            <div>Client: <span style="font-weight: normal;">{{ $clientName ?? '' }}</span></div>
+                            <div>Job No: <span style="font-weight: normal;">{{ $jobNo ?? '' }}</span></div>
+                            <div>Date: <span style="font-weight: normal;">{{ $currentDate ?? '' }}</span></div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="document-container">
+
+        <h1 class="section-title uppercase tracking-wide">
+            ARCHITECTURAL SPECIFICATIONS AND SCOPE <br> OF WORKS FOR THE PROPOSED BUILDING WORK
+        </h1>
+
+        <table style="width:80%; margin:0px auto" >
+            <tbody>
+                <tr>
+                    <td>CLIENT</td>
+                    <td>{{ $clientName ?? '' }}</td>
+                </tr>
+                <tr>
+                    <td>JOB No</td>
+                    <td>{{ $jobNo ?? '' }}</td>
+                </tr>
+                <tr>
+                    <td>DATE ISSUED</td>
+                    <td>{{ $currentDate ?? '' }}</td>
+                </tr>
+                <tr>
+                    <td>LOCATED AT</td>
+                <td>{{ $locatedAt }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <section class="mb-6 text-sm text-gray-700">
+            <p class="mb-4">
+                This specification is primarily architectural and does not outline construction or engineering requirements for the project, however all work will be carried out in a tradesman like manner and in accordance with the Building Code of Australia, relevant Australian Standards, and Local Government requirements.
+            </p>
+            <p class="mb-4">
+                The document is designed to compliment architectural plans and engineering details. It will represent a detailed list of selections and choices to assist in the finalisation of the quotation to complete the works. These selections and choices will allow each specific trade to complete work during the course of construction to the owner's requirements.
+            </p>
+            <p class="mb-4">
+                The document is broken up into stages, usually specific to each trade. Where appropriate it will list Provisional Sum allowances and PC amounts for items required. It will assist both the owner/s and "Freedom Homes", forming a check list prior to the commencement of work for each stage. Contract work cannot commence until necessary selections and specific details for each stage have been finalised. The owner/s will be required to fill out the specification and submit it to "Freedom Homes" Sales staff. Sales will give the owner/s a list of preferred suppliers for items required to select, and helpful advice to assist with this requirement.
+            </p>
+            <p>
+                On completion of this document it will be checked by "Freedom Homes" and will form part of the "Contract Agreement", signed by both parties. Care should be taken to ensure the accurate completion of this specification. It is a detailed list of the building requirements and scope of works for your project and will take precedence over architectural drawings.
+            </p>
+        </section>
+
+        <!-- <section>
+            <h2 class="text-xl font-bold text-center mb-4">Contents</h2>
+            <div class="overflow-x-auto">
+                <table class="custom-table">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600 rounded-tl-lg"></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600"></th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600"></th>
+                            <th colspan="2" class="py-3 px-4 text-left text-sm font-semibold text-gray-600 rounded-tr-lg">Included</th>
+                        </tr>
+                        <tr class="bg-gray-200 text-xs text-gray-700 uppercase">
+                            <th class="py-2 px-4"></th>
+                            <th class="py-2 px-4"></th>
+                            <th class="py-2 px-4">Section</th>
+                            <th class="py-2 px-4 flex justify-around"><span>YES</span></th>
+                            <th class="py-2 px-4 flex justify-around"><span>NO</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="5" class="table-cell" style="vertical-align:top">Main Document</td>
+                            <td class="table-cell">Table of General Inclusions</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell">&#10003;</td> <td class="table-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Architectural Specification</td>
+                            <td class="table-cell">1 - 13</td>
+                            <td class="table-cell checkbox-cell">&#10003;</td> <td class="table-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">PC Selections</td>
+                            <td class="table-cell">14</td>
+                            <td class="table-cell checkbox-cell">&#10003;</td>
+                            <td class="table-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Selections Summary</td>
+                            <td class="table-cell">15</td>
+                            <td class="table-cell checkbox-cell">&#10003;</td>
+                            <td class="table-cell"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Schedule of Provisional Sums</td>
+                            <td class="table-cell">16</td>
+                            <td class="table-cell checkbox-cell">&#10003;</td>
+                            <td class="table-cell"></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="8" class="table-cell font-bold" style="vertical-align:top">Attachments</td>
+                            <td class="table-cell">PC selection quotes from suppliers</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Floor Plans</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Elevations</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Site Plan</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Plumbing Layout Plan</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Electrical Layout Plan</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell">Kitchen Layout Plan</td>
+                            <td class="table-cell"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                        </tr>
+                        <tr>
+                            <td class="table-cell border-b-0">Other</td>
+                            <td class="table-cell border-b-0"></td>
+                            <td class="table-cell border-b-0 checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
+                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section> -->
+
+        <h2>Site Work Submission</h2>
+
+        <div class="rendered-form formbuilder-embedded-bootstrap">
+            @foreach ($workData as $field)
+                @switch($field['type'])
+
+                    @case('header')
+                        <h2>{!! nl2br(e($field['label'])) !!}</h2>
+                        @break
+
+                    @case('paragraph')
+                        <div class="paragraph">
+                            <p>{{ strip_tags(html_entity_decode($field['label'])) }}</p>
+                        </div>
+                        @break
+
+                    @case('radio-group')
+                    <div class="formbuilder-radio-group form-group {{ $field['className'] ?? '' }}">
+                        <label>{!! $field['label'] ?? '' !!}</label>
+                        <div class="radio-group" style="padding:10px 0px; vertical-align: middle;" >
+                            @foreach ($field['values'] as $index => $option)
+                                @php
+                                    $id = $field['name'] . '-' . $index;
+                                    $userValue = $field['userData'][0] ?? null;
+                                    $checked = ($userValue == $option['value']) ? 'checked' : '';
+                                @endphp
+
+                                <div class="formbuilder-radio" >
+                                    <input type="radio"
+                                        name="{{ $field['name'] }}"
+                                        id="{{ $id }}"
+                                        value="{{ $option['value'] }}"
+                                        {{ $checked }}
+                                    >
+                                    <label for="{{ $id }}" >{{ $option['label'] }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @break
+
+                    @case('checkbox-group')
+            @php
+                $userValues = $field['userData'] ?? [];
+                $visible = !empty($userValues);
+            @endphp
+            <div class="formbuilder-checkbox-group {{ $field['className'] ?? '' }}" style="display: {{ $visible ? 'block' : 'none' }};">
+                <label>{!! $field['label'] ?? '' !!}</label>
+                <div class="checkbox-group">
+                    @foreach ($field['values'] as $index => $option)
+                        @php
+                            $id = $field['name'] . '-' . $index;
+                            $checked = in_array($option['value'], $userValues) ? 'checked' : '';
+                        @endphp
+                        <div class="formbuilder-checkbox">
+                            <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
+                            <label for="{{ $id }}">{{ $option['label'] }}</label>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            @break
+
+            @case('checkbox')
+            @foreach ($field['values'] as $index => $option)
+                @php
+                    $id = $field['name'] . '-' . $index;
+                    $userValues = $field['userData'] ?? [];
+                    $checked = in_array($option['value'], $userValues) ? 'checked' : '';
+                @endphp
+                <div class="formbuilder-checkbox {{ $field['className'] ?? '' }}" style="display: {{ $checked ? 'block' : 'none' }};">
+                    {{-- Show Note above checkbox --}}
+                    @if (!empty($option['note']) && $checked)
+                        <div class="note" style="font-size: 12px; color: #555;">{{ $option['note'] }}</div>
+                    @endif
+
+                    <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
+                    <label for="{{ $id }}">{{ $option['label'] }}</label>
+                </div>
+            @endforeach
+            @break
+
+
+            @case('textarea')
+            @php
+                $value = $field['userData'][0] ?? '';
+                $checked = !empty($value); /* show only if there's content */
+            @endphp
+
+            <div class="formbuilder-textarea {{ $field['className'] ?? '' }}" style="display: {{ $checked ? 'block' : 'none' }};">
+                {{-- Show Note above textarea --}}
+                @if (!empty($field['note']) && $checked)
+                    <div class="note" style="font-size: 12px; color: #555;">{{ $field['note'] }}</div>
+                @endif
+
+                <label for="{{ $field['name'] }}">{!! $field['label'] ?? '' !!}</label>
+                <textarea name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="{{ $field['className'] ?? '' }}">{{ $value }}</textarea>
+            </div>
+            @break
+
+                @endswitch
+            @endforeach
+        </div>
+    </div>
+
+    </body>
+</html>

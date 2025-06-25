@@ -1,0 +1,402 @@
+/* Form Container */
+.rendered-form {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0px 30px;
+    background: #fdfdfd;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+/* .rendered-form h2, */
+.section-header {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    border-left: 5px solid #5c662b;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    background: #e4e7d4d1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+/* Form Groups */
+.form-group {
+    /* margin-bottom: 25px; */
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #5c662b;
+    margin: 0px !important;
+}
+
+.form-group:has(.add-notes),
+.form-group:has(.additional-notes) {
+    padding: 0px;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    margin: unset;
+    background-color: transparent;
+    border-left: unset;
+}
+
+
+.checkbox-group .formbuilder-checkbox:last-child {
+    margin-bottom: 0px;
+}
+
+/* Labels */
+.formbuilder-radio-group-label,
+.formbuilder-checkbox-group-label,
+.formbuilder-textarea-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500 !important;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+/* Required Asterisk */
+.formbuilder-required {
+    color: #dc3545;
+    margin-left: 4px;
+}
+
+/* Tooltip Styling */
+.tooltip-element {
+    display: inline-block;
+    font-size: 14px;
+    color: #5c662b;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.add-notes-0 {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+}
+
+/* Radio Group */
+/* .radio-group:not(:has(.formbuilder-radio-inline)) {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+} */
+
+.rendered-form.formbuilder-embedded-bootstrap .form-control {
+    border-color: #9f9f9f;
+}
+
+
+.rendered-form.formbuilder-embedded-bootstrap .sub-head {
+    font-weight: 500;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #5c662b;
+    margin: 0px !important;
+    color: #222;
+}
+
+.formbuilder-radio,
+.formbuilder-checkbox {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.formbuilder-radio:last-child,
+.formbuilder-checkbox:last-child {
+    margin-bottom: 0px;
+}
+
+.buildr-details .formbuilder-radio,
+.buildr-details .formbuilder-checkbox {
+    margin-bottom: 7px;
+}
+
+.formbuilder-radio input[type="radio"] {
+    margin-right: 10px;
+    /* transform: scale(1.2); */
+    accent-color: #5c662b;
+}
+
+/* Textarea Styling */
+textarea.form-control {
+    width: 100%;
+    min-height: 120px;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+textarea.form-control:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.formbuilder-radio-inline input[type=radio],
+.formbuilder-checkbox-inline input[type=checkbox] {
+    vertical-align: middle;
+}
+
+/* Conditional 'If by builder' Sections */
+.buildr-details,
+.sub-option-details {
+    /* padding: 15px 20px; */
+    /* background-color: #f8f9fa; */
+    /* border-left: 3px solid #5c662b; */
+    /* border-radius: 5px; */
+    /* margin-top: 10px; */
+}
+
+.buildr-details .formbuilder-radio label,
+.buildr-details .formbuilder-radio-inline label,
+.buildr-details .formbuilder-checkbox label,
+.buildr-details .formbuilder-checkbox-inline label,
+.sub-option-details .formbuilder-radio label,
+.sub-option-details .formbuilder-radio-inline label,
+.sub-option-details .formbuilder-checkbox label,
+.sub-option-details .formbuilder-checkbox-inline label {
+    font-weight: 500;
+    font-size: 14px;
+    /* margin-bottom: 12px; */
+}
+
+.sub-option-details .formbuilder-radio label,
+.sub-option-details .formbuilder-radio-inline label,
+.sub-option-details .formbuilder-checkbox label,
+.sub-option-details .formbuilder-checkbox-inline label {
+    /* color: #000; */
+}
+
+.buildr-details .formbuilder-radio-inline label {
+    margin-bottom: 0px;
+}
+
+/* Hide on page load (if required) */
+.buildr-details[style*="display: none"] {
+    display: none !important;
+}
+
+
+.form-group.responsible-party {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+}
+
+.header-question-set {
+    font-size: 16px;
+    line-height: 26px;
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    color: #000;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+.radio-group input[type=radio] .checkbox-group input[type=checkbox] {
+    vertical-align: middle;
+}
+
+.formbuilder-radio-group.form-group.section_initial_power_to_site {
+    display: block;
+}
+
+.formbuilder-radio-group.form-group.section_initial_power_to_site .formbuilder-radio-group-label {
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    font-family: "Inter-Medium", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #000;
+}
+
+.form-group.responsible-party .formbuilder-radio-inline {
+    display: inline-flex;
+    /* flex-direction: column; */
+    align-items: center;
+    margin-right: 0px;
+    gap: 5px;
+}
+
+
+.form-group.responsible-party label {
+    /* font-family: "Inter-Medium", sans-serif; */
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    color: #000;
+    text-align: center;
+}
+
+.responsible-party .radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.responsible-party .radio-group .formbuilder-radio {
+    margin-bottom: 0px;
+
+}
+
+.section_initial_power_to_site .radio-group {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #5c662b;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.form-group.responsible-party label {
+    margin-bottom: 0px;
+}
+
+.form-group.responsible-party .formbuilder-checkbox label,
+.form-group.responsible-party .formbuilder-checkbox-inline label,
+.form-group.responsible-party .formbuilder-radio label,
+.form-group.responsible-party .formbuilder-radio-inline label {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.rendered-form.formbuilder-embedded-bootstrap .section_initial_power_to_site .formbuilder-radio label {
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group.responsible-party .formbuilder-radio-inline input[type="radio"] {
+    margin-right: 0px;
+}
+
+.buildr-details .formbuilder-radio-inline input[type="radio"] {
+    margin-right: 10px;
+}
+
+.rendered-form.formbuilder-embedded-bootstrap textarea {
+    border: 1px dashed #CFCFCF;
+    min-height: 100px;
+    width: 100%;
+
+}
+
+
+/* FOR EDIT QUESTION CSS */
+
+.form-wrap.form-builder .frmb .prev-holder {
+    padding: 10px;
+}
+
+.formbuilder-radio-inline {
+    display: inline-flex;
+}
+
+.formbuilder-radio-inline input[type="radio"] {
+    vertical-align: middle;
+}
+
+
+.sub-option-details .formbuilder-checkbox {
+    gap: 4px;
+}
+
+.sub-option-details .formbuilder-checkbox-label {
+    color: #000;
+}
+
+
+
+.sub-option-details .formbuilder-checkbox {
+    margin-bottom: 6px;
+}
+
+.sub-option-details .checkbox .formbuilder-checkbox:last-child {
+    margin-bottom: 0px;
+}
+
+.sub-option-details .formbuilder-checkbox label {
+    color: #6F6B7D;
+    margin-bottom: 0px;
+}
+
+.formbuilder-checkbox .sub-option-details {
+    margin-top: 0px;
+}
+
+.notes {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.bg-yellow-div {
+    padding: 10px 15px;
+    color: #222222;
+    border: 1px solid #FFF7A4;
+    background: #FBFBF8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bg-yellow-div .notes {
+    margin-bottom: 0px !important;
+}
+
+
+.important-note-section {
+    border: 1px solid #FF9191;
+    background: #FBF8F8;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.important-note-section h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 5px;
+
+
+}
+
+.important-note-section span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+}
+
+.custom-repeater-table {
+
+    overflow-x: auto;
+}
+
+/* .form-wrap.form-builder .tooltip-element {} */

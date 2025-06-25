@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/selectionoreva/public_html
+    - export DEPLOYPATH=/home/buildbournecom/public_html/sow.buildbourne.com.au
     - /bin/cp -r * $DEPLOYPATH/

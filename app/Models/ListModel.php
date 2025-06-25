@@ -24,6 +24,7 @@ class ListModel extends Model
         'product_name',
         'customer_id',
         'parties_id',
+        'delete_status',
     ];
 
     public function projects()
@@ -36,5 +37,16 @@ class ListModel extends Model
 
     {
         return $this->hasMany(Order::class, 'list_id');
+    }
+
+    public function submissions()
+    {
+        return $this->hasMany(\App\Models\Submission::class, 'project_id', 'id');
+    }
+    // app/Models/ListModel.php
+
+    public function scopeActive($query)
+    {
+        return $query->where('delete_status', 1);
     }
 }
