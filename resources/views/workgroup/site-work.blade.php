@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-<link rel="stylesheet" href="{{ asset('css/render-form-custom.css') }}" />
-
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <!-- <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
