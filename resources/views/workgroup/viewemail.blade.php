@@ -239,26 +239,7 @@
 </head>
 <body>
 
-    <div class="page-header">
-        <table style="width:100%;">
-            <tbody>
-                <tr>
-                    <td style="width:50%;">
-                        <div class="header-logo" style="margin-bottom: 0px;">
-                            <img src="{{ public_path('img/logo.png') }}" style="max-width: 200px;" alt="Logo">
-                        </div>
-                    </td>
-                    <td style="width:50%;">
-                        <div class="header-info">
-                            <div>Client: <span style="font-weight: normal;">{{ $clientName ?? '' }}</span></div>
-                            <div>Job No: <span style="font-weight: normal;">{{ $jobNo ?? '' }}</span></div>
-                            <div>Date: <span style="font-weight: normal;">{{ $currentDate ?? '' }}</span></div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  
 
     <div class="document-container">
 
@@ -302,213 +283,103 @@
             </p>
         </section>
 
-        <!-- <section>
-            <h2 class="text-xl font-bold text-center mb-4">Contents</h2>
-            <div class="overflow-x-auto">
-                <table class="custom-table">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600 rounded-tl-lg"></th>
-                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600"></th>
-                            <th class="py-3 px-4 text-left text-sm font-semibold text-gray-600"></th>
-                            <th colspan="2" class="py-3 px-4 text-left text-sm font-semibold text-gray-600 rounded-tr-lg">Included</th>
-                        </tr>
-                        <tr class="bg-gray-200 text-xs text-gray-700 uppercase">
-                            <th class="py-2 px-4"></th>
-                            <th class="py-2 px-4"></th>
-                            <th class="py-2 px-4">Section</th>
-                            <th class="py-2 px-4 flex justify-around"><span>YES</span></th>
-                            <th class="py-2 px-4 flex justify-around"><span>NO</span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowspan="5" class="table-cell" style="vertical-align:top">Main Document</td>
-                            <td class="table-cell">Table of General Inclusions</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell">&#10003;</td> <td class="table-cell"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Architectural Specification</td>
-                            <td class="table-cell">1 - 13</td>
-                            <td class="table-cell checkbox-cell">&#10003;</td> <td class="table-cell"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">PC Selections</td>
-                            <td class="table-cell">14</td>
-                            <td class="table-cell checkbox-cell">&#10003;</td>
-                            <td class="table-cell"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Selections Summary</td>
-                            <td class="table-cell">15</td>
-                            <td class="table-cell checkbox-cell">&#10003;</td>
-                            <td class="table-cell"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Schedule of Provisional Sums</td>
-                            <td class="table-cell">16</td>
-                            <td class="table-cell checkbox-cell">&#10003;</td>
-                            <td class="table-cell"></td>
-                        </tr>
-                        <tr>
-                            <td rowspan="8" class="table-cell font-bold" style="vertical-align:top">Attachments</td>
-                            <td class="table-cell">PC selection quotes from suppliers</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Floor Plans</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Elevations</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Site Plan</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Plumbing Layout Plan</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Electrical Layout Plan</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell">Kitchen Layout Plan</td>
-                            <td class="table-cell"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                        </tr>
-                        <tr>
-                            <td class="table-cell border-b-0">Other</td>
-                            <td class="table-cell border-b-0"></td>
-                            <td class="table-cell border-b-0 checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded"></td>
-                            <td class="table-cell checkbox-cell"><input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded" checked></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section> -->
-
+        
         <h2>Site Work Submission</h2>
 
-        <div class="rendered-form formbuilder-embedded-bootstrap">
-            @foreach ($workData as $field)
-                @switch($field['type'])
+      <div class="rendered-form formbuilder-embedded-bootstrap">
+    @foreach ($workData as $field)
+        @switch($field['type'])
 
-                    @case('header')
-                        <h2>{!! nl2br(e($field['label'])) !!}</h2>
-                        @break
+            @case('header')
+                <h2>{!! nl2br(e($field['label'])) !!}</h2>
+                @break
 
-                    @case('paragraph')
-                        <div class="paragraph">
-                            <p>{{ strip_tags(html_entity_decode($field['label'])) }}</p>
-                        </div>
-                        @break
-
-                    @case('radio-group')
-                    <div class="formbuilder-radio-group form-group {{ $field['className'] ?? '' }}">
-                        <label>{!! $field['label'] ?? '' !!}</label>
-                        <div class="radio-group" style="padding:10px 0px; vertical-align: middle;" >
-                            @foreach ($field['values'] as $index => $option)
-                                @php
-                                    $id = $field['name'] . '-' . $index;
-                                    $userValue = $field['userData'][0] ?? null;
-                                    $checked = ($userValue == $option['value']) ? 'checked' : '';
-                                @endphp
-
-                                <div class="formbuilder-radio" >
-                                    <input type="radio"
-                                        name="{{ $field['name'] }}"
-                                        id="{{ $id }}"
-                                        value="{{ $option['value'] }}"
-                                        {{ $checked }}
-                                    >
-                                    <label for="{{ $id }}" >{{ $option['label'] }}</label>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                    @break
-
-                    @case('checkbox-group')
-            @php
-                $userValues = $field['userData'] ?? [];
-                $visible = !empty($userValues);
-            @endphp
-            <div class="formbuilder-checkbox-group {{ $field['className'] ?? '' }}" style="display: {{ $visible ? 'block' : 'none' }};">
-                <label>{!! $field['label'] ?? '' !!}</label>
-                <div class="checkbox-group">
-                    @foreach ($field['values'] as $index => $option)
-                        @php
-                            $id = $field['name'] . '-' . $index;
-                            $checked = in_array($option['value'], $userValues) ? 'checked' : '';
-                        @endphp
-                        <div class="formbuilder-checkbox">
-                            <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
-                            <label for="{{ $id }}">{{ $option['label'] }}</label>
-                        </div>
-                    @endforeach
+            @case('paragraph')
+                <div class="paragraph">
+                    <p>{{ strip_tags(html_entity_decode($field['label'])) }}</p>
                 </div>
-            </div>
-            @break
+                @break
+
+            @case('radio-group')
+                <div class="formbuilder-radio-group form-group {{ $field['className'] ?? '' }}">
+                    <label>{!! $field['label'] ?? '' !!}</label>
+                    <div class="radio-group" style="padding:10px 0px; vertical-align: middle;" >
+                        @foreach ($field['values'] as $index => $option)
+                            @php
+                                $id = $field['name'] . '-' . $index;
+                                $userValue = $field['userData'][0] ?? null;
+                                $checked = ($userValue == $option['value']) ? 'checked' : '';
+                            @endphp
+
+                            <div class="formbuilder-radio">
+                                <input type="radio"
+                                    name="{{ $field['name'] }}"
+                                    id="{{ $id }}"
+                                    value="{{ $option['value'] }}"
+                                    {{ $checked }}>
+                                <label for="{{ $id }}">{{ $option['label'] }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @break
+
+            @case('checkbox-group')
+                <div class="formbuilder-checkbox-group {{ $field['className'] ?? '' }}">
+                    <label>{!! $field['label'] ?? '' !!}</label>
+                    <div class="checkbox-group">
+                        @php
+                            $userValues = $field['userData'] ?? [];
+                        @endphp
+                        @foreach ($field['values'] as $index => $option)
+                            @php
+                                $id = $field['name'] . '-' . $index;
+                                $checked = in_array($option['value'], $userValues) ? 'checked' : '';
+                            @endphp
+                            <div class="formbuilder-checkbox">
+                                <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
+                                <label for="{{ $id }}">{{ $option['label'] }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                @break
 
             @case('checkbox')
-            @foreach ($field['values'] as $index => $option)
                 @php
-                    $id = $field['name'] . '-' . $index;
                     $userValues = $field['userData'] ?? [];
-                    $checked = in_array($option['value'], $userValues) ? 'checked' : '';
                 @endphp
-                <div class="formbuilder-checkbox {{ $field['className'] ?? '' }}" style="display: {{ $checked ? 'block' : 'none' }};">
-                    {{-- Show Note above checkbox --}}
-                    @if (!empty($option['note']) && $checked)
-                        <div class="note" style="font-size: 12px; color: #555;">{{ $option['note'] }}</div>
-                    @endif
-
-                    <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
-                    <label for="{{ $id }}">{{ $option['label'] }}</label>
-                </div>
-            @endforeach
-            @break
-
+                @foreach ($field['values'] as $index => $option)
+                    @php
+                        $id = $field['name'] . '-' . $index;
+                        $checked = in_array($option['value'], $userValues) ? 'checked' : '';
+                    @endphp
+                    <div class="formbuilder-checkbox {{ $field['className'] ?? '' }}">
+                        @if (!empty($option['note']))
+                            <div class="note" style="font-size: 12px; color: #555;">{{ $option['note'] }}</div>
+                        @endif
+                        <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
+                        <label for="{{ $id }}">{{ $option['label'] }}</label>
+                    </div>
+                @endforeach
+                @break
 
             @case('textarea')
-            @php
-                $value = $field['userData'][0] ?? '';
-                $checked = !empty($value); /* show only if there's content */
-            @endphp
+                @php
+                    $value = $field['userData'][0] ?? '';
+                @endphp
+                <div class="formbuilder-textarea {{ $field['className'] ?? '' }}" >
+                    @if (!empty($field['note']))
+                        <div class="note" style="font-size: 12px; color: #555;">{{ $field['note'] }}</div>
+                    @endif
+                    <label for="{{ $field['name'] }}">{!! $field['label'] ?? '' !!}</label>
+                    <textarea name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="{{ $field['className'] ?? '' }}">{{ $value }}</textarea>
+                </div>
+                @break
 
-            <div class="formbuilder-textarea {{ $field['className'] ?? '' }}" style="display: {{ $checked ? 'block' : 'none' }};">
-                {{-- Show Note above textarea --}}
-                @if (!empty($field['note']) && $checked)
-                    <div class="note" style="font-size: 12px; color: #555;">{{ $field['note'] }}</div>
-                @endif
-
-                <label for="{{ $field['name'] }}">{!! $field['label'] ?? '' !!}</label>
-                <textarea name="{{ $field['name'] }}" id="{{ $field['name'] }}" class="{{ $field['className'] ?? '' }}">{{ $value }}</textarea>
-            </div>
-            @break
-
-                @endswitch
-            @endforeach
-        </div>
-    </div>
+        @endswitch
+    @endforeach
+</div>
 
     </body>
 </html>
