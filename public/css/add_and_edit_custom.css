@@ -1,0 +1,143 @@
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+
+.formbuilder-radio,
+.formbuilder-checkbox {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.form-wrap.form-builder .frmb .prev-holder label {
+    color: #000;
+    font-weight: 500
+}
+
+.section-header {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    border-left: 5px solid #5c662b;
+    padding-left: 15px;
+    margin-top: 15px !important;
+    background: #e4e7d4d1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.form-field:has(.responsible-party),
+.form-field:has(.header-question-set) {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EBEAEA !important;
+    padding: 10px 15px !important;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    width: 100%;
+}
+
+.form-field:has(.header-question-set) {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #EBEAEA !important;
+    padding: 10px 15px !important;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    width: 100%;
+}
+
+.form-field:has(.responsible-party) .field-label {
+    flex-grow: 1;
+}
+
+.form-field:has(.responsible-party) .radio-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* li:has(.responsible-party)>.field-label,
+.header-question-set {
+    display: flex;
+    justify-content: space-between;
+    background-color: #EBEAEA;
+    padding: 10px 15px;
+    border: 1px solid #CFCFCF;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+    width: 100%;
+} */
+
+
+.form-wrap.form-builder .frmb li.form-field:not(.header-field):not(:has(.responsible-party)):not(:has(.header-question-set)):not(:has(.add-notes)):not(:has(.additional-notes)):not(:has(.bg-yellow-div)):not(:has(.important-note-section)) {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #5c662b;
+    margin: 0px;
+}
+
+
+.form-wrap.form-builder .frmb li.form-field .field-label,
+.header-question-set {
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    color: #000;
+    margin-bottom: 0px;
+    /* display: inline-block; */
+}
+
+.form-wrap.form-builder .frmb li.checkbox-group-field .field-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500 !important;
+    color: #222;
+    margin-bottom: 10px;
+    display: inline-block;
+    /* text-align: center; */
+}
+
+.form-wrap.form-builder .frmb .prev-holder {
+    padding: 0px;
+}
+
+.form-wrap.form-builder .frmb li:has(.bg-yellow-div).form-field {
+    padding: 10px 15px;
+    color: #222222;
+    border: 1px solid #FFF7A4;
+    background: #FBFBF8;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.form-wrap.form-builder .frmb li:has(.important-note-section).form-field {
+    border: 1px solid #FF9191;
+    background: #FBF8F8;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.additional-notes {
+    border: 1px dashed #CFCFCF !important;
+    min-height: 100px;
+    width: 100%;
+    height: 100%;
+    box-shadow: none !important;
+}

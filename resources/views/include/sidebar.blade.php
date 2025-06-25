@@ -1,13 +1,16 @@
 <aside class="sidebar">
     <div class="nav-logo-wrap">
         <a href="{{ route('home') }}" class="app-brand-link">
-            <img class="sidebar-logo" src="{{ asset('/' . get_setting('logo')) }}" alt="Logo">
+            <img class="w-100 " src="{{ asset('/' . get_setting('logo')) }}" alt="Logo">
         </a>
     </div>
+
     <hr class="text-secondary my-0" />
 
     <ul class="menu-inner align-items-center">
+
         <!-- Home -->
+
         <li class="nav-item {{ request()->routeIs('home') ? 'active' : '' }}">
             <a href="{{ route('home') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -22,23 +25,25 @@
         </li>
 
         <!-- Users -->
-        <li class="nav-item {{ request()->routeIs('parties.index') ? 'active' : '' }}">
-            <a href="{{ route('parties.index') }}" class="customnav-link  text-white">
+
+        <li class="nav-item {{ request()->routeIs('client.index') ? 'active' : '' }}">
+            <a href="{{ route('client.index') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                     <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                 </svg>
-                <span class="text-small" style="font-size: 12px; ">Users</span>
+                <span class="text-small" style="font-size: 12px; ">Clients</span>
             </a>
         </li>
 
 
-
+        <!-- 
         <li class="nav-item {{ request()->routeIs('workgroup.showworkgroup') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showworkgroup') }}" class="customnav-link  text-white">
-                <!-- SVG Icon -->
+
+
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -47,10 +52,13 @@
                 </svg>
                 <span class="text-small" style="font-size: 12px;">WorkGroup</span>
             </a>
-        </li>
+        </li> -->
+
         <li class="nav-item {{ request()->routeIs('workgroup.showgroupquestion') ? 'active' : '' }}">
             <a href="{{ route('workgroup.showgroupquestion') }}" class="customnav-link  text-white">
+
                 <!-- SVG Icon -->
+
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
                     fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -61,22 +69,22 @@
             </a>
         </li>
 
-        <!-- Categories -->
-        <li class="nav-item {{ request()->routeIs('showcategory') ? 'active' : '' }}">
-            <a href="{{ route('showcategory') }}" class="customnav-link  text-white">
-                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <li class="nav-item {{ request()->routeIs('submissions.index') ? 'active' : '' }}">
+            <a href="{{ route('submissions.index') }}" class="customnav-link text-white">
+                <!-- SVG Icon -->
+                <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path
-                        d="M11.5 21h-2.926a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304h11.339a2 2 0 0 1 1.977 2.304l-.5 3.248" />
-                    <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
-                    <path d="M15 19l2 2l4 -4" />
+                    <path d="M3 9a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9z" />
+                    <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
                 </svg>
-                <span class="text-small" style="font-size: 12px; ">Categories</span>
+                <span class="text-small" style="font-size: 12px;">Submission</span>
             </a>
         </li>
 
-        <!-- Settings -->
+
+
         <li class="nav-item {{ request()->routeIs('settings.index') ? 'active' : '' }}">
             <a href="{{ route('settings.index') }}" class="customnav-link  text-white">
                 <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
@@ -91,6 +99,7 @@
         </li>
 
         <!-- Logout -->
+
         <li class="nav-item">
             <a href="{{ route('logout') }}" class="customnav-link  text-white"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
