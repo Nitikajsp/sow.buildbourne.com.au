@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\HelloMail;
 use Illuminate\Http\Request;
 use App\Models\WorkGroup;
 use App\Models\WorkQuestion;
+use App\Models\Form;
+use PhpParser\Node\Expr\Print_;
+
+use function Laravel\Prompts\alert;
 
 class WorkGroupController extends Controller
 {
@@ -21,24 +26,52 @@ class WorkGroupController extends Controller
         return view('workgroup.add_workgroup');
     }
 
+
+    public function testfile()
+    {
+
+        return view('workgroup.test');
+    }
+
     public function store(Request $request)
 
     {
-        $request->validate([
-            'group_name' => 'required|string|max:255',
-        ]);
 
-        $workgroup = new WorkGroup();
-        $workgroup->group_name = $request->input('group_name');
-        $workgroup->save();
+        $WorkQuestion = new WorkQuestion();
+        $WorkQuestion->questions_from_data = $request->form_data;
+        $WorkQuestion->form_name = $request->form_name;
 
-        return redirect()->route('workgroup.showworkgroup')->with('success', 'Group added successfully!');
+        $WorkQuestion->save();
+        return response()->json(['success' => true]);
     }
+
+   public function duplicate($id)
+{
+    $original = WorkQuestion::findOrFail($id);
+
+    // Create a new name with 'Copy'
+    $newName = $original->form_name . ' Copy';
+
+    // Check if a question with this new name already exists
+    $alreadyExists = WorkQuestion::where('form_name', $newName)->exists();
+
+    if ($alreadyExists) {
+        return redirect('/work-group/showgroupquestion')->with('error', 'A duplicate with this name already exists!');
+    }
+
+    // Proceed to duplicate
+    $duplicate = new WorkQuestion();
+    $duplicate->questions_from_data = $original->questions_from_data;
+    $duplicate->form_name = $newName;
+    $duplicate->save();
+
+    return redirect('/work-group/showgroupquestion')->with('success', 'Group question duplicated successfully!');
+}
+
 
     public function addworkquestion()
 
     {
-
         // In Controller
         $workgroups = WorkGroup::all();
 
@@ -141,31 +174,41 @@ class WorkGroupController extends Controller
         return view('workgroup.edit_group', compact('workgroupquestion'));
     }
 
+    // public function workgroupquestionedit($id)
+    // {
+    //     $workgroupquestion = WorkQuestion::findOrFail($id);
+    //     $groups = WorkGroup::all();
+
+    //     return view('workgroup.edit_group_question', compact('workgroupquestion', 'groups'));
+    // }
 
     public function workgroupquestionedit($id)
     {
-        $workgroupquestion = WorkQuestion::findOrFail($id);
-        $groups = WorkGroup::all();
+        $question = WorkQuestion::findOrFail($id);
 
-        return view('workgroup.edit_group_question', compact('workgroupquestion', 'groups'));
+        return view('workgroup.edit_group_question', [
+            'questionJson' => $question->questions_from_data,
+            'questionId' => $id,
+            'form_name' => $question->form_name,
+        ]);
     }
 
 
     public function workgroupquestionupdate(Request $request, $id)
     {
-        $request->validate([
-            'workgroup_id' => 'required|string|max:255',
-            'question_title' => 'required|string|max:255',
-            'question_value' => 'required|string|max:255'
-        ]);
 
-        $workgroup = WorkQuestion::findOrFail($id);
-        $workgroup->workgroup_id = $request->workgroup_id;
-        $workgroup->question_title = $request->question_title;
-        $workgroup->question_value = $request->question_value;
+        $question = WorkQuestion::findOrFail($id);
 
-        $workgroup->save();
+        $formData = $request->input('form_data');
 
-        return redirect()->route('workgroup.showgroupquestion')->with('success', 'Workgroup question updated successfully!');
+        $form_name = $request->input('form_name');
+
+        $question->questions_from_data = $formData;
+
+        $question->form_name = $form_name;
+
+        $question->save();
+
+        return response()->json(['message' => 'Workgroup question updated successfully!']);
     }
 }
