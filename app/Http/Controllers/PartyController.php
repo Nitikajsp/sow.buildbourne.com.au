@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Spatie\Browsershot\Browsershot;
-
-// use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Log;
-use Mpdf\Mpdf;
-
-use Illuminate\Support\Facades\View;
-
 use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
@@ -25,6 +17,10 @@ class PartyController extends Controller
     public function index()
 
     {
+        $parties = Parties::where('delete_status', 0)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
         $parties = Parties::where('delete_status', 0)
             ->orderBy('created_at', 'desc')
             ->get();
