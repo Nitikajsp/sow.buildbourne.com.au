@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -63,13 +64,6 @@ Route::middleware(['auth'])->group(function () {
         Route::put('workgroupupdate/{id}', 'workgroupupdate')->name('workgroupupdate');
         Route::delete('workgroupdelete/{id}', 'workgroupdelete')->name('workgroupdelete');
         
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
->>>>>>> df3a45a6b133b8de400b328615c86472c4b785ab
 
         Route::get('showgroupquestion', 'showgroupquestion')->name('showgroupquestion');
         Route::post('saveworkquestion', 'saveworkquestion')->name('saveworkquestion');

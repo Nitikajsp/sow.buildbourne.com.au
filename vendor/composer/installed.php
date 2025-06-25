@@ -3,19 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-<<<<<<< HEAD
-        'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
-=======
-<<<<<<< HEAD
-        'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
-=======
-<<<<<<< HEAD
         'reference' => '8bbf013e75ba6eecb8049ca4bad1babbd2043ce9',
-=======
-        'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
->>>>>>> df3a45a6b133b8de400b328615c86472c4b785ab
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -436,19 +424,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-<<<<<<< HEAD
-            'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
-=======
-<<<<<<< HEAD
-            'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
-=======
-<<<<<<< HEAD
             'reference' => '8bbf013e75ba6eecb8049ca4bad1babbd2043ce9',
-=======
-            'reference' => 'fe8e9f593c61044b49a23837990b9087fb570876',
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
->>>>>>> df3a45a6b133b8de400b328615c86472c4b785ab
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -1091,11 +1067,6 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
         'setasign/fpdi' => array(
             'pretty_version' => 'v2.6.3',
             'version' => '2.6.3.0',
@@ -1105,10 +1076,6 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-=======
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
->>>>>>> df3a45a6b133b8de400b328615c86472c4b785ab
         'spatie/browsershot' => array(
             'pretty_version' => '5.0.10',
             'version' => '5.0.10.0',

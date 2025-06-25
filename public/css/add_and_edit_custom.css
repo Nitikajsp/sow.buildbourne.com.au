@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
 input[type="radio"] {
     vertical-align: middle;
 }
@@ -24,36 +20,18 @@ input[type="checkbox"] {
 }
 
 .section-header {
-<<<<<<< HEAD
-=======
-=======
-.form-wrap.form-builder .frmb li.header-field:has(h2) {
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
     font-size: 26px;
     font-weight: 600;
     color: #333;
     border-left: 5px solid #5c662b;
     padding-left: 15px;
-<<<<<<< HEAD
     margin-top: 15px !important;
-=======
-<<<<<<< HEAD
-    margin-top: 15px !important;
-=======
-    margin-bottom: 30px;
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
     background: #e4e7d4d1;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
 .form-field:has(.responsible-party),
 .form-field:has(.header-question-set) {
     display: flex;
@@ -132,35 +110,12 @@ input[type="checkbox"] {
     margin-bottom: 10px;
     display: inline-block;
     /* text-align: center; */
-<<<<<<< HEAD
-=======
-=======
-.form-wrap.form-builder .frmb li:not(.header-field).form-field {
-    background-color: #f5f5f5;
-    padding: 15px 10px;
-}
-
-
-.form-wrap.form-builder .frmb li.form-field .field-label {
-    display: inline;
-    /* justify-content: space-between; */
-    /* background-color: #EBEAEA; */
-    font-weight: 700;
-    padding: 10px 15px;
-    align-items: center;
-    gap: 30px;
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
 }
 
 .form-wrap.form-builder .frmb .prev-holder {
     padding: 0px;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
 .form-wrap.form-builder .frmb li:has(.bg-yellow-div).form-field {
     padding: 10px 15px;
     color: #222222;
@@ -181,14 +136,6 @@ input[type="checkbox"] {
 
 .additional-notes {
     border: 1px dashed #CFCFCF !important;
-<<<<<<< HEAD
-=======
-=======
-.additional-notes {
-    /* border: 1px dashed #AFB691 !important; */
-    border: 1px solid #CFCFCF;
->>>>>>> 7ac371402c6dfe71949f124d350dea1da3866c16
->>>>>>> ff480380770063cf96dcda6b2d742b35b8e55e58
     min-height: 100px;
     width: 100%;
     height: 100%;
