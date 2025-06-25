@@ -7,29 +7,31 @@
         body {
             font-family: DejaVu Sans, sans-serif;
             font-size: 12px;
-            margin-top: 120px; 
-            margin-bottom: 70px;
-            position: relative; 
+            /* Increased margins slightly for more clearance */
+            margin-top: 120px; /* Increased to give more space for header */
+            margin-bottom: 70px; /* Increased to give more space for footer */
+            position: relative; /* Needed for page-break-after/before if used on body */
         }
 
+        /* Existing CSS from your provided code */
         .formbuilder-checkbox-group,
         .formbuilder-radio-group {
             padding:10px 0px;
-            break-inside: avoid; 
+            break-inside: avoid; /* Prevent these groups from being split across pages */
         }
         .formbuilder-checkbox-group h2,
         .formbuilder-radio-group h2 {
             font-size: 16px;
             margin-top:0px;
             margin-bottom: 0px;
-            break-inside: avoid; 
+            break-inside: avoid; /* Prevent header from being split */
         }
         .form-group {
             background-color: #EBEAEA;
             padding: 10px 15px;
             border: 1px solid #CFCFCF;
             margin-bottom: 10px;
-            break-inside: avoid; 
+            break-inside: avoid; /* Prevent form-groups from being split across pages */
         }
         .checkbox-option input,
         .radio-option input{
@@ -56,7 +58,7 @@
             min-height: 100px;
             width: 100%;
             margin-top: 10px;
-            break-inside: avoid; 
+            break-inside: avoid; /* Try to keep textarea content together */
         }
         .cehckbox-group,
         .radio-group {
@@ -95,9 +97,10 @@
             color: #000;
             margin-bottom: 15px;
             font-weight: bold;
-            break-inside: avoid; 
+            break-inside: avoid; /* Prevent paragraphs from being split */
         }
 
+        /* Fixed Header CSS */
         .page-header {
             position: fixed;
             top: 0;
