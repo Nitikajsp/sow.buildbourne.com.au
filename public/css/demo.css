@@ -127,3 +127,9 @@
   text-align: center;
   margin-top: 1rem;
 }
+.form-wrap.form-builder .cb-wrap.sticky-controls {
+  position: fixed;
+  right: 0;
+  height: 100%;
+  
+}

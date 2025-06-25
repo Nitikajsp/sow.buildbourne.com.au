@@ -1,424 +1,432 @@
 @extends('layouts.app')
+
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/render-form-custom.css') }}" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<!-- <script src="https://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-render.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-builder.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-formBuilder/3.19.13/form-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 
 <div id="app" class="layout-wrapper">
-
     @include('include.sidebar')
-
-    <div class="container addcartwidth">
-        @include('include.navbar')
-
-        <div class="d-flex justify-content-between align-items-center mt-3 p-3">
-            <h2>Site Work</h2>
-            <!-- <span>Work Type: <strong>Normal</strong></span> -->
-            <a href="#" class="btn btn-dark">+ Add Question</a>
-        </div>
-
-        <form method="POST" action="{{ route('parties.saveSiteWork', ['party' => $party->id, 'list' => $listId]) }}" id="siteWorkForm">
-            @csrf
-
-            <!-- Question 1 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.1 Access Road to Site</h5>
-                    <div>
-                        <label class="me-3">By Builder
-                            <input type="checkbox" name="access_road" value="builder" class="form-check-input">
-                        </label>
-                        <label class="me-3">By Owner
-                            <input type="checkbox" name="access_road" value="owner" class="form-check-input">
-                        </label>
-                        <label>N/A
-                            <input type="checkbox" name="access_road" value="na" class="form-check-input">
-                        </label>
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="access_road_option" id="access_fixed" value="fixed_price">
-                        <label class="form-check-label" for="access_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="access_road_option" id="access_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="access_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-
+    <div class="main-content">
+        <div class="container-fluid addcartwidth">
+            @include('include.navbar')
+            <div class=" d-flex justify-content-between align-items-center page-header">
+                <a href="{{ url()->previous() }}"
+                    class="float-left d-flex text-black">
+                    <i
+                        class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
+                </a>
+                 <button id="download-pdf" class="btn btn-success">Download PDF</button>
             </div>
 
-            <!-- Question 2 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.2 Site Clearing</h5>
-                    <div>
-                        <label class="me-3">By Builder <input type="checkbox" class="form-check-input" name="site_clearing_by[]" value="builder"></label>
-                        <label class="me-3">By Owner <input type="checkbox" class="form-check-input" name="site_clearing_by[]" value="owner"></label>
-                        <label>N/A <input type="checkbox" class="form-check-input" name="site_clearing_by[]" value="na"></label>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="page-title text-center">Add Work Group Question</h2>
+                    <div class="fb-render"></div>
+                    <div class=" d-flex gap-2 align-items-center layout-width py-3">
+                      <!-- Updated buttons -->
+                <button id="saveSendBtn" class="btn btn-primary ">Save & Send</button>
+
+                     <button id="saveBtn" class="btn btn-primary">Save</button>
                     </div>
                 </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="site_clearing_option" id="clearing_fixed" value="fixed_price">
-                        <label class="form-check-label" for="clearing_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="site_clearing_option" id="clearing_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="clearing_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Question 3 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.3 Excavation of Site</h5>
-                    <div>
-                        <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="excavation_by" value="builder">
-                        </label>
-                        <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="excavation_by" value="owner">
-                        </label>
-                        <label>
-                            N/A <input type="checkbox" class="form-check-input" name="excavation_by" value="na">
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="excavation_type" id="excavation_fixed" value="fixed_price">
-                        <label class="form-check-label" for="excavation_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="excavation_type" id="excavation_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="excavation_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Question 4 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.4 Removal of Soil & Tree Debris</h5>
-                    <div>
-                        <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="removal_by" value="builder">
-                        </label>
-                        <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="removal_by" value="owner">
-                        </label>
-                        <label>
-                            N/A <input type="checkbox" class="form-check-input" name="removal_by" value="na">
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="removal_type" id="removal_fixed" value="fixed_price">
-                        <label class="form-check-label" for="removal_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="removal_type" id="removal_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="removal_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Question 5 -->
-            <div class="card mb-3">
-                <div class="card-header">
-                    <h5>1.5 Initial Power to Site</h5>
-                </div>
-                <div class="card-body">
-                    <p>Power Supply:</p>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="power_supply" id="power_owner" value="owner">
-                        <label class="form-check-label" for="power_owner">To site by owner</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="power_supply" id="arial_temp" value="aerial_temporary">
-                        <label class="form-check-label" for="arial_temp">Aerial temporary by builder
-                            <small>(Aerial mains supply to temporary power pole)</small>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="power_supply" id="underground_temp" value="underground_temporary">
-                        <label class="form-check-label" for="underground_temp">Underground temporary by builder
-                            <small>(Underground mains supply to meter box on stand)</small>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="power_supply" id="generator_temp" value="generator_temporary">
-                        <label class="form-check-label" for="generator_temp">Generator temporary by builder
-                            <small>(Hire rate as allowed in the contract price)</small>
-                        </label>
-                    </div>
-                    <p><strong>Note :</strong> <em> If required - temporary power by generator will be at a weekly hire rate of $165.00 inc. GST.</em></p>
-                </div>
-            </div>
-
-            <!-- Question 6 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.6 Water to Site</h5>
-                    <div>
-                        <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="water_supply" value="builder">
-                        </label>
-                        <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="water_supply" value="owner">
-                        </label>
-                        <label>
-                            N/A <input type="checkbox" class="form-check-input" name="water_supply" value="na">
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="water_cost" id="water_fixed" value="fixed_price">
-                        <label class="form-check-label" for="water_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="water_cost" id="water_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="water_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-            <!-- Question 7 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.7 Site Clean (During Construction)</h5>
-                    <div>
-                        <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="site_clean" value="builder">
-                        </label>
-                        <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="site_clean" value="owner">
-                        </label>
-                        <label>
-                            N/A <input type="checkbox" class="form-check-input" name="site_clean" value="na">
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="site_clean_cost" id="site_clean_fixed" value="fixed_price">
-                        <label class="form-check-label" for="site_clean_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="site_clean_cost" id="site_clean_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="site_clean_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Question 8 -->
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5>1.8 Internal Clean (Prior to Handover)</h5>
-                    <div>
-                        <label class="me-3">
-                            By Builder <input type="checkbox" class="form-check-input" name="internal_clean" value="builder">
-                        </label>
-                        <label class="me-3">
-                            By Owner <input type="checkbox" class="form-check-input" name="internal_clean" value="owner">
-                        </label>
-                        <label>
-                            N/A <input type="checkbox" class="form-check-input" name="internal_clean" value="na">
-                        </label>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p>If by builder:</p>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="internal_clean_cost" id="internal_clean_fixed" value="fixed_price">
-                        <label class="form-check-label" for="internal_clean_fixed">Fixed price included in quote</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" class="form-check-input" name="internal_clean_cost" id="internal_clean_provisional" value="provisional_sum">
-                        <label class="form-check-label" for="internal_clean_provisional">Provisional Sum</label>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="container my-4">
-                <div class="card p-3">
-                    <h5>1.9 Termite Protection</h5>
-                    <p><strong>Note 1:</strong> <em>No allowance has been made for termite protection other than pipe penetrations in concrete slabs as applicable. Protection provided is the minimum as per the building code of Australia for steel framing.</em></p>
-
-                    <!-- Request Further Protection -->
-                    <div class="mb-3">
-                        <label class="me-2">- Request further protection:</label>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="termite_protection_request" id="yesOption" value="yes">
-                            <label class="form-check-label" for="yesOption">Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="termite_protection_request" id="noOption" value="no">
-                            <label class="form-check-label" for="noOption">No</label>
-                        </div>
-                    </div>
-
-                    <!-- Builder / Owner Checkboxes -->
-                    <div class="mb-3">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="termite_protection_by[]" id="builderOption" value="builder">
-                            <label class="form-check-label" for="builderOption">By Builder</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="termite_protection_by[]" id="ownerOption" value="owner">
-                            <label class="form-check-label" for="ownerOption">By Owner</label>
-                        </div>
-                    </div>
-
-                    <!-- Protection Type -->
-                    <div class="mb-3">
-                        <label for="protectionType">- Protection type:</label>
-                        <input type="text" class="form-control form-control-sm w-50 d-inline-block ms-2" name="termite_protection_type" id="protectionType" placeholder="Enter protection type">
-                    </div>
-                </div>
-            </div>
-
-            <div class="container my-4">
-                <div class="card p-3">
-                    <h5>1.10 Site Works Notes</h5>
-                    <div class="d-flex align-items-center">
-                        <!-- Label and Input -->
-                        <label for="siteWorksNotes" class="me-2 mb-0">Notes to above:</label>
-                        <input type="text" class="form-control form-control-sm w-75 border-0 border-bottom"
-                            name="site_works_notes" id="siteWorksNotes" placeholder="Enter site works notes">
-                    </div>
-                </div>
-            </div>
-
-            @include('question.foundations_and_concreting')
-
-            @include('question.drainer_plumber_gas_fitter')
-
-            @include('question.carpenter')
-
-            @include('question.carpenter_interior')
-
-            @include('question.bricklayer_masonry')
-
-            @include('question.roof_plumber')
-
-            @include('question.windows_entry_doors')
-
-            @include('question.electrician')
-
-            @include('question.plasterer_internal_linings')
-
-            @include('question.kitchen_joinery')
-
-            @include('question.wall_floor_tiler')
-
-            @include('question.painter')
-
-            @include('question.pc_selections')
-
-            @include('question.amounts_additional_notes')
-
-            @include('question.schedule_of_provisional_sums')
-
-
-
-
-            <div class="d-flex justify-content-end mb-5">
-                <button type="submit" class="btn btn-dark me-2">Save</button>
-                <button type="submit" class="btn btn-danger me-2">Save & Send</button>
-                <a href="#" class="btn btn-outline-dark pe-2">Cancel</a>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Data Preview Modal -->
-<div class="modal fade" id="jsonPreviewModal" tabindex="-1" aria-labelledby="jsonPreviewModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="jsonPreviewModalLabel">Data Preview</h5>
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-            </div>
-            <div class="modal-body">
-                <!-- <div class="table-responsive"> -->
-                <table class="table table-striped table-bordered">
-                    <tbody id="jsonPreviewTable"></tbody>
-                </table>
-                <!-- </div> -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Edit</button>
-                <button type="button" id="confirmSubmit" class="btn btn-success">Submit</button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<div id="loader" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; height: 100vh; width: 100vw; background: rgba(255,255,255,0.7); align-items: center; justify-content: center;">
+    <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<!-- Centered Small Loader Modal -->
+<div id="mini-loader" style="display: none; position: fixed; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px; border-radius: 10px; z-index: 9999; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+    <div class="text-center">
+        <div class="spinner-border text-success" role="status" style="width: 2.5rem; height: 2.5rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2 mb-0 fw-bold">Please wait...</p>
+    </div>
+</div>
+
+
+
+
 <script>
-    $(document).ready(function() {
-        $("#siteWorkForm").on("submit", function(e) {
-            e.preventDefault(); // Prevent form submission
+    $(function() {
+        const originalFormData = JSON.parse(@json($questionJson ?? '[]'));
+        // console.log('originalFormData', originalFormData);
 
-            let formData = {};
-            $(this).serializeArray().forEach(field => {
-                if (formData[field.name]) {
-                    if (!Array.isArray(formData[field.name])) {
-                        formData[field.name] = [formData[field.name]];
+        originalFormData.forEach((field) => {
+            if (field.type === 'customRepeaterTable') {
+                if (typeof field.value === 'string') {
+                    try {
+                        field.value = JSON.parse(field.value);
+                    } catch (e) {
+                        field.value = [];
                     }
-                    formData[field.name].push(field.value);
-                } else {
-                    formData[field.name] = field.value || "N/A";
                 }
+            }
+        });
+
+
+        // Register the customRepeaterTable template before calling formRender
+        const templates = {
+            customRepeaterTable: function(fieldData) {
+    const fieldName = fieldData.name || 'repeater';
+    const uniqueId = `table_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+
+    // Safe parsing of value
+    let rawValue = fieldData.value || fieldData.attrs?.value || [];
+    let value = [];
+
+    if (typeof rawValue === 'string') {
+        try {
+            value = JSON.parse(rawValue);
+        } catch (e) {
+            value = [];
+        }
+    } else if (Array.isArray(rawValue)) {
+        value = rawValue;
+    }
+
+    // Dynamic fields from value if not defined
+    let fields = fieldData.fields || fieldData.attrs?.fields;
+    if (!fields && value.length > 0) {
+        const firstRow = value[0];
+        fields = Object.keys(firstRow).map(key => {
+            const isCheckbox = typeof firstRow[key] === 'boolean' || key.toLowerCase().includes('na');
+            return {
+                key: key,
+                label: key.charAt(0).toUpperCase() + key.slice(1),
+                type: isCheckbox ? 'checkbox' : 'text',
+                className: `custom-${isCheckbox ? 'checkbox' : 'text'}-${key}`
+            };
+        });
+    }
+
+    // Fallback default fields
+    if (!fields || !Array.isArray(fields) || fields.length === 0) {
+        fields = [
+            { key: 'label', label: 'label', type: 'text', className: 'custom-text-description' },
+            { key: 'colour', label: 'Colour', type: 'text', className: 'custom-text-colour' },
+            { key: 'na', label: 'NA', type: 'checkbox', className: 'custom-text-na' }
+        ];
+    }
+
+    const rowsHtml = value.map((row, index) => {
+        return `<tr>
+            ${fields.map((f, fieldIndex) => {
+                const inputName = `${fieldName}[row_${index}][${f.key}]`;
+                const readonlyAttr = fieldIndex === 0 ? 'readonly' : '';
+                if (f.type === 'text') {
+                    return `<td><input type="text" name="${inputName}" class="${f.className}" value="${row[f.key] || ''}" ${readonlyAttr} /></td>`;
+                } else if (f.type === 'checkbox') {
+                    const checked = row[f.key] == 1 ? 'checked' : '';
+                    return `<td><input type="checkbox" name="${inputName}" class="${f.className}" ${checked} /></td>`;
+                }
+                return '<td></td>';
+            }).join('')}
+        </tr>`;
+    }).join('');
+
+    return {
+        field: `
+            <div class="custom-repeater-table" data-field-id="${fieldName}">
+                <table class="table table-bordered" id="${fieldName}">
+                    <thead>
+                        <tr>
+                            ${fields.map(f => `<th>${f.label}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${rowsHtml || `<tr><td colspan="${fields.length}">No data</td></tr>`}
+                    </tbody>
+                </table>
+            </div>
+        `
+    };
+}
+
+        };
+
+        const formData = @json($questionJson ?? []);
+        const partyId = @json($partyId);
+        const listId = @json($listId);
+        const work_id = @json(request('work_id'));
+
+
+        var fb = $('.fb-render').formRender({
+            formData: originalFormData,
+            templates: templates
+        });
+
+           setTimeout(function() {
+        const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes','section_initial_power_to_site','protection-question','sub-option-details'];
+
+            $('.formbuilder-radio-group, .formbuilder-radio-inline, .formbuilder-checkbox-inline, .formbuilder-checkbox').each(function() {
+                const $inputs = $(this).find('input');
+
+                $inputs.each(function() {
+                    const inputClasses = $(this).attr('class');
+                    if (inputClasses) {
+                        inputClasses.split(' ').forEach(cls => {
+                            if (targetClasses.includes(cls)) {
+                                $(this).closest('.form-group').addClass(cls);
+                            }
+                        });
+                    }
+                });
             });
 
-            let previewContent = "";
-            for (let key in formData) {
-                let value = formData[key];
-                if (Array.isArray(value)) {
-                    value = value.filter(Boolean).length > 0 ? value.join(", ") : "N/A";
-                } else {
-                    value = value || "N/A";
+            // For textareas
+            $('.formbuilder-textarea').each(function() {
+                const $textarea = $(this).find('textarea');
+                const textareaClasses = $textarea.attr('class');
+
+                if (textareaClasses) {
+                    textareaClasses.split(' ').forEach(cls => {
+                        if (targetClasses.includes(cls)) {
+                            $(this).addClass(cls);
+                        }
+                    });
                 }
+            });
+        }, 1000);
+$(document).ready(function () {
+    console.log("Document Ready - Script Loaded");
 
-                previewContent += `
-                <tr>
-                    <td><strong>${key.replace(/_/g, " ")}</strong></td>
-                    <td>${value}</td>
-                </tr>`;
+    $(document).on('change', 'input, select, textarea', function () {
+        console.log("Field changed. Triggering draft save...");
+        saveForm('draft', false); 
+    });
+
+    $('#saveBtn').on('click', function () {
+        console.log("Save button clicked");
+        saveForm('submitted', false); 
+    });
+
+    $('#saveSendBtn').on('click', function () {
+        console.log("Save & Send button clicked");
+        saveForm('submitted', true); 
+    });
+
+    function saveForm(status = 'draft', sendEmail = false) {
+        console.log("saveForm called with status:", status, "sendEmail:", sendEmail);
+
+        const isManualSubmit = (status === 'submitted');
+
+        if (isManualSubmit) {
+            console.log("Manual submit - showing loader");
+            $('#mini-loader').show();
+            $('.btn').prop('disabled', true).text('Submitting...');
+        }
+
+        const userDataCustom = getUpdatedFormData();
+
+        console.log("Form Data:", userDataCustom);
+        console.log("Sending AJAX request to:", "{{ route('parties.saveSiteWork') }}");
+
+        $.ajax({
+            url: "{{ route('parties.saveSiteWork') }}",
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                partyId: partyId,
+                listId: listId,
+                work_id: work_id,
+                form_data: JSON.stringify(userDataCustom),
+                status: status,
+                send_email: sendEmail ? 1 : 0
+            },
+            success: function (response) {
+                console.log("AJAX Success:", response);
+                if (isManualSubmit && response.redirect_url) {
+                    sessionStorage.setItem('siteWorkMessage', response.message);
+                    window.location.href = response.redirect_url;
+                } else {
+                    console.log("Auto-saved as draft.");
+                }
+            },
+            error: function (err) {
+                console.error("AJAX Error:", err);
+                if (isManualSubmit) alert('Error submitting form.');
+            },
+            complete: function () {
+                console.log("AJAX Complete");
+                if (isManualSubmit) {
+                    $('#mini-loader').hide();
+                    $('.btn').prop('disabled', false).text('Submit Form');
+                }
             }
+        });
+    }
+    function getUpdatedFormData() {
+        var userDataCustom = fb.userData;
+        fb.userData = [];
 
-            // Insert into table
-            $("#jsonPreviewTable").html(previewContent);
+        originalFormData.forEach((field, index) => {
+            if (field.type === 'customRepeaterTable') {
+                const fieldName = field.name;
+                $('.custom-repeater-table').each(function () {
+                    const tableId = $(this).data('field-id');
+                    if (tableId && tableId.includes(fieldName)) {
+                        const $table = $(this);
+                        let tableData = [];
 
-            // Open modal
-            $("#jsonPreviewModal").modal("show");
+                        $table.find('tbody tr').each(function () {
+                            let rowData = {};
+                            let isRowValid = false;
+
+                            $(this).find('input, select, textarea').each(function () {
+                                const inputName = $(this).attr('name');
+                                if (inputName && inputName.startsWith(fieldName)) {
+                                    const keyMatch = inputName.match(/\[([^\]]+)]$/);
+                                    if (keyMatch) {
+                                        const key = keyMatch[1];
+                                        const inputType = $(this).attr('type');
+                                        let value = (inputType === 'checkbox') ?
+                                            ($(this).is(':checked') ? '1' : '0') :
+                                            $(this).val();
+
+                                        if (value !== '' && value !== null) {
+                                            isRowValid = true;
+                                        }
+
+                                        rowData[key] = value;
+                                    }
+                                }
+                            });
+
+                            if (isRowValid && Object.keys(rowData).length > 0) {
+                                tableData.push(rowData);
+                            }
+                        });
+
+                        if (tableData.length > 0) {
+                            field = tableData;
+                            userDataCustom[index].userData = field;
+                        }
+                    }
+                });
+            }
         });
 
-        // Confirm submission
-        $("#confirmSubmit").on("click", function() {
-            $("#siteWorkForm").off("submit").submit(); // Allow form submission
+        console.log("Processed Form Data:", userDataCustom);
+        return userDataCustom;
+    }
+});
+
+        setTimeout(function() {
+            const targetClasses = ['responsible-party', 'buildr-details', 'owner-details', 'add-notes', 'additional-notes'];
+            $('.formbuilder-radio-group, .formbuilder-checkbox').each(function() {
+                const $inputs = $(this).find('input');
+                $inputs.each(function() {
+                    const inputClasses = $(this).attr('class');
+                    if (inputClasses) {
+                        inputClasses.split(' ').forEach(cls => {
+                            if (targetClasses.includes(cls)) {
+                                $(this).closest('.form-group').addClass(cls);
+                            }
+                        });
+                    }
+                });
+            });
+
+            // For textareas
+            $('.formbuilder-textarea').each(function() {
+                const $textarea = $(this).find('textarea');
+                const textareaClasses = $textarea.attr('class');
+                if (textareaClasses) {
+                    textareaClasses.split(' ').forEach(cls => {
+                        if (targetClasses.includes(cls)) {
+                            $(this).addClass(cls);
+                        }
+                    });
+                }
+            });
+        }, 200);
+
+      function applyConditionalVisibility() {
+    // Hide all relevant details initially
+    $('.buildr-details, .owner-details').closest('.form-group').hide();
+
+    // Combine selectors for both radio groups
+    $('.formbuilder-radio-group.responsible-party, .formbuilder-radio-group.protection-question').each(function () {
+        const $group = $(this);
+        const selected = $group.find('input[type="radio"]:checked').val();
+
+        if (selected === 'By Builder' || selected === 'Yes') {
+            $group.nextAll('.buildr-details').first().closest('.form-group').show();
+        } else if (selected === 'By Owner') {
+            $group.nextAll('.owner-details').first().closest('.form-group').show();
+        }
+    });
+}
+
+
+        function applyNotesVisibility() {
+            $('.formbuilder-checkbox.add-notes').each(function() {
+                const $checkbox = $(this).find('input[type="checkbox"]');
+
+                if ($checkbox.is(':checked')) {
+                    $(this).nextAll('.additional-notes').first().closest('.form-group').show();
+                } else {
+                    $(this).nextAll('.additional-notes').first().closest('.form-group').hide();
+                }
+            });
+        }
+
+        $(document).on('change', 'input.responsible-party[type="radio"]', function() {
+            applyConditionalVisibility();
         });
+         $(document).on('change', 'input.protection-question[type="radio"]', function() {
+            applyConditionalVisibility();
+        });
+
+ 
+        $(document).on('change', 'input.add-notes[type="checkbox"]', function() {
+            applyNotesVisibility();
+        });
+
+        setTimeout(function() {
+            applyConditionalVisibility();
+            applyNotesVisibility();
+        }, 500);
     });
 </script>
+<script>
+document.getElementById('download-pdf').addEventListener('click', function () {
+    const formElement = document.querySelector('.fb-render');
+    document.getElementById('loader').style.display = 'flex';
 
+    const options = {
+        margin:       10,
+        filename:     'submission-data.pdf',
+        image:        { type: 'jpeg', quality: 0.8 },
+        html2canvas:  { scale: 1, useCORS: true },
+        jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    };
+
+    html2pdf().set(options).from(formElement).save().then(() => {
+        document.getElementById('loader').style.display = 'none';
+    }).catch(() => {
+        document.getElementById('loader').style.display = 'none';
+        alert('Something went wrong while generating the PDF.');
+    });
+});
+</script>
 @endsection

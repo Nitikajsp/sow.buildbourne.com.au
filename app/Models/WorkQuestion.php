@@ -9,10 +9,8 @@ class WorkQuestion extends Model
     protected $table = 'work_questions';
 
     protected $fillable = [
-        'workgroup_id',
-        'question_title',
-        'question_value',
-        'description'
+        'questions_from_data',
+        'form_name'
     ];
 
     // Optional: Relationship with WorkGroup if needed

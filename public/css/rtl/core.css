@@ -6,6 +6,32 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+@font-face {
+    font-family: "Inter-Bold";
+    src: url(../../fonts/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Inter-SemiBold";
+    src: url(../../fonts/Inter-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Inter-Medium";
+    src: url(../../fonts/Inter-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Inter-Bold";
+    src: url(../../fonts/Inter-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(../../fonts/Inter-Light.ttf);
+}
+
 :root {
     --bs-blue: #007bff;
     --bs-indigo: #6610f2;
@@ -45,12 +71,12 @@
     --bs-black-rgb: 75, 70, 92;
     --bs-body-color-rgb: 111, 107, 125;
     --bs-body-bg-rgb: 248, 247, 250;
-    --bs-font-sans-serif: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    --bs-font-sans-serif: "Inter-Medium";
     --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     --bs-root-font-size: 16px;
     --bs-body-font-family: var(--bs-font-sans-serif);
-    --bs-body-font-size: 0.9375rem;
+    --bs-body-font-size: 0.875rem;
     --bs-body-font-weight: 400;
     --bs-body-line-height: 1.47;
     --bs-body-color: #6f6b7d;
@@ -365,11 +391,11 @@ td,
 th {
     border-color: inherit;
     border-style: solid;
-    border-width: 0;
+    border-width: 1px;
 }
 
 label {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 button {
@@ -2055,9 +2081,9 @@ progress {
     padding: 0.55rem 1.25rem;
     /* background-color: var(--bs-table-bg); */
     background-color: #fff;
-    border-bottom-width: 1px;
+    /* border-bottom-width: 1px;
     border-right-width: 1px;
-    border-left-width: 1px;
+    border-left-width: 1px; */
 
 
     box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
@@ -2546,7 +2572,7 @@ textarea.form-control-lg {
 
 .form-check .form-check-input {
     float: left;
-    margin-left: -1.7em;
+    margin-left: -10px;
 }
 
 .form-check-reverse {
@@ -3444,7 +3470,7 @@ fieldset:disabled .btn {
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color:#6f7172;
+    color: #6f7172;
     background-color: #e3e8eb;
 }
 
@@ -3976,7 +4002,7 @@ fieldset:disabled .btn {
         display: none;
     }
 
-   
+
     .navbar-expand-md .offcanvas {
         position: static;
         z-index: auto;
@@ -5282,6 +5308,7 @@ fieldset:disabled .btn {
     /* padding: 0.5rem; */
     margin: -1rem -1rem -1rem auto;
 }
+
 .close {
     float: right;
     font-size: 1.5rem;
@@ -5291,6 +5318,7 @@ fieldset:disabled .btn {
     text-shadow: rgb(255, 255, 255) 0px 1px 0px;
     opacity: 0.5;
 }
+
 .modal.fade .modal-dialog {
     transition: transform 0.15s ease-out;
     transform: translateY(-100px) scale(0.8);
@@ -9601,6 +9629,7 @@ html:not([dir=rtl]) .input-group>.btn-group:last-child>.btn:not([class*=btn-outl
 .nav~.tab-content {
     background: #fff;
 }
+
 /* .modal-dialog {
     margin-right: 723px;
     margin-top: -170px;
@@ -22278,6 +22307,9 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
     display: flex;
     flex: 1 1 auto;
     align-items: stretch;
+    height: 100%;
+    min-height: 100vh;
+
 }
 
 .layout-menu-offcanvas .layout-wrapper,
@@ -23366,8 +23398,8 @@ html:not(.layout-footer-fixed) .content-wrapper {
 }
 
 .app-brand-link {
-    display: flex;
-    align-items: center;
+    max-width: 105px;
+    width: 100%;
 }
 
 .app-brand-logo {
