@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Spatie\Browsershot\Browsershot;
-
-// use Barryvdh\DomPDF\Facade\Pdf;
+ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Log;
 use Mpdf\Mpdf;
-
 use Illuminate\Support\Facades\View;
-
 use Illuminate\Http\Request;
 use App\Models\Parties;
 use App\Models\WorkGroup;
@@ -316,45 +313,30 @@ public function saveSiteWork(Request $request)
         'form_data' => 'required',
         'partyId' => 'required',
         'listId' => 'required',
-        'work_id' => 'required',
-        'status' => 'required|in:draft,submitted',
+        'work_id' => 'required'
     ]);
 
-    $partyId = $request->input('partyId');
-    $listId = $request->input('listId');
-    $workId = $request->input('work_id');
-    $formData = $request->input('form_data');
-    $status = $request->input('status');
-
-    $workGroup = Submission::where('party_id', $partyId)
-        ->where('project_id', $listId)
-        ->where('work_id', $workId)
-        ->first();
-
-    if (!$workGroup) {
-        $workGroup = new Submission();
-    }
-
-    $workGroup->project_id = $listId;
-    $workGroup->party_id = $partyId;
-    $workGroup->work_id = $workId;
-    $workGroup->work = $formData;
-    $workGroup->status = $status;
+    $workGroup = new Submission();
+    $workGroup->project_id = $request->input('listId');
+    $workGroup->party_id = $request->input('partyId');
+    $workGroup->work_id = $request->input('work_id');
+    $workGroup->work = $request->input('form_data');
     $workGroup->save();
 
-    $jobId = $workGroup->id;
+    $jobId = $workGroup->id; 
+    
 
-    if ($status === 'submitted' && $request->input('send_email')) {
-        $party = Parties::find($partyId);
+    if ($request->input('send_email')) {
+        $party = Parties::find($request->partyId);
 
         if ($party && $party->email) {
-            $workData = json_decode($formData, true);
-            $currentDate = now()->format('d-m-Y');
+            $workData = json_decode($request->input('form_data'), true);
+            $currentDate = now()->format('d-m-Y'); 
 
             $pdf = Pdf::loadView('emails.site_work_submitted', [
                 'party' => $party,
                 'clientName' => $party->name ?? 'Client',
-                'locatedAt' => ($party->street ?? '') . ', ' . ($party->state ?? ''),
+                 'locatedAt' => ($party->street ?? '') . ', ' . ($party->state ?? ''),
                 'jobNo' => $jobId,
                 'currentDate' => $currentDate,
                 'workData' => $workData
@@ -369,12 +351,11 @@ public function saveSiteWork(Request $request)
     }
 
     return response()->json([
-        'redirect_url' => $status === 'submitted' ? route('submissions.index') : null,
+        'redirect_url' => route('submissions.index'),
         'message' => 'Successfully saved!',
-        'job_id' => $jobId
+        'job_id' => $jobId // ✅ Include Job ID in response
     ]);
 }
-
 
 
 
