@@ -132,6 +132,7 @@ public function sendSiteWorkEmail()
     }
 
     $workData = json_decode($data->work, true);
+    
 
     return view('workgroup.viewemail', [
         'workData' => $workData,

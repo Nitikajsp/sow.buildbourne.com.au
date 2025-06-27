@@ -11,14 +11,14 @@
                 <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                     <div class="card-header flex-column flex-md-row">
                         <div class="head-label text-center">
-                            <h2 class="card-title mb-0">All Group Question</h2>
+                            <h2 class="card-title mb-0">Template List</h2>
                         </div>
                         <div class="dt-action-buttons text-end pt-6 pt-md-0">
                             <div class="dt-buttons flex-wrap">
                                 <a href="{{ route('workgroup.addworkquestion') }}"
                                     class="btn btn-primary create-new waves-effect waves-light btn-dark rounded"
                                     tabindex="0" aria-controls="DataTables_Table_0">
-                                    <span><i class="ti ti-plus me-sm-1"></i> Add Group Question</span>
+                                    <span><i class="ti ti-plus me-sm-1"></i> Add New Template </span>
                                 </a>
                             </div>
                         </div>
@@ -38,23 +38,22 @@
                     </div>
                     @endif
 
-                    <div class="card mt-4 p-2">
+                    <div class=" mt-4 p-2">
                         <div class="partyscroll">
                             @forelse ($workgroupquestions as $question)
                             <div class="card mb-4">
                                <div class="card-header d-flex justify-content-between align-items-center">
-                                <h5 class="mb-0">Question Name: {{ $question->form_name }}</h5>
+                                <h5 class="mb-0">Template Name: {{ $question->form_name }}</h5>
                                 <div class="d-flex gap-2">
                                     <a href="{{ route('workgroup.duplicate', $question->id) }}" class="btn btn-sm btn-dark">
                                         Duplicate
                                     </a>
                                     <a href="{{ route('workgroup.workgroupquestionedit', $question->id) }}" class="btn btn-sm btn-dark">
-                                        Edit
+                                        Edit Templates
                                     </a>
                                 </div>
                             </div>
-                                <div class="card-body">
-                                </div>
+                             
                             </div>
                             @empty
                             <div class="text-center text-muted">No group questions available.</div>
