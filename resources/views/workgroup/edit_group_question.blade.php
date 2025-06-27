@@ -19,13 +19,16 @@
                     </a>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-7">
                     <div id="form-success-message" class="alert alert-success d-none"></div>
                     <div class="inner-container">
-                        <input type="text" name="form_name" id="form_name" placeholder="Enter Tax Percentage" value="{{ old('form_name', $form_name ?? '') }}">
-                        <h2>Edit Work Group Question</h2>
+                      <h2>Edit Templates</h2>
+
+             <div class="mb-6">
+              <label class="form-label" for="form_name">Template name</label>
+               <input type="text"  class="form-control" name="form_name" id="form_name" placeholder="Enter" value="{{ old('form_name', $form_name ?? '') }}">
+                  </div>
                         @if (session('success'))
                         <div class="alert alert-success">{{ session('success') }}</div>
                         @endif
@@ -44,7 +47,6 @@
 </div>
 <div id="columnModal" style="display: none; position: fixed; top: 35%; left: 50%; transform: translate(-50%, -35%);
     background: white; padding: 20px; border: 1px solid #ccc; z-index: 1001; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
-    
     <div id="columnModalContent"></div>
     <br>
     <button id="columnModalConfirm" class="btn btn-primary">Confirm</button>
@@ -108,7 +110,7 @@
                         na: 0
                     }
                 ],
-                icon: '📋'
+                icon: 'ðŸ“‹'
             }
         ];
 
@@ -191,7 +193,7 @@
                             }
                             return '<td></td>';
                         }).join('')}
-                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                        <td><button type="button" class="btn btn-danger btn-sm remove-row">âˆ’</button></td>
                     </tr>`;
                 }).join('');
 
@@ -216,7 +218,7 @@
                                             }
                                             return '<td></td>';
                                         }).join('')}
-                                        <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                                        <td><button type="button" class="btn btn-danger btn-sm remove-row">âˆ’</button></td>
                                     </tr>`}
                                 </tbody>
                             </table>
@@ -267,7 +269,7 @@
                                     }
                                     return '<td></td>';
                                 }).join('')}
-                                <td><button type="button" class="btn btn-danger btn-sm remove-row">−</button></td>
+                                <td><button type="button" class="btn btn-danger btn-sm remove-row">âˆ’</button></td>
                             </tr>`;
                             $table.find('tbody').append(newRow);
                             updateTextarea();
@@ -524,7 +526,7 @@
                     if (field.type === 'customRepeaterTable') {
                         const fieldName = field.name;
                         if (repeaterMap.hasOwnProperty(fieldName)) {
-                            field.value = JSON.stringify(repeaterMap[fieldName]); // ✅ Save as stringified JSON
+                            field.value = JSON.stringify(repeaterMap[fieldName]); // âœ… Save as stringified JSON
                         } else {
                             field.value = '[]'; // Empty fallback
                         }

@@ -189,7 +189,7 @@
 
         @case('checkbox-group')
             <div style="border-left: 4px solid olive; background-color: #f9f9f9; padding: 10px 15px; margin-bottom: 10px;">
-                <label style="font-weight: bold;">{{ $field['label'] ?? '' }}</label>
+                <label style="font-weight: bold;">{!! $field['label'] ?? '' !!}</label>
                 @php $userValues = $field['userData'] ?? []; @endphp
                 <ul style="list-style: none; padding-left: 0; margin: 5px 0;">
                     @foreach ($field['values'] as $index => $option)
