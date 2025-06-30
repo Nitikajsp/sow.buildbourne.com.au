@@ -142,7 +142,7 @@ public function sendSiteWorkEmail()
 
 
     public function store(Request $request)
-    
+
     {
         $request->validate([
             'name' => 'required',
@@ -161,6 +161,7 @@ public function sendSiteWorkEmail()
         }
 
         Parties::create($request->only([
+            
             'name',
             'email',
             'phone',
