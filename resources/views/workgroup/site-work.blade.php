@@ -23,7 +23,7 @@
                     <i
                         class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
                 </a>
-                 <button id="download-pdf" class="btn btn-success">Download PDF</button>
+<button id="download-pdf" class="btn btn-success d-none">Download PDF</button>
             </div>
 
             <div class="row">
@@ -32,7 +32,7 @@
                     <div class="fb-render"></div>
                     <div class=" d-flex gap-2 align-items-center layout-width py-3">
                       <!-- Updated buttons -->
-                <button id="saveSendBtn" class="btn btn-primary ">Save & Send</button>
+                    <button id="saveSendBtn" class="btn btn-primary ">Save & Send</button>
 
                      <button id="saveBtn" class="btn btn-primary">Save</button>
                     </div>
@@ -57,6 +57,13 @@
         </div>
         <p class="mt-2 mb-0 fw-bold">Please wait...</p>
     </div>
+</div>
+
+<div id="pdf-loader" style="display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(255, 255, 255, 0.7);
+    z-index: 9999; justify-content: center; align-items: center; 
+    text-align: center; font-size: 18px; font-weight: bold;">
+    Generating PDF... Please wait
 </div>
 
 
@@ -203,73 +210,82 @@
                 }
             });
         }, 1000);
-$(document).ready(function () {
-    console.log("Document Ready - Script Loaded");
 
-    $(document).on('change', 'input, select, textarea', function () {
-        console.log("Field changed. Triggering draft save...");
-        saveForm('draft', false); 
-    });
+    $(document).ready(function () {
 
-    $('#saveBtn').on('click', function () {
-        console.log("Save button clicked");
-        saveForm('submitted', false); 
-    });
+        // Auto-save on input change
+        $(document).on('change', 'input, select, textarea', function () {
+            saveForm('draft', false);
+        });
 
-    $('#saveSendBtn').on('click', function () {
-        console.log("Save & Send button clicked");
-        saveForm('submitted', true); 
-    });
+        // Save button
+        $('#saveBtn').on('click', function () {
+            saveForm('submitted', false);
+        });
 
-    function saveForm(status = 'draft', sendEmail = false) {
-        console.log("saveForm called with status:", status, "sendEmail:", sendEmail);
+        // Save & Send button
+        $('#saveSendBtn').on('click', function () {
+            saveForm('submitted', true);
+        });
 
-        const isManualSubmit = (status === 'submitted');
+        // Main form save function
+        function saveForm(status = 'draft', sendEmail = false) {
+            console.log("saveForm called with status:", status, "sendEmail:", sendEmail);
 
-        if (isManualSubmit) {
-            console.log("Manual submit - showing loader");
-            $('#mini-loader').show();
-            $('.btn').prop('disabled', true).text('Submitting...');
-        }
+            const isManualSubmit = (status === 'submitted');
 
-        const userDataCustom = getUpdatedFormData();
+            if (isManualSubmit) {
+                console.log("Manual submit - showing loader");
+                $('#mini-loader').show();
+                $('.btn').prop('disabled', true).text('Submitting...');
+            }
 
-        console.log("Form Data:", userDataCustom);
-        console.log("Sending AJAX request to:", "{{ route('parties.saveSiteWork') }}");
+            const userDataCustom = getUpdatedFormData(); // Your form data gatherer
 
-        $.ajax({
-            url: "{{ route('parties.saveSiteWork') }}",
-            type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            data: {
-                partyId: partyId,
-                listId: listId,
-                work_id: work_id,
-                form_data: JSON.stringify(userDataCustom),
-                status: status,
-                send_email: sendEmail ? 1 : 0
-            },
-            success: function (response) {
-                console.log("AJAX Success:", response);
-                if (isManualSubmit && response.redirect_url) {
-                    sessionStorage.setItem('siteWorkMessage', response.message);
-                    window.location.href = response.redirect_url;
-                } else {
-                    console.log("Auto-saved as draft.");
-                }
-            },
-            error: function (err) {
-                console.error("AJAX Error:", err);
-                if (isManualSubmit) alert('Error submitting form.');
-            },
-            complete: function () {
-                console.log("AJAX Complete");
-                if (isManualSubmit) {
-                    $('#mini-loader').hide();
-                    $('.btn').prop('disabled', false).text('Submit Form');
-                }
+            console.log("Form Data:", userDataCustom);
+            console.log("Sending AJAX request to:", "{{ route('parties.saveSiteWork') }}");
+
+            $.ajax({
+                url: "{{ route('parties.saveSiteWork') }}",
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    partyId: partyId,
+                    listId: listId,
+                    work_id: work_id,
+                    form_data: JSON.stringify(userDataCustom),
+                    status: status,
+                    send_email: sendEmail ? 1 : 0
+                },
+                success: function (response) {
+                    console.log("AJAX Success:", response);
+$('#download-pdf').attr('data-id', response.job_id); // ✅ now matches
+
+                        // Remove d-none to show the button
+                        $('#download-pdf').removeClass('d-none');
+
+
+                    if (isManualSubmit && response.redirect_url) {
+                        // ✅ Store message if needed later
+                        sessionStorage.setItem('siteWorkMessage', response.message);
+                        // Set job_id as data attribute on button
+
+                    } else {
+                        console.log("Auto-saved as draft.");
+                    }
+                },
+                error: function (err) {
+                    console.error("AJAX Error:", err);
+                    if (isManualSubmit) alert('Error submitting form.');
+                },
+                complete: function () {
+                    console.log("AJAX Complete");
+                    if (isManualSubmit) {
+                        $('#mini-loader').hide();
+                        $('.btn').prop('disabled', false).text('Submit Form');
+               }
             }
         });
     }
@@ -408,25 +424,35 @@ $(document).ready(function () {
     });
 </script>
 <script>
-document.getElementById('download-pdf').addEventListener('click', function () {
-    const formElement = document.querySelector('.fb-render');
-    document.getElementById('loader').style.display = 'flex';
+ $(document).ready(function () {
+    $('#download-pdf').on('click', function () {
+      var id = $(this).data('id'); // ✅ correct
+    
+        // Show loader
+        $('#pdf-loader').css('display', 'flex');
 
-    const options = {
-        margin:       10,
-        filename:     'submission-data.pdf',
-        image:        { type: 'jpeg', quality: 0.8 },
-        html2canvas:  { scale: 1, useCORS: true },
-        jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-    };
-
-    html2pdf().set(options).from(formElement).save().then(() => {
-        document.getElementById('loader').style.display = 'none';
-    }).catch(() => {
-        document.getElementById('loader').style.display = 'none';
-        alert('Something went wrong while generating the PDF.');
+        $.ajax({
+            url: '/submission/download/' + id,
+            type: 'GET',
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data, status, xhr) {
+                var blob = new Blob([data], { type: 'application/pdf' });
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'submission_' + id + '.pdf';
+                link.click();
+            },
+            error: function () {
+                alert('Failed to generate PDF');
+            },
+            complete: function () {
+                $('#pdf-loader').css('display', 'none');
+            }
+        });
     });
 });
+
 </script>
 @endsection

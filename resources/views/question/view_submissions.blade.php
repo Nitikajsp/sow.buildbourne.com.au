@@ -22,7 +22,7 @@
                         <a href="{{ route('submissions.index') }}" class="float-left d-flex text-black">
                         <i class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black"></i>Back
                     </a>
-                        <button id="download-pdf" class="btn btn-success">Download PDF</button>
+                     <button id="download-pdf" class="btn btn-success" data-id="{{ $submissionId }}">Download PDF</button>
                 </div>
                
             <div class="row">
@@ -34,34 +34,48 @@
         </div>
     </div>
 </div>
-<div id="loader" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; height: 100vh; width: 100vw; background: rgba(255,255,255,0.7); align-items: center; justify-content: center;">
-    <div class="spinner-border text-success" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
+
+
+<div id="pdf-loader" style="display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(255, 255, 255, 0.7);
+    z-index: 9999; justify-content: center; align-items: center; 
+    text-align: center; font-size: 18px; font-weight: bold;">
+    Generating PDF... Please wait
 </div>
 
 
 <script>
-document.getElementById('download-pdf').addEventListener('click', function () {
-    const formElement = document.querySelector('.fb-render');
-    document.getElementById('loader').style.display = 'flex';
+   $(document).ready(function () {
+    $('#download-pdf').on('click', function () {
+        var id = $(this).data('id');
 
-    const options = {
-        margin:       10,
-        filename:     'submission-data.pdf',
-        image:        { type: 'jpeg', quality: 0.8 },
-        html2canvas:  { scale: 1, useCORS: true },
-        jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-    };
+        // Show loader using inline CSS
+        $('#pdf-loader').css('display', 'flex');
 
-    html2pdf().set(options).from(formElement).save().then(() => {
-        document.getElementById('loader').style.display = 'none';
-    }).catch(() => {
-        document.getElementById('loader').style.display = 'none';
-        alert('Something went wrong while generating the PDF.');
+        $.ajax({
+            url: '/submission/download/' + id,
+            type: 'GET',
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data, status, xhr) {
+                var blob = new Blob([data], { type: 'application/pdf' });
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'submission_' + id + '.pdf';
+                link.click();
+            },
+            error: function () {
+                alert('Failed to generate PDF');
+            },
+            complete: function () {
+                // Hide loader again
+                $('#pdf-loader').css('display', 'none');
+            }
+        });
     });
 });
+
 </script>
 
 <script>

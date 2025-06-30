@@ -41,9 +41,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/submissions/{id}', 'showsubmissions')->name('showsubmissions.show');
         Route::post('/submissions',  'updateSubmission')->name('submission.update');
         Route::get('addtestform', 'addtestform')->name('addtestform');
-          Route::get('/viewemail/{id}', 'viewemail')->name('viewemail');
-          Route::get('/sitework/send-email', 'sendSiteWorkEmail')->name('sitework.sendemail');
-
+         Route::get('/viewemail/{id}', 'viewemail')->name('viewemail');
+        Route::get('/sitework/send-email', 'sendSiteWorkEmail')->name('sitework.sendemail');
+         Route::get('/submission/download/{id}',  'download')->name('submission.download');
 
     });
 
@@ -105,6 +105,7 @@ Route::middleware(['auth'])->group(function () {
         Route::patch('/orders/{order}/updateQuantity', 'updateQuantity')->name('orders.updateQuantity');
         Route::delete('/orders/{order}', 'destroyOrders')->name('orders.destroyOrders');
         Route::get('/send-email/{list_id}/{party_id}', 'sendEmail')->name('send.email');
+
     });
 
     // Order Routes

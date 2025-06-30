@@ -12,7 +12,7 @@
         }
 
         /* Fixed Header */
-        .page-header {
+        .page-header {  
             position: fixed;
             top: 0;
             left: 0;
@@ -168,7 +168,7 @@
 
         @case('radio-group')
             <div style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; margin-bottom: 15px;">
-                <label style="font-weight: bold; margin-bottom: 5px; display: inline-block;">{{ $field['label'] ?? '' }}</label>
+                <label style="font-weight: bold; margin-bottom: 5px; display: inline-block;">{!! $field['label'] ?? '' !!}</label>
                 <div style=" float: right; vertical-align: middle;">
                     @php
                         $userValue = $field['userData'][0] ?? null;
@@ -226,7 +226,7 @@
 
         @case('textarea')
             <div style="margin-bottom: 20px;">
-                <label for="{{ $field['name'] }}" style="font-weight: bold;">{{ $field['label'] ?? '' }}</label>
+              <label for="{{ $field['name'] }}" style="font-weight: bold;">{!! $field['label'] ?? '' !!}</label>
                 <textarea name="{{ $field['name'] }}" id="{{ $field['name'] }}" style="width: 100%; min-height: 100px; border: 1px dashed #ccc; margin-top: 5px;">{{ $field['userData'][0] ?? '' }}</textarea>
             </div>
             @break

@@ -142,6 +142,7 @@ public function sendSiteWorkEmail()
 
 
     public function store(Request $request)
+    
     {
         $request->validate([
             'name' => 'required',
@@ -278,23 +279,20 @@ public function updateWorkType(Request $request, $listId, $partyId)
         ->orderByDesc('updated_at')
         ->first();
 
-   // ✅ Redirect if a draft exists
 if ($existingDraft) {
     return redirect()->route('editsubmissions.show', [
         'id' => $existingDraft->id,
-        'mode' => 'add' // 👈 force mode to 'add'
+        'mode' => 'add' 
     ]);
 }
 
-
-    // No draft found — continue with fresh form
     $questionJson = $questions->questions_from_data;
 
     return view('workgroup.site-work', [
         'partyId' => $partyId,
         'listId' => $listId,
         'work_id' => $work_id,
-        'workData' => [], // empty form
+        'workData' => [], 
         'questionJson' => $questionJson,
     ]);
 }
@@ -317,27 +315,42 @@ public function saveSiteWork(Request $request)
         'work_id' => 'required'
     ]);
 
-    $workGroup = new Submission();
-    $workGroup->project_id = $request->input('listId');
-    $workGroup->party_id = $request->input('partyId');
-    $workGroup->work_id = $request->input('work_id');
-    $workGroup->work = $request->input('form_data');
-    $workGroup->save();
+    $status = $request->input('status', 'draft');
+    $sendEmail = $request->boolean('send_email');
 
-    $jobId = $workGroup->id; 
-    
+    $workGroup = Submission::where('party_id', $request->partyId)
+        ->where('project_id', $request->listId)
+        ->where('work_id', $request->work_id)
+        ->where('status', 'draft')
+        ->latest()
+        ->first();
 
-    if ($request->input('send_email')) {
+    if ($workGroup && $status === 'draft') {
+        $workGroup->work = $request->input('form_data');
+        $workGroup->save();
+    } else {
+        $workGroup = Submission::create([
+            'project_id' => $request->input('listId'),
+            'party_id' => $request->input('partyId'),
+            'work_id' => $request->input('work_id'),
+            'work' => $request->input('form_data'),
+            'status' => $status,
+        ]);
+    }
+
+    $jobId = $workGroup->id;
+
+    if ($sendEmail) {
         $party = Parties::find($request->partyId);
 
         if ($party && $party->email) {
             $workData = json_decode($request->input('form_data'), true);
-            $currentDate = now()->format('d-m-Y'); 
+            $currentDate = now()->format('d-m-Y');
 
             $pdf = Pdf::loadView('emails.site_work_submitted', [
                 'party' => $party,
                 'clientName' => $party->name ?? 'Client',
-                 'locatedAt' => ($party->street ?? '') . ', ' . ($party->state ?? ''),
+                'locatedAt' => ($party->street ?? '') . ', ' . ($party->state ?? ''),
                 'jobNo' => $jobId,
                 'currentDate' => $currentDate,
                 'workData' => $workData
@@ -354,10 +367,9 @@ public function saveSiteWork(Request $request)
     return response()->json([
         'redirect_url' => route('submissions.index'),
         'message' => 'Successfully saved!',
-        'job_id' => $jobId // ✅ Include Job ID in response
+        'job_id' => $jobId
     ]);
 }
-
 
 
   public function showAllSubmissions()
@@ -486,5 +498,29 @@ public function editsubmissions(Request $request, $id)
         : redirect()->route('submissions.index', $id)->with('success', 'Submission updated successfully!');
 }
 
+public function download($id)
+
+{
+    $submission = Submission::with('party')->findOrFail($id); 
+    $workData = json_decode($submission->work, true);
+
+    $clientName = $submission->party->name ?? 'N/A';
+    $address = $submission->party->street ?? 'N/A';
+
+    $jobNo = $submission->id ?? 'N/A';
+    $currentDate = now()->format('d-m-Y');
+    $locatedAt = $address; 
+
+    $pdf = Pdf::loadView('emails.site_work_submitted', [
+        'submission' => $submission,
+        'workData' => $workData,
+        'clientName' => $clientName,
+        'jobNo' => $id,
+        'currentDate' => $currentDate,
+        'locatedAt' => $locatedAt,
+    ]);
+
+    return $pdf->download('submission_' . $submission->id . '.pdf');
+}
 
 }

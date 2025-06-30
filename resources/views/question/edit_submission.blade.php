@@ -20,13 +20,11 @@
                     <i
                         class="ti ti-arrow-narrow-left border border-dark rounded-circle mx-1 me-2 text-black rounded"></i>Back
                     </a>
-                       <button id="download-pdf" class="btn btn-success">Download PDF</button>
+                     <button id="download-pdf" class="btn btn-success" data-id="{{ $submissionId }}">Download PDF</button>
                        <a href="{{ route('sitework.sendemail') }}" class="btn btn-success">
                             Send  Email
                         </a>
-
-
-                                 </div>
+                          </div>
                              <div class="row">
                                     <div class="col-md-12">
                                  <h2 class="page-title text-center">
@@ -37,7 +35,8 @@
                                     @else
                                         Edit Submission Question
                                     @endif
-                                </h2>                                <div class="fb-render"></div>
+                                </h2>                         
+                               <div class="fb-render"></div>
                                 <div class="d-flex justify-content-between align-items-center page-header">
                                     <button id="submit-form" class="btn btn-primary mt-4">Submit Form</button>
                                             </div>
@@ -47,22 +46,26 @@
                             </div>
                         </div>
 
-<!-- Centered Small Loader Modal -->
-<div id="mini-loader" style="display: none; position: fixed; top: 50%; left: 50%;
-    transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px 40px; border-radius: 10px; z-index: 9999; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
-    <div class="text-center">
-        <div class="spinner-border text-success" role="status" style="width: 2.5rem; height: 2.5rem;">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <p class="mt-2 mb-0 fw-bold">Please wait...</p>
-    </div>
+                <!-- Centered Small Loader Modal -->
+                <div id="mini-loader" style="display: none; position: fixed; top: 50%; left: 50%;
+                    transform: translate(-50%, -50%); background-color: rgba(255, 255, 255, 0.95);
+                    padding: 30px 40px; border-radius: 10px; z-index: 9999; box-shadow: 0 0 10px rgba(0,0,0,0.2);">
+                    <div class="text-center">
+                        <div class="spinner-border text-success" role="status" style="width: 2.5rem; height: 2.5rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2 mb-0 fw-bold">Please wait...</p>
+                    </div>
+                </div>
+
+
+<div id="pdf-loader" style="display: none; position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%; background: rgba(255, 255, 255, 0.7);
+    z-index: 9999; justify-content: center; align-items: center; 
+    text-align: center; font-size: 18px; font-weight: bold;">
+    Generating PDF... Please wait
 </div>
-<div id="loader" style="display: none; position: fixed; z-index: 9999; top: 0; left: 0; height: 100vh; width: 100vw; background: rgba(255,255,255,0.7); align-items: center; justify-content: center;">
-    <div class="spinner-border text-success" role="status">
-        <span class="visually-hidden">Loading...</span>
-    </div>
-</div>
+
 
 <script>
     function convertStringsToBooleans(obj) {
@@ -372,25 +375,37 @@
     });
 </script>
 <script>
-document.getElementById('download-pdf').addEventListener('click', function () {
-    const formElement = document.querySelector('.fb-render');
-    document.getElementById('loader').style.display = 'flex';
+   $(document).ready(function () {
+    $('#download-pdf').on('click', function () {
+        var id = $(this).data('id');
 
-    const options = {
-        margin:       10,
-        filename:     'submission-data.pdf',
-        image:        { type: 'jpeg', quality: 0.8 },
-        html2canvas:  { scale: 1, useCORS: true },
-        jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
-    };
+        // Show loader using inline CSS
+        $('#pdf-loader').css('display', 'flex');
 
-    html2pdf().set(options).from(formElement).save().then(() => {
-        document.getElementById('loader').style.display = 'none';
-    }).catch(() => {
-        document.getElementById('loader').style.display = 'none';
-        alert('Something went wrong while generating the PDF.');
+        $.ajax({
+            url: '/submission/download/' + id,
+            type: 'GET',
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function (data, status, xhr) {
+                var blob = new Blob([data], { type: 'application/pdf' });
+                var link = document.createElement('a');
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'submission_' + id + '.pdf';
+                link.click();
+            },
+            error: function () {
+                alert('Failed to generate PDF');
+            },
+            complete: function () {
+                // Hide loader again
+                $('#pdf-loader').css('display', 'none');
+            }
+        });
     });
 });
+
 </script>
+
 @endsection
