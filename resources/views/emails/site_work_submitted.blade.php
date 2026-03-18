@@ -196,12 +196,18 @@
                             $id = $field['name'] . '-' . $index;
                             $checked = in_array($option['value'], $userValues) ? 'checked' : '';
                         @endphp
-                        <li style="margin: 5px 0;">
-                            <label>
-                                <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
-                                {{ $option['label'] }}
-                            </label>
-                        </li>
+                      <li style="margin: 5px 0; list-style: none;">
+    <table cellpadding="0" cellspacing="0" style="border-collapse: collapse;">
+        <tr>
+            <td style="vertical-align: middle; width: 20px;">
+                 {{ $checked ? '☑' : '☐' }}
+            </td>
+            <td style="vertical-align: middle;">
+                {{ $option['label'] }}
+            </td>
+        </tr>
+    </table>
+</li>
                     @endforeach
                 </ul>
             </div>
@@ -215,10 +221,18 @@
                         $id = $field['name'] . '-' . $index;
                         $checked = in_array($option['value'], $userValues) ? 'checked' : '';
                     @endphp
-                    <label style="display: block;">
-                        <input type="checkbox" name="{{ $field['name'] }}[]" id="{{ $id }}" value="{{ $option['value'] }}" {{ $checked }}>
-                        {{ $option['label'] }}
-                    </label>
+<label style="display: block;">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="width: 18px; font-family: DejaVu Sans;">
+                {{ $checked ? '☑' : '☐' }}
+            </td>
+            <td>
+                {{ $option['label'] }}
+            </td>
+        </tr>
+    </table>
+</label>
                 @endforeach
             </div>
             @break
